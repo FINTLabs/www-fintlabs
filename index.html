@@ -36,6 +36,21 @@
       r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyABlHKw_934j6PP_p-NT-3Jq58S0Pk6JcI",
+      authDomain: "fintlabs.firebaseapp.com",
+      databaseURL: "https://fintlabs.firebaseio.com",
+      projectId: "fintlabs",
+      storageBucket: "fintlabs.appspot.com",
+      messagingSenderId: "38911348123",
+      appId: "1:38911348123:web:d3f6a4ca2785814d3ce53e",
+      measurementId: "G-0XYYZ0HW9S"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
     window.$docsify = {
       name: 'FINT',
       repo: 'https://github.com/fintlabs',
@@ -72,6 +87,12 @@
   <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
   <script src="js/to-top.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-analytics.js"></script>
 </body>
 
 </html>
