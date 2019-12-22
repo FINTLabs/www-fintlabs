@@ -1,0 +1,12 @@
+.to-top-button {
+    display: none;
+    top: var(--sidebar-toggle-height);
+    z-index: 99;
+    background-color: #8cc64090;
+    color: #ffffff;
+    height: var(--sidebar-toggle-height);
+    width: var(--sidebar-toggle-width);
+    border: none;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
