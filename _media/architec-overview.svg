@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="554px" height="654px" viewBox="0 0 554 654" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>test</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-2.8%" y="-16.0%" width="105.7%" height="132.1%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-2.8%" y="-16.0%" width="105.7%" height="132.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-2.8%" y="-16.0%" width="105.7%" height="132.1%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-5.9%" y="-16.0%" width="111.9%" height="132.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-5.9%" y="-16.0%" width="111.9%" height="132.1%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-5.9%" y="-16.0%" width="111.9%" height="132.1%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-5.9%" y="-16.0%" width="111.9%" height="132.1%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(0.000000, 1.000000)">
+            <g id="Group">
+                <g id="Felleskomponent">
+                    <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="2" y="0" width="551" height="310" rx="6"></rect>
+                    <text transform="translate(24.000000, 155.000000) rotate(-90.000000) translate(-24.000000, -155.000000) " font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                        <tspan x="-118.207031" y="169">Felleskomponent</tspan>
+                    </text>
+                </g>
+                <g id="Consumer-API" filter="url(#filter-1)" transform="translate(69.000000, 22.000000)">
+                    <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="459" height="81" rx="6"></rect>
+                    <text font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                        <tspan x="111.802148" y="38">Consumer API</tspan>
+                    </text>
+                </g>
+                <g id="Informationmodels" filter="url(#filter-2)" transform="translate(69.000000, 116.000000)">
+                    <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="459" height="81" rx="6"></rect>
+                    <text font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                        <tspan x="67.5474608" y="38"> Informationmodels</tspan>
+                    </text>
+                </g>
+                <g id="Provider-API" filter="url(#filter-3)" transform="translate(69.000000, 210.000000)">
+                    <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="459" height="81" rx="6"></rect>
+                    <text font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                        <tspan x="122.953711" y="38"> Provider API</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="Adapter" filter="url(#filter-4)" transform="translate(289.000000, 395.000000)">
+                <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="219" height="81" rx="6"></rect>
+                <text font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                    <tspan x="44.3958984" y="38">Adapter</tspan>
+                </text>
+            </g>
+            <g id="Adapter-Copy" filter="url(#filter-5)" transform="translate(47.000000, 395.000000)">
+                <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="219" height="81" rx="6"></rect>
+                <text id="Adapter" font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                    <tspan x="44.3958984" y="38">Adapter</tspan>
+                </text>
+            </g>
+            <g id="Adapter-Copy-3" filter="url(#filter-6)" transform="translate(299.000000, 562.000000)">
+                <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="219" height="81" rx="6"></rect>
+                <text id="System-B" font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                    <tspan x="31.0083984" y="38">System B</tspan>
+                </text>
+            </g>
+            <g id="Adapter-Copy-2" filter="url(#filter-7)" transform="translate(57.000000, 562.000000)">
+                <rect id="Rectangle" stroke="#979797" fill="#D8D8D8" x="0" y="0" width="219" height="81" rx="6"></rect>
+                <text id="System-A" font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013" fill="#000000">
+                    <tspan x="30.8589843" y="38">System A</tspan>
+                </text>
+            </g>
+            <path id="Line" d="M166.5,310.5 L183.700882,344.398815 L169.701,344.481 L169.798,360.983 L183.798522,360.900005 L167,395 L149.799118,361.101185 L163.798,361.018 L163.701,344.516 L149.701478,344.599995 L166.5,310.5 Z" fill-opacity="0.8" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy" d="M398.75,311.25 L415.950882,345.148815 L401.951,345.231 L402.048,361.733 L416.048522,361.650005 L399.25,395.75 L382.049118,361.851185 L396.048,361.768 L395.951,345.266 L381.951478,345.349995 L398.75,311.25 Z" fill-opacity="0.8" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy-3" d="M167.5,477.5 L184.700882,511.398815 L170.701,511.481 L170.798,527.983 L184.798522,527.900005 L168,562 L150.799118,528.101185 L164.798,528.018 L164.701,511.516 L150.701478,511.599995 L167.5,477.5 Z" fill-opacity="0.8" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy-2" d="M399.75,478.25 L416.950882,512.148815 L402.951,512.231 L403.048,528.733 L417.048522,528.650005 L400.25,562.75 L383.049118,528.851185 L397.048,528.768 L396.951,512.266 L382.951478,512.349995 L399.75,478.25 Z" fill-opacity="0.8" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

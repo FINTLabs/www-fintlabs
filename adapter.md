@@ -2,7 +2,7 @@
 # Architectural overview - Common API
 A Common API is a API on a business application. The Common API gets and sends information to/from a business application through an adapter. This document aims to describe how an adapter should be implemented.
 
-<img src="_media/architec-overview-kopi.png" alt="Overview" class="img-responsive" />
+<img src="_media/architec-overview.svg" alt="Overview" class="img-responsive" />
 
 ## Information Models
 The Common API consist of standardized information models that will presented as resources in the Consumer API. Each Common API can consist of one or more information models. The models are documented here https://informasjonsmodell.felleskomponent.no
@@ -55,7 +55,18 @@ The provider API makes use of SSE (Server-Sent-Events) (https://en.wikipedia.org
 
 ## Endpoints
 
-<img src="_media/adapter-flow.png" alt="Adapter Flow" class="img-responsive" />
+```plantuml
+@startuml Endpoints
+skinparam backgroundColor #EEEBAA
+scale 2.0
+
+autonumber
+"Provider API" <- "Adapter": Adapter connection to the SSE endpoint
+"Provider API" -> "Adapter": Adapter recives event form provider
+"Provider API" <- "Adapter": Adapter confirms that the event is recived
+"Provider API" <- "Adapter": Adapter sends result data back to provider
+@enduml
+````
 
 | Endpoint           | Method | Flow# | Description                                                                                                                               |
 |--------------------|--------|-------|-------------------------------------------------------------------------------------------------------------------------------------------|
