@@ -2,6 +2,9 @@
 * [API](api.md)
 * [Adapter](adapter.md)
 * [Veiledninger (tutorials)](tutorials.md)
+* [Kundeportal](kundeportal.md)
+* [Test klient](test-klient.md)
+* [Utrulling av FINT adapter (VIS)](vis.md)
 * [Tegneserie](tegneserie.md)
 * [Om FINT](fint.md)
 - ****
