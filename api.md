@@ -32,6 +32,8 @@ The FINT information model has four types of classes:
 
 Only main classes are directly accessible from FINT APIs, and every main class in the model has an API endpoint.
 
+?>A main class is equivalent to a resource in REST
+
 All other types are used to construct the main classes, either by abstraction of common fields, or to represent fields in the classes.
 
 ## Identity

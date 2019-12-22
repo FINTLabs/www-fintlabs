@@ -1,20 +1,10 @@
-?>[Go directly to the documentation portal](https://github.com/FINTprosjektet/fint-informasjonsmodell-documentation) 
-
-# FINT information models
-The models are designed and documented in `Enterprise Architect (EA)`. You can find the `EA` project at [https://github.com/FINTprosjektet/fint-informasjonsmodell](https://github.com/FINTprosjektet/fint-informasjonsmodell). 
-
-## Documentation portal
-For a more userfriendly view of the models we developet a frontend to the `XMI 2.1` export from `EA`. You can find the documentation portal at [https://informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no).
-
-The project for the frontend is found [here](https://github.com/FINTprosjektet/fint-informasjonsmodell-documentation).
-
-## Contribute
-If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/FINTprosjektet/fint-informasjonsmodell/issues).
-
-# Models and Common API
+# Informationmodels
+## Models and Common API
 *FINT Information models* are models used in the *Common API*. The models contains information resoures the county council use in their day to day tasks. *FINT* aims to develop this model to contain vital information in all the areas the county council operates in. This means that every new version will contain more information and an new areas.
 
-## Versioning
+>Go to [Information Model at the Center](api?id=information-model-at-the-center) for more details.
+
+### Versioning
 
 FINT is using [semantic versioning](http://semver.org/) for its models:
 
@@ -29,8 +19,18 @@ Additional labels for pre-release and build metadata are available as extensions
 
 >The version relation between the *FINT Information model* and the *technical implementations* is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of *technical implementations* based on the **same** *FINT Information model* will increment the `PATCH` number by `1`. 
 
+## FINT information models
+The models are designed and documented in `Enterprise Architect (EA)`. You can find the `EA` project at [https://github.com/FINTprosjektet/fint-informasjonsmodell](https://github.com/FINTprosjektet/fint-informasjonsmodell). 
 
-## Latest versions
+### Documentation portal
+For a more userfriendly view of the models we developet a frontend to the `XMI 2.1` export from `EA`. You can find the documentation portal at [https://informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no).
+
+The project for the frontend is found [here](https://github.com/FINTprosjektet/fint-informasjonsmodell-documentation).
+
+### Contribute
+If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/FINTprosjektet/fint-informasjonsmodell/issues).
+
+### Latest versions
 
 | **Component**     | **GitHub Release**                                                                                                                                                     |                                                                                                                                                                            |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
