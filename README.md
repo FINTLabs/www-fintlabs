@@ -1,16 +1,26 @@
-# 
+# FINTLabs homepage
 
->**FINT** gjør data fra fagsystemer tilgjengelig på en felles informasjonsmodell gjennom et nasjonalt API og et felles rammeverk for modellering av informasjon. Åpne tekniske standarder og felles forretningsbegreper tilrettelegger for interoperabilitet og sanntids gjenbruk av data.
+This is the FINTLabs homepage.
 
-## Semantikk
-SEMANTIKK sikrer en presis forståelse av forretningsbegreper og prosessene knyttet til begrepene. I interoperabilitet er semantikk viktig slik at data og informasjon blir bevart og forstått gjennom hele utvekslingen mellom partene. Med andre ord, det som sendes er det som forstås.
+# Updating
+All content is in `markdown` files. 
 
-Semantisk interoperabilitet beskriver både betydningen av dataelementene og forholdet mellom dem, og det eksakte formatet til informasjon som skal utveksles. Dette vil sikre at dataelementene blir forstått på samme måte av alle kommunikasjonsparter.
+## Updating existing content
+To update existing content edit the `markdown` file with the content you need to update.
 
-## Modell
-MODELL skaper felles menneskelig forståelse av et fagområde (f.eks. adresse) ved hjelp av begreper, definisjoner og sammenhenger mellom disse.
+## Add new content
+To add new content add a new `markdown` file. I addition you need to add a link to the `_sidebar.md` file.
 
-En informasjonsmodell er uavhengig av løsning (implementasjon), system og teknologi. Modellen skal brukes sammen med andre metoder og teknikker til å lage nye samhandlingsdyktige (interoperable) informasjonsmodeller for applikasjoner, informasjonsutveksling, lenkede data med mer.
+## Publish content
+When your finised updating the content just `commit` and `push` and the updated pages will be published automaticlly.
 
-## API
-API (Application Programming Interface) er et grensesnitt i en programvare som gjør at spesifikke deler av denne kan aktiveres («kjøres») fra en annen programvare. Kort sagt er et API, i FINT sammenheng, en webside for datamaskiner.
+# Contribute
+* Add a [issue](https://github.com/FINTLabs/www-fintlabs/issues/new)
+
+or 
+
+* Fork it!
+* Create your feature branch: git checkout -b my-new-feature
+* Commit your changes: git commit -am 'Add some feature'
+* Push to the branch: git push origin my-new-feature
+* Submit a pull request
