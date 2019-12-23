@@ -306,7 +306,7 @@ All FINT APIs are protected, and require Bearer token authorization.
 
 To access FINT resources, a valid Bearer token must be obtained from the FINT IDP.  Authorization details are available from the FINT customer portal, https://kunde.felleskomponent.no
 
-### Example projects for accessing FINT data
+## Example projects for accessing FINT data
 
 - Java, using Spring Boot: https://github.com/FINTLabs/client-example-spring
 - Java, using Google HTTP and OAuth libraries: https://github.com/FINTLabs/client-example-plain-java
@@ -316,11 +316,11 @@ To access FINT resources, a valid Bearer token must be obtained from the FINT ID
 - BizTalk: https://github.com/FINTLabs/Fint.BizTalk.Example
 - C#: https://github.com/FINTLabs/Fint.DotNet.Example
 
-### Libraries for accessing OAuth protected resources
+## Libraries for accessing OAuth protected resources
 
 - Spring Boot OAuthRestTemplate: https://github.com/FINTLabs/fint-oauth-token-service
 
-### Obtaining a valid Bearer token using `curl`
+## Obtaining a valid Bearer token using `curl`
 
 ```bash
 curl -s ${IDP_URL} \
@@ -338,7 +338,7 @@ After obtaining the valid token, add it to the request header:
 curl -H "Authorization: Bearer ${TOKEN}" https://.....
 ```
 
-## FINT environments
+# FINT environments
 
 FINT offers three environments, Play-with-FINT, Beta and Production:
 
@@ -366,15 +366,15 @@ Our recommended client to test GrapqQL is https://insomnia.rest - using this the
 
 Create a `POST` request to the GraphQL endpoint, configure OAuth 2, and Insomnia fetches the GraphQL schema so you can validate the query and see the results.
 
-# FINT GraphQL Schema
+## FINT GraphQL Schema
 
 The GraphQL schema for FINT follow the information model exactly.  The root schema defines query endpoints for all resources by an identifier.  It is not possible to get all resources for a class for performance reasons.
 
-# Example queries
+## Example queries
 
 Here are some examples to get you started.
 
-# Employee information
+### Employee information
 
 Given an employee ID, find person's name and National Identity Number, all positions with size and place of employment:
 
@@ -403,7 +403,7 @@ query ($ansattnummer: String) {
 }
 ```
 
-# Student information
+### Student information
 
 Given a student's FEIDE name, find student's contact information, school and home address. 
 
@@ -437,7 +437,7 @@ query ($feidenavn: String) {
 }
 ```
 
-# Class membership
+### Class membership
 
 Given a teaching group's systemId, find names and contact information for all students in that group:
 
