@@ -88,7 +88,7 @@ NB: Hvis passordet er “topseceret”, har du glemt å generere passordet. Dett
 Bruker som lages for å benytte FINT-adapteret, blir ikke opprettet som en domenebruker hos fylkeskommunen. Denne finnes bare i FINT-sammenheng.
 
 ## Klienter
-Menyvalgene Adapter og Klienter fungerer på samme måte, men skilles på hvilket grensesnitt i felleskomponenten det gis tilgang til. Adaptere får tilgang til Provider-grensesnittet og kan levere data til felleskomponenten, mens Klienter får tilgang til Consumer-grensesnittet og kan hente ut data fra felleskomponenten. Adaptere leverer vanligvis til èn komponent, mens klienter kan hente fra flere. Dvs at det er konfigurasjonen som ble satt opp for adapter, som brukes for å oppdatere FINT-adapterets konfigfiler. Det oppsettet vi skal lage nå, skal brukes for å logge på FINT test klient, som det står mer om her: https://www.fintprosjektet.no/testclient/
+Menyvalgene Adapter og Klienter fungerer på samme måte, men skilles på hvilket grensesnitt i felleskomponenten det gis tilgang til. Adaptere får tilgang til Provider-grensesnittet og kan levere data til felleskomponenten, mens Klienter får tilgang til Consumer-grensesnittet og kan hente ut data fra felleskomponenten. Adaptere leverer vanligvis til èn komponent, mens klienter kan hente fra flere. Dvs at det er konfigurasjonen som ble satt opp for adapter, som brukes for å oppdatere FINT-adapterets konfigfiler. Det oppsettet vi skal lage nå, skal brukes for å logge på FINT test klient, som det står mer om her: https://www.fintlabs.no/#/test-klient
 
 Man skal opprette en klient for hvert formål, dvs. ikke gjenbruke den samme klienten til forskjellige oppgaver. En for å kjøre testene som ligger på kundeportalen, en for testing i testklienten til FINT, og ikke minst en egen klient for å koble VIS mot fylkeskommunens egne data. Autentiseringsinformasjonen for den klienten som opprettes for VIS (Visma InSchool), må på et tidspunkt oppgis til Visma for å få tilgang til VIS.
 
@@ -113,7 +113,7 @@ På fanen Komponenter kan man legge til de komponentene som skal kobles til klie
 
 ![ill15](_media/kundeportal-15.png)
 
-På samme måte som for Adapter, må Passord og Klient Hemmelighet genereres manuelt, ved å klikke på symbolene nest bakerst på linjen. Disse autentiseringsdataene må man oppgi til de som skal teste FINT med f.eks. FINTs testklient (https://www.fintprosjektet.no/testclient/). Det er ikke denne informasjonen som brukes for å sette opp adapteret mot f.eks HR. Da må du bruke informasjonen fra adapteroppsettet.
+På samme måte som for Adapter, må Passord og Klient Hemmelighet genereres manuelt, ved å klikke på symbolene nest bakerst på linjen. Disse autentiseringsdataene må man oppgi til de som skal teste FINT med f.eks. FINTs testklient (https://www.fintlabs.no/#/test-klient). Det er ikke denne informasjonen som brukes for å sette opp adapteret mot f.eks HR. Da må du bruke informasjonen fra adapteroppsettet.
 
 ## Endre konfig for FINT adapteret
 Når dette er gjort, er man klar for å endre i konfigfilene til FINT adapteret.

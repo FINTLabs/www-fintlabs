@@ -25,7 +25,7 @@ Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du øn
 
 #### Bestille adapter og testmiljø
 1. Man kontakter kontaktperson for sitt fagsystem (se kontaktpersoner i kap. under), for å initiere en avtale for FINT adapteret, og bestille testmiljø (om man ikke har det fra før). Det anbefales å ha en separat testdatabase (i de fleste tilfeller vil dette innebære en separat testinstallasjon av fagsystemet på en egen testserver). Det finnes utkast til avtale for adapter som er i bruk for andre fylkeskommuner.
-1. I FINTs kundeportal finner man påloggingsinformasjon til adaptrene for sitt fylke. Denne informasjonen må teknisk konsulent for Økonomi/HR systemet ha ved installasjon av adapteret. Du finner en egen beskrivelse av kunderportalen og hvordan man oppretter pålogginsinformasjon her: https://www.fintprosjektet.no/kundeportalen/
+1. I FINTs kundeportal finner man påloggingsinformasjon til adaptrene for sitt fylke. Denne informasjonen må teknisk konsulent for Økonomi/HR systemet ha ved installasjon av adapteret. Du finner en egen beskrivelse av kunderportalen og hvordan man oppretter pålogginsinformasjon her: https://www.fintlabs.no/#/kundeportal
 1. Når avtalen er signert, avtales installasjon av adapteret sammen med en person fra IT drift i FK, f.eks. systemeier av Økonomi/HR-systemet, og kundeansvarlig eller teknisk konsulent for systemet. Man avtaler på hvilken server adapteret skal installeres.
 1. Etter adapteret er installert, kan man i kundeportalen se “health status” på adapterne.
 1. Deretter starter den tekniske testen.
