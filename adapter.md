@@ -80,7 +80,7 @@ The provider API is secured with OAuth2 using the Resource Owner Password Creden
 
 <img src="_media/authentication.png" alt="Authentication" class="img-responsive" />
 
-The ***Adapter is both Resource Owner and Client***. See https://github.com/FINTprosjektet/fint-oauth-consumer-client-sample for an example implementation.
+The ***Adapter is both Resource Owner and Client***. See https://github.com/fintlabs/fint-oauth-consumer-client-sample for an example implementation.
 
 ## Error handling
 
@@ -97,8 +97,8 @@ There is a skeleton as a starting point and guideline for develop a adapter. Thi
 
 | Language | Link                                                               |
 |----------|--------------------------------------------------------------------|
-| Java     | https://github.com/FINTprosjektet/fint-sse-adapter-skeleton        |
-| C#       | https://github.com/FINTprosjektet/fint-sse-adapter-skeleton-csharp |
+| Java     | https://github.com/fintlabs/fint-sse-adapter-skeleton        |
+| C#       | https://github.com/fintlabs/fint-sse-adapter-skeleton-csharp |
 
 ## Information Models
 The main purpose of the adapter is to map the internal business application model to the FINT information model. This includes relations between objects. 
@@ -132,8 +132,8 @@ A good startingpoint for developing an adapter is to go throug our quick tutoria
 
 After that you can setup your adapter skeleton of choice:
 
-* [Java skeleton](https://github.com/FINTprosjektet/fint-sse-adapter-skeleton)
-* [C# (.NET core) skeleton](https://github.com/FINTprosjektet/Fint.Sse.Adapter.Skeleton)
+* [Java skeleton](https://github.com/fintlabs/fint-sse-adapter-skeleton)
+* [C# (.NET core) skeleton](https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton)
 
 
 ## What does the skeleton do and what do you need to do?

@@ -75,13 +75,13 @@ fint:
 
 ## Links
 * [Javadocs](https://docs.felleskomponent.no/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
-* [Github project](https://github.com/FINTprosjektet/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
+* [Github project](https://github.com/fintlabs/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
 * [fint-sse](https://github.com/FINTlibs/fint-sse)
 * [fint-relation-model](https://github.com/FINTmodels/fint-relation-model)
 * [Overview](/adapter/overview/) of the adapter and FINT architecture
 
 ## Contribute
-If you find bugs or have suggestions for improvement please feel free to submit an [issue]((https://github.com/FINTprosjektet/fint-sse-adapter-skeleton/issues).
+If you find bugs or have suggestions for improvement please feel free to submit an [issue]((https://github.com/fintlabs/fint-sse-adapter-skeleton/issues).
 
 
 # .Net SSE adapter
@@ -93,7 +93,7 @@ This tutorial will lead you through the process of setting up and adapter to com
 ### Clone the skeleton
 
 ```bash
-$ git clone https://github.com/FINTprosjektet/Fint.Sse.Adapter.Skeleton.git my-adapter
+$ git clone https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton.git my-adapter
 $ cd my-adapter
 $ rm -rf .git
 ```
@@ -173,13 +173,13 @@ The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoi
 
 ## Links
 * [Javadocs](https://docs.felleskomponent.no/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
-* [Github project](https://github.com/FINTprosjektet/Fint.Sse.Adapter.Skeleton) for the CSharp/.Net SSE Adapter Skeleton
+* [Github project](https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton) for the CSharp/.Net SSE Adapter Skeleton
 * [Fint.Sse](https://github.com/FINTlibs/Fint.Sse)
 * [Fint.Relation.Model](https://github.com/FINTmodels/Fint.Relation.Model])
 * [Overview](/adapter/overview/) of the adapter and FINT architecture
 
 ## Contribute
-If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/FINTprosjektet/Fint.Sse.Adapter.Skeleton/issues).
+If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton/issues).
 
 
 

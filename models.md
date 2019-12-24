@@ -20,21 +20,21 @@ Additional labels for pre-release and build metadata are available as extensions
 >The version relation between the *FINT Information model* and the *technical implementations* is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of *technical implementations* based on the **same** *FINT Information model* will increment the `PATCH` number by `1`. 
 
 ## FINT information models
-The models are designed and documented in `Enterprise Architect (EA)`. You can find the `EA` project at [https://github.com/FINTprosjektet/fint-informasjonsmodell](https://github.com/FINTprosjektet/fint-informasjonsmodell). 
+The models are designed and documented in `Enterprise Architect (EA)`. You can find the `EA` project at [https://github.com/fintlabs/fint-informasjonsmodell](https://github.com/fintlabs/fint-informasjonsmodell). 
 
 ### Documentation portal
 For a more userfriendly view of the models we developet a frontend to the `XMI 2.1` export from `EA`. You can find the documentation portal at [https://informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no).
 
-The project for the frontend is found [here](https://github.com/FINTprosjektet/fint-informasjonsmodell-documentation).
+The project for the frontend is found [here](https://github.com/fintlabs/fint-informasjonsmodell-documentation).
 
 ### Contribute
-If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/FINTprosjektet/fint-informasjonsmodell/issues).
+If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/fintlabs/fint-informasjonsmodell/issues).
 
 ### Latest versions
 
 | **Component**     | **GitHub Release**                                                                                                                                                     |                                                                                                                                                                            |
 |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Information Model | [![GitHub release](https://img.shields.io/github/release/FINTprosjektet/fint-informasjonsmodell.svg)](https://github.com/FINTprosjektet/fint-informasjonsmodell)       | [![Documentation](https://img.shields.io/badge/read-documentation-brightgreen.svg)](https://informasjonsmodell.felleskomponent.no/)                                        |
+| Information Model | [![GitHub release](https://img.shields.io/github/release/fintlabs/fint-informasjonsmodell.svg)](https://github.com/fintlabs/fint-informasjonsmodell)       | [![Documentation](https://img.shields.io/badge/read-documentation-brightgreen.svg)](https://informasjonsmodell.felleskomponent.no/)                                        |
 | **Java**          | **GitHub Release**                                                                                                                                                     | **Package Version**                                                                                                                                                        |
 | Event Model       | [![GitHub release](https://img.shields.io/github/release/FINTmodels/fint-event-model.svg)](https://github.com/FINTmodels/fint-event-model)                             | [![Bintray](https://img.shields.io/bintray/v/fint/maven/fint-event-model.svg)](https://bintray.com/fint/maven/fint-event-model/_latestVersion)                             |
 | Relation Model    | [![GitHub release](https://img.shields.io/github/release/FINTmodels/fint-relation-model.svg)](https://github.com/FINTmodels/fint-relation-model)                       | [![Bintray](https://img.shields.io/bintray/v/fint/maven/fint-relation-model.svg)](https://bintray.com/fint/maven/fint-relation-model/_latestVersion)                       |
