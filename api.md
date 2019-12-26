@@ -488,7 +488,7 @@ FINT has a web-based tool to get a token that you can use to insert a token usin
 
 https://token.fintlabs.no/
 
-## `fint-curl`
+## fint-curl
 
 This script can be used to fetch a protected FINT resource, fetching a bearer token when needed.
 
@@ -548,7 +548,7 @@ curl -H "Authorization: Bearer $(cat $TOKEN)" -H  "accept: application/json;char
 
 ```
 
-## `jsonvalidate`
+## jsonvalidate
 
 This Python 2.7 script performs JSON schema validation on a collection of resources.  The schema to use is provided as an URI on the command line.  It reads the resources from standard input, so it can be piped with `fint-curl` above to retrieve the data, i.e.
 
