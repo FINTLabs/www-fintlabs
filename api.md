@@ -483,6 +483,11 @@ On the welcome page, enter the URI for a resource, i.e. `/administrasjon/organis
 and hit the button.  Results are presented as JSON, and all the URLs can be clicked to follow links to
 other resources from within the test client.
 
+## Get FINT Token Web
+FINT has a web-based tool to get a token that you can use to insert a token using i.e. `ModHeader` plugin for `Chrome`.
+
+https://token.fintlabs.no/
+
 ## `fint-curl`
 
 This script can be used to fetch a protected FINT resource, fetching a bearer token when needed.
