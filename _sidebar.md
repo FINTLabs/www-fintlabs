@@ -1,13 +1,12 @@
-* **[Forsiden](/)**
-* [Informasjonsmodeller](models.md)
-* [API](api.md)
-* [Adapter](adapter.md)
-* [Veiledninger (tutorials)](tutorials.md)
-* [Kundeportal](kundeportal.md)
-* [Test klient](test-klient.md)
-* [Utrulling av FINT adapter (VIS)](vis.md)
-* [Tegneserie](tegneserie.md)
-* [Om FINT](fint.md)
+* [Forsiden](/)
+* [Hvorfor FINT?](fint.md)
+* [Komme i gang](dummy.md)
+* [Konsepter](dummy.md)
+* [Teknisk dokumentasjon](dummy.md)
+* [Veiledninger](tutorials.md)
+* [Visma InSchool (VIS)](dummy.md)
+* [Kontakt](contact.md)
+
 - ****
 * [![Fint](_media/favicon.ico ':size=16')Dokumentasjonsportal](https://informasjonsmodell.felleskomponent.no)
 * [![Fint](_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)

@@ -2,18 +2,12 @@
 
 ![logo](_media/fint-white.svg ':size=250')
 
-# Semantikk + Modell + API = FINT
+# Felles og moderne integrasjoner
 
-<p>
-<code>
-FINTLabs har som oppgave å tilgjengeliggjøre informasjon i fagsystemer på en standardisert måte.
-</code>
-</p>
-
-
-
-[Komme i gang](fint.md)
-[Informasjonsmodeller](https://informasjonsmodell.felleskomponent.no/)
-[Tegneserie](tegneserie.md)
+[Hvorfor FINT?](fint.md)
+[Komme i gang](dummy.md)
+[Konsepter](dummy.md)
+[Teknisk dokumentasjon](dummy.md)
+[Veiledninger](tutorials.md)
 
 ![color](#cf202e)

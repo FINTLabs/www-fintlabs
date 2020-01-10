@@ -1,16 +1,14 @@
-# 
-# Java SSE adapter
+# Veiledninger
 
-## Introduction
+## Java SSE adapter
+
+### Introduction {docsify-ignore}
+
 This tutorial will lead you through the process of setting up and adapter to communicate with the Play-With-FINT-Adapter service.
 
+### Setting up the environment {docsify-ignore}
 
-
-
-
-## Setting up the environment
-
-### Clone the skeleton
+#### Clone the skeleton {docsify-ignore}
 
 ```bash
 $ git clone https://github.com/FINTLabs/fint-sse-adapter-skeleton.git my-adapter
@@ -18,7 +16,7 @@ $ cd my-adapter
 $ rm -rf .git
 ```
 
-### Open the project in your favorite IDE
+#### Open the project in your favorite IDE {docsify-ignore}
 This is a Gradle project so make sure to import the Gradle dependencies. You can either do it in the IDE or in the commandline:
 
 ```bash
@@ -27,7 +25,7 @@ $ ./gradlew --refresh-dependencies build
 
 !>*Note that this project uses `Lombok` so you need to enable `annotation processing` if you use `IntelliJ`. There is also a `Lombok`-plugin for `IntelliJ`*
 
-## Get an OrgId
+### Get an OrgId {docsify-ignore}
 * Go <a href="https://play-with-fint-adapter.felleskomponent.no/demo/organization/generateOrgId" target="_blank">here</a> to generate an `OrgId`. 
 
 !> This `OrgId` is vaild until midnight the same day.
@@ -40,7 +38,7 @@ fint:
   organizations: OrgId
 ```
  
-## The first test
+### The first test {docsify-ignore}
 * Set a breakpoint at the start of the handleEvent method in the `EventHandlerService` class.
 
 ```java
@@ -58,7 +56,7 @@ Breakpoint -->      if (event.isHealthCheck()) {
 * Step through the code to see what happens.
 * You can also hit the `dog` and `owner` controllers to see how `FintResources` and `Relations` are build. See [https://github.com/FINTmodels/fint-relation-model](https://github.com/FINTmodels/fint-relation-model) for more information.
 
-## Security
+### Security {docsify-ignore}
 The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoint. This tutorial is set up with at tutorial user. In production one will get a *real* user. This is the `OAuth2` config:
 
 ```yaml
@@ -73,14 +71,14 @@ fint:
   scope: fint-client
 ```
 
-## Links
+### Links {docsify-ignore}
 * [Javadocs](https://docs.felleskomponent.no/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
 * [Github project](https://github.com/fintlabs/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
 * [fint-sse](https://github.com/FINTlibs/fint-sse)
 * [fint-relation-model](https://github.com/FINTmodels/fint-relation-model)
 * [Overview](/adapter/overview/) of the adapter and FINT architecture
 
-## Contribute
+### Contribute {docsify-ignore}
 If you find bugs or have suggestions for improvement please feel free to submit an [issue]((https://github.com/fintlabs/fint-sse-adapter-skeleton/issues).
 
 
@@ -88,9 +86,9 @@ If you find bugs or have suggestions for improvement please feel free to submit 
 This tutorial will lead you through the process of setting up and adapter to communicate with the Play-With-FINT-Adapter service.
 
 
-## Setting up the enviornment
+## Setting up the enviornment {docsify-ignore}
 
-### Clone the skeleton
+### Clone the skeleton {docsify-ignore}
 
 ```bash
 $ git clone https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton.git my-adapter
@@ -98,7 +96,7 @@ $ cd my-adapter
 $ rm -rf .git
 ```
 
-### Open the project in our favorite IDE
+### Open the project in our favorite IDE {docsify-ignore}
 This is a `netcoreapp2.0`\\`netstandard2.0` project. You need to import the dependencies. You can either do it in the IDE or in the commandline. This example uses the `dotnet` CLI:
 
 ```bash
@@ -111,7 +109,7 @@ This `repo` consists of three projects:
 - **FINT.Sse.Adapter.Console** - This is a wrapper around `FINT.Sse.Adaper` to make it run using `netcoreapp2.0`. You can create another wrapper for your favorit version/framework.
 - **FINT.Sse.Adapter.Tests** - This is the `unit test` project.
 
-## Get an OrgId
+## Get an OrgId {docsify-ignore}
 * Go <a href="https://play-with-fint-adapter.felleskomponent.no/demo/organization/generateOrgId" target="_blank">here</a> to generate an `OrgId`. 
 
 !> This `OrgId` is vaild until midnight the same day.
@@ -156,7 +154,7 @@ Breakpoint -->      if (serverSideEvent.IsHealthCheck())
 * Step through the code to see what happens.
 * You can also hit the `dog` and `owner` controllers to see how `FintResources` and `Relations` are build. See [https://github.com/FINTmodels/Fint.Relation.Model](https://github.com/FINTmodels/Fint.Relation.Model) for more information.
 
-## Security
+## Security {docsify-ignore}
 The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoint. This tutorial is set up with at tutorial user. In production one will get a *real* user. This is the `OAuth2` config:
 
 ```json
@@ -171,14 +169,14 @@ The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoi
 }
 ```
 
-## Links
+## Links {docsify-ignore}
 * [Javadocs](https://docs.felleskomponent.no/fint-sse-adapter-skeleton) for the Java SSE Adapter Skeleton
 * [Github project](https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton) for the CSharp/.Net SSE Adapter Skeleton
 * [Fint.Sse](https://github.com/FINTlibs/Fint.Sse)
 * [Fint.Relation.Model](https://github.com/FINTmodels/Fint.Relation.Model])
 * [Overview](/adapter/overview/) of the adapter and FINT architecture
 
-## Contribute
+## Contribute {docsify-ignore}
 If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton/issues).
 
 
