@@ -1,4 +1,4 @@
 * [Hjem](/)
-* [API](api.md)
-* [Adapter](adapter.md)
-* [Play-With-FINT](https://play-with-fint.felleskomponent.no)
+* [Konsepter](dummy.md)
+* [Teknisk dokumentasjon](dummy.md)
+* [Veiledninger](tutorials.md)
