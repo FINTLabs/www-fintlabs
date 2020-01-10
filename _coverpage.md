@@ -5,9 +5,6 @@
 # Felles og moderne integrasjoner
 
 [Hvorfor FINT?](fint.md)
-[Komme i gang](dummy.md)
-[Konsepter](dummy.md)
-[Teknisk dokumentasjon](dummy.md)
-[Veiledninger](tutorials.md)
+[Kom i gang](dummy.md)
 
 ![color](#cf202e)

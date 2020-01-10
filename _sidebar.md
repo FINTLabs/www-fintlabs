@@ -1,6 +1,6 @@
 * [Forsiden](/)
 * [Hvorfor FINT?](fint.md)
-* [Komme i gang](dummy.md)
+* [Kom i gang](dummy.md)
 * [Konsepter](dummy.md)
 * [Teknisk dokumentasjon](dummy.md)
 * [Veiledninger](tutorials.md)
