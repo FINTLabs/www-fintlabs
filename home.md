@@ -1,15 +1,18 @@
-# Hva FINT gjør - enkelt forklart {docsify-ignore}
+# Hvorfor FINT?
 
-![fint-tegneserie-01](_media/cartoon/fint-tegneserie-01.png)
-![fint-tegneserie-02](_media/cartoon/fint-tegneserie-02.png)
-![fint-tegneserie-03](_media/cartoon/fint-tegneserie-03.png)
-![fint-tegneserie-04](_media/cartoon/fint-tegneserie-04.png)
-![fint-tegneserie-05](_media/cartoon/fint-tegneserie-05.png)
-![fint-tegneserie-06](_media/cartoon/fint-tegneserie-06.png)
-![fint-tegneserie-07](_media/cartoon/fint-tegneserie-07.png)
-![fint-tegneserie-08](_media/cartoon/fint-tegneserie-08.png)
-![fint-tegneserie-09](_media/cartoon/fint-tegneserie-09.png)
-![fint-tegneserie-10](_media/cartoon/fint-tegneserie-10.png)
-![fint-tegneserie-11](_media/cartoon/fint-tegneserie-11.png)
+>FINT (Felles  Fylkeskommunale INTegrasjoner)
 
->[Last ned i PDF format](_media/cartoon/fint-tegneserie.pdf ':ignore')
+FINT ble etablert i 2015 for å utarbeide felles prinsipper og standarder for integrasjoner for fylkeskommuner. Kombinasjonen av en standardisert informasjonsmodell og tilgjengeliggjøring av informasjon over åpne programerbare grensesnitt (API) er hovedbjelkene i strategien bak FINT. Prinsipper, informasjonsmodell og API spiller sammen i en teknologi- og leverandøruavhengig løsning og utgjør en felles fylkeskommunal integrasjonstrategi.
+
+Leveransene fra FINT(Labs) består av en standardisert informasjonsmodell og API, som kan legges til grunn ved fremtidige anskaffelser av nye systemer (krav), forbedring av eksisterende tjenester og utvikling av nye tjenester (digitalisering). Det vil gi generelle besparelser og høyere kvalitet, fordi ting gjøres én gang og likt for alle fylkeskommuner.
+
+FINT(Labs) forvaltes av [Vigo IKS](https://www.vigoiks.no), og har som oppgave å ivareta alle fylkeskommuners behov innen:
+
+* Digitalisering, gjennom etablering av felleskomponenter
+* Standardisering av integrasjoner for fylkeskommunene
+* Etablering av felles informasjonsmodell som grunnlag for integrasjonene
+
+
+
+
+

@@ -1,4 +1,4 @@
 * [Hjem](/)
-* [Konsepter](dummy.md)
-* [Teknisk dokumentasjon](dummy.md)
+* [Arkitektur](architecture.md)
+* [Teknisk dokumentasjon](technical.md)
 * [Veiledninger](tutorials.md)

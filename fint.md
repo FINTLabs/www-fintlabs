@@ -1,18 +1,4 @@
-# Hvorfor FINT? {docsify-ignore-all}
-
-FINT gjør data fra fagsystemer tilgjengelig på en felles informasjonsmodell gjennom et nasjonalt API og et felles rammeverk for modellering av informasjon. Åpne tekniske standarder og felles forretningsbegreper tilrettelegger for interoperabilitet og sanntids gjenbruk av data.
-
->FINT ( Felles  Fylkeskommunale INTegrasjoner )
-
 Semantikk + modell + API = FINT
-
-Fintlabs forvaltes av [Vigo IKS](https://www.vigoiks.no), og har som oppgave å ivareta alle fylkeskommuners behov innen:
-
-* Digitalisering, gjennom etablering av felleskomponenter.
-* Standardisering av integrasjoner for fylkeskommunene
-* Etablering av felles informasjonsmodell som grunnlag for integrasjonene.
-
-Leveransene fra FINT består av en informasjonsmodell og et API for kommunikasjon, som kan legges som grunnlag ved fremtidige kjøp av nye systemer (krav), forbedring av eksisterende tjenester og utvikling av nye tjenester (digitalisering). Det vil gi generelle besparelser og høyere kvalitet, fordi ting gjøres en gang og likt hos alle fylkeskommuner. Bruk av felleskomponenter vil redusere kostnader og forenkle utvikling av fremtidige digitale tjenester.
 
 ## Semantikk 
 SEMANTIKK sikrer en presis forståelse av forretningsbegreper og prosessene knyttet til begrepene. I interoperabilitet er semantikk viktig slik at data og informasjon blir bevart og forstått gjennom hele utvekslingen mellom partene. Med andre ord, det som sendes er det som forstås.

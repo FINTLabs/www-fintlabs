@@ -4,7 +4,8 @@
 
 # Felles og moderne integrasjoner
 
-[Hvorfor FINT?](fint.md)
-[Kom i gang](dummy.md)
+[Hvorfor FINT?](home.md)
+[Kom i gang](getting-started.md)
+[FINT illustrert](cartoon.md)
 
 ![color](#cf202e)

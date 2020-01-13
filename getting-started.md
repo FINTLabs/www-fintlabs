@@ -1,7 +1,5 @@
-# Komme i gang
+# Kom i gang
 
-For hvem?
+## Organisasjon
 
-Organisasjon
-
-Leverandør
+## Leverandør

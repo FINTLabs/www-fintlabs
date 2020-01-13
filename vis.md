@@ -1,4 +1,4 @@
-# Utrulling av FINT adapter (VIS)   
+# Visma InSchool (VIS)   
 
 ## Hva er VIS og FINT?
 Visma InSchool (VIS) er et skoleadministrativt system. VIS skal kobles mot fylkeskommunenes fagsystemer. FINT er felleskomponenter som er utviklet for å standardisere integrasjonene mellom ​VIS og fagsystemene. Hvert fagsystem må i den sammenheng ha et FINT-adapter. Adapteret mottar data fra fagsystemet og tilpasser den til å passe med FINTs felleskomponenter.  
