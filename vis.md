@@ -1,15 +1,14 @@
-# Visma InSchool (VIS)   
+# Visma InSchool (VIS)
 
-## Hva er VIS og FINT?
 Visma InSchool (VIS) er et skoleadministrativt system. VIS skal kobles mot fylkeskommunenes fagsystemer. FINT er felleskomponenter som er utviklet for å standardisere integrasjonene mellom ​VIS og fagsystemene. Hvert fagsystem må i den sammenheng ha et FINT-adapter. Adapteret mottar data fra fagsystemet og tilpasser den til å passe med FINTs felleskomponenter.  
 
 ## Hva er et FINT-adapter?
+
 Felleskomponentene til FINT må kobles til fagsystemet for å kunne levere og motta informasjon. Et FINT-adapter håndterer denne koblingen.
 
 Adapteret må installeres i tilknytning til fagsystemet i den enkelte fylkeskommune. Vanligvis som en service på en server til fagystemet.
 
 ![ill1](_media/tekniskpakke-1.png)
-
 
 Diagrammet over viser hvordan data flyter mellom Visma InSchool og Fylkeskommunenes fagsystemer, og hvor FINT-adapteret er plassert i denne flyten. Hvert fagsystem må ha et eget FINT adapter. FINT Adapterene utvikles av fagsystemets leverandør.
 
@@ -17,13 +16,14 @@ Diagrammet over viser hvordan data flyter mellom Visma InSchool og Fylkeskommune
 
 ![ill2](_media/tekniskpakke-2.png)
 
-
 ### Overordnet om testing
+
 Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du ønsker å vite mer om denne modellen kan du lese mer om denne her: [Nasjonalt rammeverk for samhandling](https://www.difi.no/fagomrader-og-tjenester/digitalisering-og-samordning/nasjonal-arkitektur/samhandlingsarkitektur/nytt-nasjonalt-rammeverk-samhandlings)
 
 ![ill3](_media/tekniskpakke-3.png)
 
 #### Bestille adapter og testmiljø
+
 1. Man kontakter kontaktperson for sitt fagsystem (se kontaktpersoner i kap. under), for å initiere en avtale for FINT adapteret, og bestille testmiljø (om man ikke har det fra før). Det anbefales å ha en separat testdatabase (i de fleste tilfeller vil dette innebære en separat testinstallasjon av fagsystemet på en egen testserver). Det finnes utkast til avtale for adapter som er i bruk for andre fylkeskommuner.
 1. I FINTs kundeportal finner man påloggingsinformasjon til adaptrene for sitt fylke. Denne informasjonen må teknisk konsulent for Økonomi/HR systemet ha ved installasjon av adapteret. Du finner en egen beskrivelse av kunderportalen og hvordan man oppretter pålogginsinformasjon her: https://www.fintlabs.no/#/kundeportal
 1. Når avtalen er signert, avtales installasjon av adapteret sammen med en person fra IT drift i FK, f.eks. systemeier av Økonomi/HR-systemet, og kundeansvarlig eller teknisk konsulent for systemet. Man avtaler på hvilken server adapteret skal installeres.

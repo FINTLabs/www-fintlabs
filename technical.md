@@ -1,176 +1,50 @@
 # Teknisk dokumentasjon
 
-## Architectural overview - Common API
-A Common API is a API on a business application. The Common API gets and sends information to/from a business application through an adapter. This document aims to describe how an adapter should be implemented.
-
-<img src="_media/architec-overview.svg" alt="Overview" class="img-responsive" />
-
-### Information Models
-The Common API consist of standardized information models that will presented as resources in the Consumer API. Each Common API can consist of one or more information models. The models are documented here https://informasjonsmodell.felleskomponent.no
-
-### Consumer API
-Consumer API is where clients (applications, processes etc) access the data from the Business Application. 
-Provider API
-Provider API is where the adapter feeds the Common API with data.
-
-### Adapter
-The adapter is the “link” between the Common API and the Business Application. The main tasks for the adapter is:
-Getting data from the Business Application
-Mapping the data from the business application model to the Common API model
-Sending the mapped data to the Common API
-
-### Common API internals
-The Common API has two main services:
-
-* Cache service
-* Event service
-
-#### Cache Service
-
-The cache service has the following responsibility:
-Store data from the business applications for all the organisations using the Common API
-Populate the cache
-Keeps track of which data has changed since the last time the cache was populated
-
-#### Event service
-
-The internals in the Common API is event based. An event is created by:
-
-* Cache Service
-* Client
-
-When a client hits a endpoint in the Consumer API the Common API is generating an event and sends it to the Cache Service. An event from the client will never go all the way down to the adapter.
-
-When the Cache Service need to update the cache it sends an event down to the adapter.
-
-All events are logged at all stages.
-
-<img src="_media/fint-event-flow.png" alt="Event Flow" class="img-responsive" />
-
-***Event flow***
-
-### Provider API
-The provider API is where the adapter communicates with the Common API. The adapter connects to get events from the Common API and sends back the response with the information from the business application.
-
-The provider API makes use of SSE (Server-Sent-Events) (https://en.wikipedia.org/wiki/Server-sent_events) to send events to the adapter.
-
-### Endpoints
-
-```plantuml
-@startuml Endpoints
-skinparam backgroundColor #EEEBAA
-scale 2.0
-
-autonumber
-"Provider API" <- "Adapter": Adapter connection to the SSE endpoint
-"Provider API" -> "Adapter": Adapter recives event form provider
-"Provider API" <- "Adapter": Adapter confirms that the event is recived
-"Provider API" <- "Adapter": Adapter sends result data back to provider
-@enduml
-```
-
-| Endpoint           | Method | Flow# | Description                                                                                                                               |
-|--------------------|--------|-------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| /provider/sse/:id  | GET    | 1     | The adapter registers on this endpoint. Id should be an UUID. If the adapter supports several orgId’s each orgId must have it’s own UUID. |
-| /provider/status   | POST   | 3     | When the adapter receives an event it should post back a status to tell the provider if the event can be handled.  Adapters must accept or reject events with `/status` within 120 seconds. |
-| /provider/response | POST   | 4     | This is where the adapter sends back the response.  Adapters must respond to events within 20 minutes. |
-
-### Authentication
-
-The provider API is secured with OAuth2 using the Resource Owner Password Credentials Grant flow.
-
-<img src="_media/authentication.png" alt="Authentication" class="img-responsive" />
-
-The ***Adapter is both Resource Owner and Client***. See https://github.com/fintlabs/fint-oauth-consumer-client-sample for an example implementation.
-
-### Error handling
-
-The adapter must handle the following error scenarios:
-The event sent from the provider is not understood
-There is something wrong with the received event
-Could not communicate with the source system
-
-All of the error situations should result in an event sent from the adapter to the provider with the status `PROVIDER_REJECTED`. If the adapter has information about the error this can be added to the message field in the event-object.
-
-### Adapter skeleton
-
-There is a skeleton as a starting point and guideline for develop a adapter. This skeleton has code for communicating with the provider api. See the readme for more information.
-
-| Language | Link                                                               |
-|----------|--------------------------------------------------------------------|
-| Java     | https://github.com/fintlabs/fint-sse-adapter-skeleton        |
-| C#       | https://github.com/fintlabs/fint-sse-adapter-skeleton-csharp |
-
-### Information Models
-The main purpose of the adapter is to map the internal business application model to the FINT information model. This includes relations between objects. 
-
-The FINT information model consist of two key elements:
-
-Main classes which represent the resources. This can be a person, student, employee, employment, code and so on.
-Relations between main classes. 
-
-For more information about the FINT information model and a description of all the classes, attributes and relations one can go to https://informasjonsmodell.felleskomponent.no.
-
-The technical implementations of the models can be found at https://github.com/FINTmodels.
-
-### Vocabulary
-
-| Norwegian term  | English term         |
-|-----------------|----------------------|
-| Felleskomponent | Common API           |
-| Fagapplikasjon  | Business application |
-
-
-
-## Develop adapters
-This articel amins to make you able to develop a FINT adapter.
+## Developing an adapter
 
 ### Getting started
-A good startingpoint for developing an adapter is to go throug our quick tutorial:
 
-* [Java](../tut-java-sse)
-* [C#](../tut-dotnet-sse)
+A good starting point for developing an adapter is our quick tutorials:
+
+* [Java](../tutorials?id=java-sse-adapter)
+* [C Sharp/.NET](../tutorials?id=net-sse-adapter)
 
 After that you can setup your adapter skeleton of choice:
 
-* [Java skeleton](https://github.com/fintlabs/fint-sse-adapter-skeleton)
-* [C# (.NET core) skeleton](https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton)
-
+* Java skeleton - <https://github.com/fintlabs/fint-sse-adapter-skeleton>
+* C Sharp/.NET skeleton -  <https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton>
 
 ### What does the skeleton do and what do you need to do?
-The skeletons has all the code to:
 
-* Connect to FINT
-* Authentiacte to FINT (OAuth2)
-* All the communication with FINT
+The skeleton handles **connection**, **authorization** and **communication** with FINT.
 
-Your task as a adapter developer is to:
+Your task in developing an adapter is to:
 
 1. Reponde to `events` sent from FINT
 2. Interact with you backend system
-3. Map you data to FINT 
+3. Map you data to FINT
 4. Send back the information asked for in the `event`
 
-
-## Events
+### Events
 
 The general flow between FINT and adapters are:
 
 1. Adapter subscribes to events using the SSE endpoint
-1. FINT delivers events on the SSE stream
-1. Adapter accepts the event by `POST`ing to the status endpoint.  There is a 2-minute timeout on accepting events. If you use the adapter skeleton this is already handled.
-1. Adapter responds to the event by `POST`ing to the response endpoint.  There is a 15-minute timeout on responding to events.
+2. FINT delivers events on the SSE stream
+3. Adapter accepts the event by `POST`ing to the status endpoint.  There is a 2-minute timeout on accepting events. If you use the adapter skeleton this is already handled.
+4. Adapter responds to the event by `POST`ing to the response endpoint.  There is a 15-minute timeout on responding to events.
 
-### Causes for events
+#### Causes for events
 
 FINT components produce events for three reasons:
-- Health status requests
-- Periodic cache update events every 15 minutes, triggering `GET_ALL_*` events.
-- Incoming POST / PUT requests from clients.  Every request produces exactly one event.
+
+* Health status requests
+* Periodic cache update events every 15 minutes, triggering `GET_ALL_*` events.
+* Incoming POST / PUT requests from clients.  Every request produces exactly one event.
 
 FINT expects exactly one status and one response to every event delivered.  Additional responses will be rejected with `410 GONE`.
 
-### Event kinds
+#### Event kinds
 
 FINT Adapters must be able to handle three different kinds of events:
 
@@ -194,7 +68,7 @@ Any adapter instance registered with the asset ID can handle events in three way
   1. Reject the event.  The consumer ignores any data from the response.  Other adapters attempting to respond will receive a `410` status from the Provider.
   1. Ignore the event, assuming another instance is handling it.  If no other adapter is handling the events, the provider will expire the event after 120 seconds.
 
-### System health status (`HEALTH`)
+#### System health status (`HEALTH`)
 
 Every FINT Consumer has a health endpoint (`/admin/health`) that clients could `GET` from to
 request health status.
@@ -205,24 +79,26 @@ for the status of the adapter and connection to the back-end systems.
 
 The health status structure looks like this:
 
-    {
-      "component": "adapter",
-      "status": "APPLICATION_HEALTHY",
-      "timestamp": 1571327388028,
-      "time": "2019-10-17T15:49:48.028Z"
-    }
+```json
+{
+  "component": "adapter",
+  "status": "APPLICATION_HEALTHY",
+  "timestamp": 1571327388028,
+  "time": "2019-10-17T15:49:48.028Z"
+}
+```
 
 `timestamp` is in milliseconds since Unix epoch, `time` in ISO 8601.
 
 `status` should be `APPLICATION_HEALTHY` or `APPLICATION_UNHEALTHY` depending on the state of the back-end application.
 
-### Get all instances of a class (`GET_ALL_`_type_)
+#### Get all instances of a class (`GET_ALL_`_type_)
 
 The FINT Consumer Cache Service issues these events every 15 minutes to update the consumer in-memory cache with all elements of the type.
 
 Adapters are expected to retrieve all active elements from the back-end system and insert the data in the response event.
 
-### Get a single instance of a class by ID (`GET_`_type_)
+#### Get a single instance of a class by ID (`GET_`_type_)
 
 FINT Consumer APIs issue these events in cases where clients want the most recent version of a given element, and waits for the adapter to respond before returning data to the client.
 
@@ -241,7 +117,7 @@ For error situations, the adapter can control the HTTP response returned to the 
 | `REJECTED`       | `"NOT_FOUND"`  | `404`       |
 | `REJECTED`       | (other values) | `400`       |
 
-### Create a new element, or update an existing element by ID (`UPDATE_`_type_)
+#### Create a new element, or update an existing element by ID (`UPDATE_`_type_)
 
 FINT Consumer APIs issue these events for `POST`, `PUT`, and `DELETE` requests for a given type, according to the following:
 
@@ -277,15 +153,15 @@ The response payload is handled according to the following, depending on Respons
 - `ERROR`: The payload is ignored.
 - `CONFLICT`: The payload is added to the cache.
 
-Note the last clause.  For CONFLICT the adapter is supposed to deliver the most recent version of the information, so clients and the FINT cache can be updated.
+Note the last clause. For `CONFLICT` the adapter is supposed to deliver the most recent version of the information, so clients and the FINT cache can be updated.
 
 
-## How to deal with errors
+### How to deal with errors
 
 Since `UPDATE_` events involves multiple components and is based on events,
 errors are bound to happen. 
 
-### Update conflicts
+#### Update conflicts
 
 Sometimes the update attempted is in conflict with other data in the back-end
 system.  This could for instance be:
@@ -299,12 +175,12 @@ system.  This could for instance be:
  This enables the client to update its information and possibly modify the
  update before another attempt is made.
 
-### Lost events
+#### Lost events
 
 The update events could be lost at multiple stages of the flow.  To better
 illustrate where this happens, let's first describe the successful scenario.
 
-#### Successful case
+##### Successful case
 
 The following sequence diagram illustrates the successful case, where 
 information is updated, and the client successfully recieves confirmation
@@ -345,7 +221,7 @@ Client <-- consumer: 200
 @enduml
 ```
 
-#### Event is lost before it reaches adapter
+##### Event is lost before it reaches adapter
 
 This is the simplest failure scenaro to handle.  Nobody gets informed of the
 update, and the update can safely be retried after the original update
@@ -372,7 +248,7 @@ Client <-[#red]- consumer: 500 "Event expired"
 @enduml
 ```
 
-#### Event is confirmed by adapter, but not updated in back-end system
+##### Event is confirmed by adapter, but not updated in back-end system
 
 This scenario is very similar to the one above - the only difference is 
 the time it takes for the event to expire.
@@ -403,17 +279,13 @@ Client <-[#red]- consumer: 500 "Event expired"
 @enduml
 ```
 
-#### Event is confirmed and updated in back-end system, but client is not notified
+##### Event is confirmed and updated in back-end system, but client is not notified
 
-This is the most difficult scenario.  Since the back-end system has been 
-updated, the event cannot safely be retried, although the client does not
-know.  There are basically two ways to resolve this issue.
+This is the most difficult scenario.  Since the back-end system has been updated, the event cannot safely be retried, although the client does not know. There are basically two ways to resolve this issue.
 
-Which of these is better depends on the back-end system's ability to record
-and roll back pending modifications.
+Which of these is better depends on the back-end system's ability to record and roll back pending modifications.
 
-
-##### Roll back the modification so it can safely be retried.
+###### Roll back the modification so it can safely be retried
 
 ```plantuml
 @startuml orphaned
@@ -450,7 +322,7 @@ For this case to be possible, the connection between the
 adapter and the back-end system must support transaction
 rollback, or similar compensating operations.
 
-##### Use conflict detection to reject a retry with `CONFLICT` status.
+###### Use conflict detection to reject a retry with `CONFLICT` status.
 
 ```plantuml
 @startuml duplicate
@@ -495,29 +367,27 @@ back-end system, and that the client correctly handles the
 `409` status and updates its pending transaction with this
 information.
 
-## What is REST?
-
->The basis for almost all modern web-based APIs.
+## Understanding the API
 
 ### REST? HATEOAS? HAL?
+
 #### Representational state transfer
 
-https://en.wikipedia.org/wiki/Representational_state_transfer
+<https://en.wikipedia.org/wiki/Representational_state_transfer>
 
 #### Hypermedia As The Engine Of Application State
 
-https://en.wikipedia.org/wiki/HATEOAS
+<https://en.wikipedia.org/wiki/HATEOAS>
 
 #### Hypertext Application Language
 
-https://en.wikipedia.org/wiki/Hypertext_Application_Language
+<https://en.wikipedia.org/wiki/Hypertext_Application_Language>
 
+### Information Model at the Center
 
-## Information Model at the Center
+In FINT, the information model defines how the APIs are structured and how they function.
 
-In FINT APIs, the information model defines how the APIs are structured and how they function.
-
-### Types of classes
+#### Types of classes
 
 The FINT information model has four types of classes:
 
@@ -532,21 +402,21 @@ Only main classes are directly accessible from FINT APIs, and every main class i
 
 All other types are used to construct the main classes, either by abstraction of common fields, or to represent fields in the classes.
 
-### Identity
+#### Identity
 
-Main classes have identity, and can be referred to using an identifier value.  This is represented by attributes of the type `Identifikator`.  All main classes have at least one attribute of this type, but it's perfectly legal to have more than one identifying attribute.
+Main classes have identity, and can be referred to using an identifier value. This is represented by attributes of the type `Identifikator`. All main classes have at least one attribute of this type, but it's perfectly legal to have more than one identifying attribute.
 
 If the class has multiple identifying attributes, any of the identifying attributes can be used to reference it, and the FINT API exposes endpoints to refer to the class by all of the identifying attributes.
 
-For instance, `Personalressurs` can be identified by both `ansattnummer`, `brukernavn` and `systemId`. 
+For instance, `Personalressurs` can be identified by both `ansattnummer`, `brukernavn` and `systemId`.
 
-### Relations
+#### Relations
 
-Relations can be added to main classes, either directly or in an abstract base class.  In addition, attributes of the class can be comples datatypes, which also can have relations.
+Relations can be added to main classes, either directly or in an abstract base class.  In addition, attributes of the class can be complex datatypes, which also can have relations.
 
-The name of the relation represents the relationship from the source to the target, and is often the name as the class of the target.
+The name of the relation represents the relationship from the source to the target, and has often the same name as the class of the target.
 
-Relations can be optional or mandatory, single-valued or multi-value.  In any case, they are always represented in the same form. 
+Relations can be optional or mandatory, single-value or multi-value.  In any case, they are always represented in the same form.
 
 All relations are in the `_links` attribute on the class it links from.  Remember, this can be an inner complex datatype.  
 
@@ -556,7 +426,7 @@ All relations to other resources in the information model *always* refer to a ma
 
 The FINT model also includes references to resources outside the model.  These are represented by a special type of relation called `Referanse`.  They are also represented as URIs.
 
-### Attributes
+#### Attributes
 
 Attributes in the resources can either be complex datatypes or any of the primitive types:
 
@@ -565,11 +435,11 @@ Attributes in the resources can either be complex datatypes or any of the primit
 - float
 - dateTime
 
-Attributes can be optional or mandatory, single-valued or multi-value.  Multi-value attributes are always represented as an array, even if there is only a single value.
+Attributes can be optional or mandatory, single-value or multi-value.  Multi-value attributes are always represented as an array, even if there is only a single value.
 
 Dates are represented in ISO 8601 form with UTC time zone: `2019-06-05T09:48:23Z`.
 
-## Naming convention
+### Naming convention
 
 FINT information objects are named based on the packaging structure in the information model:
 
@@ -604,50 +474,48 @@ Norwegian characters are translated according to the following scheme:
 | ø | o |
 | å | a |
 
-
-
-## Common operations
+### Common operations
 
 These operations are available for all classes in the FINT information model.
 
-### Get all objects of a given class
+#### Get all objects of a given class
 
 `/domain/package/class`, i.e. `/administrasjon/personal/personalressurs`
 
-This operation fetches all objects of a given class from the FINT cache.  The response looks
+This operation fetches all objects of a given class from the FINT cache. The response looks
 like this:
 
 ```json
 {
-    "_embedded": {
-        "_entries": [
-            {
-                
-            },
-            {
-                
-            }
-        ]
-    },
-    "_links": {
-        "self": [
-            {
-                "href": "..."
-            }
-        ]
-    },
-    "total_items": 111
+  "_embedded": {
+    "_entries": [
+      {
+
+      },
+      {
+
+      }
+    ]
+  },
+  "_links": {
+    "self": [
+      {
+          "href": "..."
+      }
+    ]
+  },
+  "total_items": 111
 }
 ```
 
-### Fetch individual item by identifier
+#### Fetch individual item by identifier
 
 `/domain/package/class/field/value`, i.e. `/administrasjon/personal/personalressurs/ansattnummer/123456`
 
 Given an identifier field name (any field of type `Identifikator`) and the identifier value, try
 fetching the individual item.
 
-### Size of cache for a given class
+#### Size of cache for a given class
 
 `/domain/package/class/cache/size`, i.e. `/administrasjon/personal/personalressurs/cache/size`
 
@@ -659,7 +527,7 @@ Return the size of the cache for a given class.  The response looks like this:
 }
 ```
 
-### Timestamp for when cache was last updated
+#### Timestamp for when cache was last updated
 
 `/domain/package/class/last-updated`, i.e. `/administrasjon/personal/personalressurs/last-updated`
 
@@ -671,7 +539,7 @@ Return a timestamp indicating when the cache was last updated.  The response loo
 }
 ```
 
-### Get objects updated since timestamp
+#### Get objects updated since timestamp
 
 `/domain/package/class?sinceTimeStamp=<time>`, i.e. `/administrasjon/personal/personalressurs?sinceTimeStamp=1559551091034`
 
@@ -703,20 +571,20 @@ provided timestamp.  The response looks like this:
 
 If `total_items` is `0`, this indicates that there are no new updates since the given timestamp.
 
-### Health Check
+#### Health Check
 
 `/domain/package/admin/health`, i.e. `/administrasjon/personal/admin/health`
 
 Triggers a health check towards the adapter providing data.  The response indicates whether the adapter is connected and responding.
 
-## General guidelines
+### General guidelines
 
 To get the most value from FINT APIs, some guidelines to follow.
 
-### Information is a Graph
+#### Information is a Graph
 
-FINT's resources have relatively few attributes, but more relations.  Every resource only has the attributes that are
-directly relevant for the resource.  Everything else is represented as relations (links) to other resources. 
+FINT resources have relatively few attributes, but more relations.  Every resource only has the attributes that are
+directly relevant for the resource.  Everything else is represented as relations (links) to other resources.
 As an example, the class `Personalressurs`, representing an employee, does not have the employee's name.  Instead there is
 a link to `Person`, representing a private person, where you find the properties of the employee as a private person.
 
@@ -730,23 +598,22 @@ Resources in FINT are represented using URIs.  These URIs are constructed by the
 
 As long as the identifiable attribute does not change, neither does the URI representing the resource.
 
-### Everything is a Resource
+#### Everything is a Resource
 
 All classes in the FINT information model is represented in the exact same way, as resources with URIs and references using URIs to other classes it refers to.
 
 The type of the resource is explicit from the URI of the resource.  For instance, from the URI `/administrasjon/personal/personalressurs`, the type of the resource is always `Personalressurs`.
 
-
-## Updating information using FINT
+### Updating information using FINT
 
 Updates use HTTP operations to create, modify and delete information.  It builds upon the "everything
 is a resource" principle, so when updating information the resource URI is central.
 
-### Asynchronous operations
+#### Asynchronous operations
 
 Since the updates must propagate via the FINT component and an adapter before being processed by the
-back end system, updates might take some time to complete.  For this, FINT APIs use asynchronous
-operations as described in http://restcookbook.com/Resources/asynchroneous-operations/.
+back-end system, updates might take some time to complete.  For this, FINT APIs use asynchronous
+operations as described in <http://restcookbook.com/Resources/asynchroneous-operations/.>
 
 The process is as follows:
 
@@ -764,11 +631,11 @@ The process is as follows:
      is `409` and the response body contains the original information the update conflicts with.
    - If there was a temporary failure processing the request, status `500` with the
      error message.
-      In this case the client can re-try the request.
+      In this case the client can retry the request.
 
 The *Status* resource is valid for 30 minutes after initiating the original request.
 
-### Creating new objects
+#### Creating new objects
 
 `POST /domain/package/class`, i.e. 
 `POST /administrasjon/personal/fravar`
@@ -777,7 +644,7 @@ The body must be a complete resource to be created, including `_links` to other 
 
 Internal identifiers controlled by the back-end system can be omitted.
 
-### Modifying existing objects
+#### Modifying existing objects
 
 `PUT /domain/package/class/field/value`, i.e. `PUT /administrasjon/personal/personalressurs/ansattnummer/123456`
 
@@ -787,456 +654,45 @@ Any field of type `Identifikator` can be used to identify the resource.
 The body must be the complete resource after modification.
 Attributes that can be modified are indicated in the information model.
 
-### Deleting objects
+#### Deleting objects
 
 `DELETE /domain/package/class/field/value`, i.e. `DELETE /administrasjon/personal/fravar/systemid/abcdef1234`
 
 Not all information classes support deletion.
 If deletion is not supported, the operation is rejected with status `400`.
 
+## The information model
 
-## Accessing
-All FINT APIs are protected, and require Bearer token authorization.
+### Versioning
 
-### OAuth 2.0 Resource Owner Credentials Flow
+FINT is using [semantic versioning](http://semver.org/) for the information model:
 
-To access FINT resources, a valid Bearer token must be obtained from the FINT IDP.  Authorization details are available from the FINT customer portal, https://kunde.felleskomponent.no
+* `MAJOR` version have **backwards incompatible changes**
+* `MINOR` *(feature release)* versions add functionality in a **backwards-compatible manner**, and
+* `PATCH` *(bug fixes)* versions add **backwards-compatible bug fixes**.
 
-### Example projects for accessing FINT data
+Additional labels for pre-release and build metadata are available as extensions to the `MAJOR.MINOR.PATCH` format.
 
-- Java, using Spring Boot: https://github.com/FINTLabs/client-example-spring
-- Java, using Google HTTP and OAuth libraries: https://github.com/FINTLabs/client-example-plain-java
-- Node.JS: https://github.com/FINTLabs/client-example-node
-- Kotlin, using Spring Boot: https://github.com/FINTLabs/client-example-kotlin-spring
-- Elm: https://github.com/FINTLabs/fint-api-client-demo
-- BizTalk: https://github.com/FINTLabs/Fint.BizTalk.Example
-- C#: https://github.com/FINTLabs/Fint.DotNet.Example
+* `MINOR` versions are generally even numbers: 0, 2, 4, ...
+* `PATCH` numbers are released in increments of 10: 0, 10, 20, ...
 
-### Libraries for accessing OAuth protected resources
+>The version relation between the FINT Information model and the technical implementations is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of technical implementations based on the **same** FINT Information model will increment the `PATCH` number by `1`.
 
-- Spring Boot OAuthRestTemplate: https://github.com/FINTLabs/fint-oauth-token-service
+### Development
 
-### Obtaining a valid Bearer token using `curl`
+The models are designed and documented in `Enterprise Architect (EA)`. You can find the `EA` project at <https://github.com/fintlabs/fint-informasjonsmodell>.
 
-```bash
-curl -s ${IDP_URL} \
--u "${OAUTH_ID}:${OAUTH_SECRET}" \
--d grant_type=password \
--d username="${OAUTH_USER}" \
--d password="${OAUTH_PWD}" \
--d scope="${SCOPE}" | \
-jq -r '.access_token'
-```
+### Presentation
 
-After obtaining the valid token, add it to the request header:
+For a more user-friendly view of the models we developed a frontend to the `XMI 2.1` export from `EA`. For more information about the FINT information model and a description of all the classes, attributes and relations go to <https://informasjonsmodell.felleskomponent.no>.
 
-```bash
-curl -H "Authorization: Bearer ${TOKEN}" https://.....
-```
+The project for the frontend is found here <https://github.com/fintlabs/fint-informasjonsmodell-documentation>.
 
-## FINT environments
-
-FINT offers three environments, Play-with-FINT, Beta and Production:
-
-- https://play-with-fint.felleskomponent.no
-- https://beta.felleskomponent.no
-- https://api.felleskomponent.no
-
-For all of these environments the URIs follow the same pattern, so to find employee #33445, append the following path to the URI: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
-
-## JSON Schema
-
-FINT offer [draft-07](https://json-schema.org/specification.html) JSON Schema for all classes in the FINT information model.  These are available under https://fintlabs.no/schema/
-
-To find a particular schema, the domain of the resource class and the name of the resource is added to the URI in the form `<domain>/<class>.json`
-
-For insance, the schema for `Personalressurs` is available at https://fintlabs.no/schema/administrasjon/personalressurs.json
-
-## GraphQL API
-
-FINT also offers an experimental [GraphQL](https://graphql.org/) API for accessing data as a graph.
-
-The GraphQL endpoint is at `/graphql/graphql`.  It requires the same Bearer token as the rest of the FINT APIs.
-
-Our recommended client to test GrapqQL is https://insomnia.rest - using this the OAuth credentials from the customer portal can be used directly as an Environment.
-
-Create a `POST` request to the GraphQL endpoint, configure OAuth 2, and Insomnia fetches the GraphQL schema so you can validate the query and see the results.
-
-### FINT GraphQL Schema
-
-The GraphQL schema for FINT follow the information model exactly.  The root schema defines query endpoints for all resources by an identifier.  It is not possible to get all resources for a class for performance reasons.
-
-### Example queries
-
-Here are some examples to get you started.
-
-#### Employee information
-
-Given an employee ID, find person's name and National Identity Number, all positions with size and place of employment:
-
-```graphql
-query ($ansattnummer: String) {
-  personalressurs(ansattnummer: $ansattnummer) {
-    person {
-      fodselsnummer {
-        identifikatorverdi
-      }
-      navn {
-        fornavn
-        etternavn
-      }
-    }
-    arbeidsforhold {
-      ansettelsesprosent
-      arbeidssted {
-        organisasjonsKode {
-          identifikatorverdi
-        }
-        organisasjonsnavn
-      }
-    }
-  }
-}
-```
-
-#### Student information
-
-Given a student's FEIDE name, find student's contact information, school and home address. 
-
-```graphql
-query ($feidenavn: String) {
-  elev(feidenavn: $feidenavn) {
-    kontaktinformasjon {
-      epostadresse
-      mobiltelefonnummer
-    }
-    elevforhold {
-      skole {
-        navn
-        organisasjon {
-          organisasjonsnavn
-        }
-      }
-    }
-    person {
-      navn {
-        fornavn
-        etternavn
-      }
-      bostedsadresse {
-        adresselinje
-        postnummer
-        poststed
-      }
-    }
-  }
-}
-```
-
-#### Class membership
-
-Given a teaching group's systemId, find names and contact information for all students in that group:
-
-```graphql
-query ($systemId: String) {
-  undervisningsgruppe(systemId: $systemId) {
-    navn
-    beskrivelse
-    elevforhold {
-      elev {
-        kontaktinformasjon { 
-          mobiltelefonnummer
-        }
-        person {
-          navn {
-            fornavn
-            etternavn
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-## Tools
-
-## FINT Test Client
-
-FINT has a web-based test client for accessing and inspecting data available through FINT.
-
-This test client is available under the URL `/test-client/` for each environment, i.e.:
-
-- https://play-with-fint.felleskomponent.no/test-client/
-- https://beta.felleskomponent.no/test-client/
-- https://api.felleskomponent.no/test-client/
-
-For Play-with-FINT the test client immediately presents you with the welcome page where you can
-enter the URI for a resource to access.  The other two requires authentication, so you'll need to provide
-valid authorization details for a client from FINT's customer portal.
-
-On the welcome page, enter the URI for a resource, i.e. `/administrasjon/organisasjon/organisasjonselement`
-and hit the button.  Results are presented as JSON, and all the URLs can be clicked to follow links to
-other resources from within the test client.
-
-### Get FINT Token Web
-FINT has a web-based tool to get a token that you can use to insert a token using i.e. `ModHeader` plugin for `Chrome`.
-
-https://token.fintlabs.no/
-
-### fint-curl
-
-This script can be used to fetch a protected FINT resource, fetching a bearer token when needed.
-
-To use it, copy the client authorization details from https://kunde.felleskomponent.no to a file called `client.json` in the current directory.  The name and location of this file can be overridden using the environment variable `CLIENT`.
-
-```bash
-#!/bin/bash
-
-#set -x
-
-if ! ( curl --version > /dev/null && jq --version > /dev/null)
-then
-	echo "Required tools curl and jq not installed"
-	exit 1
-fi
-
-case $(uname -s) in
-	Linux)
-		STATSZ="stat -c %s"
-		STATMT="stat -c %Y"
-		;;
-
-	Darwin)
-		STATSZ="stat -f %z"
-		STATMT="stat -f %m"
-		;;
-
-	*)
-		echo "Unknown OS $(uname -s)"
-		exit 1
-		;;
-esac
-
-CLIENT=${CLIENT:-client.json}
-TOKEN=${CLIENT}.token
-
-if [[ ! -e $CLIENT ]]
-then
-    echo "Client settings missing"
-    exit 1
-fi
-
-eval $(cat $CLIENT | jq -r  "\"OAUTH_ID=\"+.clientId, \"OAUTH_SECRET=\"+.openIdSecret, \"OAUTH_USER=\"+.username, \"OAUTH_PWD=\"+.password, \"SCOPE=\"+.scope, \"IDP_URL=\"+.idpUri, \"ASSET_ID=\"+.assetId")
-
-if [[ ! ( -e $TOKEN ) || $($STATSZ $TOKEN) -lt 10 || ( $(( $(date +%s) - $($STATMT $TOKEN) )) -gt 3500 ) ]]
-then
-    curl -f -s ${IDP_URL:-https://idp.felleskomponent.no/nidp/oauth/nam/token} -u "${OAUTH_ID}:${OAUTH_SECRET}" -d grant_type=password -d username="${OAUTH_USER}" -d password="${OAUTH_PWD}" -d scope="${SCOPE:-fint-client}" | jq -r '.access_token' > $TOKEN
-fi
-
-if [[ $($STATSZ $TOKEN) -lt 10 ]]
-then
-	echo "Authorization failure"
-	exit 1
-fi
-
-curl -H "Authorization: Bearer $(cat $TOKEN)" -H  "accept: application/json;charset=UTF-8" -H "Content-Type: application/json" -H  "x-org-id: ${ASSET_ID:-fintlabs.no}" -H  "x-client: ${OAUTH_USER}" $*
-
-```
-
-### jsonvalidate
-
-This Python 2.7 script performs JSON schema validation on a collection of resources.  The schema to use is provided as an URI on the command line.  It reads the resources from standard input, so it can be piped with `fint-curl` above to retrieve the data, i.e.
-
-```bash
-fint-curl https://beta.felleskomponent.no/administrasjon/personal/personalressurs | \
-jsonvalidate https://fintlabs.no/schema/administrasjon/personalressurs.json
-```
-
-Make sure the libraries are the most recent ones from PyPI, the versions supplied with Debian / Ubuntu are too old.
-
-```python
-#!/usr/bin/python
-
-import jsonschema
-import requests
-import sys
-import json
-from tqdm import tqdm
-
-r = requests.get(sys.argv[1])
-
-schema = r.json()
-
-data = json.load(sys.stdin)
-
-validator = jsonschema.Draft7Validator(schema)
-
-print "Validating", data["total_items"], "items..."
-
-errors = 0
-
-with open("errors.log", "a") as logfile:
-	for item in tqdm(data["_embedded"]["_entries"]):
-		try:
-			validator.validate(item)
-		except Exception as e:
-			errors += 1
-			print >> logfile, item
-			print >> logfile, e
-	
-print "Validation completed with", errors, "errors."
-
-```
-
-## Test klient
-
-### Veiledning i bruk av Test klient
-FINTLabs har laget en testklient som kan brukes. Den finner du her https://beta.felleskomponent.no/test-client/
-
-Her får man opp en påloggingsvindu med 5 felter:
-
-Påloggingsinfo hentes fra Kundeportalen til FINT. [Her](kundeportal) finner du fremgangsmåten for å opprette klienter i kundeportalen.
-
-```
-Client ID: xxxxx
-Client Seceret: xxxxxxxxxxxxxx
-Username: xxxxxxx
-Password: xxxxxxxx
-OrgId: xxxxxxx
-```
-
-Når man har logget inn kommer man hit:
-
-![ill1](_media/testclient-1.png)
-
-Her kan man legge inn de endepunktene som skal sjekkes ved å lime/skrive inn endepunktet på følgende måte:
-
-![ill2](_media/testclient-2.png)
-
-Trykk så på knappen bak hvor det står FINT!
-
-Da får du opp resultatet i JSON format:
-
-![ill3](_media/testclient-3.png)
-
-Under `_links` er koblinger til andre modeller. Man kan klikke på linkene for å se hvilken informasjon som ligger i koblingen.
-
-Verdiene her bør sjekkes mot informasjonsmodellen og mot fagsystemet. Sjekk at multiplisiteten og typen er korrekt. Sjekk også at dataen er fylt ut i korrekte felter.
-
-Informasjonsmodellen finnes her:
-
-https://informasjonsmodell.felleskomponent.no/docs
-
-!>Det kan være utvidelser i modellen på denne siden i forhold til den versjonen av adapteret som testes.
-
-Her kan man også finne de andre modellene/endepunktene som skal sjekkes (i menyen til venstre)
-
-![ill4](_media/testclient-4.png)
-
-
-Endepunkter som må sjekkes:
-
-**Leveranse 1 – `Personal/ Ansatt`**
-
-* `administrasjon/personal/person`
-* `administrasjon/personal/personalressurs`
-* `administrasjon/personal/arbeidsforhold`
-
-**Leveranse 1 – `Kodeverk`, som f.eks**
-
-* `administrasjon/kodeverk/art`
-* `administrasjon/kodeverk/ansvar`
-* `administrasjon/kodeverk/funksjon`
-* `administrasjon/kodeverk/prosjekt`
-* `administrasjon/kodeverk/lonnsart`
-* `administrasjon/kodeverk/stillingskode`
-
-**Leveranse 1 – `Organisasjonsstruktur`**
-* `administrasjon/organisasjon/organisasjonselement`
-
- 
-
-### Tester
-Gjennomfør stikkprøver hvor dere verifiserer at overført informasjon kommer i rett felt.
-
-#### Opprett ny ansatt i HR-system
-Sjekk at den ansatte vises i VIS (hvis du har tilgang til VIS, ellers sjekk i TestClient)
-Endre informasjon på en ansatt i HR-system f.eks.
-
-* Adresse
-* Telefonnummer
-* Ansettelsesprosent
-* Hovedstilling
-* Stillingstittel
-* Tilstedeprosent
-* Årslønn
-* Sjekk om informasjonen blir endret tilsvarende i VIS (hvis du har tilgang til VIS, ellers sjekk i TestClient)
-
-#### Slett bruker i HR-system
-
-* Verifiser at bruker blir slettet fra VIS (hvis du har tilgang til denne, ellers sjekk i TestClient)
-
-#### Flytte en ansatt mellom to virksomheter
-* Flytt en ansatt fra en virksomhet til en annen virksomhet
-* Verifiser at vedkommende blir flyttet tilsvarende i VIS (hvis du har tilgang til VIS, ellers sjekk i TestClient)
-* Verifiser at personen blir slettet fra den ene og opprettet på den andre virksomheten
- 
-
-#### Opprett en ansatt på to virksomheter
-
-* Verifiser at den ansatte blir opprettet på begge virksomheter i VIS (hvis du har tilgang til VIS, ellers sjekk i TestClient)
- 
-
-#### Kontroller antall ansatte på virksomheten
-
-* Sjekk antall ansatte registrert i HR-system på aktuell virksomhet
-* Sjekk antall ansatte registrert i VIS på aktuell virksomhet (hvis du har tilgang til VIS, ellers sjekk i TestClient)
- 
-
-#### Kriterier
-**Ansatt**
-
-*Agresso*, kriterier som bestemmer hvilke data som overføres til FINT/VIS:
-
-* fødselsnummer må være ulikt `00000000019`
-* ansatte `+/- 365 dager` fra dagens dato når HR-adapteret overfører informasjon til FINT/VIS
-
-*Visma Enterprise*, kriterier som bestemmer hvilke data som overføres til FINT/VIS:
-* filtrering på selskapsnr, slik at kun fylkeskommunens ansatte hentes ut. (Ikke fk-foretak o.l.)
-* ansatte `+/- 365 dager` fra dagens dato når HR-adapteret overfører informasjon til FINT/VIS
-
-## Informationmodels
-### Models and Common API
-*FINT Information models* are models used in the *Common API*. The models contains information resoures the county council use in their day to day tasks. *FINT* aims to develop this model to contain vital information in all the areas the county council operates in. This means that every new version will contain more information and an new areas.
-
->Go to [Information Model at the Center](api?id=information-model-at-the-center) for more details.
-
-#### Versioning
-
-FINT is using [semantic versioning](http://semver.org/) for its models:
-
-- `MAJOR` version have **backwards incompatible changes**
-- `MINOR` *(feature release)* versions add functionality in a **backwards-compatible manner**, and
-- `PATCH` *(bug fixes)* versions add **backwards-compatible bug fixes**. 
-
-Additional labels for pre-release and build metadata are available as extensions to the `MAJOR.MINOR.PATCH` format. 
-
-- `MINOR` versions are generally even numbers: 0, 2, 4, ...
-- `PATCH` numbers are released in increments of 10: 0, 10, 20, ...
-
->The version relation between the *FINT Information model* and the *technical implementations* is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of *technical implementations* based on the **same** *FINT Information model* will increment the `PATCH` number by `1`. 
-
-### FINT information models
-The models are designed and documented in `Enterprise Architect (EA)`. You can find the `EA` project at [https://github.com/fintlabs/fint-informasjonsmodell](https://github.com/fintlabs/fint-informasjonsmodell). 
-
-#### Documentation portal
-For a more userfriendly view of the models we developet a frontend to the `XMI 2.1` export from `EA`. You can find the documentation portal at [https://informasjonsmodell.felleskomponent.no](https://informasjonsmodell.felleskomponent.no).
-
-The project for the frontend is found [here](https://github.com/fintlabs/fint-informasjonsmodell-documentation).
+The technical implementations of the models can be found at <https://github.com/FINTmodels>.
 
 #### Contribute
-If you find bugs or have suggestions for improvement please feel free to submit an [issue](https://github.com/fintlabs/fint-informasjonsmodell/issues).
+
+If you find bugs or have suggestions for improvement please feel free to submit an issue at <https://github.com/fintlabs/fint-informasjonsmodell/issues>.
 
 #### Latest versions
 
@@ -1256,3 +712,13 @@ If you find bugs or have suggestions for improvement please feel free to submit 
 | Common            | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Felles.svg)](https://github.com/FINTmodels/FINT.Model.Felles)                           | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Felles.svg)](https://bintray.com/fint/nuget/FINT.Model.Felles/_latestVersion)                           |
 | Administration    | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Administrasjon.svg)](https://github.com/FINTmodels/FINT.Model.Administrasjon)           | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Administrasjon.svg)](https://bintray.com/fint/nuget/FINT.Model.Administrasjon/_latestVersion)           |
 | Education         | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Utdanning.svg)](https://github.com/FINTmodels/FINT.Model.Utdanning)                     | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Utdanning.svg)](https://bintray.com/fint/nuget/FINT.Model.Utdanning/_latestVersion)                                    |
+
+## Choosing an environment
+
+FINT offers three environments:
+
+* <https://play-with-fint.felleskomponent.no> (play)
+* <https://beta.felleskomponent.no> (beta)
+* <https://api.felleskomponent.no> (prod)
+
+For all of these environments the URIs follow the same pattern, so to find employee #33445, append the following path to the URI: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
