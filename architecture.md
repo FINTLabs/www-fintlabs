@@ -23,7 +23,7 @@ Grensesnitt for tilbydere av informasjon til felleskomponentene. Tilbydere kan s
 
 Et adapter er først og fremst en «oversetter» mellom to ulike standarder eller teknologiplattformer. Adaptere skal benyttes for å lage en leverandør-spesifikk-tilpasning til en felleskomponent. Adapteret skal understøtte en teknologiuavhengig modell og håndtere implementasjonsdetaljer i kommunikasjonen mellom felleskomponenten og fagsystemet. Et adapter skal fortrinnsvis utvikles, eies og forvaltes av leverandøren av fagsystemet som adapteret skal virke mot.
 
-## Internals (English)
+## FINT innvendig (in english)
 
 The Common API has two main services:
 
