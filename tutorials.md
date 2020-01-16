@@ -403,7 +403,7 @@ FINTLabs har laget en testklient som kan brukes. Den finner du her <https://beta
 
 Her får man opp en påloggingsvindu med 5 felter:
 
-Påloggingsinfo hentes fra Kundeportalen til FINT. [Her](kundeportal) finner du fremgangsmåten for å opprette klienter i kundeportalen.
+Påloggingsinfo hentes fra Kundeportalen til FINT. [Her](./tutorials.md?id=klienter) finner du fremgangsmåten for å opprette klienter i kundeportalen.
 
 ```
 Client ID: xxxxx
@@ -433,7 +433,7 @@ Verdiene her bør sjekkes mot informasjonsmodellen og mot fagsystemet. Sjekk at 
 
 Informasjonsmodellen finnes her:
 
-https://informasjonsmodell.felleskomponent.no/docs
+<https://informasjonsmodell.felleskomponent.no>
 
 !>Det kan være utvidelser i modellen på denne siden i forhold til den versjonen av adapteret som testes.
 

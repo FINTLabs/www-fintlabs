@@ -11,7 +11,7 @@ FINT ble etablert i 2015 for å utarbeide felles prinsipper og standarder for in
 
 Leveransene fra FINT består av en standardisert informasjonsmodell og API, som kan legges til grunn ved fremtidige anskaffelser av nye systemer (kravspesifikasjon), forbedring av eksisterende tjenester og utvikling av nye tjenester (digitalisering). Det vil gi generelle besparelser og høyere kvalitet, fordi ting gjøres én gang og likt for alle fylkeskommuner.
 
-Arbeidet til FINT er tett knyttet opp mot Rammeverk for informasjonsforvaltning og Felles datakatalog fra Difi og Brønnøysundregistrene m.fl.
+Arbeidet og metodikken til FINT er tett knyttet opp mot Rammeverk for informasjonsforvaltning og Felles datakatalog fra Difi og Brønnøysundregistrene m.fl.
 
 FINTLabs forvaltes av [Vigo IKS](https://www.vigoiks.no), og har som oppgave å ivareta alle fylkeskommuners behov innen:
 
