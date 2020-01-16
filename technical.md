@@ -18,10 +18,10 @@ After that you can setup your adapter skeleton of choice:
 
 The skeleton handles **connection**, **authorization** and **communication** with FINT.
 
-Your task in developing an adapter is to:
+Your task as developer of an adapter is to:
 
 1. Reponde to `events` sent from FINT
-2. Interact with you backend system
+2. Interact with you back-end system
 3. Map you data to FINT
 4. Send back the information asked for in the `event`
 
@@ -548,24 +548,24 @@ provided timestamp.  The response looks like this:
 
 ```json
 {
-    "_embedded": {
-        "_entries": [
-            {
-                
-            },
-            {
-                
-            }
-        ]
-    },
-    "_links": {
-        "self": [
-            {
-                "href": "..."
-            }
-        ]
-    },
-    "total_items": 2
+  "_embedded": {
+    "_entries": [
+      {
+
+      },
+      {
+
+      }
+    ]
+  },
+  "_links": {
+    "self": [
+      {
+          "href": "..."
+      }
+    ]
+  },
+  "total_items": 2
 }
 ```
 
@@ -661,6 +661,35 @@ Attributes that can be modified are indicated in the information model.
 Not all information classes support deletion.
 If deletion is not supported, the operation is rejected with status `400`.
 
+### API Internals
+
+The Common API has two main services:
+
+* Cache service
+* Event service
+
+### Cache Service
+
+The cache service has the following responsibility:
+Store data from the business applications for all the organisations using the Common API
+Populate the cache
+Keeps track of which data has changed since the last time the cache was populated
+
+### Event service
+
+The internals in the Common API is event based. An event is created by:
+
+* Cache Service
+* Client
+
+When a client hits a endpoint in the Consumer API the Common API is generating an event and sends it to the Cache Service. An event from the client will never go all the way down to the adapter.
+
+When the Cache Service need to update the cache it sends an event down to the adapter.
+
+All events are logged at all stages.
+
+![ill2](_media/fint-event-flow.png)
+
 ## The information model
 
 ### Versioning
@@ -713,7 +742,7 @@ If you find bugs or have suggestions for improvement please feel free to submit 
 | Administration    | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Administrasjon.svg)](https://github.com/FINTmodels/FINT.Model.Administrasjon)           | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Administrasjon.svg)](https://bintray.com/fint/nuget/FINT.Model.Administrasjon/_latestVersion)           |
 | Education         | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Utdanning.svg)](https://github.com/FINTmodels/FINT.Model.Utdanning)                     | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Utdanning.svg)](https://bintray.com/fint/nuget/FINT.Model.Utdanning/_latestVersion)                                    |
 
-## Choosing an environment
+## FINT environments
 
 FINT offers three environments:
 
