@@ -2,10 +2,10 @@
 
 >FINT (Felles  Fylkeskommunale INTegrasjoner)
 
-![ill1](_media/fint-cartoon-01.png)
+![ill1](_media/fint-cartoon-home.png)
 
-* beskriver og modellerer informasjon i fagsystemer i henhold til felles informasjonsmodell og tilgjengeliggjør informasjon gjennom felles API
-* felles forretningsbegreper og åpne tekniske standarder tilrettelegger for interoperabilitet og sanntids gjenbruk av data
+* Beskriver og modellerer informasjon i fagsystemer i henhold til felles informasjonsmodell og tilgjengeliggjør informasjon gjennom felles API
+* Felles forretningsbegreper og åpne tekniske standarder tilrettelegger for interoperabilitet og sanntids gjenbruk av data
 
 FINT ble etablert i 2015 for å utarbeide felles prinsipper og standarder for integrasjoner for fylkeskommuner. Kombinasjonen av en standardisert informasjonsmodell og tilgjengeliggjøring av informasjon over åpne programerbare grensesnitt (API) er hovedbjelkene i strategien bak FINT. Prinsipper, informasjonsmodell og API spiller sammen i en teknologi- og leverandøruavhengig løsning og utgjør en felles fylkeskommunal integrasjonstrategi.
 
