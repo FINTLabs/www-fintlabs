@@ -9,6 +9,10 @@
     font-size: 1.2em;
 }
 
+.getting-started-highlight {
+  font-size: 1.6em;
+}
+
 @media screen and (max-width: 768px) {
     nav {
       display: none;
