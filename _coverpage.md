@@ -1,6 +1,6 @@
 <!-- _coverpage.md -->
 
-![ill1](_media/fint-cartoon-cover.png ':size=500')
+<img class="cover-cartoon" src="/_media/fint-cartoon-cover.png" data-origin="_media/fint-cartoon-cover.png" alt="ill1">
 
 [Hvorfor FINT?](home.md)
 [Kom i gang](getting-started.md)

@@ -7,7 +7,6 @@
 * [Verktøy](tools.md)
 * [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)
-* [Prosjekter](projects.md)
 * [Kontakt](contact.md)
 
 - ****

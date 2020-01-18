@@ -2,7 +2,7 @@
 
 >FINT (Felles  Fylkeskommunale INTegrasjoner)
 
-![ill1](_media/fint-cartoon-home.png)
+![ill1](_media/fint-cartoon-home.png ':no-zoom')
 
 * Beskriver og modellerer informasjon i fagsystemer i henhold til felles informasjonsmodell og tilgjengeliggjør informasjon gjennom felles API
 * Felles forretningsbegreper og åpne tekniske standarder tilrettelegger for interoperabilitet og sanntids gjenbruk av data
