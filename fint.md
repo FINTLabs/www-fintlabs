@@ -1,22 +1,15 @@
-# FINT
+Semantikk + modell + API = FINT
 
-## Hva er FINT?
->FINT ( Felles  Fylkeskommunale INTegrasjoner )
+## Semantikk 
+SEMANTIKK sikrer en presis forståelse av forretningsbegreper og prosessene knyttet til begrepene. I interoperabilitet er semantikk viktig slik at data og informasjon blir bevart og forstått gjennom hele utvekslingen mellom partene. Med andre ord, det som sendes er det som forstås.
 
-Fintlabs forvaltes av [Vigo IKS](https://www.vigoiks.no), og har som oppgave å ivareta alle fylkeskommuners behov innen:
+Semantisk interoperabilitet beskriver både betydningen av dataelementene og forholdet mellom dem, og det eksakte formatet til informasjon som skal utveksles. Dette vil sikre at dataelementene blir forstått på samme måte av alle kommunikasjonsparter.
 
-* Digitalisering, gjennom etablering av felleskomponenter.
-* Standardisering av integrasjoner for fylkeskommunene
-* Etablering av felles informasjonsmodell som grunnlag for integrasjonene.
+## Modell
+MODELL skaper felles menneskelig forståelse av et fagområde (f.eks. adresse) ved hjelp av begreper, definisjoner og sammenhenger mellom disse.
 
-Leveransene fra FINT består av en informasjonsmodell og et API for kommunikasjon, som kan legges som grunnlag ved fremtidige kjøp av nye systemer (krav), forbedring av eksisterende tjenester og utvikling av nye tjenester (digitalisering). Det vil gi generelle besparelser og høyere kvalitet, fordi ting gjøres en gang og likt hos alle fylkeskommuner. Bruk av felleskomponenter vil redusere kostnader og forenkle utvikling av fremtidige digitale tjenester.
+En informasjonsmodell er uavhengig av løsning (implementasjon), system og teknologi. Modellen skal brukes sammen med andre metoder og teknikker til å lage nye samhandlingsdyktige (interoperable) informasjonsmodeller for applikasjoner, informasjonsutveksling, lenkede data med mer.
 
-# Kontakt
-| Navn                | Tittel                          | Epost               | Mobil      |
-|---------------------|---------------------------------|---------------------|------------|
-| Frode Sjovatsen     | Utviklingsleder                 | frode@fintlabs.no   | 908 82 080 |
-| Torleif Gravelsæter | Informasjonsarkitekt / utvikler | torleif@fintlabs.no | 484 02 217 |
-| Ola Stålberg        | Utvikler                        | ola@fintlabs.no     | 470 59 630 |
-| Asgeir Nilsen       | Informasjonsarkitekt / utvikler | asgeir@fintlabs.no  | 477 59 931 |
-
+## API
+API (Application Programming Interface) er et grensesnitt i en programvare som gjør at spesifikke deler av denne kan aktiveres («kjøres») fra en annen programvare. Kort sagt er et API, i FINT sammenheng, en webside for datamaskiner.
 

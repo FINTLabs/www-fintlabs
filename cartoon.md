@@ -1,6 +1,7 @@
-# Tegneserie
+# FINT illustrert
 
-## Hva vi gjør - enkelt forklart
+## Hva FINT gjør - enkelt forklart {docsify-ignore}
+
 ![fint-tegneserie-01](_media/cartoon/fint-tegneserie-01.png)
 ![fint-tegneserie-02](_media/cartoon/fint-tegneserie-02.png)
 ![fint-tegneserie-03](_media/cartoon/fint-tegneserie-03.png)

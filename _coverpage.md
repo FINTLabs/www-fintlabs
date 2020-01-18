@@ -1,19 +1,9 @@
 <!-- _coverpage.md -->
 
-![logo](_media/fint-white.svg ':size=250')
+<img class="cover-cartoon" src="/_media/fint-cartoon-cover.png" data-origin="_media/fint-cartoon-cover.png" alt="ill1">
 
-# Semantikk + Modell + API = FINT
-
-<p>
-<code>
-FINTLabs har som oppgave å tilgjengeliggjøre informasjon i fagsystemer på en standardisert måte.
-</code>
-</p>
-
-
-
-[Komme i gang](fint.md)
-[Informasjonsmodeller](https://informasjonsmodell.felleskomponent.no/)
-[Tegneserie](tegneserie.md)
+[Hvorfor FINT?](home.md)
+[Kom i gang](getting-started.md)
+[FINT illustrert](cartoon.md)
 
 ![color](#cf202e)
