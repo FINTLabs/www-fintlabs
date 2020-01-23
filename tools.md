@@ -48,11 +48,11 @@ FINT has a web-based tool to get a token that you can use to insert a token usin
 
 ## JSON
 
-FINT offer [draft-07](https://json-schema.org/specification.html) JSON Schema for all classes in the FINT information model.  These are available under <https://fintlabs.no/schema/>.
+FINT offer [draft-07](https://json-schema.org/specification.html) JSON Schema for all classes in the FINT information model.  These are available under <https://schema.fintlabs.no/>.
 
 To find a particular schema, the domain of the resource class and the name of the resource is added to the URI in the form `<domain>/<class>.json`
 
-For insance, the schema for `Personalressurs` is available at <https://fintlabs.no/schema/administrasjon/personalressurs.json>.
+For insance, the schema for `Personalressurs` is available at <https://schema.fintlabs.no/administrasjon/personalressurs.json>.
 
 ### jsonvalidate
 
@@ -60,7 +60,7 @@ This Python 2.7 script performs JSON schema validation on a collection of resour
 
 ```bash
 fint-curl https://beta.felleskomponent.no/administrasjon/personal/personalressurs | \
-jsonvalidate https://fintlabs.no/schema/administrasjon/personalressurs.json
+jsonvalidate https://schema.fintlabs.no/administrasjon/personalressurs.json
 ```
 
 Make sure the libraries are the most recent ones from PyPI, the versions supplied with Debian / Ubuntu are too old.
