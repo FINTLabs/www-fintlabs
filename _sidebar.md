@@ -1,6 +1,7 @@
 * [Forsiden](/)
 * [Hvorfor FINT?](home.md)
 * [Kom i gang](getting-started.md)
+* [Leveranser og prosjekter](projects.md)
 * [Arkitektur](architecture.md)
 * [Teknisk dokumentasjon](technical.md)
 * [Veiledninger](tutorials.md)

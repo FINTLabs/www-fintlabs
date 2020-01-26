@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="983px" height="741px" viewBox="0 0 983 741" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>fint-leveranse-oversikt</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-1.2%" y="-1.6%" width="102.5%" height="103.4%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fint-leveranse-oversikt" filter="url(#filter-1)" transform="translate(4.000000, 1.000000)">
+            <g id="fint-core" transform="translate(0.000000, 337.000000)">
+                <g>
+                    <rect id="Rectangle" fill="#CF202E" x="0" y="0" width="974" height="65" rx="5"></rect>
+                    <text id="FINTCore" fill="#D8D8D8" font-family="Roboto-Regular, Roboto" font-size="36" font-weight="normal" letter-spacing="0.337500013">
+                        <tspan x="410.037695" y="47">FINTCore</tspan>
+                    </text>
+                </g>
+                <g id="core-administrasjon" transform="translate(0.000000, 75.000000)">
+                    <g>
+                        <g id="administrasjon-kodeverk" transform="translate(73.000000, 187.000000) rotate(-90.000000) translate(-73.000000, -187.000000) translate(-61.000000, 166.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="-2.84217094e-14" width="268" height="42" rx="5"></rect>
+                            <text id="Kodeverk" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="83.0609375" y="30">Kodeverk</tspan>
+                            </text>
+                        </g>
+                        <g id="administrasjon-personal" transform="translate(21.000000, 187.000000) rotate(-90.000000) translate(-21.000000, -187.000000) translate(-113.000000, 166.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="-2.84217094e-14" width="268" height="42" rx="5"></rect>
+                            <text id="Personal" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="85.4925781" y="30">Personal</tspan>
+                            </text>
+                        </g>
+                        <g id="administrasjon-arkiv" transform="translate(124.000000, 187.000000) rotate(-90.000000) translate(-124.000000, -187.000000) translate(-10.000000, 166.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="1.13686838e-13" width="268" height="42" rx="5"></rect>
+                            <text id="Arkiv" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="106.34375" y="25">Arkiv</tspan>
+                            </text>
+                        </g>
+                        <g id="administrasjon-fullmakt" transform="translate(176.000000, 187.000000) rotate(-90.000000) translate(-176.000000, -187.000000) translate(42.000000, 166.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="1.13686838e-13" width="268" height="42" rx="5"></rect>
+                            <text id="Fullmakt" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="85.9847656" y="30">Fullmakt</tspan>
+                            </text>
+                        </g>
+                        <g id="administrasjon-organisasjon" transform="translate(227.000000, 187.000000) rotate(-90.000000) translate(-227.000000, -187.000000) translate(93.000000, 166.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="1.13686838e-13" width="268" height="42" rx="5"></rect>
+                            <text id="Organisasjon" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="61.3121093" y="30">Organisasjon</tspan>
+                            </text>
+                        </g>
+                        <g id="administrasjon-betaling" transform="translate(279.000000, 187.000000) rotate(-90.000000) translate(-279.000000, -187.000000) translate(145.000000, 166.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="1.13686838e-13" width="268" height="42" rx="5"></rect>
+                            <text id="betaling" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="88.6507812" y="30">Betaling</tspan>
+                            </text>
+                        </g>
+                        <g id="administrasjon">
+                            <rect id="Rectangle" fill="#666666" x="0" y="0" width="300" height="42" rx="5"></rect>
+                            <text id="Administrasjon" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="66.3234374" y="30">Administrasjon</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g id="core-felles" transform="translate(309.000000, 75.000000)">
+                    <g>
+                        <g id="felles-kodeverk" transform="translate(28.000000, 187.500000) rotate(-90.000000) translate(-28.000000, -187.500000) translate(-106.500000, 159.500000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0.5" y="0.5" width="268" height="55" rx="5"></rect>
+                            <text id="Kodeverk" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="84.0609375" y="31">Kodeverk</tspan>
+                            </text>
+                        </g>
+                        <g id="felles-iso" transform="translate(92.000000, 187.000000) rotate(-90.000000) translate(-92.000000, -187.000000) translate(-42.000000, 161.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="-2.27373675e-13" width="268" height="52" rx="5"></rect>
+                            <text id="ISO" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="114.607812" y="30">ISO</tspan>
+                            </text>
+                        </g>
+                        <g id="felles" transform="translate(-0.000000, 0.000000)">
+                            <rect id="Rectangle" fill="#666666" x="0" y="0" width="118" height="42" rx="5"></rect>
+                            <text id="Felles" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="26.4441406" y="30">Felles</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g id="core-kultur" transform="translate(436.000000, 75.000000)">
+                    <g>
+                        <g id="kultur-kulturminnevern" transform="translate(60.000000, 188.000000) rotate(-90.000000) translate(-60.000000, -188.000000) translate(-74.000000, 129.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0" y="0" width="268" height="118" rx="5"></rect>
+                            <text id="Kulturminnevern" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="43.1445312" y="67">Kulturminnevern</tspan>
+                            </text>
+                        </g>
+                        <g id="kultur">
+                            <rect id="Rectangle" fill="#666666" x="0" y="0" width="118" height="42" rx="5"></rect>
+                            <text id="Kultur" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="25.8171875" y="30">Kultur</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g id="core-ressurser" transform="translate(563.000000, 75.000000)">
+                    <g>
+                        <g id="ressurser-tilgang" transform="translate(68.000000, 187.500000) rotate(-90.000000) translate(-68.000000, -187.500000) translate(-66.500000, 119.500000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0.5" y="0.5" width="268" height="135" rx="5"></rect>
+                            <text id="Tilganger" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="82.3917968" y="77">Tilganger</tspan>
+                            </text>
+                        </g>
+                        <g id="ressurser">
+                            <rect id="Rectangle" fill="#666666" x="0" y="0" width="135" height="42" rx="5"></rect>
+                            <text id="Ressurser" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="11.971875" y="30">Ressurser</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g id="core-utdanning" transform="translate(707.000000, 75.000000)">
+                    <g>
+                        <g id="utdanning-elev" transform="translate(22.500000, 187.000000) rotate(-90.000000) translate(-22.500000, -187.000000) translate(-111.500000, 164.500000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0.5" y="0.5" width="268" height="45" rx="5"></rect>
+                            <text id="Elev" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="111.708203" y="30.5">Elev</tspan>
+                            </text>
+                        </g>
+                        <g id="utdanning-kodeverk" transform="translate(78.000000, 187.000000) rotate(-90.000000) translate(-78.000000, -187.000000) translate(-56.000000, 165.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="1" y="1" width="268" height="44" rx="5"></rect>
+                            <text id="Kodeverk" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="84.0609375" y="31">Kodeverk</tspan>
+                            </text>
+                        </g>
+                        <g id="timeplan" transform="translate(133.500000, 187.000000) rotate(-90.000000) translate(-133.500000, -187.000000) translate(-0.500000, 164.500000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0.5" y="0.5" width="268" height="45" rx="5"></rect>
+                            <text id="Timeplan" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="83.4496093" y="30.5">Timeplan</tspan>
+                            </text>
+                        </g>
+                        <g id="utdanningsprogram" transform="translate(190.000000, 187.000000) rotate(-90.000000) translate(-190.000000, -187.000000) translate(56.000000, 165.000000)">
+                            <rect id="Rectangle" fill="#8CC640" x="1" y="1" width="268" height="44" rx="5"></rect>
+                            <text id="Utdanningsprogram" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="25.1636718" y="29">Utdanningsprogram</tspan>
+                            </text>
+                        </g>
+                        <g id="utdanning">
+                            <rect id="Rectangle" fill="#666666" x="0" y="0" width="267" height="42" rx="5"></rect>
+                            <text id="Utdanning" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="76.4953125" y="30">Utdanning</tspan>
+                            </text>
+                        </g>
+                        <g id="vurdering" transform="translate(244.500000, 187.000000) rotate(-90.000000) translate(-244.500000, -187.000000) translate(110.500000, 164.500000)">
+                            <rect id="Rectangle" fill="#8CC640" x="0.5" y="0.5" width="268" height="45" rx="5"></rect>
+                            <text id="Vurdering" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="81.2980468" y="30.5">Vurdering</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+            <g id="fint-tjenester" transform="translate(1.000000, 0.000000)">
+                <g transform="translate(32.000000, 166.500000) rotate(-90.000000) translate(-32.000000, -166.500000) translate(-134.000000, 135.000000)">
+                    <rect id="Rectangle" fill="#CF202E" x="0.522012579" y="0.5" width="330.955975" height="62" rx="5"></rect>
+                    <text id="FINT-Tjenester" fill="#D8D8D8" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="85.1066406" y="40.5">FINT Tjenester</tspan>
+                    </text>
+                </g>
+                <g id="fint-betaling" transform="translate(77.000000, 230.000000)">
+                    <rect id="Rectangle" fill="#8CC640" x="5.94155193e-14" y="0" width="231" height="97" rx="5"></rect>
+                    <text id="FINT-Betaling" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="40.8011718" y="58">FINT Betaling</tspan>
+                    </text>
+                </g>
+                <g id="personalmapper" transform="translate(77.000000, 119.000000)">
+                    <rect id="Rectangle" fill="#8CC640" x="5.94155193e-14" y="0" width="231" height="97" rx="5"></rect>
+                    <text id="Personalmapper" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="25.1320312" y="58">Personalmapper</tspan>
+                    </text>
+                </g>
+                <g id="kundeportal" transform="translate(77.000000, 8.000000)">
+                    <rect id="Rectangle" fill="#8CC640" x="0" y="0" width="231" height="97" rx="5"></rect>
+                    <text id="Kundeportal" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="48.2507812" y="58">Kundeportal</tspan>
+                    </text>
+                </g>
+                <g id="kulturelle-skolesekken" transform="translate(319.000000, 118.000000)">
+                    <rect id="Rectangle" fill="#8CC640" x="0" y="0" width="231" height="208" rx="5"></rect>
+                    <text id="Kulturelle-skolesekk" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="63.2402343" y="96">Kulturelle </tspan>
+                        <tspan x="47.6707031" y="128">skolesekken</tspan>
+                    </text>
+                </g>
+                <g id="profilbilder" transform="translate(317.000000, 8.000000)">
+                    <rect id="Rectangle" fill="#8CC640" x="0" y="0" width="231" height="97" rx="5"></rect>
+                    <text id="Profilbilder" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="55.9089843" y="58">Profilbilder</tspan>
+                    </text>
+                </g>
+            </g>
+            <g id="tilkoblede-løsninger" transform="translate(562.500000, 8.000000)">
+                <g transform="translate(31.500000, 160.000000) rotate(-90.000000) translate(-31.500000, -160.000000) translate(-128.000000, 128.500000)">
+                    <rect id="Rectangle" fill="#027AFF" x="0.5" y="0.5" width="318" height="62" rx="5"></rect>
+                    <text id="Tilkoblede-løsninger" fill="#D8D8D8" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="48.798828" y="40.5">Tilkoblede løsninger</tspan>
+                    </text>
+                </g>
+                <g id="vigobas" transform="translate(74.500000, 221.000000)">
+                    <rect id="Rectangle" fill="#8CC640" x="0" y="0" width="337" height="97" rx="5"></rect>
+                    <text id="VigoBas-(IDM)*" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="84.1261718" y="58">VigoBas (IDM)*</tspan>
+                    </text>
+                </g>
+                <g id="digisak" transform="translate(74.500000, 0.000000)">
+                    <rect id="Rectangle" fill="#E7B627" x="0" y="0" width="337" height="97" rx="5"></rect>
+                    <text fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="87.0675781" y="41">Riksantikvaren</tspan>
+                        <tspan x="127.915625" y="73">Digisak</tspan>
+                    </text>
+                </g>
+                <g id="visma-in-school" transform="translate(74.500000, 110.000000)">
+                    <rect id="Rectangle" stroke="#979797" fill="#007ACA" x="0" y="0" width="331" height="98" rx="5"></rect>
+                    <image id="visma" x="49" y="5" width="233" height="49" xlink:href="data:image/png;base64,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"></image>
+                    <text id="InSchool" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="116.551172" y="84">InSchool</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

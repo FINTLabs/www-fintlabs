@@ -13,6 +13,14 @@
   font-size: 1.6em;
 }
 
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
 @media screen and (max-width: 768px) {
     nav {
       display: none;

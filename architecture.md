@@ -55,7 +55,7 @@ All events are logged at all stages.
 
 ### Vocabulary
 
-| English term         | Norwegian term       |
-|----------------------|----------------------|
-| Common API           | Felleskomponent      |
-| Business application | Fagsystem            |
+| English term         | Norwegian term  |
+| -------------------- | --------------- |
+| Common API           | Felleskomponent |
+| Business application | Fagsystem       |
