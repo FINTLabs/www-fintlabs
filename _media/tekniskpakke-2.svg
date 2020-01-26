@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1360px" height="110px" viewBox="0 0 1360 110" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>tekniskpakke-2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-1.0%" y="-13.0%" width="102.1%" height="126.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="vis-illustrasjoner" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="tekniskpakke-2" filter="url(#filter-1)" transform="translate(4.000000, 3.000000)">
+            <g id="diagram-/-arrow">
+                <path d="M207.282051,100 L0,100 L74.7179487,50 L0,2.28757742e-15 L207.282051,0 L282,50 L207.282051,100 L207.282051,100 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="1"></path>
+                <text id="Text" fill="#FFFFFF" fill-rule="evenodd" font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" letter-spacing="0.187500007">
+                    <tspan x="84.3589744" y="43.2222222">Bestill adapter </tspan>
+                    <tspan x="84.3589744" y="69.2222222">og evt testmiljø</tspan>
+                </text>
+            </g>
+            <g id="diagram-/-arrow" transform="translate(245.750000, 0.000000)">
+                <path d="M207.282051,100 L0,100 L74.7179487,50 L0,2.28757742e-15 L207.282051,0 L282,50 L207.282051,100 L207.282051,100 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="1"></path>
+                <text id="Text" fill="#FFFFFF" fill-rule="evenodd" font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" letter-spacing="0.187500007">
+                    <tspan x="84.3589744" y="43.2222222">Installasjon av </tspan>
+                    <tspan x="84.3589744" y="69.2222222">adapter</tspan>
+                </text>
+            </g>
+            <g id="diagram-/-arrow" transform="translate(491.500000, 0.000000)">
+                <path d="M207.282051,100 L0,100 L74.7179487,50 L0,2.28757742e-15 L207.282051,0 L282,50 L207.282051,100 L207.282051,100 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="1"></path>
+                <text id="Text" fill="#FFFFFF" fill-rule="evenodd" font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" letter-spacing="0.187500007">
+                    <tspan x="84.3589744" y="43.2222222">Test av adapter </tspan>
+                    <tspan x="84.3589744" y="69.2222222">(teknisk)</tspan>
+                </text>
+            </g>
+            <g id="diagram-/-arrow" transform="translate(737.250000, 0.000000)">
+                <path d="M220.512821,100 L0,100 L79.4871795,50 L1.42108547e-14,2.433593e-15 L220.512821,0 L300,50 L220.512821,100 L220.512821,100 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="1"></path>
+                <text id="Text" fill="#FFFFFF" fill-rule="evenodd" font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" letter-spacing="0.187500007">
+                    <tspan x="89.7435897" y="43.2222222">Test av mapping </tspan>
+                    <tspan x="89.7435897" y="69.2222222">(semantisk)</tspan>
+                </text>
+            </g>
+            <g id="diagram-/-arrow" transform="translate(1001.000000, 0.000000)">
+                <path d="M258,100 L0,100 L93,50 L0,2.84730381e-15 L258,0 L351,50 L258,100 L258,100 Z" id="Combined-Shape" stroke="#FFFFFF" stroke-width="1"></path>
+                <text id="Text" fill="#FFFFFF" fill-rule="evenodd" font-family="Roboto-Regular, Roboto" font-size="20" font-weight="normal" letter-spacing="0.187500007">
+                    <tspan x="105" y="43.2222222">Test av datakvalitet </tspan>
+                    <tspan x="105" y="69.2222222">(organisatorisk)</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -8,19 +8,19 @@ Felleskomponentene til FINT må kobles til fagsystemet for å kunne levere og mo
 
 Adapteret må installeres i tilknytning til fagsystemet i den enkelte fylkeskommune. Vanligvis som en service på en server til fagystemet.
 
-![ill1](_media/tekniskpakke-1.png)
+![ill1](_media/tekniskpakke-1.svg ':size=275')
 
 Diagrammet over viser hvordan data flyter mellom Visma InSchool og Fylkeskommunenes fagsystemer, og hvor FINT-adapteret er plassert i denne flyten. Hvert fagsystem må ha et eget FINT adapter. FINT Adapterene utvikles av fagsystemets leverandør.
 
 ## Hva du må gjøre for å komme i gang
 
-![ill2](_media/tekniskpakke-2.png)
+![ill2](_media/tekniskpakke-2.svg)
 
 ### Overordnet om testing
 
 Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du ønsker å vite mer om denne modellen kan du lese mer om denne her <https://www.difi.no/arkitektur/nytt-nasjonalt-rammeverk-samhandling>.
 
-![ill3](_media/tekniskpakke-3.png)
+![ill3](_media/tekniskpakke-3.svg ':size=275')
 
 #### Bestille adapter og testmiljø
 

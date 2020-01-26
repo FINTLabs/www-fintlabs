@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="374px" height="613px" viewBox="0 0 374 613" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-3.6%" y="-2.2%" width="107.1%" height="104.3%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="vis-illustrasjoner" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" filter="url(#filter-1)" transform="translate(5.000000, 3.000000)">
+            <g id="Group">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="364" height="59" rx="6"></rect>
+                <text id="Visma-InSchool" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="95.9210937" y="38">Visma InSchool</tspan>
+                </text>
+            </g>
+            <g id="Group-Copy" transform="translate(0.000000, 472.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="364" height="131" rx="6"></rect>
+                <text id="Fagsystem-(f.eks.-Vi" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="13.4164061" y="59">Fagsystem (f.eks. Visma HRM, </tspan>
+                    <tspan x="40.7714843" y="91">Agresso eller Bluegarden)</tspan>
+                </text>
+            </g>
+            <g id="Group-Copy-2" transform="translate(0.000000, 327.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="364" height="59" rx="6"></rect>
+                <text id="Adapter" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="138.597266" y="38">Adapter</tspan>
+                </text>
+            </g>
+            <g id="Group-Copy-3" transform="translate(0.000000, 145.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="364" height="96" rx="6"></rect>
+                <text id="FINT-felleskomponent" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="155.745312" y="41">FINT </tspan>
+                    <tspan x="90.0605468" y="73">felleskomponent</tspan>
+                </text>
+            </g>
+            <path id="Line-Copy-4" d="M181.5,69.5 L193.5,93.5 L183.5,93.5 L183.5,109.5 L193.5,109.5 L181.5,133.5 L169.5,109.5 L179.5,109.5 L179.5,93.5 L169.5,93.5 L181.5,69.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy-5" d="M181.5,251.5 L193.5,275.5 L183.5,275.5 L183.5,291.5 L193.5,291.5 L181.5,315.5 L169.5,291.5 L179.5,291.5 L179.5,275.5 L169.5,275.5 L181.5,251.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy-6" d="M181.5,397.5 L193.5,421.5 L183.5,421.5 L183.5,437.5 L193.5,437.5 L181.5,461.5 L169.5,437.5 L179.5,437.5 L179.5,421.5 L169.5,421.5 L181.5,397.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

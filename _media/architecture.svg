@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="452px" height="876px" viewBox="0 0 452 876" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>felleskomponent-full-stack</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-2.9%" y="-1.5%" width="105.9%" height="103.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="felleskomponet-illustrasjoner" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="felleskomponent-full-stack" transform="translate(5.000000, 3.000000)">
+            <g filter="url(#filter-1)">
+                <g id="felleskomponent" transform="translate(7.000000, 279.000000)">
+                    <g>
+                        <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0.5" y="0" width="427" height="367" rx="6"></rect>
+                        <g id="konsumer-api" transform="translate(93.500000, 19.000000)">
+                            <rect id="Rectangle-Copy" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="307" height="62" rx="6"></rect>
+                            <text id="Konsument-API" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="68.1078124" y="40">Konsument API</tspan>
+                            </text>
+                        </g>
+                        <g id="tilbyder-api" transform="translate(93.500000, 283.000000)">
+                            <rect id="Rectangle-Copy" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="307" height="62" rx="6"></rect>
+                            <text id="Tilbyder-API" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="87.2457031" y="40">Tilbyder API</tspan>
+                            </text>
+                        </g>
+                        <g transform="translate(52.500000, 183.000000) rotate(-90.000000) translate(-52.500000, -183.000000) translate(-111.000000, 151.500000)">
+                            <rect id="Rectangle-Copy" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0.5" y="0.5" width="326" height="62" rx="6"></rect>
+                            <text id="Felleskomponent" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="68.6953124" y="40.5">Felleskomponent</tspan>
+                            </text>
+                        </g>
+                        <g id="informasjonsmodell" transform="translate(93.500000, 95.000000)">
+                            <rect id="Rectangle-Copy" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="307" height="174" rx="6"></rect>
+                            <text id="Informasjonsmodeller" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                                <tspan x="32.5976562" y="96">Informasjonsmodeller</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+                <g id="adapter" transform="translate(0.000000, 804.000000)">
+                    <g>
+                        <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="214" height="62" rx="6"></rect>
+                        <text id="Adapter" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                            <tspan x="63.5972656" y="40">Adapter</tspan>
+                        </text>
+                    </g>
+                </g>
+                <path id="Line" d="M107,663 L119,687 L109,687 L109,757 L119,757 L107,781 L95,757 L105,757 L105,687 L95,687 L107,663 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path id="Line-Copy-2" d="M107,73 L118.934202,97.0327865 L108.934,97.005 L108.565,231.505 L118.565708,231.532967 L106.5,255.5 L94.5657982,231.467213 L104.565,231.494 L104.934,96.994 L94.9342919,96.9670333 L107,73 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path id="Line-Copy-3" d="M315,63 L327,87 L317,87 L317,103 L327,103 L315,127 L303,103 L313,103 L313,87 L303,87 L315,63 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path id="Line-Copy-4" d="M315,202.5 L327,226.5 L317,226.5 L317,242.5 L327,242.5 L315,266.5 L303,242.5 L313,242.5 L313,226.5 L303,226.5 L315,202.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <path id="Line-Copy" d="M335,663 L347,687 L337,687 L337,757 L347,757 L335,781 L323,757 L333,757 L333,687 L323,687 L335,663 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <g id="adapter" transform="translate(228.000000, 804.000000)">
+                    <g>
+                        <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="214" height="62" rx="6"></rect>
+                        <text id="Adapter" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                            <tspan x="63.5972656" y="40">Adapter</tspan>
+                        </text>
+                    </g>
+                </g>
+                <g id="integrasjonslag" transform="translate(221.000000, 144.000000)">
+                    <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="214" height="42" rx="6"></rect>
+                    <text id="Integrasjonslag" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="21.3359374" y="30">Integrasjonslag</tspan>
+                    </text>
+                </g>
+                <g id="tjeneste">
+                    <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="0" y="0" width="128" height="50" rx="6"></rect>
+                    <text id="Tjeneste" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="16.6820312" y="34">Tjeneste</tspan>
+                    </text>
+                </g>
+                <g id="applikasjon" transform="translate(138.000000, 0.000000)">
+                    <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="5.68434189e-14" y="0" width="160" height="50" rx="6"></rect>
+                    <text id="Applikasjon" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="15.5339843" y="34">Applikasjon</tspan>
+                    </text>
+                </g>
+                <g id="prosess" transform="translate(308.000000, 0.000000)">
+                    <rect id="Rectangle" stroke="#FFFFFF" fill-opacity="0" fill="#D8D8D8" x="5.68434189e-14" y="0" width="134" height="50" rx="6"></rect>
+                    <text id="Prosess" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                        <tspan x="22.5367187" y="34">Prosess</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

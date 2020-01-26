@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="434px" height="410px" viewBox="0 0 434 410" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>tekniskpakke-3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="vis-illustrasjoner" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="tekniskpakke-3" transform="translate(26.500000, 1.000000)">
+            <g id="Group-2" transform="translate(60.500000, 0.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="346" height="65" rx="6"></rect>
+                <text id="Organisatorisk-nivå" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="66.6417968" y="42">Organisatorisk nivå</tspan>
+                </text>
+            </g>
+            <g id="Group-2-Copy" transform="translate(60.500000, 170.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="346" height="65" rx="6"></rect>
+                <text id="Semantisk-nivå" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="88.7199218" y="42">Semantisk nivå</tspan>
+                </text>
+            </g>
+            <g id="Group-2-Copy-2" transform="translate(60.500000, 340.000000)">
+                <rect id="Rectangle" stroke="#FFFFFF" x="0" y="0" width="346" height="65" rx="6"></rect>
+                <text id="Teknisk-nivå" fill="#FFFFFF" font-family="Roboto-Regular, Roboto" font-size="24" font-weight="normal" letter-spacing="0.225000009">
+                    <tspan x="104.999609" y="42">Teknisk nivå</tspan>
+                </text>
+            </g>
+            <path id="Line-Copy-6" d="M233.5,85.5 L245.5,109.5 L235.5,109.5 L235.5,125.5 L245.5,125.5 L233.5,149.5 L221.5,125.5 L231.5,125.5 L231.5,109.5 L221.5,109.5 L233.5,85.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy-7" d="M233.5,255.5 L245.5,279.5 L235.5,279.5 L235.5,295.5 L245.5,295.5 L233.5,319.5 L221.5,295.5 L231.5,295.5 L231.5,279.5 L221.5,279.5 L233.5,255.5 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <path id="Line-Copy-8" d="M0.5,11 L27.5,65 L5.5,65 L5.5,409 L-4.5,409 L-4.5,65 L-26.5,65 L0.5,11 Z" fill="#FFFFFF" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>
