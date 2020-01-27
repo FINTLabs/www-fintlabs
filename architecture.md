@@ -51,7 +51,7 @@ When the Cache Service need to update the cache it sends an event down to the ad
 
 All events are logged at all stages.
 
-![ill2](_media/fint-event-flow.png)
+![ill2](_media/event-flow.svg)
 
 ### Vocabulary
 
