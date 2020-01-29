@@ -55,7 +55,7 @@ En teknisk kontakt fra fylkeskommunen oppretter et adapter, en klient og en ress
 En veiledning for opprettelse av adapter og klient finner du [her](https://www.fintlabs.no/#/tutorials). Felleskomponentene som skal aktiveres, på adapteret og klienten, er utdanningsprogram, elev og timeplan.
 Når adapteret og klienten er laget, må en ressurs opprettes for å unngå at dataen blandes med eksisterende FINT-data. Som ressursnavn bruker du navnet på din fylkeskommune og bindestrek "dks". 
 Eksempel: "viken-fylkeskommune-dks". Adapteret og klienten som er opprettet skal kobles til ressursen. Det gjør du ved å redigere ressursen og legge til adapter under "ADAPTERS" og klienten under "KLIENTER".
-Til slutt må fylkeskommunen sende autentiseringsinformasjonen for adapteret og klienten til FINT. 
+Ta kontakt med FINT når adapter og klient er opprettet slik at FINT kan få tilsendt autentiseringsinformasjonen på en sikker måte.
 
 <div class="row">
   <div class="column">
