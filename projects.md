@@ -1,8 +1,13 @@
 # Oversikt
+Her finner du en oversikt over de tjenestene som FINT har i dag.
+
+FINTs tjenester er delt inn i to hovedkategorier. FINT Core som er API'er på fagsystemene og FINT Tjenester som er løsninger som støtter arbeidsprosessene til fylkeskommunene. Disse tjenestene bruker FINTs API'er.
 
 ![ill1](_media/fint-leveranse-oversikt.svg)
 
-## Administrasjon
+## FINT Core
+
+### Administrasjon
 
 <div class="row">
   <div class="column">
@@ -18,7 +23,7 @@ Se [informasjonsmodellen](https://informasjonsmodell.felleskomponent.no/docs/pac
 </div>
 
 
-## Utdanning
+### Utdanning
 
 <div class="row">
   <div class="column">
@@ -33,7 +38,39 @@ Se [informasjonsmodellen](https://informasjonsmodell.felleskomponent.no/docs/pac
   </div>
 </div>
 
-## Kultur
+### Kultur
+
+<div class="row">
+  <div class="column">
+
+Se [informasjonsmodellen](https://informasjonsmodell.felleskomponent.no/docs/package_kultur) for mer detaljer.
+  </div>
+  <div class="column">
+
+![adm1](_media/fint-leveranse-kulturminne.svg ':size=300')
+
+
+  </div>
+</div>
+
+
+## FINT Tjenester
+
+### Personalmapper
+Personalmapper er en tjeneste for automatisk opprettelse og oppdatering av personalmappe (provisionering). Tjenesten tilbyr:
+- Opprettelse av personalmapper for alle ansatte. Man velger selv hvilke personalkategorier som skal ha personalmappe.
+- Ved endring av navn, arbeidssted og leder oppdaterer tjenesten:
+  -  den administrative enheten den ansatte hører til
+  -  lederen som saksbehandler
+  -  navnet i tittelen og i klassifikasjonen
+-  Når den ansatte slutter blir personalmappen satt til "ferdigstilt"
+-  Hvis en ansatt kommer tilbake settes mappen til "under behandling" hvis den ikke er lukket. Da opprettes en ny personalmappe.
+
+Alle kodeverk og standardinnstillinger for en personalmappe er konfigurerbare for hver organisasjon.
+
+Her er et flytdiagram som beskriver den overordnede flyten i det automatiske vedlikeholdet av personalmapper.
+
+![peronalmapper](_media/personalmappe-flyt-overordnet.svg)
 
 ### Den Kulturelle Skolesekken
 #### Hva er Den Kulturelle Skolesekken?
@@ -56,16 +93,3 @@ En veiledning for opprettelse av adapter og klient finner du [her](https://www.f
 Når adapteret og klienten er laget, må en ressurs opprettes for å unngå at dataen blandes med eksisterende FINT-data. Som ressursnavn bruker du navnet på din fylkeskommune og bindestrek "dks". 
 Eksempel: "viken-fylkeskommune-dks". Adapteret og klienten som er opprettet skal kobles til ressursen. Det gjør du ved å redigere ressursen og legge til adapter under "ADAPTERS" og klienten under "KLIENTER".
 Ta kontakt med FINT når adapter og klient er opprettet slik at FINT kan få tilsendt autentiseringsinformasjonen på en sikker måte.
-
-<div class="row">
-  <div class="column">
-
-Se [informasjonsmodellen](https://informasjonsmodell.felleskomponent.no/docs/package_kultur) for mer detaljer.
-  </div>
-  <div class="column">
-
-![adm1](_media/fint-leveranse-kulturminne.svg ':size=300')
-
-
-  </div>
-</div>
