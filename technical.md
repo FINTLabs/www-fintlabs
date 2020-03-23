@@ -98,6 +98,9 @@ The FINT Consumer Cache Service issues these events every 15 minutes to update t
 
 Adapters are expected to retrieve all active elements from the back-end system and insert the data in the response event.
 
+The response payload must contain an array of individual information elements in JSON format, conforming to the FINT 
+information model.
+
 #### Get a single instance of a class by ID (`GET_`_type_)
 
 FINT Consumer APIs issue these events in cases where clients want the most recent version of a given element, and waits for the adapter to respond before returning data to the client.
@@ -108,10 +111,12 @@ For instance, for `Personalressurs` with an `ansattnummer` ID of `12345`, the UR
 
 Adapters are expected to extract the `query` attribute, search the back-end system for the most recent version of the requested element.
 
+The response payload must contain a single element in JSON format, conforming to the information model.
+
 For error situations, the adapter can control the HTTP response returned to the client using the following:
 
 | `responseStatus` | `statusCode`   | HTTP result |
-|------------------|----------------|-------------|
+| ---------------- | -------------- | ----------- |
 | `ERROR`          | (any)          | `500`       |
 | `REJECTED`       | `"GONE"`       | `410`       |
 | `REJECTED`       | `"NOT_FOUND"`  | `404`       |
@@ -121,12 +126,12 @@ For error situations, the adapter can control the HTTP response returned to the 
 
 FINT Consumer APIs issue these events for `POST`, `PUT`, and `DELETE` requests for a given type, according to the following:
 
-| REST Operation                     | `operation`| `query`       |
-|------------------------------------|------------|---------------|
-| `POST /path/to/type`               | `CREATE`   | (empty)       |
-| `POST /path/to/type?validate=true` | `VALIDATE` | (empty)       |
-| `PUT /path/to/type/field/value`    | `UPDATE`   | `field/value` |
-| `DELETE /path/to/type/field/value` | `DELETE`   | `field/value` |
+| REST Operation                     | `operation` | `query`       |
+| ---------------------------------- | ----------- | ------------- |
+| `POST /path/to/type`               | `CREATE`    | (empty)       |
+| `POST /path/to/type?validate=true` | `VALIDATE`  | (empty)       |
+| `PUT /path/to/type/field/value`    | `UPDATE`    | `field/value` |
+| `DELETE /path/to/type/field/value` | `DELETE`    | `field/value` |
 
 The adapters are expected to handle the various operations according to the following:
 
@@ -137,24 +142,24 @@ The adapters are expected to handle the various operations according to the foll
 
 Events *must* be responded with a `responseStatus` setting indicating the result of the operation:
 
-| `responseStatus` | HTTP status | Description of result
-|------------------|-------------|------------------------
-| `ACCEPTED`       | `303`       | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource.
-| `REJECTED`       | `400`       | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.
-| `ERROR`          | `500`       | An error occurred during processing of the event.  The client may retry the same operation later.
-| `CONFLICT`       | `409`       | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.
+| `responseStatus` | HTTP status | Description of result                                                                                                                                              |
+| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ACCEPTED`       | `303`       | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
+| `REJECTED`       | `400`       | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
+| `ERROR`          | `500`       | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
+| `CONFLICT`       | `409`       | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
 
 If write operations are not supported or permitted, the event must be rejected by posting `ADAPTER_REJECTED` at the `/status` phase.
 
-The response payload is handled according to the following, depending on ResponseStatus:
+The response payload must be a single element representing the current state of the information, conforming to the 
+information model.  It is handled according to the following, depending on ResponseStatus:
 
-- `ACCEPTED`: The payload is added to the cache
+- `ACCEPTED`: The payload is returned to the client, and possibly cached.
 - `REJECTED`: The payload is ignored.
 - `ERROR`: The payload is ignored.
-- `CONFLICT`: The payload is added to the cache.
+- `CONFLICT`: The payload is returned to the client, and possibly cached.
 
 Note the last clause. For `CONFLICT` the adapter is supposed to deliver the most recent version of the information, so clients and the FINT cache can be updated.
-
 
 ### How to deal with errors
 
@@ -469,10 +474,10 @@ are currently `hovedklasse`:
 Norwegian characters are translated according to the following scheme:
 
 | Original | Replacement |
-|---|---|
-| æ | a |
-| ø | o |
-| å | a |
+| -------- | ----------- |
+| æ        | a           |
+| ø        | o           |
+| å        | a           |
 
 ### Common operations
 
@@ -726,8 +731,8 @@ If you find bugs or have suggestions for improvement please feel free to submit 
 #### Latest versions
 
 | **Component**     | **GitHub Release**                                                                                                                                                     |                                                                                                                                                                            |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Information Model | [![GitHub release](https://img.shields.io/github/release/fintlabs/fint-informasjonsmodell.svg)](https://github.com/fintlabs/fint-informasjonsmodell)       | [![Documentation](https://img.shields.io/badge/read-documentation-brightgreen.svg)](https://informasjonsmodell.felleskomponent.no/)                                        |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Information Model | [![GitHub release](https://img.shields.io/github/release/fintlabs/fint-informasjonsmodell.svg)](https://github.com/fintlabs/fint-informasjonsmodell)                   | [![Documentation](https://img.shields.io/badge/read-documentation-brightgreen.svg)](https://informasjonsmodell.felleskomponent.no/)                                        |
 | **Java**          | **GitHub Release**                                                                                                                                                     | **Package Version**                                                                                                                                                        |
 | Event Model       | [![GitHub release](https://img.shields.io/github/release/FINTmodels/fint-event-model.svg)](https://github.com/FINTmodels/fint-event-model)                             | [![Bintray](https://img.shields.io/bintray/v/fint/maven/fint-event-model.svg)](https://bintray.com/fint/maven/fint-event-model/_latestVersion)                             |
 | Relation Model    | [![GitHub release](https://img.shields.io/github/release/FINTmodels/fint-relation-model.svg)](https://github.com/FINTmodels/fint-relation-model)                       | [![Bintray](https://img.shields.io/bintray/v/fint/maven/fint-relation-model.svg)](https://bintray.com/fint/maven/fint-relation-model/_latestVersion)                       |
@@ -740,7 +745,7 @@ If you find bugs or have suggestions for improvement please feel free to submit 
 | Relation Model    | [![GitHub release](https://img.shields.io/github/release/FINTmodels/Fint.Relation.Model.svg)](https://github.com/FINTmodels/Fint.Relation.Model)                       | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Relation.Model.svg)](https://bintray.com/fint/nuget/FINT.Relation.Model/_latestVersion)                       |
 | Common            | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Felles.svg)](https://github.com/FINTmodels/FINT.Model.Felles)                           | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Felles.svg)](https://bintray.com/fint/nuget/FINT.Model.Felles/_latestVersion)                           |
 | Administration    | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Administrasjon.svg)](https://github.com/FINTmodels/FINT.Model.Administrasjon)           | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Administrasjon.svg)](https://bintray.com/fint/nuget/FINT.Model.Administrasjon/_latestVersion)           |
-| Education         | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Utdanning.svg)](https://github.com/FINTmodels/FINT.Model.Utdanning)                     | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Utdanning.svg)](https://bintray.com/fint/nuget/FINT.Model.Utdanning/_latestVersion)                                    |
+| Education         | [![GitHub release](https://img.shields.io/github/release/FINTmodels/FINT.Model.Utdanning.svg)](https://github.com/FINTmodels/FINT.Model.Utdanning)                     | [![Bintray](https://img.shields.io/bintray/v/fint/nuget/FINT.Model.Utdanning.svg)](https://bintray.com/fint/nuget/FINT.Model.Utdanning/_latestVersion)                     |
 
 ## FINT environments
 
