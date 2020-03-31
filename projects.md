@@ -235,3 +235,9 @@ påloggingsdetaljer i kildestystemet.
 * Påloggingsinformasjon
 * Tilganger
 
+## Prosjekter
+
+### Asker kommune sak- og arkivsystem
+
+Asker kommune har valgt en løsning hvor saksbehandling og arkiv håndteres av to ulike systemer.  FINT utvikler en 
+overføringstjeneste som skal overføre saker fra sakssystemet til arkivet fortløpende etter gitte kriterier.
