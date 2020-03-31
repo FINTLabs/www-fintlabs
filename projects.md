@@ -173,6 +173,15 @@ som bruker eller leverer data gjennom FINT, og integrasjonene kan kvalitetsteste
 
 Her finnes også muligheten for å kontakte FINT dersom det er hendelser eller spørsmål, og overvåke hendelseslogger.
 
+### IMS OneRoster
+
+*Under utvikling*
+
+IMS OneRoster er en internasjonal standard for utveksling av skoleadministrative data via API (og CSV). FINT har implementert 
+støtte for standarden og vil, etter en test- og piloteringsfase, tilby dette som en felles tjeneste. Standarden er i utstrakt 
+bruk internasjonalt, men det primære bruksområdet er gjerne automatisert synkronisering av skoledata til Office 365 Education porteføljen via 
+Microsoft School Data Sync.
+
 ## Tilkoblede løsninger
 ### Riksantikvaren Digisak
 
