@@ -628,9 +628,9 @@ The process is as follows:
 1. The client fetches the *Status* resource.
    - If the operation is still pending, the FINT API keeps responding with status code `202`.
 1. If the operation has completed, the FINT API responds with the final status of the update:
-   - If successful, status `303` with a `Location` referring to the resource that has been
-     created or updated.
-   - _Note:_ If the operation is a deletion, the status code is `410` instead.
+   - If successful, status `201` with a `Location` referring to the resource that has been
+     created or updated, and a payload with the updated resource.
+   - _Note:_ If the operation is a deletion, the status code is `204` instead.
    - If rejected by the back-end system, status `400` with a response body indicating the error.
    - If the update is in conflict with other updates or data in the back-end system, the status
      is `409` and the response body contains the original information the update conflicts with.
