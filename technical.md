@@ -20,10 +20,47 @@ The skeleton handles **connection**, **authorization** and **communication** wit
 
 Your task as developer of an adapter is to:
 
-1. Reponde to `events` sent from FINT
+1. Repond to `events` sent from FINT
 2. Interact with you back-end system
 3. Map you data to FINT
 4. Send back the information asked for in the `event`
+
+### Mapping data
+
+FINT's information model is available as classes in Java and C#.  The naming of classes follow the naming of the classes in the information model.  Model classes are available here:
+
+* Java -- <https://github.com/FINTmodels/fint-information-model-java>
+* C# -- <https://github.com/FINTmodels/FINT.Information.Model>
+
+#### Maven and Nuget dependencies
+
+Libraries are deployed to Bintray for each component, i.e. `administrasjon`, `utdanning`, `arkiv`, `okonomi`.  The library version is the same as the model version.  They have the following naming convention:
+
+* Java -- `fint-<component>-resource-model-java`, i.e. `fint-administrasjon-resource-model-java`.
+* C# -- `FINT.Model.Resource.<Compponent>`, i.e. `FINT.Model.Resource.Administrasjon`.
+
+### Linking resources
+
+The FINT APIs have a link mapping service which ensures that links between resources follow the naming conventions and locations for our API endpoints.  Using these mapped links ensures that all URIs presented to clients are valid.
+
+Mappable links are represented according to the following pattern:
+
+* `${<component>[.<package>].<class>}/<field>/<identifier>`
+* `${felles.person}/fodselsnummer/12345678901`
+* `${administrasjon.personal.personalressurs}/ansattnummer/12345`
+* `${utdanning.elev.skoleressurs}/systemid/ABCD123`
+
+In the Java and C# libraries, links are represented using a `Link` class.  This class has static constructors that can be used to create valid relations.
+
+Java:
+```java
+Link.with(Person.class, "fodselsnummer", "12345678901");
+```
+
+C#:
+```cs
+Link.with(typeof(Person), "fodselsnummer", "12345678901");
+```
 
 ### Events
 
