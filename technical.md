@@ -79,7 +79,7 @@ FINT components produce events for three reasons:
 * Periodic cache update events every 15 minutes, triggering `GET_ALL_*` events.
 * Incoming POST / PUT requests from clients.  Every request produces exactly one event.
 
-FINT expects exactly one status and one response to every event delivered.  Additional responses will be rejected with `410 GONE`.
+FINT expects exactly one status and one response to every event delivered.  Additional responses will be rejected with [`410 GONE`](https://http.cat/410).
 
 #### Event kinds
 
@@ -101,8 +101,8 @@ Workloads can be distributed using two different strategies, which also could be
 
 Any adapter instance registered with the asset ID can handle events in three ways:
 
-  1. Accept the event and respond with data.  The consumer handles the data from the response.  Other adapters attempting to respond will receive a `410` status from the Provider.
-  1. Reject the event.  The consumer ignores any data from the response.  Other adapters attempting to respond will receive a `410` status from the Provider.
+  1. Accept the event and respond with data.  The consumer handles the data from the response.  Other adapters attempting to respond will receive a [`410`](https://http.cat/410) status from the Provider.
+  1. Reject the event.  The consumer ignores any data from the response.  Other adapters attempting to respond will receive a [`410`](https://http.cat/410) status from the Provider.
   1. Ignore the event, assuming another instance is handling it.  If no other adapter is handling the events, the provider will expire the event after 120 seconds.
 
 #### System health status (`HEALTH`)
