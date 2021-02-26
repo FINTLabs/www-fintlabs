@@ -179,12 +179,12 @@ The adapters are expected to handle the various operations according to the foll
 
 Events *must* be responded with a `responseStatus` setting indicating the result of the operation:
 
-| `responseStatus` | HTTP status                   | Description of result                                                                                                                                              |
-| ---------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ACCEPTED`       | [`201`](https://http.cat/201) | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
-| `REJECTED`       | [`400`](https://http.cat/400) | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
-| `ERROR`          | [`500`](https://http.cat/500) | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
-| `CONFLICT`       | [`409`](https://http.cat/409) | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
+| `responseStatus` | HTTP status sent to client    | Response body | Description of result                                                                                                                                              |
+| ---------------- | ----------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ACCEPTED`       | [`201`](https://http.cat/201) | FINT object   | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
+| `REJECTED`       | [`400`](https://http.cat/400) | Error details | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
+| `ERROR`          | [`500`](https://http.cat/500) | Error details | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
+| `CONFLICT`       | [`409`](https://http.cat/409) | FINT object   | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
 
 If write operations are not supported or permitted, the event must be rejected by posting `ADAPTER_REJECTED` at the `/status` phase.
 
