@@ -152,12 +152,12 @@ The response payload must contain a single element in JSON format, conforming to
 
 For error situations, the adapter can control the HTTP response returned to the client using the following:
 
-| `responseStatus` | `statusCode`   | HTTP result |
-| ---------------- | -------------- | ----------- |
-| `ERROR`          | (any)          | `500`       |
-| `REJECTED`       | `"GONE"`       | `410`       |
-| `REJECTED`       | `"NOT_FOUND"`  | `404`       |
-| `REJECTED`       | (other values) | `400`       |
+| `responseStatus` | `statusCode`   | HTTP result                   |
+| ---------------- | -------------- | ----------------------------- |
+| `ERROR`          | (any)          | [`500`](https://http.cat/500) |
+| `REJECTED`       | `"GONE"`       | [`410`](https://http.cat/410) |
+| `REJECTED`       | `"NOT_FOUND"`  | [`404`](https://http.cat/404) |
+| `REJECTED`       | (other values) | [`400`](https://http.cat/400) |
 
 #### Create a new element, or update an existing element by ID (`UPDATE_`_type_)
 
@@ -179,12 +179,12 @@ The adapters are expected to handle the various operations according to the foll
 
 Events *must* be responded with a `responseStatus` setting indicating the result of the operation:
 
-| `responseStatus` | HTTP status | Description of result                                                                                                                                              |
-| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ACCEPTED`       | `303`       | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
-| `REJECTED`       | `400`       | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
-| `ERROR`          | `500`       | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
-| `CONFLICT`       | `409`       | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
+| `responseStatus` | HTTP status                   | Description of result                                                                                                                                              |
+| ---------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ACCEPTED`       | [`201`](https://http.cat/201) | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
+| `REJECTED`       | [`400`](https://http.cat/400) | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
+| `ERROR`          | [`500`](https://http.cat/500) | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
+| `CONFLICT`       | [`409`](https://http.cat/409) | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
 
 If write operations are not supported or permitted, the event must be rejected by posting `ADAPTER_REJECTED` at the `/status` phase.
 
