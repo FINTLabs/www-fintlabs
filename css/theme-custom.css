@@ -3,16 +3,22 @@
 
     --sidebar-toggle-offset-top: 0;
 
-    --cover-background-color: #5FA202;
+/*    --cover-background-color: #5FA202;*/
+    --cover-background-color: #1F4F59;
     --cover-background-image: none;
+
     --cover-heading-color: #ffffff;
+    
     --cover-button-border-radius: 2rem;
-    --cover-button-color: #1F4F59;
-    --cover-button-primary-border: 2px solid #1F4F59;
-    --cover-button-border: 2px solid #1F4F59;
+    --cover-button-color: #fff;
+    --cover-button-border: 2px solid #fff;
+    
+    --cover-button-primary-border: 2px solid #5FA202;
     --cover-button-primary-background: #1F4F59;
     --cover-button-primary-color: #fff;
+    
     --cover-max-width: 45em;
+    
     --notice-important-before-background: #cf202e90;
     --notice-important-border-color: #cf202e90;
     --notice-important-before-color: #ffffffaa;
@@ -25,7 +31,7 @@
 
     --zoomimage-overlay-background: rgba(0, 0, 0, 0.0);
 
-    --navbar-root-color--active: #fff;
-    --navbar-root-color: #fff;
+    --navbar-root-color--active: #5FA202;
+    --navbar-root-color: #5FA202;
 
   }
