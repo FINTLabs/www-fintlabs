@@ -1,20 +1,18 @@
 :root {
-    --theme-color: #8cc640ee;
+    --theme-color: #5FA202;
 
     --sidebar-toggle-offset-top: 0;
 
-    --cover-background-color: #cf202e;
+    --cover-background-color: #5FA202;
     --cover-background-image: none;
-    --cover-color: #ffffff;
     --cover-heading-color: #ffffff;
     --cover-button-border-radius: 2rem;
-    --cover-button-primary-border: 1px solid #ffffff;
-    --cover-button-primary-background: #ffffff;
-    --cover-button-primary-color: #cf202e;
-    --cover-button-border: 1px solid #ffffff;
-    --cover-button-color: #ffffff;
+    --cover-button-color: #1F4F59;
+    --cover-button-primary-border: 2px solid #1F4F59;
+    --cover-button-border: 2px solid #1F4F59;
+    --cover-button-primary-background: #1F4F59;
+    --cover-button-primary-color: #fff;
     --cover-max-width: 45em;
-
     --notice-important-before-background: #cf202e90;
     --notice-important-border-color: #cf202e90;
     --notice-important-before-color: #ffffffaa;
@@ -26,5 +24,8 @@
     --notice-tip-before-content: '!';
 
     --zoomimage-overlay-background: rgba(0, 0, 0, 0.0);
+
+    --navbar-root-color--active: #fff;
+    --navbar-root-color: #fff;
 
   }

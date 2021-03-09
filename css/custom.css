@@ -1,12 +1,11 @@
 .cover-cartoon {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 
-.app-nav > ul > li > a {
-    font-weight: 200;
-    font-size: 1.2em;
+.cover .cover-main>p>a {
+  font-weight: 700;
 }
 
 .getting-started-highlight {
@@ -14,7 +13,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    nav {
-      display: none;
-    }
+  nav {
+    display: none;
   }
+}
