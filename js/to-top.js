@@ -1,10 +1,19 @@
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+  scrollFunction()
+};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  console.log(document.body.scrollTop)
+  console.log(document.documentElement.scrollTop)
+  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
     document.getElementById("f-to-top-button").style.display = "block";
+    document.getElementById("cover-logo").style.display = "none";
+    document.getElementById("vigo-triangle").style.display = "none";
   } else {
+    document.getElementById("cover-logo").style.display = "block";
+    document.getElementById("vigo-triangle").style.display = "block";
     document.getElementById("f-to-top-button").style.display = "none";
+
   }
 }
 

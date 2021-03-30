@@ -20,10 +20,47 @@ The skeleton handles **connection**, **authorization** and **communication** wit
 
 Your task as developer of an adapter is to:
 
-1. Reponde to `events` sent from FINT
+1. Repond to `events` sent from FINT
 2. Interact with you back-end system
 3. Map you data to FINT
 4. Send back the information asked for in the `event`
+
+### Mapping data
+
+FINT's information model is available as classes in Java and C#.  The naming of classes follow the naming of the classes in the information model.  Model classes are available here:
+
+* Java -- <https://github.com/FINTmodels/fint-information-model-java>
+* C# -- <https://github.com/FINTmodels/FINT.Information.Model>
+
+#### Maven and Nuget dependencies
+
+Libraries are deployed to Bintray for each component, i.e. `administrasjon`, `utdanning`, `arkiv`, `okonomi`.  The library version is the same as the model version.  They have the following naming convention:
+
+* Java -- `fint-<component>-resource-model-java`, i.e. `fint-administrasjon-resource-model-java`.
+* C# -- `FINT.Model.Resource.<Compponent>`, i.e. `FINT.Model.Resource.Administrasjon`.
+
+### Linking resources
+
+The FINT APIs have a link mapping service which ensures that links between resources follow the naming conventions and locations for our API endpoints.  Using these mapped links ensures that all URIs presented to clients are valid.
+
+Mappable links are represented according to the following pattern:
+
+* `${<component>[.<package>].<class>}/<field>/<identifier>`
+* `${felles.person}/fodselsnummer/12345678901`
+* `${administrasjon.personal.personalressurs}/ansattnummer/12345`
+* `${utdanning.elev.skoleressurs}/systemid/ABCD123`
+
+In the Java and C# libraries, links are represented using a `Link` class.  This class has static constructors that can be used to create valid relations.
+
+Java:
+```java
+Link.with(Person.class, "fodselsnummer", "12345678901");
+```
+
+C#:
+```cs
+Link.with(typeof(Person), "fodselsnummer", "12345678901");
+```
 
 ### Events
 
@@ -42,7 +79,7 @@ FINT components produce events for three reasons:
 * Periodic cache update events every 15 minutes, triggering `GET_ALL_*` events.
 * Incoming POST / PUT requests from clients.  Every request produces exactly one event.
 
-FINT expects exactly one status and one response to every event delivered.  Additional responses will be rejected with `410 GONE`.
+FINT expects exactly one status and one response to every event delivered.  Additional responses will be rejected with [`410 GONE`](https://http.cat/410).
 
 #### Event kinds
 
@@ -64,8 +101,8 @@ Workloads can be distributed using two different strategies, which also could be
 
 Any adapter instance registered with the asset ID can handle events in three ways:
 
-  1. Accept the event and respond with data.  The consumer handles the data from the response.  Other adapters attempting to respond will receive a `410` status from the Provider.
-  1. Reject the event.  The consumer ignores any data from the response.  Other adapters attempting to respond will receive a `410` status from the Provider.
+  1. Accept the event and respond with data.  The consumer handles the data from the response.  Other adapters attempting to respond will receive a [`410`](https://http.cat/410) status from the Provider.
+  1. Reject the event.  The consumer ignores any data from the response.  Other adapters attempting to respond will receive a [`410`](https://http.cat/410) status from the Provider.
   1. Ignore the event, assuming another instance is handling it.  If no other adapter is handling the events, the provider will expire the event after 120 seconds.
 
 #### System health status (`HEALTH`)
@@ -115,12 +152,12 @@ The response payload must contain a single element in JSON format, conforming to
 
 For error situations, the adapter can control the HTTP response returned to the client using the following:
 
-| `responseStatus` | `statusCode`   | HTTP result |
-| ---------------- | -------------- | ----------- |
-| `ERROR`          | (any)          | `500`       |
-| `REJECTED`       | `"GONE"`       | `410`       |
-| `REJECTED`       | `"NOT_FOUND"`  | `404`       |
-| `REJECTED`       | (other values) | `400`       |
+| `responseStatus` | `statusCode`   | HTTP result                   |
+| ---------------- | -------------- | ----------------------------- |
+| `ERROR`          | (any)          | [`500`](https://http.cat/500) |
+| `REJECTED`       | `"GONE"`       | [`410`](https://http.cat/410) |
+| `REJECTED`       | `"NOT_FOUND"`  | [`404`](https://http.cat/404) |
+| `REJECTED`       | (other values) | [`400`](https://http.cat/400) |
 
 #### Create a new element, or update an existing element by ID (`UPDATE_`_type_)
 
@@ -142,12 +179,12 @@ The adapters are expected to handle the various operations according to the foll
 
 Events *must* be responded with a `responseStatus` setting indicating the result of the operation:
 
-| `responseStatus` | HTTP status | Description of result                                                                                                                                              |
-| ---------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ACCEPTED`       | `303`       | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
-| `REJECTED`       | `400`       | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
-| `ERROR`          | `500`       | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
-| `CONFLICT`       | `409`       | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
+| `responseStatus` | HTTP status sent to client    | Response body | Description of result                                                                                                                                              |
+| ---------------- | ----------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ACCEPTED`       | [`201`](https://http.cat/201) | FINT object   | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
+| `REJECTED`       | [`400`](https://http.cat/400) | Error details | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
+| `ERROR`          | [`500`](https://http.cat/500) | Error details | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
+| `CONFLICT`       | [`409`](https://http.cat/409) | FINT object   | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
 
 If write operations are not supported or permitted, the event must be rejected by posting `ADAPTER_REJECTED` at the `/status` phase.
 

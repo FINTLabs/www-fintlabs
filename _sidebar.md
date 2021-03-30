@@ -12,5 +12,5 @@
 - ****
 * [![Fint](_media/favicon.ico ':size=16')Informasjonsmodell](https://informasjonsmodell.felleskomponent.no)
 * [![Fint](_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)
-* [![Github](https://icongram.jgog.in/simple/github.svg?color=808080&size=16)Github](https://github.com/fintlabs)
+* [![Github](_media/github.svg ':size=16')Github](https://github.com/fintlabs)
 * [![Vigo IKS](https://www.vigoiks.no/extension/site/design/site/images/favicon/favicon.ico ':size=16')Vigo IKS](https://www.vigoiks.no)
