@@ -720,18 +720,18 @@ operations as described in <http://restcookbook.com/Resources/asynchroneous-oper
 The process is as follows:
 
 1. The client initiates an update operation.
-1. The FINT API validates the syntax of the operation and responds with status code `202` and a `Location` 
+1. The FINT API validates the syntax of the operation and responds with status code [`202`](https://http.cat/202) and a `Location` 
    header referring to a `/status/<uuid>` resource
 1. The client fetches the *Status* resource.
    - If the operation is still pending, the FINT API keeps responding with status code `202`.
 1. If the operation has completed, the FINT API responds with the final status of the update:
-   - If successful, status `201` with a `Location` referring to the resource that has been
+   - If successful, status [`201`](https://http.cat/201) with a `Location` referring to the resource that has been
      created or updated, and a payload with the updated resource.
-   - _Note:_ If the operation is a deletion, the status code is `204` instead.
-   - If rejected by the back-end system, status `400` with a response body indicating the error.
+   - _Note:_ If the operation is a deletion, the status code is [`204`](https://http.cat/204) instead.
+   - If rejected by the back-end system, status [`400`](https://http.cat/400) with a response body indicating the error.
    - If the update is in conflict with other updates or data in the back-end system, the status
-     is `409` and the response body contains the original information the update conflicts with.
-   - If there was a temporary failure processing the request, status `500` with the
+     is [`409`](https://http.cat/409) and the response body contains the original information the update conflicts with.
+   - If there was a temporary failure processing the request, status [`500`](https://http.cat/500) with the
      error message.
       In this case the client can retry the request.
 
@@ -765,34 +765,72 @@ If deletion is not supported, the operation is rejected with status `400`.
 
 ### API Internals
 
-The Common API has two main services:
+All FINT APIs have two common services:
 
 * Cache service
 * Event service
 
-### Cache Service
+#### Cache Service
 
-The cache service has the following responsibility:
-Store data from the business applications for all the organisations using the Common API
-Populate the cache
-Keeps track of which data has changed since the last time the cache was populated
+Cache services are created for each main object in the FINT information model, and are grouped per component.
+The cache services have the following responsibility:
+- Store data from the business applications for all the organisations using the Common API
+- Populate the cache at regular intervals
+- Maintain a last updated timestamp for each object in the cache
+- Serve all `GET` requests from _Common operations_ above.
 
-### Event service
+The Cache Service source code can be found here: https://github.com/FINTLabs/fint-cache
 
-The internals in the Common API is event based. An event is created by:
+Internally, the Cache Service operates as lists, one per main object type and organization ID, meaning data from
+different organizations are separated, in addition to the separation per object type.
+
+The ordering of this list is determined by two things:
+
+1. The ordering of data supplied by the adapter, and
+1. updates to data between cache refresh intervals.
+
+At cache rebuilds, the cache service compares the cache with the updates provided by the adapter.  If the contents of 
+an object is identical to the cached version, the last updated timestamp is not modified.  But for all objects where the
+content has changed, a new last updated timestamp is set.
+
+During cache rebuilds, the cache is purged of objects that are no longer provided by the adapter.  As this works on object
+contents, a modified object appears as a new one, and the previous version is purged as it no longer exists.
+
+Whenever information is updated (added or modified) using the _Updating information using FINT_ operations mentioned above,
+the updated version of the object is _added_ to the cache _without_ removing the original version.  This means the cache will
+contain _multiple_ versions of the same object, until the next cache rebuild cycle.  As the cache behaves as a list, these 
+updated versions are added to the _end_ of this list.
+
+The multiple versions of this object is handled by the API in the following manner:
+
+1. For _get by ID_ operations, the cache service returns the most recent object matching the requested identifier.
+1. For _get since timestamp_ operations, only the version(s) modified _after_ that timestamp are returned.
+1. For _get all_ operations, all versions of the object are returned, in the order they were modified.
+
+__NOTE:__ Make note of the third case here - where multiple versions of the same object can occur!
+
+Since the cache behaves as a list, the order in which objects are returned for a _get all_ operation corresponds to the
+order in which they were added to the cache.  This means that the duplicate versions can be handled by the client by only
+processing the _last_ object having the given set of identifiers.
+
+*TIP!* The easiest way to avoid dealing with multiple instances of an object is to use the algorithm described in
+_Get objects updated since timestamp_ above, as only the modified version will be returned.
+
+#### Event service
+
+The internals of the Common API is events based. An event is created by:
 
 * Cache Service
-* Client
+* Client (REST API)
 
-When a client hits a endpoint in the Consumer API the Common API is generating an event and sends it to the Cache Service. An event from the client will never go all the way down to the adapter.
+When a client hits a endpoint in the Consumer API the Common API generates an event that propagates through the FINT core
+stack.  Whether the event is forwarded to the adapter depends on the type of event, as well as the source of the event.
 
-When the Cache Service need to update the cache it sends an event down to the adapter.
-
-All events are logged at all stages.
+All events are logged at all stages, and can be viewed through the [FINT Customer Portal](https://kunde.felleskomponent.no/).
 
 ![ill2](_media/fint-event-flow.png)
 
-## The information model
+## The Information Model
 
 ### Versioning
 
