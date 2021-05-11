@@ -8,41 +8,33 @@ Utvikling og forvaltning av felleskomponentene er kjernevirksomheten til FINT. F
 
 Bruk av felleskomponentene bør vurderes ved anskaffelser - som en del av kravspesifikasjon - og generelt i prosjekter som omfatter digitalisering og digital transformasjon.
 
-FINT tilbyr API-er (og et utvalg adaptere) som gjør det mulig å lese, skrive og oppdatere informasjon i ulike fagsystemer på en felles måte. Adaptere utvikles og forvaltes som hovedregel av leverandør. FINT tilbyr adaptere på utvalgte områder.
+FINT tilbyr API-er (og et utvalg adaptere) som gjør det mulig å lese, skrive og oppdatere informasjon i ulike fagsystemer på en felles måte. Adaptere utvikles og forvaltes som hovedregel av leverandør av fagsystem. FINT tilbyr adaptere på utvalgte områder.
 
 ### Tjenester
 
 #### Kundeportal
 
-Alle organisasjoner tilknyttet FINT får tilgang til kundeportalen. I kundeportalen kan organisasjonene administrere alle integrasjoner som går gjennom FINT. Kundeportalen har funksjonalitet for å opprette klienter for adaptere og API-er, utføre helsesjekk mot adaptere, utforske hendelseslogger, sende inn supportsaker med mer.
+Organisasjoner tilknyttet FINT får tilgang til kundeportalen. I kundeportalen administrerer hver enkelt organisasjon integrasjoner som går gjennom FINT. Kundeportalen har funksjonalitet for å opprette klienter for adaptere og API-er, utføre helsesjekker, utforske hendelseslogger, sende inn supportsaker med mer.
 
 #### REST API
 
-...
+Programerbare grensesnitt som gjenspeiler informasjonsmodellen til FINT og legger til rette for felles integrasjoner mot ulike fagsystemer. HTTP og (HAL) JSON basert.
 
 #### GraphQL
 
-...
+FINT tilbyr GraphQL som en tjenste og et spørrespråk over REST API. GraphQL forenkler uthenting av data og gir klienter mulighet for å spørre etter akkurat den informasjonen de trenger og ikke mer. Spørringer følger informasjonmodellen og er JSON basert.
 
 ### Adapter
 
-...
+FINT tilbyr, som tidligere nevnt, adaptere på utvalgte områder. Hovedvekten er innen arkiv og Noark 5.
 
-#### Elements og Ephorte (Sikri)
+* Elements og Ephorte (Sikri)
+* Public 360˚ (TietoEVRY)
+* KS SvarUt
 
-...
+ FINT tilbyr også adaptere for skoleadaministrative systemer som eksporterer data i henhold til spesifikasjonene IMS Enterprise og PIFU-IMS.
 
-#### Public 360˚ (TietoEVRY)
-
-...
-
-#### KS SvarUt
-
-...
-
-#### IST Extens/Sats
-
-...
+* IST Extens/Sats
 
 ## FINT Tjenester
 
