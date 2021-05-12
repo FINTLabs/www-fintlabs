@@ -14,6 +14,9 @@ To add new content add a new `markdown` file. I addition you need to add a link 
 ## Publish content
 When your finised updating the content just `commit` and `push` and the updated pages will be published automaticlly.
 
+## Docsify
+https://docsify.js.org/#/
+
 ## Run locally
 ```$ docsify serve```
 
