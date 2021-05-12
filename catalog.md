@@ -22,20 +22,32 @@ Programerbare grensesnitt som gjenspeiler informasjonsmodellen til FINT og legge
 
 #### GraphQL
 
-FINT tilbyr GraphQL som en tjenste og et spørrespråk over REST API. GraphQL forenkler uthenting av data og gir klienter mulighet for å spørre etter akkurat den informasjonen de trenger og ikke mer. Spørringer følger informasjonmodellen og er JSON basert.
-
-### Adapter
-
-FINT tilbyr, som tidligere nevnt, adaptere på utvalgte områder. Hovedvekten er innen arkiv og Noark 5.
-
-* Elements og Ephorte (Sikri)
-* Public 360˚ (TietoEVRY)
-* KS SvarUt
-
- FINT tilbyr også adaptere for skoleadaministrative systemer som eksporterer data i henhold til spesifikasjonene IMS Enterprise og PIFU-IMS.
-
-* IST Extens/Sats
+Spørrespråk over REST API. GraphQL forenkler uthenting av data og gir klienter mulighet for å spørre etter akkurat den informasjonen de trenger og ikke mer. Spørringer følger informasjonmodellen og er JSON basert.
 
 ## FINT Tjenester
 
-...
+blablabla
+
+### Betaling
+
+### IMS OneRoster
+
+### Den Kulturekke Skolesekken
+
+### Profilbilde
+
+### Adapter
+
+#### Elements og Ephorte (Sikri)
+
+#### Public 360˚ (TietoEVRY)
+
+#### KS SvarUt
+
+#### PIFU-IMS (IST Extens/Sats)
+
+### Digisak
+
+### Drosjeløyve
+
+### Personalmapper
