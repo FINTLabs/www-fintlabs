@@ -38,13 +38,19 @@ Den kulturelle skolesekken (DKS) er en nasjonal ordning som sørger for at alle 
 
 ### Profilbilde
 
-
+Tjenesten tilbyr en sentral og sikker lagringsplass der leverandører kan laste opp profilbilder. Tjenesten tilbyr også et felles API hvor skoleadaministrative systemer og andre kan hente ned profilbilder.
 
 ### Digisak
 
+Digisak er Riksantikvarens nye fagsystem for saksbehandling av tilskudds- og dispensasjonssøknader innenfor kulturminneforvaltningen. Oppgaver innenfor kulturminneforvaltningen blir overført fra Riksantikvaren til fylkeskommunen, og fagsystemet skal understøtte søknadsbehandlingen fra søknad til vedtak og utbetalinger. FINT sørger for at sakene går i riktig arkiv.
+
 ### Drosjeløyve
 
+Tjenesten ble utviklet i forbindelse med nytt drosjeregelverk som trådte i kraft 1. november 2020. Tjenesten henter nye søknader fra Altinn, sender ut samtykker via Altinn og sender til slutt komplette søknader til arkivet.
+
 ### Personalmapper
+
+Tjeneste for automatisk opprettelse og oppdatering av personalmapper. Tjenesten oppretter personalmapper for ansatte basert på et sett med konfigurerbare kriterier, for eksempel personalressurskategori. Tjenesten oppdaterer personalmapper ved endringer i arbeidssted, leder med mer.
 
 ## FINT Adapter
 
