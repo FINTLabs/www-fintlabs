@@ -26,7 +26,7 @@ Tjenester med den fellesnevner at de i stor grad baserer seg på bruk av fellesk
 
 ### Betaling
 
-Betaling er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten lar sluttbruker velge elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Tjenesten oppretter ordrer eller bestillinger som i sin tur produserer fakturagrunnlag for hver enkelt elev og sender disse til økonomisystem for videre prosessering. Tjenesten har også funksjonalitet for å slette og sjekke status og historikk på eksisterende ordrer. På sikt er det planlagt å legge til støtte for Vipps og lignende.
+Betaling er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten lar sluttbruker velge elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Tjenesten oppretter ordrer eller bestillinger som i sin tur produserer fakturagrunnlag for hver enkelt elev og sender disse til økonomisystem for videre prosessering. Tjenesten har også funksjonalitet for å slette og sjekke status og historikk på eksisterende ordrer.
 
 ### IMS OneRoster
 
@@ -46,7 +46,7 @@ Digisak er Riksantikvarens nye fagsystem for saksbehandling av tilskudds- og dis
 
 ### Drosjeløyve
 
-Tjenesten ble utviklet i forbindelse med nytt drosjeregelverk som trådte i kraft 1. november 2020. Tjenesten henter nye søknader fra Altinn, sender ut samtykker via Altinn og sender til slutt komplette søknader til arkivet.
+Tjeneste utviklet i forbindelse med nytt drosjeregelverk som trådte i kraft 1. november 2020. Tjenesten henter nye søknader fra Altinn, sender ut samtykker via Altinn og sender til slutt komplette søknader til arkivet.
 
 ### Personalmapper
 
