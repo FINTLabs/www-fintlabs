@@ -3,7 +3,6 @@
 | Navn                | Tittel                          | Epost               | Mobil      |
 |---------------------|---------------------------------|---------------------|------------|
 | Frode Sjovatsen     | Utviklingsleder                 | frode@fintlabs.no   | 908 82 080 |
-| Torleif Gravelsæter | Informasjonsarkitekt / utvikler | torleif@fintlabs.no | 470 59 630 |
 | Nils-Odd Solberg    | Informasjonsarkitekt / utvikler | nilsodd@fintlabs.no | 928 64 467 |
 | Lasse Ulvær         | Informasjonsarkitekt / utvikler | lasse@fintlabs.no   | 480 35 871 |
 | Erling Jahr         | Informasjonsarkitekt / utvikler | erling@fintlabs.no  | 413 55 262 |
