@@ -842,7 +842,6 @@ FINT is using [semantic versioning](http://semver.org/) for the information mode
 
 Additional labels for pre-release and build metadata are available as extensions to the `MAJOR.MINOR.PATCH` format.
 
-* `MINOR` versions are generally even numbers: 0, 2, 4, ...
 * `PATCH` numbers are released in increments of 10: 0, 10, 20, ...
 
 >The version relation between the FINT Information model and the technical implementations is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of technical implementations based on the **same** FINT Information model will increment the `PATCH` number by `1`.
