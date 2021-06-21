@@ -1,6 +1,6 @@
 
 
-## Oppsett av VIGO-IDP
+## Oppsett av Azure AD Federering - VIGO-IDP
 
 ### Virkemåte
 ![ill1](_media/vigo-idp/vigoidp1.png)

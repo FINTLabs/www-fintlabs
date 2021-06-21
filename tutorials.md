@@ -513,4 +513,4 @@ Endre informasjon på en ansatt i HR-system f.eks.
 * filtrering på selskapsnr, slik at kun fylkeskommunens ansatte hentes ut. (Ikke fk-foretak o.l.)
 * ansatte `+/- 365 dager` fra dagens dato når HR-adapteret overfører informasjon til FINT/VIS
 
-## [Oppsett av VIGO-IDP](vigo-idp.md)
+## [Oppsett av Azure AD federering](vigo-idp.md)
