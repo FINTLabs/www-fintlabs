@@ -63,3 +63,8 @@ Et adapter utvikles og forvaltes som hovedregel av leverandør av et fagsystem. 
 * KS SvarUt
 
 * PIFU-IMS (IST Extens/Sats)
+
+## SLA avtale
+
+Her finner du SLA avtalen for FINT 
+>[SLA mellom Vigo IKS og fylkeskommunene om tjenesten FINT](_media/SLA-mellom-VigoIKS-og-fylkeskommunene-om-tjenesten-FINT.pdf ':ignore')
