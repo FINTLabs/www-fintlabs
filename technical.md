@@ -20,7 +20,7 @@ The skeleton handles **connection**, **authorization** and **communication** wit
 
 Your task as developer of an adapter is to:
 
-1. Repond to `events` sent from FINT
+1. Respond to `events` sent from FINT
 2. Interact with you back-end system
 3. Map you data to FINT
 4. Send back the information asked for in the `event`
