@@ -40,6 +40,14 @@ Den kulturelle skolesekken (DKS) er en nasjonal ordning som sørger for at alle 
 
 Tjenesten tilbyr en sentral og sikker lagringsplass der leverandører kan laste opp profilbilder. Tjenesten tilbyr også et felles API hvor skoleadaministrative systemer og andre kan hente ned profilbilder.
 
+**Forutsettning: organisasjonen har avtale med en fotograf/bildeleverandør som kan laste opp bildene til fint.**
+
+1. Bildeleverandør henter elev/skoledata fra utdanningskomponeneten i Fint
+2. Bildeleverandøren laster opp bildene til en Azure Storage Blob i Fint's Azure
+3. Organisasjonen kan hente ut bilder via profilbilde komponenten i Fint
+
+![](./_media/teknisk-bildeServiceOversikt.png)
+
 ### Digisak
 
 Digisak er Riksantikvarens nye fagsystem for saksbehandling av tilskudds- og dispensasjonssøknader innenfor kulturminneforvaltningen. Oppgaver innenfor kulturminneforvaltningen blir overført fra Riksantikvaren til fylkeskommunen, og fagsystemet skal understøtte søknadsbehandlingen fra søknad til vedtak og utbetalinger. FINT sørger for at sakene går i riktig arkiv.

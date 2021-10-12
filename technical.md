@@ -891,13 +891,5 @@ FINT offers three environments:
 
 For all of these environments the URIs follow the same pattern, so to find employee #33445, append the following path to the URI: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
 
-## Bildetjeneste
 
-**Forutsettning: organisasjonen har avtale med en fotograf/bildeleverandør som kan laste opp bildene til fint.**
-
-1. Bildeleverandør henter elev/skoledata fra utdanningskomponeneten i Fint
-2. Bildeleverandøren laster opp bildene til en Azure Storage Blob i Fint's Azure
-3. Organisasjonen kan hente ut bilder via profilbilde komponenten i Fint
-
-![](./_media/teknisk-bildeServiceOversikt.png)
 
