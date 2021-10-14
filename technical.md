@@ -479,7 +479,21 @@ Attributes in the resources can either be complex datatypes or any of the primit
 
 Attributes can be optional or mandatory, single-value or multi-value.  Multi-value attributes are always represented as an array, even if there is only a single value.
 
-Dates are represented in ISO 8601 form with UTC time zone: `2019-06-05T09:48:23Z`.
+##### Date
+
+Dates are represented in ISO 8601 form with UTC +0 (Z) time zone.
+
+Example: `2019-06-05T09:48:23Z`.
+
+The adapter is responsible for all date data to UTC +0. The consumer is responsible for changing date data to a usefull timesone for the application.
+
+Example:
+
+Here you can se what a Date of birth can look like:
+
+- In a HRM system: '2000-02-14T00:00:00+1'
+- In FINT: '2000-02-13T23:00:00Z'
+- In Consumer application: '2000-02-14T00:00:00+1'
 
 ### Naming convention
 
@@ -844,7 +858,7 @@ Additional labels for pre-release and build metadata are available as extensions
 
 * `PATCH` numbers are released in increments of 10: 0, 10, 20, ...
 
->The version relation between the FINT Information model and the technical implementations is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of technical implementations based on the **same** FINT Information model will increment the `PATCH` number by `1`.
+>The version relation between the FINT Information model, and the technical implementations is that they start with the same `MAJOR.MINOR.PATCH` versions.  Additional releases of technical implementations based on the **same** FINT Information model will increment the `PATCH` number by `1`.
 
 ### Development
 
