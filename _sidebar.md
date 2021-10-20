@@ -2,7 +2,7 @@
 * [Hvorfor FINT?](home.md)
 * [Kom i gang](getting-started.md)
 * [Arkitektur](architecture.md)
-* [Teknisk dokumentasjon](technical.md)
+* [Technical documentation](technical.md)
 * [Veiledninger](tutorials.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)

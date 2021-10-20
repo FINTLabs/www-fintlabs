@@ -1,3 +1,3 @@
 * [Hjem](/)
 * [Arkitektur](architecture.md)
-* [Teknisk dokumentasjon](technical.md)
+* [Technical documentation](technical.md)

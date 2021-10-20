@@ -1,4 +1,4 @@
-# Teknisk dokumentasjon
+# Technical documentation
 
 ## Developing an adapter
 
