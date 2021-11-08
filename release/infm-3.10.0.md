@@ -83,7 +83,7 @@ Note: Deprecated classes, attributes and relations might be removed in the next 
 
 ### Schedule
 
-NA
+Is in Beta-testing.
 
 ### References
 
