@@ -1,14 +1,14 @@
-#Informasjonsmodellen 3.10.0
+# Informasjonsmodellen 3.10.0
 
 > Release candidate
 
-## Description
+### Description
 
 Utdanning has been the main focus of this release. Only smaller changes have been done on other domains.
 
-## Content
+### Content
 
-###Features
+#### Features
 * Utdanning (replace `Vurdering`)
   
     * Added abstract class `Fagvurdering`.
@@ -60,7 +60,7 @@ Utdanning has been the main focus of this release. Only smaller changes have bee
     * Added relation `kommune` on `Person`.
 
 
-### Deprecated
+#### Deprecated
 
 Note: Deprecated classes, attributes and relations might be removed in the next major release.
 
@@ -71,7 +71,7 @@ Note: Deprecated classes, attributes and relations might be removed in the next 
     * The relation eksamensgruppe on Fravær is deprecated.
     
 
-### Bugfixes
+#### Bugfixes
 
 * Utdanning
     * Added description for attribute `persongruppemedlemskap` on `Elevforhold`.
@@ -81,11 +81,11 @@ Note: Deprecated classes, attributes and relations might be removed in the next 
     * Clarified description for attribute `foreldre` on `Person`.
     
 
-## Schedule
+### Schedule
 
 NA
 
-## References
+### References
 
 [Documentation 3.10.0 Release candidate](https://informasjonsmodell.felleskomponent.no/docs?v=v3.10.0-rc-1)
 

@@ -1,9 +1,10 @@
-#Release
+# Release
 
-> ### [Information model version 3.10.0](https://www.nuget.org/profiles/FINTLabs)
+### Current projects
+> ### [Information model version 3.10.0](release/infm-3.10.0.md)
 >Release candidate.
 
-## Competed releases
+### Older releases
 
 
 
