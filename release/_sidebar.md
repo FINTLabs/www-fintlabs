@@ -1,0 +1,18 @@
+* [Forsiden](/)
+* [Hvorfor FINT?](home.md)
+* [Kom i gang](getting-started.md)
+* [Arkitektur](architecture.md)
+* [Technical documentation](technical.md)
+* [Release](release.md)
+* [Veiledninger](tutorials.md)
+* [Verktøy](tools.md)
+* [Tjenestekatalog](catalog.md)
+* [Visma InSchool (VIS)](vis.md)
+* [FINT illustrert](cartoon.md)
+* [Kontakt](contact.md)
+
+- ****
+* [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Informasjonsmodell](https://informasjonsmodell.felleskomponent.no)
+* [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)
+* [![Github](https://www.fintlabs.no/_media/github.svg ':size=16')Github](https://github.com/fintlabs)
+* [![Vigo IKS](https://www.vigoiks.no/extension/site/design/site/images/favicon/favicon.ico ':size=16')Vigo IKS](https://www.vigoiks.no)
