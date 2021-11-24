@@ -38,11 +38,7 @@ Note: Deprecated classes, attributes and relations might be removed in the next 
 
 * Arkiv
     * Changed name of relation `fartoyNavn` on `TilskuddFartøy` from `fartoyNavn` to `fartøyNavn`.
-
-### Schedule
-
-In production
-
+  
 ### References
 
 [Documentation 3.9.0](https://informasjonsmodell.felleskomponent.no/?v=v3.9.0)

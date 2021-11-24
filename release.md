@@ -18,10 +18,13 @@
 
 ### Older
 
-> ### [Information model version 3.9.0](release/infm-3.8.10.md) 
+> ### [Information model version 3.8.10](release/infm-3.8.10.md)
 
-> ### [Information model version 3.9.0](release/infm-3.8.0.md)
+> ### [Information model version 3.8.0](release/infm-3.8.0.md) 
 
+> ### [Information model version 3.7.0](release/infm-3.7.0.md)
 
+> ### [Information model version 3.6.10](release/infm-3.6.10.md)
 
+> ### [Information model version 3.6.0](release/infm-3.6.0.md)
 
