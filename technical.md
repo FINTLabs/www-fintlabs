@@ -181,10 +181,13 @@ Events *must* be responded with a `responseStatus` setting indicating the result
 
 | `responseStatus` | HTTP status sent to client    | Response body | Description of result                                                                                                                                              |
 | ---------------- | ----------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ACCEPTED`       | [`201`](https://http.cat/201) | FINT object   | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
+| `CREATED`        | [`201`](https://http.cat/201) | FINT object   | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
+| `ACCEPTED`       | [`202`](https://http.cat/202) |               | The operation is treated as an ascyn request and it is accepted. Recheck status until it is either successful (200) or has failed.                                 |
 | `REJECTED`       | [`400`](https://http.cat/400) | Error details | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
 | `ERROR`          | [`500`](https://http.cat/500) | Error details | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
 | `CONFLICT`       | [`409`](https://http.cat/409) | FINT object   | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
+
+?> If the response is a 202 ACCEPTED, it means that the request is being processed async. You should then use a backoff strategy to recheck if the operation is complete. The period you wait between each check should increase and you should wait until you get a different response. This can take up to 20 minutes.
 
 If write operations are not supported or permitted, the event must be rejected by posting `ADAPTER_REJECTED` at the `/status` phase.
 
