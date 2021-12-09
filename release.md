@@ -28,3 +28,18 @@
 
 > ### [Information model version 3.6.0](release/infm-3.6.0.md)
 
+> ### [Information model version 3.5.0](release/infm-3.5.0.md) 
+
+> ### [Information model version 3.4.0](release/infm-3.4.0.md) 
+
+> ### [Information model version 3.3.0](release/infm-3.3.0.md) 
+
+> ### [Information model version 3.2.0](release/infm-3.2.0.md)
+
+> ### [Information model version 3.1.0](release/infm-3.1.0.md)
+
+> ### [Information model version 3.0.0](release/infm-3.0.0.md)
+
+
+
+
