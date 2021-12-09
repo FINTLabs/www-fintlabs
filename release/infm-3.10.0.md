@@ -1,7 +1,10 @@
 # Informasjonsmodellen 3.10.0
 
-> Release candidate
-
+> Production
+>
+> Date: 09.12.2021
+>
+> Tag: v3.10.0
 ### Description
 
 Utdanning has been the main focus of this release. Only smaller changes have been done on other domains.
@@ -80,14 +83,11 @@ Note: Deprecated classes, attributes and relations might be removed in the next 
     * Clarified description for attribute `foreldreansvar` on `Person`.
     * Clarified description for attribute `foreldre` on `Person`.
     
-
-### Schedule
-
-Is in Beta-testing.
+  
 
 ### References
 
-[Documentation 3.10.0 Release candidate](https://informasjonsmodell.felleskomponent.no/docs?v=v3.10.0-rc-1)
+[Documentation 3.10.0](https://informasjonsmodell.felleskomponent.no/docs?v=v3.10.0)
 
 
 

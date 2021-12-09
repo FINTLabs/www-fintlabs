@@ -5,18 +5,16 @@
 >Planing.
 
 
- 
-> ### [Information model version 3.10.0](release/infm-3.10.0.md)
->Release candidate.
-
 
 ### Production
-> ### [Information model version 3.9.0](release/infm-3.9.0.md)
+> ### [Information model version 3.10.0](release/infm-3.10.0.md)
 
 
 
 
 ### Older
+
+> ### [Information model version 3.9.0](release/infm-3.9.0.md)
 
 > ### [Information model version 3.8.10](release/infm-3.8.10.md)
 
@@ -39,6 +37,21 @@
 > ### [Information model version 3.1.0](release/infm-3.1.0.md)
 
 > ### [Information model version 3.0.0](release/infm-3.0.0.md)
+
+> ### [Information model version 2.8.0](release/infm-2.8.0.md)
+
+> ### [Information model version 2.7.0](release/infm-2.7.0.md)
+
+> ### [Information model version 2.6.0](release/infm-2.6.0.md)
+
+> ### [Information model version 2.4.0](release/infm-2.4.0.md)
+
+> ### [Information model version 2.2.20](release/infm-2.2.20.md)
+
+> ### [Information model version 2.2.10](release/infm-2.2.10.md)
+
+> ### [Information model version 2.2.0](release/infm-2.2.0.md)
+
 
 
 
