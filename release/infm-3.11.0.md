@@ -1,4 +1,4 @@
-# Informasjonsmodellen 3.10.0
+# Informasjonsmodellen 3.11.0
 
 > Planing
 
