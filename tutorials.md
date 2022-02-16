@@ -602,17 +602,20 @@ Fyll inn:
 
 Klikk på [Apply]
 
-![ill11](_media/vigo-idp/vigoidp11.png)
+![ill11](_media/vigo-idp/create-app-role.png)
 
 
 For å opprette flere roller: gjenta prosessen ved å trykke på “ +Create app role” og fyll inn som ovenfor. 
 
-Figuren under viser 3 roller : 
-- vigo-vigobas-administrators
-- vigo-drosjeloyve-admin
-- vigo-samtykke-endusers
+Figuren under viser 4 roller som er satt opp: 
+- https://role-catalog.vigoiks.no/vigo/drosjeloyve/admin
+- https://role-catalog.vigoiks.no/vigo/samtykke/user
+- https://role-catalog.vigoiks.no/vigo/elevfakturering/user
+- https://role-catalog.vigoiks.no/vigo/isyroad/user
 
-![ill12](_media/vigo-idp/vigoidp12.png)
+Alle rollene, med beskrivelse, finnes i Rollekatalogen: https://role-catalog.vigoiks.no
+
+![ill12](_media/vigo-idp/app-roles.png)
 
 
 ### Koble gruppe i Azure med rolle
