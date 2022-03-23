@@ -9,11 +9,15 @@
 #### Features
 
 * Utdanning
-    * Added abstract class `Fraværsregistrering`.
+          
     * Added class `Eksamensform`.
     * Added class `KarakterHistorie`.
     * Added class `Karakterstatus`.
     * Added class `Elevfravær`.
+  
+    * Added complex datatype `Fraværsregistrering`.
+  
+    * Added attribute `tospråkligFagopplæring` on `Elevforhold`.
 
     * Added relation `elevfravær` on `Elevforhold`.
 
@@ -32,7 +36,7 @@ NA
 
 ### References
 
-[Documentation 3.11.0](https://informasjonsmodell.felleskomponent.no/docs?v=v3.11.0)
+[Documentation 3.11.0](https://informasjonsmodell.felleskomponent.no/docs?v=feature_3_11_0)
 
 
 
