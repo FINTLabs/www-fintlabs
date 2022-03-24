@@ -10,16 +10,21 @@
 
 * Utdanning
           
-    * Added class `Eksamensform`.
-    * Added class `KarakterHistorie`.
-    * Added class `Karakterstatus`.
-    * Added class `Elevfravær`.
+  * Added class `Eksamensform`.
+  * Added class `KarakterHistorie`.
+  * Added class `Karakterstatus`.
+  * Added class `Elevfravær`.
+  * Added class `Fagmedlemskap`.
   
-    * Added complex datatype `Fraværsregistrering`.
+  * Added complex datatype `Fraværsregistrering`.
   
-    * Added attribute `tospråkligFagopplæring` on `Elevforhold`.
+  * Added attribute `tospråkligFagopplæring` on `Elevforhold`.
 
-    * Added relation `elevfravær` on `Elevforhold`.
+  * Added relation `elevfravær` on `Elevforhold`.
+  * Added relation `fagmedlemskap` on `Elevforhold`.
+  * Added relation `fagmedlemskap` on `Fag`.
+  * Added relation `fag` on `Fagmedlemskap`.
+  * Added relation `elevforhold` on `Fagmedlemskap`.
 
 #### Deprecated
 
