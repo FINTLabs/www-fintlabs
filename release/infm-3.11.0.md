@@ -19,6 +19,7 @@
   * Added complex datatype `Fraværsregistrering`.
   
   * Added attribute `tospråkligFagopplæring` on `Elevforhold`.
+  *Added attribute `alternativId` on `Elevforhold`.
 
   * Added relation `elevfravær` on `Elevforhold`.
   * Added relation `fagmedlemskap` on `Elevforhold`.
