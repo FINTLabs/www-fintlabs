@@ -47,33 +47,62 @@ Her velger man hvilke komponenter man ønsker å gjøre tilgjengelig for sin org
 
 ### Adapter
 
-Når man har koblet komponentene til organisasjonen så går man videre til tredje menypunkt som er Adapter.
+* Når man har koblet `komponentene` til `organisasjonen` så går man videre til tredje menypunkt som er `Adapter`.
 
-Oppsettet som genereres her skal brukes i konfigurasjon av FINT-adapter.
+
+* Oppsettet som genereres her skal brukes i konfigurasjon av `FINT-adapter`.
 
 ![ill6](_media/kundeportal-6.png)
 
-Man klikker på det store grønne symbolet med en svart pluss i, for å legge til et adapter. Da vil man få opp følgende bilde:
+Man klikker på det store `grønne symbolet` med en svart pluss i, for å legge til et `adapter`. Da vil man få opp følgende bilde:
 
 ![ill7](_media/kundeportal-7.png)
 
-Først fyller du ut brukernavn til adapteret. Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen.
+* Først fyller du ut `brukernavn` til adapteret.
+  * Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet.
+     * Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal.
+* I feltet `Kort beskrivelse` legger du inn navnet som vil vises i listen over Adaptere.
+* Man kan endre beskrivelsen senere.
+* Når man har lagt inn en `Note`, kan man legge til adapteret ved å trykke `LEGG TIL`, og det kommer opp i listen.
 
-Deretter klikker du på edit-symbolet (en grå blyant) bak adapteret i listen, og får opp dette bildet:
+</br>
+
+* Deretter klikker du på `edit-symbolet` (en grå blyant) bak adapteret i listen, og får opp dette bildet:
 
 ![ill8](_media/kundeportal-8.png)
 
-Her kan man endre på beskrivelse og Note, hvis man ønsker.  Ved å klikke på “Komponenter” i toppmenyen, kommer man til følgende bilde:
+* Her kan man endre på `Kort beskrivelse` og `Note`, hvis man ønsker.
+* Ved å klikke på `Komponenter` i toppmenyen, kommer man til følgende bilde:
 
 ![ill9](_media/kundeportal-9.png)
 
-Her finner du igjen de komponentene vi valgte i sted, og kan koble dem til adapteret. Klikk på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Det vil si at en tilkoblet komponent vises med rødt symbol. Deretter går man videre i toppmenyen til Autentisering.
+* Her finner du igjen de komponentene vi valgte i sted, og kan koble dem til adapteret.
+  * Klikk på:
+    * `Grønt symbol` med en pluss for å koble til
+    * `Rødt symbol` med en minus for å koble fra. Det vil si at en tilkoblet komponent vises med rødt symbol.
+* Deretter går man videre i toppmenyen til `Autentisering`.
 
 ![ill10](_media/kundeportal-10.png)
 
-Her kommer informasjonen som skal inn i konfigfilene til adapteret. Det er denne informasjonen som skal sendes til den som installerer FINT-adapteret i deres miljø. Dette er ikke denne informasjonen som skal sendes til VISMA for oppsett i VIS. Det skal man sette opp en klient for. Husk å trykke på symbolene bak Passord og Klient Hemmelighet for å generere disse første gangen. Hvis man genererer opp passord på nytt senere, må man endre i konfigfilene til adapteret også, hvis ikke vil adapteret feile ved oppkobling mot FINT. Klient Hemmeligheten vil hentes fra FINTs OAuth-server og vil ikke endres selv om han henter verdien på nytt.
+* Her kommer informasjonen som skal inn i konfig-filene til adapteret.
+* Det er denne informasjonen som skal sendes til den som installerer FINT-adapteret i deres miljø.
+ </br>
 
-Når man har generert opp Passord og hentet Klient Hemmelighet, kan man kopiere informasjonen ut i JSON-format, ved å klikke på knappen `KOPIER AUTENTISERINGSINFORMASJON`. Da kommer det på dette formatet:
+
+* `NB!` Dette er ikke den informasjonen som skal sendes til VISMA for oppsett i VIS. Det skal man sette opp en klient for.
+</br>
+
+
+* Husk å trykke på symbolene bak `Passord` og `Klient Hemmelighet` for å generere disse første gangen.
+
+
+* Hvis man genererer opp passord på nytt senere, må man endre i konfig-filene til adapteret også, hvis ikke vil adapteret feile ved oppkobling mot FINT.
+* `Klient Hemmeligheten` vil hentes fra FINTs OAuth-server og vil ikke endres selv om han henter verdien på nytt.
+
+</br>
+
+
+Når man har generert opp `Passord` og hentet `Klient Hemmelighet`, kan man kopiere informasjonen ut i JSON-format, ved å klikke på knappen `KOPIER AUTENTISERINGSINFORMASJON`. Da kommer det på dette formatet:
 
 ```json
 {
@@ -85,9 +114,16 @@ Når man har generert opp Passord og hentet Klient Hemmelighet, kan man kopiere 
 }
 ```
 
-NB: Hvis passordet er “topseceret”, har du glemt å generere passordet. Dette er et default passord som ikke fungerer ved pålogging til adapteret. Da må du oppdatere passordet ved å klikke på oppdateringssymbolet (en pil formet som en sirkel).
+</br>
 
-Bruker som lages for å benytte FINT-adapteret, blir ikke opprettet som en domenebruker hos fylkeskommunen. Denne finnes bare i FINT-sammenheng.
+>`NB!`
+>* Hvis passordet er “topseceret”, har du glemt å generere passordet. Dette er et default passord som ikke fungerer ved pålogging til adapteret. Da må du oppdatere passordet ved å klikke på oppdateringssymbolet (en pil formet som en sirkel).
+></br>
+>
+>
+>* Bruker som lages for å benytte FINT-adapteret, blir ikke opprettet som en domenebruker hos fylkeskommunen. Denne finnes bare i FINT-sammenheng.
+
+</br>
 
 ### Klienter
 
