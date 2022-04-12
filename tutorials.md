@@ -33,9 +33,27 @@ Første menypunkt, vist med blå sirkel i bildet under, er hvor man setter opp t
 
 ### Kontaktpersoner
 
-Gå til Kontakter (1), og klikk på det grønne ikonet med en svart pluss i (2). Deretter trykk på det røde ikonet med en pluss i som kommer i vinduet som åpner seg (3). Der kan du, dersom du er juridisk teknisk kontakt, legge inn de tekniske kontaktene du ønsker skal ha tilgang til kundeportalen. Dersom kontakten du ønsker skal ha tilgang til kundeportalen ikke finnes i listen, ber du dem opprette en bruker.
+#### Opprette kontaktpersoner
 
-![ill3](_media/kundeportal-3.jpeg)
+For å kunne opprette en kontaktperson/bruker i Kundeportalen må man gjøre følgende:
+1. Brukeren må først logge seg inn i Kundeportalen (https://kunde.felleskomponent.no) med BankID. Brukeren blir da automatisk registrert i systemet.
+2. Deretter må administrator/juridisk kontaktperson for gjeldende fylkeskommune logge seg inn i Kundeprotalen og knytte denne brukeren til sin organisasjon. Dette gjøres på følgende måte:
+     * Logg deg inn på kundeportalen (https://kunde.felleskomponent.no) med BankID
+     * Trykk på `Kontakter` i venstre kolonne.
+     * Trykk så på`pluss`-tegnet oppe i høyre hjørne.
+     * Søk deretter etter brukeren i søkefeltet.
+     * Trykk så på `pluss`-tegnet til høyre for brukeren du ønsker å legge til organisasjonen.
+     * Deretter trykker du `Lukk`.
+
+#### Fjerne kontaktpersoner
+
+Administrator/juridisk kontaktperson for gjeldende fylkeskommune må logge seg inn i Kundeprotalen og fjerne denne brukeren fra sin organisasjon. Dette gjøres på følgende måte:
+  * Logg deg inn på kundeportalen (https://kunde.felleskomponent.no) med BankID
+  * Trykk på `Kontakter` i venstre kolonne.
+  * Trykk så på `Fjern Teknisk Kontakt` til høyre for kontaktpersonen/brukeren du ønsker å fjerne.
+  * Deretter trykker du `Lukk`.
+
+<br/>
 
 ### Komponenter
 
