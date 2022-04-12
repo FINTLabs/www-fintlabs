@@ -37,6 +37,33 @@ Gå til Kontakter (1), og klikk på det grønne ikonet med en svart pluss i (2).
 
 ![ill3](_media/kundeportal-3.jpeg)
 
+* ####Tildeling og fjerning av `roller` for kontaktpersoner:
+
+> `OBS!` **Dette er en ny funkjsonalitet som for øyeblikket ikke er tilgjengelig, men som vil komme seinere.**
+
+Roller tildeles og fjernes fra den enkelte av administrator.
+
+Det betyr at administrator må logge seg inn i kundeportalen (https://kunde.felleskomponent.no) og deretter gjøre følgende:
+
+ **Tildeling av roller**
+1. Trykk på `Kontakter` i venstre kolonne.
+2. Trykk så på `hengelås`-symbolet til høyre for navnet på brukeren du ønsker å tildele roller til.
+3. Velg så hvilke`roller` brukeren skal ha.
+4. Deretter trykker du `Lukk`.
+
+ **Fjerning av roller**
+
+1. Trykk på `Kontakter` i venstre kolonne.
+2. Trykk så på `hengelås`-symbolet til høyre for navnet på brukeren du ønsker å fjerne roller fra.
+3. Velg så hvilke`roller` som skal fjernes fra brukeren.
+4. Deretter trykker du `Lukk`.
+<br/>
+ 
+**Eksempel på kontaktpersoner/brukere med tildelte roller:**
+
+![Eksempel_roller](_media/kundeportal-21.png)
+<br/>
+
 ### Komponenter
 
 ![ill4](_media/kundeportal-4.png)
