@@ -24,9 +24,11 @@ Spørrespråk over ovennevnte REST API. GraphQL forenkler uthenting av data og g
 
 Tjenester med den fellesnevner at de i stor grad baserer seg på bruk av felleskomponentene til FINT. Dette gjør det mulig å tilby - litt forenklet - én og samme tjeneste til alle tilknyttede organisasjoner.
 
-### Betaling
+### Elevfakturering (Betaling)
 
-Betaling er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten lar sluttbruker velge elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Tjenesten oppretter ordrer eller bestillinger som i sin tur produserer fakturagrunnlag for hver enkelt elev og sender disse til økonomisystem for videre prosessering. Tjenesten har også funksjonalitet for å slette og sjekke status og historikk på eksisterende ordrer.
+Elevfakturering er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten lar sluttbruker velge elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Tjenesten oppretter ordrer eller bestillinger som i sin tur produserer fakturagrunnlag for hver enkelt elev og sender disse til økonomisystem for videre prosessering. Tjenesten har også funksjonalitet for å slette og sjekke status og historikk på eksisterende ordrer.
+
+[Les mer...](catalog-invoice.md)
 
 ### IMS OneRoster
 
