@@ -1,14 +1,14 @@
 ## Elevfakturering (Betaling)
 
-Vigo Elevfakturering er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten er laget for at personalet på skolene skal kunne opprette fakturagrunnlag, og at disse automatisk skal bli overført til økonomisystemet for fakturering og videre oppfølging. Løsningen kombinerer informasjon om elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Systemet er kun ment som et forsystem for generering av fakturagrunnlag, og gir noen enkle muligheter for oppfølging som f.eks. betalingsstatus og kredittering. 
+Vigo Elevfakturering er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten er laget for at personalet på skolene skal kunne opprette fakturagrunnlag, og at disse enkelt sendes til økonomisystemet for fakturering og videre oppfølging. Løsningen kombinerer informasjon om elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Systemet er kun ment som et forsystem for generering av fakturagrunnlag, og gir noen enkle muligheter for oppfølging som for eksempel betalingsstatus og kredittering. 
 
-For at dere skal kunne benytte løsningen må det eksistere et økonomi-adapter som kommuniserer integrasjonen mellom FINT og økonomisystemet. Et slikt adapter finnes for noen økonomisystemer, men for andre ikke. Ta kontakt med oss med informasjon om hvilket økonomisystem dere benytter for status på integrasjonsmuligheter. Ved oppstart av en ny integrasjon må det også påberegnes arbeid med å teste og kvalitetssikre at integrasjonen fungerer slik dere ønsker. 
+For at dere skal kunne benytte løsningen må det eksistere et økonomi-adapter som kommuniserer integrasjonen mellom FINT og deres økonomisystemet. Et slikt adapter finnes for noen økonomisystemer, men for andre ikke. Ta kontakt med oss med informasjon om hvilket økonomisystem dere benytter for status på integrasjonsmuligheter. Ved oppstart av en ny integrasjon må det også påberegnes arbeid med testing og kvalitetssikring av integrasjonen. 
 
 Er du interessert eller har flere spørsmål oppfordrer vi deg til å ta kontakt via kundeportalen. 
 
 ### Demoside
 
-Vi har satt opp en demo-versjon av nettsiden slik at du kan teste og se hvordan det fungerer. Demo-siden vil også bli oppgradert med ny funksjonalitet og kan benyttes av brukerforumet til å gi tilbakemeldinger på ny funksjonalitet.
+Vi har satt opp en demo-versjon av nettsiden slik at du skal kunne teste og se hvordan det fungerer. Demo-siden vil også bli oppgradert med ny funksjonalitet og kan benyttes av brukerforumet til å gi tilbakemeldinger på ny funksjonalitet.
 
 Lenke: [betaling-demo.felleskomponent.no](https://betaling-demo.felleskomponent.no/)
 
