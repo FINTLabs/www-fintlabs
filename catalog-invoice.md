@@ -24,15 +24,15 @@ Vi har etablert en brukergruppe for interessenter av tjenesten. Gruppa samles di
    - Søk opp og velg en gruppe (undervisningsgruppe)
    - Søk opp og velg en person
    - Last opp en fil med elevreferanser fra Visma InSchool
-- Trykk **videre**
-- Søk opp og velg ønskede produkter
-- Juster til ønsket antall og pris, trykk så **videre**
-- Trykk **lagre betaling**
+4. Trykk **videre**
+5. Søk opp og velg ønskede produkter
+6. Juster til ønsket antall og pris, trykk så **videre**
+7. Trykk **lagre betaling**
 
 ### Hvordan overføre ordre til økonomisystem
-- Trykk **send ordre** eller velg **send til fakturering fra ordreopprettelse
-- Kryss av på **velg alle** eller merk de fakturaene du ønsker å overføre
-- Trykk **send ordre til fakturering**
+1. Trykk **send ordre** eller velg **send til fakturering fra ordreopprettelse
+2. Kryss av på **velg alle** eller merk de fakturaene du ønsker å overføre
+3. Trykk **send ordre til fakturering**
 
 ### Hvordan følge opp en faktura
 
