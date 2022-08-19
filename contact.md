@@ -10,4 +10,4 @@
 | Trond M. Sevre      | Informasjonsarkitekt / utvikler | trond@fintlabs.no             | 984 51 020 |
 | Jennifer Strand     | Informasjonsarkitekt / utvikler | jennifer@fintlabs.no          | 980 98 680 |
 | Ole Anders Eidjord  | Løsningsarkitekt / utvikler     | ole.anders.eidjord@vigoiks.no | 959 72 925 |
-|                     |                                 |                               |            |
+| Henrik H. Knutsen   | Lærling                         | henrik@fintlabs.no            | 453 71 585 |
