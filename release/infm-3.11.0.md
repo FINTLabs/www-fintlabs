@@ -9,23 +9,48 @@
 #### Features
 
 * Utdanning
-          
+
   * Added class `Eksamensform`.
-  * Added class `KarakterHistorie`.
+  * Added class `Karakterhistorie`.
   * Added class `Karakterstatus`.
   * Added class `Elevfravær`.
-  * Added class `Fagmedlemskap`.
+  * Added class `Faggruppemedlemskap`.
+  * Added class `Faggruppe`.
+  * Added class `Sensor`.
   
   * Added complex datatype `Fraværsregistrering`.
   
   * Added attribute `tospråkligFagopplæring` on `Elevforhold`.
-  *Added attribute `alternativId` on `Elevforhold`.
+  * Changed attribute `karakter ` on `Fagvurdering`.
 
-  * Added relation `elevfravær` on `Elevforhold`.
-  * Added relation `fagmedlemskap` on `Elevforhold`.
-  * Added relation `fagmedlemskap` on `Fag`.
-  * Added relation `fag` on `Fagmedlemskap`.
-  * Added relation `elevforhold` on `Fagmedlemskap`.
+  * Added relation `fraværsregistreringer` on `Elevforhold`.
+  * Added relation `faggruppemedlemskap` on `Elevforhold`.
+  * Added relation `faggruppe` on `Fag`.
+  * Added relation `faggruppe` on `Faggruppemedlemskap`.
+  * Added relation `elevforhold` on `Faggruppemedlemskap`.
+  * Added relation `fag` on `Faggruppe`.
+  * Added relation `faggruppemedlemskap` on `Faggruppe`.
+  * Added relation `nus` on `Eksamensgruppemedlemskap`.
+  * Added relation `sensor` on `Eksamensgruppe`.
+  * Added relation `eksamensform` on `Eksamensgruppe`.
+  * Added relation `sensor` on `Skoleressurs`.
+  * Added relation `skoleressurs` on `Sensor`.
+  * Added relation `eksamensgruppe` on `Sensor`.
+  * Added relation `karakterhistorie` on `Sluttfagvurdering`.
+  
+* Administrasjon
+  * Added class `Formål`.
+
+  * Added relation `formål` on `Kontostreng`.
+  * Added relation `formål` on `Arbeidsforhold`.
+  * Added relation `formål` on `Fullmakt`.
+
+* Arkiv
+  * Added class `Saksmappetype`
+
+  * Added attribute `skjerming` on `Korrespondansepart`.
+
+  * Added relation `saksmappetype` on `Saksmappe`.
 
 #### Deprecated
 
@@ -35,6 +60,9 @@ Note: Deprecated classes, attributes and relations might be removed in the next 
   * The relation fravær on Elevforhold is deprecated.
 
 #### Bugfixes
+
+* Administrasjon
+  * The deprecated relation myndighet in Fullmakt changed multiplisity from 1..* to 0..*
 
 ### Schedule
 
