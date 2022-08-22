@@ -25,18 +25,14 @@
 
   * Added relation `fraværsregistreringer` on `Elevforhold`.
   * Added relation `faggruppemedlemskap` on `Elevforhold`.
+  * Added relation `skoleår` on `Elevforhold`.
   * Added relation `faggruppe` on `Fag`.
-  * Added relation `faggruppe` on `Faggruppemedlemskap`.
-  * Added relation `elevforhold` on `Faggruppemedlemskap`.
-  * Added relation `fag` on `Faggruppe`.
-  * Added relation `faggruppemedlemskap` on `Faggruppe`.
   * Added relation `nus` on `Eksamensgruppemedlemskap`.
   * Added relation `sensor` on `Eksamensgruppe`.
   * Added relation `eksamensform` on `Eksamensgruppe`.
   * Added relation `sensor` on `Skoleressurs`.
-  * Added relation `skoleressurs` on `Sensor`.
-  * Added relation `eksamensgruppe` on `Sensor`.
   * Added relation `karakterhistorie` on `Sluttfagvurdering`.
+
   
 * Administrasjon
   * Added class `Formål`.
