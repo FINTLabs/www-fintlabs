@@ -1,6 +1,8 @@
 # Informasjonsmodellen 3.11.0
 
-> Under development
+> Beta
+> 
+> Date: 09.09.2022
 
 ### Description
 
