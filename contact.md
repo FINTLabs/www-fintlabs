@@ -11,3 +11,4 @@
 | Jennifer Strand     | Informasjonsarkitekt / utvikler | jennifer@fintlabs.no          | 980 98 680 |
 | Ole Anders Eidjord  | Løsningsarkitekt / utvikler     | ole.anders.eidjord@vigoiks.no | 959 72 925 |
 | Henrik H. Knutsen   | Lærling                         | henrik@fintlabs.no            | 453 71 585 |
+| Egil Ballestad      | Informasjonsarkitekt / utvikler | egil@fintlabs.no              | 414 13 836 |
