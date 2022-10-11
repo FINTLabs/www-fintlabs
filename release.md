@@ -1,7 +1,7 @@
 # Release
 
 ### Current projects
-> ### [Information model version 3.11.0](release/infm-3.11.0.md)
+> ### [Information model version 3.11.10](release/infm-3.11.10.md)
 >Beta.
 
 
@@ -14,7 +14,9 @@
 
 ### Older
 
-> ### [Information model version 3.9.0](release/infm-3.9.0.md)
+> ### [Information model version 3.11.0](release/infm-3.11.0.md)
+
+>### [Information model version 3.9.0](release/infm-3.9.0.md)
 
 > ### [Information model version 3.8.10](release/infm-3.8.10.md)
 
