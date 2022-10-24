@@ -19,7 +19,7 @@ NA
 
 ### References
 
-[Documentation 3.11.10](https://informasjonsmodell.felleskomponent.no/docs?v=fix-v3.11.2)
+[Documentation 3.11.10](https://informasjonsmodell.felleskomponent.no/docs?v=v3.11.10)
 
 
 
