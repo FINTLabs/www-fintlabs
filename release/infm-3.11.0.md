@@ -1,6 +1,6 @@
 # Informasjonsmodellen 3.11.0
 
-> Beta
+> Production
 > 
 > Date: 09.09.2022
 
