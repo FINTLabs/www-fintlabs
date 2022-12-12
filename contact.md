@@ -13,3 +13,5 @@
 | Henrik H. Knutsen        | Lærling                         | henrik@fintlabs.no            | 453 71 585 |
 | Egil Ballestad           | Informasjonsarkitekt / utvikler | egil@fintlabs.no              | 414 13 836 |
 | Linda Wangen Loftsgarden | Informasjonsarkitekt / utvikler | linda@fintlabs.no             | 909 89 333 |
+| Sondre Nordjore          | Informasjonsarkitekt / utvikler | sondre.nordjore@vigoiks.no    | 402 05 066 |
+| Jon Erik Stensrød        | Prosjektleder                   | jon.erik.stensrod@vigoiks.no  | 911 91 915 |
