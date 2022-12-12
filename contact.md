@@ -15,3 +15,4 @@
 | Linda Wangen Loftsgarden | Informasjonsarkitekt / utvikler | linda@fintlabs.no             | 909 89 333 |
 | Sondre Nordjore          | Informasjonsarkitekt / utvikler | sondre.nordjore@vigoiks.no    | 402 05 066 |
 | Jon Erik Stensrød        | Prosjektleder                   | jon.erik.stensrod@vigoiks.no  | 911 91 915 |
+| Nils Håkon Opsahl        | Informasjonsarkitekt / utvikler | nils.hakon.opsahl@vigoiks.no  | 994 48 237 |
