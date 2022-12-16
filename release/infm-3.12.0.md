@@ -32,6 +32,6 @@ NA
 
 ### References
 
-[Documentation 3.12.0](https://informasjonsmodell.felleskomponent.no/?v=v3.12.0-draft)
+[Documentation 3.12.0](https://informasjonsmodell.felleskomponent.no/docs?v=v3.12.0)
 
 
