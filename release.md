@@ -4,16 +4,15 @@
 > ### [Information model version 3.13.0](release/infm-3.13.0.md)
 >Under development.
 
-> ### [Information model version 3.12.0](release/infm-3.12.0.md)
->Beta.
 
 ### Production
-> ### [Information model version 3.11.10](release/infm-3.11.10.md)
 
+> ### [Information model version 3.12.0](release/infm-3.12.0.md)
 
 
 
 ### Older
+> ### [Information model version 3.11.10](release/infm-3.11.10.md)
 
 > ### [Information model version 3.11.0](release/infm-3.11.0.md)
 

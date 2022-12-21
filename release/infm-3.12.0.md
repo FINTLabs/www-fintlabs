@@ -1,10 +1,10 @@
 # Informasjonsmodellen 3.12.0
 
-> Beta
+
+> Production
 >
-> Date: 17.11.2022
->
-> Tag: v3.12.0
+> Date: 19.12.2022
+
 
 #### Features
 
