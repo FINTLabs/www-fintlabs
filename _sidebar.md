@@ -9,6 +9,7 @@
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)
+* [Tilgjengelighetsrapport](rapport.md)
 * [Kontakt](contact.md)
 
 - ****
