@@ -15,4 +15,4 @@
 * [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Informasjonsmodell](https://informasjonsmodell.felleskomponent.no)
 * [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)
 * [![Github](https://www.fintlabs.no/_media/github.svg ':size=16')Github](https://github.com/fintlabs)
-* [![Vigo IKS](https://www.vigoiks.no/extension/site/design/site/images/favicon/favicon.ico ':size=16')Vigo IKS](https://www.vigoiks.no)
+* [![Vigo IKS](https://www.vigoiks.no/wp-content/uploads/2022/08/vigo_favicon.svg ':size=16')Vigo IKS](https://www.vigoiks.no)
