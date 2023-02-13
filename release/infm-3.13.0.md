@@ -25,9 +25,6 @@
 * Felles
     * Added class `Virksomhet`.
 
-    * Changed attribute `organisasjonsnavn ` on `basisklasser.Enhet`.
-    * Changed attribute `organisasjonsnummer ` on `basisklasser.Enhet`.
-
 
 #### Deprecated
 
