@@ -2,7 +2,7 @@
 
 ### Current projects
 > ### [Information model version 3.13.0](release/infm-3.13.0.md)
->Under development.
+>Release candidate.
 
 
 ### Production

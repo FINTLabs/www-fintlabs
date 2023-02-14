@@ -1,6 +1,6 @@
 # Informasjonsmodellen 3.13.0
 
-> Releace candidate 1
+> Releace candidate
 >
 > 
 
@@ -38,7 +38,7 @@ NA
 
 ### References
 
-[Documentation 3.13.0 rc1](https://informasjonsmodell.felleskomponent.no/docs?v=v3.13.0-rc-1)
+[Documentation 3.13.0](https://informasjonsmodell.felleskomponent.no/docs?v=v3.13.0)
 
 
 
