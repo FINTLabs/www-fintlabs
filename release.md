@@ -1,7 +1,7 @@
 # Release
 
 ### Current projects
-> ### [Information model version 3.13.0](release/infm-3.14.0.md)
+> ### [Information model version 3.14.0](release/infm-3.14.0.md)
 >Planing.
 
 ### Production
