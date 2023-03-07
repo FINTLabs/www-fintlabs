@@ -6,7 +6,7 @@
 
 ### Production
 
-> ### [Information model version 3.13.0](release/infm-3.13.10.md)
+> ### [Information model version 3.13.10](release/infm-3.13.10.md)
 
 
 ### Older
