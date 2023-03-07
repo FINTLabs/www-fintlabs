@@ -1,6 +1,6 @@
-# Informasjonsmodellen 3.13.0
+# Informasjonsmodellen 3.13.10
 
-> Releace candidate
+> Production
 >
 > 
 
@@ -38,7 +38,7 @@ NA
 
 ### References
 
-[Documentation 3.13.0](https://informasjonsmodell.felleskomponent.no/docs?v=v3.13.0)
+[Documentation 3.13.10](https://informasjonsmodell.felleskomponent.no/docs?v=v3.13.10)
 
 
 
