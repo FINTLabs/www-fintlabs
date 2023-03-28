@@ -64,7 +64,7 @@ All events are logged at all stages.
 
 ### Beskrivelse
 
-Core 2 er en ny versjon av en API-integrasjonsplattform som tar sikte på å adressere noen av utfordringene med sin forgjenger. En av hovedutfordringene med den forrige versjonen var dens manglende evne til å skalere horisontalt for forbrukere, som resulterte i at alle eggene var i samme kurv. I tillegg var bruken av SSE for lange HTTP GET-forespørsler ustabil, og adapterne ba om for mye informasjon for ofte, noe som påvirket ytelsen til tilkoblede tredjepartsforretningsapplikasjoner. For å overvinne disse utfordringene, krever Core 2 mer granulær tilgangskontroll og støtter horisontal skalering for både forbrukere og leverandører.
+Core 2 er en ny versjon av en API-integrasjonsplattform som tar sikte på å adressere noen av utfordringene med sin forgjenger. En av hovedutfordringene med den forrige versjonen var dens manglende evne til å skalere horisontalt for forbrukere, som resulterte i at alle eggene var i samme kurv. I tillegg var bruken av SSE for lange HTTP GET-forespørsler ustabil, og adapterne ba om for mye informasjon for ofte, noe som påvirket ytelsen til tilkoblede consumere. For å overvinne disse utfordringene, krever Core 2 mer granulær tilgangskontroll og støtter horisontal skalering for både providere og consumere.
 
 ### Kafka
 
