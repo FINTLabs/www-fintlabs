@@ -908,5 +908,323 @@ FINT offers three environments:
 
 For all of these environments the URIs follow the same pattern, so to find employee #33445, append the following path to the URI: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
 
+## Developing a Core2 adapter
+
+### Application properties
+
+Before setting up the adapter, you first need to configure application properties in the "application.properties" file. This allows you to set the necessary configuration properties for the adapter, such as ID, username, password, and so on.
+
+In the standard code example provided, a single AdapterProperties is configured as follows:
+
+example of application.properties if we are posting elevfravar to utdanning vurdering in alpha enviornment.
+```yaml
+fint:
+  adapter:
+    id: https://example.com/org-no/utdanning/vurdering
+    password: ***
+    username: ***
+    base-url: https://alpha.felleskomponent.no
+    registration-id: fint
+    org-id: fintlabs.no
+    heartbeat-interval: 1
+    capabilities:
+      elevfravar:
+        domain-name: utdanning
+        package-name: vurdering
+        resource-name: elevfravar
+        fullSyncIntervalInDays: 7
+        deltaSyncInterval: IMMEDIATE
+```
+
+* `id` Specifies the unique identifier for the adapter.
+* `username/password` Specify the credentials required for authentication.
+* `base-url` Specifies the URL of the external system that the adapter will be communicating with.
+* `registration-id` Specifies the registration ID to be used.
+* `org-id` Specifies the organization ID for the adapter.
+* `heartbeat-interval` Specifies the interval in seconds between the adapter's heartbeats.
+* `capabilities` This property specifies the list of capabilities the adapter will provide. For each capability, the domain-name, package-name, resource-name, fullSyncIntervalInDays, and deltaSyncInterval should be specified.
+
+It is essential to configure these properties correctly before proceeding with setting up the adapter.
+
+### Dependencies
+
+The first step in setting up an adapter for Core2 is to ensure that you have all the required dependencies. The most critical dependency is the "no.fintlabs:fint-core-adapter-common" library. 
+
+build.gradle
+```groovy
+dependencies {
+    implementation 'no.fintlabs:fint-core-adapter-common:0.1.0'
+}
+```
+
+pom.xml
+```xml
+<dependencies>
+    <dependency>
+        <groupId>no.fintlabs</groupId>
+        <artifactId>fint-core-adapter-common</artifactId>
+        <version>0.1.0</version>
+    </dependency>
+</dependencies>
+```
+
+Depending on what resources the adapter will handle, you may need additional dependencies. Ensure that all dependencies are added to the build.gradle file in the project.
+
+### Resource Repository
+
+After setting up dependencies, the next step is to create a repository that implements WriteableResourceRepository<ResourceName> of the resource. This repository will handle the communication between the adapter and the external system. You can use any database of your choice to store the resources. In the fint-core-adapter-skeleton, the adapter uses MongoDB.
+
+```java
+@Repository
+public class ElevfravarRepository implements ResourceRepository<ElevfravarResource> {
+    ...
+}
+```
+
+### Resource Publisher
+
+Once the resource repository is set up, the next step is to create a publisher that extends ResourcePublisher<ResourceName, CreatedRepository<ResourceName>>. The resource publisher is responsible for publishing the resources to the Core2 system. Override the full and delta sync methods in the publisher to ensure that the resources are synced correctly.
+
+```java
+@Service
+public class ElevfravarPublisher extends ResourcePublisher<ElevfravarResource, ResourceRepository<ElevfravarResource>> {
+
+    public ElevfravarPublisher(ElevfravarRepository repository, AdapterProperties adapterProperties) {
+        super(repository, adapterProperties);
+    }
+
+    @Override
+    @Scheduled(initialDelayString = "10000", fixedRateString = "#{@adapterProperties.getFullSyncIntervalMs('elevfravar')}")
+    public void doFullSync() {
+        log.info("Start full sync for resource {}", getCapability().getEntityUri());
+        submit(SyncData.ofPostData(repository.getResources()));
+    }
+
+    @Override
+    @Scheduled(initialDelayString = "120000", fixedRateString = "#{@adapterProperties.getDetaSyncIntervalMs('elevfravar')}")
+    public void doDeltaSync() {
+        log.info("Start delta sync for resource {}", getCapability().getEntityUri());
+        submit(SyncData.ofPatchData(repository.getUpdatedResources()));
+    }
+
+    @Override
+    protected AdapterCapability getCapability() {
+        return adapterProperties.getCapabilityByResource("elevfravar");
+    }
+}
+```
+
+### Resource Subscriber
+
+The resource subscriber is the component that receives messages from the Core2 system. To set up the subscriber, create a new class that extends ResourceSubscriber<ResourceName, CreatedPublisher> and super Webclient, AdapterProperties, CreatedPublisher, and ValidatorService. This class should also override the getCapability method and return the AdapterProperties getCapabilities method.
+
+```java
+@Service
+public class ElevfravarSubscriber extends ResourceSubscriber<ElevfravarResource, ElevfravarPublisher> {
+
+    protected ElevfravarSubscriber(WebClient webClient, AdapterProperties props, ElevfravarPublisher publisher, ValidatorService validatorService) {
+        super(webClient, props, publisher, validatorService);
+    }
+
+    @Override
+    protected AdapterCapability getCapability() {
+
+        return adapterProperties.getCapabilities().get("elevfravar");
+    }
+}
+```
+
+### Sync Page Entry
+
+The final step is to override the last method, createSyncPageEntry of SyncPageEntry<ResourceName>, and return a SyncPageEntry.of(identificator_id, resource). This method is responsible for creating the sync page entry for the resource, which is used by Core2 to keep track of the resources.
+```java
+    @Override
+    protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
+
+    String identificationValue = resource.getSystemId().getIdentifikatorverdi();
+    return SyncPageEntry.of(identificationValue, resource);
+    }
+```
+
+With these steps, you can set up an adapter for Core2 using the fint-core-adapter-skeleton as an example. Ensure that all required dependencies are included, set up a repository to handle the communication with the external system, create a publisher to publish resources to Core2, and create a subscriber to receive messages from Core2. Finally, create a sync page entry to keep track of the resources.
 
 
+## Add support for multiple organizations for Core2
+
+To support multiple organizations in your FINT adapter, you can follow the following steps:
+
+### Handle multiple AdapterProperties
+
+In the standard FINT adapter code example, a single AdapterProperties is configured in the application.properties file. To support multiple organizations, you need to change this structure into a map of AdapterProperties, where each organization is assigned a unique identifier.
+
+example of multiple organization support in application.properties
+```yaml
+fint:
+  adapter:
+    org1-no:
+      id: ***
+      username: ***
+      password: ***
+      ...
+    org2-no:
+      id: ***
+      username: ***
+      password: ***
+      ...    
+```
+
+To implement this change, we remove @Configuration and @ConfigurationProperties on the AdapterProperties class. Then we introduce an AdapterPropertiesCollection:
+
+```java
+@Configuration
+@ConfigurationProperties("fint")
+public class AdapterCollectionProperties {
+
+    public AdapterCollectionProperties() {
+        adapter = new HashMap<String, AdapterProperties>();
+    }
+
+    @Getter
+    private Map<String, AdapterProperties> adapter;
+}
+```
+
+### Create multiple WebClients
+
+Create multiple WebClients, one for each organization:
+In the standard code, a single WebClient is created and registered as a @Bean. To support multiple organizations, you need to create a separate WebClient for each organization. You can do this by moving the WebClient creation to a separate class and creating a WebClient for each AdapterProperties.
+
+```java
+@RequiredArgsConstructor
+@Component
+public class WebClientFactory {
+
+    private final WebClient.Builder builder;
+    private final ClientHttpConnector clientHttpConnector;
+    private final ReactiveClientRegistrationRepository clientRegistrationRepository;
+    private final ReactiveOAuth2AuthorizedClientService authorizedClientService;
+
+    public WebClient webClient(AdapterProperties props) {
+        // same as before
+    }
+
+    public ReactiveOAuth2AuthorizedClientManager authorizedClientManager(AdapterProperties props) {
+        // same as before
+    }
+}
+```
+
+### Register required beans
+
+To support multiple organizations, you need to register beans for the AdapterRegisterService, HeartbeatService, and AdapterProperties for each organization. You can do this by creating a factory that registers the necessary beans for each organization.
+
+```java
+@Slf4j
+@Service
+public class AdapterServiceFactory {
+
+    private final AdapterCollectionProperties multipleAdapterCollectionProperties;
+
+    private final WebClientFactory webClientFactory;
+
+    private final GenericApplicationContext genericApplicationContext;
+
+    public AdapterServiceFactory(AdapterCollectionProperties multipleAdapterCollectionProperties, WebClientFactory webClientFactory, GenericApplicationContext genericApplicationContext) {
+        this.multipleAdapterCollectionProperties = multipleAdapterCollectionProperties;
+        this.webClientFactory = webClientFactory;
+        this.genericApplicationContext = genericApplicationContext;
+
+        for (var adapterProperties : multipleAdapterCollectionProperties.getAdapter().entrySet()) {
+
+            AdapterProperties props = adapterProperties.getValue();
+            HeartbeatService heartbeatService = new HeartbeatService(webClientFactory.webClient(props), props);
+            AdapterRegisterService adapterRegisterService = new AdapterRegisterService(webClientFactory.webClient(props), heartbeatService, props);
+            registerAdapterService("register-service-" + adapterProperties.getKey(), adapterRegisterService);
+            log.info("Registert adapter service: " + adapterProperties.getKey());
+
+            registerAdapterProperties(adapterProperties.getKey(), props);
+            log.info("Register adapter properties: " + adapterProperties.getKey());
+        }
+    }
+
+    private void registerAdapterProperties(String beanQualifier, AdapterProperties props) {
+        genericApplicationContext.registerBean(
+                beanQualifier,
+                AdapterProperties.class,
+                () -> props
+        );
+    }
+
+    private void registerAdapterService(String beanQualifier, AdapterRegisterService adapterRegisterService) {
+        genericApplicationContext.registerBean(
+                beanQualifier,
+                AdapterRegisterService.class,
+                () -> adapterRegisterService
+        );
+    }
+}
+```
+
+### Initiate Publisher and Subscriber
+
+```java
+@Configuration
+public class BeanInitializer {
+
+    // Initiate for org1-no:
+    @Bean
+    @Qualifier("samtykke-publiser-org1-no")
+    SamtykkePublisher getSamtykkeOrg1(@Qualifier("org1-no") AdapterProperties props, SamtykkeRepository repo) {
+        return new SamtykkePublisher(repo, props);
+    }
+
+    @Bean
+    SamtykkeSubscriber getSamtykkeSubscriberOrg1(@Qualifier("org1-no") AdapterProperties props, WebClientFactory webClientFactory, @Qualifier("samtykke-publiser-org1-no") SamtykkePublisher publisher) {
+        return new SamtykkeSubscriber(webClientFactory.webClient(props), props, publisher);
+    }
+
+    // Initiate for org2-no
+    @Bean
+    @Qualifier("samtykke-publiser-org2-no")
+    SamtykkePublisher getSamtykkeOrg2(@Qualifier("org2-no") AdapterProperties props, SamtykkeRepository repo) {
+        return new SamtykkePublisher(repo, props);
+    }
+
+    @Bean
+    SamtykkeSubscriber getSamtykkeSubscriberOrg2(@Qualifier("org2-no") AdapterProperties props, WebClientFactory webClientFactory, @Qualifier("samtykke-publiser-org1-no") SamtykkePublisher publisher) {
+        return new SamtykkeSubscriber(webClientFactory.webClient(props), props, publisher);
+    }
+}
+```
+
+### Configure multiple oauth credentials
+
+```yaml
+fint:
+  adapter:
+    org1-no:
+      id: ***
+      username: ***
+      password: ***
+      registration-id: org1-reg
+      ...
+    org2-no:
+      id: ***
+      username: ***
+      password: ***
+      registration-id: org2-reg
+      ...
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          org1-reg:
+            authorization-grant-type: password
+            client-id:
+            ...
+          org2-reg:
+            authorization-grant-type: password
+            client-id:
+            ...
+```
