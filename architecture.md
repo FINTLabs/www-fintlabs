@@ -59,3 +59,15 @@ All events are logged at all stages.
 |----------------------|----------------------|
 | Common API           | Felleskomponent      |
 | Business application | Fagsystem            |
+
+## Core2
+
+### Beskrivelse
+
+Core 2 er en ny versjon av en API-integrasjonsplattform som tar sikte på å adressere noen av utfordringene med sin forgjenger. En av hovedutfordringene med den forrige versjonen var dens manglende evne til å skalere horisontalt for forbrukere, som resulterte i at alle eggene var i samme kurv. I tillegg var bruken av SSE for lange HTTP GET-forespørsler ustabil, og adapterne ba om for mye informasjon for ofte, noe som påvirket ytelsen til tilkoblede tredjepartsforretningsapplikasjoner. For å overvinne disse utfordringene, krever Core 2 mer granulær tilgangskontroll og støtter horisontal skalering for både forbrukere og leverandører.
+
+### Kafka
+
+Et annet sentralt aspekt av Core 2 er bruken av Kafka for å sende hendelser og enheter i sanntid på tvers av våre providere og alle horisontalt skalerte consumere. Kafka fungerer som en strømmeplattform som gjør det mulig å sende store mengder data mellom forskjellige systemer i sanntid, noe som gjør det til et ideelt verktøy for å integrere systemer og støtte horisontal skalering.
+
+![ill3](_media/core2-flow.svg)
