@@ -926,7 +926,8 @@ fint:
     base-url: https://alpha.felleskomponent.no
     registration-id: fint
     org-id: fintlabs.no
-    heartbeat-interval: 1
+    heartbeat-interval: 5
+    page-size: 100
     capabilities:
       elevfravar:
         domain-name: utdanning
@@ -938,11 +939,12 @@ fint:
 
 * `id` Specifies the unique identifier for the adapter.
 * `username/password` Specify the credentials required for authentication.
-* `base-url` Specifies the URL of the external system that the adapter will be communicating with.
+* `base-url` Specifies the URL of the external provider that the adapter will be communicating with.
 * `registration-id` Specifies the registration ID to be used.
 * `org-id` Specifies the organization ID for the adapter.
-* `heartbeat-interval` Specifies the interval in seconds between the adapter's heartbeats.
+* `heartbeat-interval` Specifies the interval in seconds between the adapter's heartbeats. The recommended value is between 5-60 seconds.
 * `capabilities` This property specifies the list of capabilities the adapter will provide. For each capability, the domain-name, package-name, resource-name, fullSyncIntervalInDays, and deltaSyncInterval should be specified.
+* `page-size` Specifies the amount of resources one page can contain. The default value is 100, but this can be ignored if you're not planning to use our adapter-common library. 
 
 It is essential to configure these properties correctly before proceeding with setting up the adapter.
 
@@ -972,18 +974,19 @@ Depending on what resources the adapter will handle, you may need additional dep
 
 ### Resource Repository
 
-After setting up dependencies, the next step is to create a repository that implements WriteableResourceRepository<ResourceName> of the resource. This repository will handle the communication between the adapter and the external system. You can use any database of your choice to store the resources. In the fint-core-adapter-skeleton, the adapter uses MongoDB.
+After setting up dependencies, the next step is to create a repository that implements WriteableResourceRepository<ResourceName> of the resource. This repository will handle the communication between the adapter and the external system.
 
+Example of a Repository that contains ElevFravar resource.
 ```java
 @Repository
-public class ElevfravarRepository implements ResourceRepository<ElevfravarResource> {
-    ...
+public class ElevfravarRepository implements WriteableResourceRepository<Elevfravar> {
+    
 }
 ```
 
 ### Resource Publisher
 
-Once the resource repository is set up, the next step is to create a publisher that extends ResourcePublisher<ResourceName, CreatedRepository<ResourceName>>. The resource publisher is responsible for publishing the resources to the Core2 system. Override the full and delta sync methods in the publisher to ensure that the resources are synced correctly.
+Once the resource repository is set up, the next step is to create a publisher that extends ResourcePublisher<ResourceName, ResourceRepository<ResourceName>>. The resource publisher is responsible for publishing the resources to the Core2 system. Override the full and delta sync methods in the publisher to ensure that the resources are synced correctly.
 
 ```java
 @Service
@@ -994,16 +997,14 @@ public class ElevfravarPublisher extends ResourcePublisher<ElevfravarResource, R
     }
 
     @Override
-    @Scheduled(initialDelayString = "10000", fixedRateString = "#{@adapterProperties.getFullSyncIntervalMs('elevfravar')}")
+    @Scheduled(initialDelayString = "10000", fixedRateString = "10800000")
     public void doFullSync() {
-        log.info("Start full sync for resource {}", getCapability().getEntityUri());
         submit(SyncData.ofPostData(repository.getResources()));
     }
 
     @Override
-    @Scheduled(initialDelayString = "120000", fixedRateString = "#{@adapterProperties.getDetaSyncIntervalMs('elevfravar')}")
+    @Scheduled(initialDelayString = "120000", fixedRateString = "5400000")
     public void doDeltaSync() {
-        log.info("Start delta sync for resource {}", getCapability().getEntityUri());
         submit(SyncData.ofPatchData(repository.getUpdatedResources()));
     }
 
@@ -1034,197 +1035,30 @@ public class ElevfravarSubscriber extends ResourceSubscriber<ElevfravarResource,
 }
 ```
 
-### Sync Page Entry
 
-The final step is to override the last method, createSyncPageEntry of SyncPageEntry<ResourceName>, and return a SyncPageEntry.of(identificator_id, resource). This method is responsible for creating the sync page entry for the resource, which is used by Core2 to keep track of the resources.
+The final step is to override the last method, createSyncPageEntry of SyncPageEntry<ResourceName>. There are multiple ways of creating a SyncPageEntry, here are three examples with different use cases.
+
+SyncPageEntry of Identifier and Resource:
 ```java
     @Override
     protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
-
     String identificationValue = resource.getSystemId().getIdentifikatorverdi();
     return SyncPageEntry.of(identificationValue, resource);
     }
 ```
 
-With these steps, you can set up an adapter for Core2 using the fint-core-adapter-skeleton as an example. Ensure that all required dependencies are included, set up a repository to handle the communication with the external system, create a publisher to publish resources to Core2, and create a subscriber to receive messages from Core2. Finally, create a sync page entry to keep track of the resources.
-
-
-## Add support for multiple organizations for Core2
-
-To support multiple organizations in your FINT adapter, you can follow the following steps:
-
-### Handle multiple AdapterProperties
-
-In the standard FINT adapter code example, a single AdapterProperties is configured in the application.properties file. To support multiple organizations, you need to change this structure into a map of AdapterProperties, where each organization is assigned a unique identifier.
-
-example of multiple organization support in application.properties
-```yaml
-fint:
-  adapter:
-    org1-no:
-      id: ***
-      username: ***
-      password: ***
-      ...
-    org2-no:
-      id: ***
-      username: ***
-      password: ***
-      ...    
-```
-
-To implement this change, we remove @Configuration and @ConfigurationProperties on the AdapterProperties class. Then we introduce an AdapterPropertiesCollection:
-
+If SystemId is provided as selflink you can use exclude the identifier and only provide the resource as such:
 ```java
-@Configuration
-@ConfigurationProperties("fint")
-public class AdapterCollectionProperties {
-
-    public AdapterCollectionProperties() {
-        adapter = new HashMap<String, AdapterProperties>();
+@Override
+    protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
+    return SyncPageEntry.ofSystemId(resource);
     }
-
-    @Getter
-    private Map<String, AdapterProperties> adapter;
-}
 ```
 
-### Create multiple WebClients
-
-Create multiple WebClients, one for each organization:
-In the standard code, a single WebClient is created and registered as a @Bean. To support multiple organizations, you need to create a separate WebClient for each organization. You can do this by moving the WebClient creation to a separate class and creating a WebClient for each AdapterProperties.
-
+Finally you can provide the identifierName and resource:
 ```java
-@RequiredArgsConstructor
-@Component
-public class WebClientFactory {
-
-    private final WebClient.Builder builder;
-    private final ClientHttpConnector clientHttpConnector;
-    private final ReactiveClientRegistrationRepository clientRegistrationRepository;
-    private final ReactiveOAuth2AuthorizedClientService authorizedClientService;
-
-    public WebClient webClient(AdapterProperties props) {
-        // same as before
+    @Override
+    protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
+    return SyncPageEntry.ofIdentifierName("identifierName", resource);
     }
-
-    public ReactiveOAuth2AuthorizedClientManager authorizedClientManager(AdapterProperties props) {
-        // same as before
-    }
-}
-```
-
-### Register required beans
-
-To support multiple organizations, you need to register beans for the AdapterRegisterService, HeartbeatService, and AdapterProperties for each organization. You can do this by creating a factory that registers the necessary beans for each organization.
-
-```java
-@Slf4j
-@Service
-public class AdapterServiceFactory {
-
-    private final AdapterCollectionProperties multipleAdapterCollectionProperties;
-
-    private final WebClientFactory webClientFactory;
-
-    private final GenericApplicationContext genericApplicationContext;
-
-    public AdapterServiceFactory(AdapterCollectionProperties multipleAdapterCollectionProperties, WebClientFactory webClientFactory, GenericApplicationContext genericApplicationContext) {
-        this.multipleAdapterCollectionProperties = multipleAdapterCollectionProperties;
-        this.webClientFactory = webClientFactory;
-        this.genericApplicationContext = genericApplicationContext;
-
-        for (var adapterProperties : multipleAdapterCollectionProperties.getAdapter().entrySet()) {
-
-            AdapterProperties props = adapterProperties.getValue();
-            HeartbeatService heartbeatService = new HeartbeatService(webClientFactory.webClient(props), props);
-            AdapterRegisterService adapterRegisterService = new AdapterRegisterService(webClientFactory.webClient(props), heartbeatService, props);
-            registerAdapterService("register-service-" + adapterProperties.getKey(), adapterRegisterService);
-            log.info("Registert adapter service: " + adapterProperties.getKey());
-
-            registerAdapterProperties(adapterProperties.getKey(), props);
-            log.info("Register adapter properties: " + adapterProperties.getKey());
-        }
-    }
-
-    private void registerAdapterProperties(String beanQualifier, AdapterProperties props) {
-        genericApplicationContext.registerBean(
-                beanQualifier,
-                AdapterProperties.class,
-                () -> props
-        );
-    }
-
-    private void registerAdapterService(String beanQualifier, AdapterRegisterService adapterRegisterService) {
-        genericApplicationContext.registerBean(
-                beanQualifier,
-                AdapterRegisterService.class,
-                () -> adapterRegisterService
-        );
-    }
-}
-```
-
-### Initiate Publisher and Subscriber
-
-```java
-@Configuration
-public class BeanInitializer {
-
-    // Initiate for org1-no:
-    @Bean
-    @Qualifier("samtykke-publiser-org1-no")
-    SamtykkePublisher getSamtykkeOrg1(@Qualifier("org1-no") AdapterProperties props, SamtykkeRepository repo) {
-        return new SamtykkePublisher(repo, props);
-    }
-
-    @Bean
-    SamtykkeSubscriber getSamtykkeSubscriberOrg1(@Qualifier("org1-no") AdapterProperties props, WebClientFactory webClientFactory, @Qualifier("samtykke-publiser-org1-no") SamtykkePublisher publisher) {
-        return new SamtykkeSubscriber(webClientFactory.webClient(props), props, publisher);
-    }
-
-    // Initiate for org2-no
-    @Bean
-    @Qualifier("samtykke-publiser-org2-no")
-    SamtykkePublisher getSamtykkeOrg2(@Qualifier("org2-no") AdapterProperties props, SamtykkeRepository repo) {
-        return new SamtykkePublisher(repo, props);
-    }
-
-    @Bean
-    SamtykkeSubscriber getSamtykkeSubscriberOrg2(@Qualifier("org2-no") AdapterProperties props, WebClientFactory webClientFactory, @Qualifier("samtykke-publiser-org1-no") SamtykkePublisher publisher) {
-        return new SamtykkeSubscriber(webClientFactory.webClient(props), props, publisher);
-    }
-}
-```
-
-### Configure multiple oauth credentials
-
-```yaml
-fint:
-  adapter:
-    org1-no:
-      id: ***
-      username: ***
-      password: ***
-      registration-id: org1-reg
-      ...
-    org2-no:
-      id: ***
-      username: ***
-      password: ***
-      registration-id: org2-reg
-      ...
-spring:
-  security:
-    oauth2:
-      client:
-        registration:
-          org1-reg:
-            authorization-grant-type: password
-            client-id:
-            ...
-          org2-reg:
-            authorization-grant-type: password
-            client-id:
-            ...
 ```
