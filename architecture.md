@@ -68,6 +68,6 @@ Core 2 er en ny versjon av en API-integrasjonsplattform som tar sikte på å adr
 
 ### Kafka
 
-Et annet sentralt aspekt av Core 2 er bruken av Kafka for å sende hendelser og enheter i sanntid på tvers av våre providere og alle horisontalt skalerte consumere. Kafka fungerer som en strømmeplattform som gjør det mulig å sende store mengder data mellom forskjellige systemer i sanntid, noe som gjør det til et ideelt verktøy for å integrere systemer og støtte horisontal skalering.
+Et annet sentralt aspekt av Core 2 er Kafka. Det blir brukt til å sende hendelser og data mellom forskjellige systemer i sanntid. Dette hjelper oss med å jobbe raskt og effektivt med mange systemer samtidig. I motsetning til Core 1, hvor all data blir hentet statisk hvert 15. minutt, er Kafka bedre fordi det kan håndtere mye data. Det spesielle med Kafka er at alle som lager adaptere selv kan bestemme når dataene skal sendes, noe som gir mer kontroll og fleksibilitet. Dette gjør det enklere å styre dataene våre og kan forbedre systemets ytelse.
 
 ![ill3](_media/core2-flow.svg)
