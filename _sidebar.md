@@ -3,7 +3,7 @@
 * [Kom i gang](getting-started.md)
 * [Arkitektur](architecture.md)
 * [Technical documentation](technical.md)
-* [Release](release.md)
+* [Release](release/index.md)
 * [Veiledninger](tutorials.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
