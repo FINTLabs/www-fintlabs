@@ -5,6 +5,8 @@
 * [Technical documentation](technical.md)
 * [Release](release/index.md)
   * [v3.14.0](release/v3.14/index.md)
+    * [v3.14.1](release/v3.14/v3.14.1.md)
+    * [v3.14.2](release/v3.14/v3.14.2.md)
   * [v3.13.10](release/infm-3.13.10.md)
 * [Veiledninger](tutorials.md)
 * [Verktøy](tools.md)
