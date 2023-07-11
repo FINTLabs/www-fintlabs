@@ -788,12 +788,15 @@ Attributeliste for egendefinerte claims vil da se slik ut:
 Gå til url'en som er oppgitt for den tjenesten du skal inn på. Dette kan feks være https://flyt.vigoiks.no/"fylkesid" eller https://samtykke.vigoiks.no/"fylkesid"
 
 Hvis du ikke allrede er innlogget i Office365 til fylket vil du bli videresendt til en autentiseringsvelger. Se under:
+
 ![](_media/vigo-idp/authSelector.png)
 
 Klikk på pilen i [Velg tilhøringhet]-boksen og velg din fylkeskommune fra listen som dukker opp. Se under:
+
 ![](_media/vigo-idp/authSelectorList.png)
 
 Når du har valgt fylkeskommune vil [FORTSETT]-knappen bli grønn. Klikk på denne. Da sendes du til din vanlige pålogging for Office365 til din fylkeskommune. Se under:
+
 ![](_media/vigo-idp/authSelectorSelected.png)
 
 Logg deg inn på vanlig måte i Office365. Du vil nå komme inn i tjenesten hvis din fylkeskommune har gitt deg tilgang til det.
@@ -807,6 +810,19 @@ For å få tilgang til en federert FINT-tjeneste kreves det ofte at brukeren har
 
 Oversikt over roller finner du her: https://role-catalog.vigoiks.no
 
+### Sjekke SAML-token - SAMLtracer
+For å sjekke om de nødvendige attributter overføres fra fylkenes Azure til VIGO sin access manager kan man benytte en SAML-tracer. Dette er ett nettlesertilegg. 
+- Innstaller saml-tracer som tilegg i nettleseren din
+- Start SAML-tracer og gå til tjenesten i nettleseren
+- Se etter SAML taggen på høyre side i SAML-traceren og klikk på denne linjen (er det flere linjer med denne taggen er det oftest den siste linjen vi er ute etter)
+- I den nederste ruten klikker du på SAML fanen
+
+Attributtene som overføres i tokenet ligger da mellom 
+``` <AttributeStatement> ``` og  ``` </AttributeStatement> ``` taggene.
+
+Se under:
+
+![](_media/vigo-idp/samlTracer.png)
 
 
 
