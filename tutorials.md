@@ -785,16 +785,28 @@ Attributeliste for egendefinerte claims vil da se slik ut:
 ```
 
 ## Logge på en FINT tjeneste
-Gå til url'en som er oppgitt for den tjensten du skal inn på. Dette kan feks være https://flyt.vigoiks.no/"fylkesid" eller https://samtykke.vigoiks.no/"fylkesid"
+Gå til url'en som er oppgitt for den tjenesten du skal inn på. Dette kan feks være https://flyt.vigoiks.no/"fylkesid" eller https://samtykke.vigoiks.no/"fylkesid"
 
 Hvis du ikke allrede er innlogget i Office365 til fylket vil du bli videresendt til en autentiseringsvelger. Se under:
-![ill35](_media/vigo-idp/authSelector.png)
+![](_media/vigo-idp/authSelector.png)
 
 Klikk på pilen i [Velg tilhøringhet]-boksen og velg din fylkeskommune fra listen som dukker opp. Se under:
-![ill35](_media/vigo-idp/authSelectorList.png)
+![](_media/vigo-idp/authSelectorList.png)
 
 Når du har valgt fylkeskommune vil [FORTSETT]-knappen bli grønn. Klikk på denne. Da sendes du til din vanlige pålogging for Office365 til din fylkeskommune. Se under:
-![ill35](_media/vigo-idp/authSelectorSelected.png)
+![](_media/vigo-idp/authSelectorSelected.png)
 
 Logg deg inn på vanlig måte i Office365. Du vil nå komme inn i tjenesten hvis din fylkeskommune har gitt deg tilgang til det.
+
+## Feilsøking federert FINT-pålogging
+### Attributter i SAML-token
+Når man logger på en FINT-tjeneste som er federerert (VIGO-IDP) overføres det utvalgte attributter fra fylkets Azure-tennant til Vigo sin access manager. Disse attributtene sendes så videre til tjenesten brukeren skal aksesere. Hvilke attributter som de ulike tjenestene har behov for varierer utifra hvilken tjeneste du skal aksesere. Påse at de attributtene som tjenesten krever ligger i SAML-tokenet som overføres fra fylkenes Azure til Vigo sin access manager.
+
+### Tilgangsrolle
+For å få tilgang til en federert FINT-tjeneste kreves det ofte at brukeren har fått tildelt en rolle i fylkenes Azure-tennant. Se "Oppsett av Azure AD Federering - VIGO-IDP" ovenfor hvordan dette gjøres. VIGO Iks forvalter disse rollene.
+
+Oversikt over roller finner du her: https://role-catalog.vigoiks.no
+
+
+
 
