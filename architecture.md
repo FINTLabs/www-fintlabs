@@ -59,3 +59,15 @@ All events are logged at all stages.
 |----------------------|----------------------|
 | Common API           | Felleskomponent      |
 | Business application | Fagsystem            |
+
+## FINT 2
+
+### Beskrivelse
+
+FINT 2 er en ny versjon av en API-integrasjonsplattform som tar sikte på å adressere noen av utfordringene med sin forgjenger. En av hovedutfordringene med den forrige versjonen var dens manglende evne til å skalere horisontalt for forbrukere, som resulterte i at alle eggene var i samme kurv. I tillegg var bruken av SSE for lange HTTP GET-forespørsler ustabil, og adapterne ba om for mye informasjon for ofte, noe som påvirket ytelsen til tilkoblede consumere. For å overvinne disse utfordringene, krever Core 2 mer granulær tilgangskontroll og støtter horisontal skalering for både providere og consumere.
+
+### Kafka
+
+Et annet sentralt aspekt av FINT 2 er Kafka. Det blir brukt til å sende hendelser og data mellom forskjellige systemer i sanntid. Dette hjelper oss med å jobbe raskt og effektivt med mange systemer samtidig. I motsetning til Core 1, hvor all data blir hentet statisk hvert 15. minutt, er Kafka bedre fordi det kan håndtere mye data. Det spesielle med Kafka er at alle som lager adaptere selv kan bestemme når dataene skal sendes, noe som gir mer kontroll og fleksibilitet. Dette gjør det enklere å styre dataene våre og kan forbedre systemets ytelse.
+
+![ill3](_media/core2-flow.svg)
