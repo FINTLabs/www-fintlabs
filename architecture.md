@@ -62,12 +62,18 @@ All events are logged at all stages.
 
 ## FINT 2
 
-### Beskrivelse
+FINT 2, vår oppdaterte API-integrasjonsplattform, bygger videre på det beste fra sin forgjenger og innfører forbedringer for både brukere og utviklere basert på tidligere erfaringer.
 
-FINT 2 er en ny versjon av en API-integrasjonsplattform som tar sikte på å adressere noen av utfordringene med sin forgjenger. En av hovedutfordringene med den forrige versjonen var dens manglende evne til å skalere horisontalt for forbrukere, som resulterte i at alle eggene var i samme kurv. I tillegg var bruken av SSE for lange HTTP GET-forespørsler ustabil, og adapterne ba om for mye informasjon for ofte, noe som påvirket ytelsen til tilkoblede consumere. For å overvinne disse utfordringene, krever Core 2 mer granulær tilgangskontroll og støtter horisontal skalering for både providere og consumere.
+### Hovedelementene i den nye arkitekturen inkluderer:
 
-### Kafka
+1. **Forbedret horisontal skalering:** I FINT 2 kjører hver organisasjon i separate tjenester, noe som sikrer et stabilt driftsmiljø. For eksempel vil en restart av en komponent for en organisasjon ikke forstyrre andre organisasjoner.
 
-Et annet sentralt aspekt av FINT 2 er Kafka. Det blir brukt til å sende hendelser og data mellom forskjellige systemer i sanntid. Dette hjelper oss med å jobbe raskt og effektivt med mange systemer samtidig. I motsetning til Core 1, hvor all data blir hentet statisk hvert 15. minutt, er Kafka bedre fordi det kan håndtere mye data. Det spesielle med Kafka er at alle som lager adaptere selv kan bestemme når dataene skal sendes, noe som gir mer kontroll og fleksibilitet. Dette gjør det enklere å styre dataene våre og kan forbedre systemets ytelse.
+2. **Skifte til REST API:** Vi har erstattet Server Sent Events (SSE) med REST API for kommunikasjon mellom FINT og adapterne. Dette bygger på en mer utbredt teknologisk plattform som gir økt stabilitet og trygghet.
+
+3. **Økt fleksibilitet i dataoverføring:** Leverandører har nå friheten til å velge hvor ofte de vil overføre data, med overføringsfrekvenser justerbare fra hver 15. minutt til ukentlig. Overføringer kan suppleres med endringer, og det er mulighet for å fjerne elementer.
+
+4. **Eventdrevet system med Apache Kafka:** Dette bidrar til en mer robust mikrotjeneste-arkitektur. Med data bevart i Kafka, hvis en konsumer restartes, trenger systemet ikke å hente data på nytt, men kan i stedet lese det fra Kafka.
+
+5. **Full bakoverkompatibilitet:** Løsninger som allerede er bygget mot konsumer-API-et (klienter) trenger ikke å gjøre noen endringer. Dette gir kontinuitet og stabilitet for eksisterende integrasjoner.
 
 ![ill3](_media/core2-flow.svg)
