@@ -12,10 +12,6 @@ Vi har satt opp en demo-versjon av nettsiden slik at du skal kunne teste og se h
 
 Lenke: [betaling-demo.felleskomponent.no](https://betaling-demo.felleskomponent.no/)
 
-### Brukerforum
-
-Vi har etablert en brukergruppe for interessenter av tjenesten. Gruppa samles digitalt noen ganger i halvåret for å disktuere og prioritere videreutvikling av løsningen og eventuelle utfordringer. Ta kontakt om du er interessert i å være med på fremtidige samlinger.
-
 ### Hvordan opprette en ordre
 
 1. Logg inn på Elevfakturering
