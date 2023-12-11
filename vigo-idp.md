@@ -56,6 +56,7 @@ https://idp.felleskomponent.no/nidp/saml2/metadata
 
 https://idp.felleskomponent.no/nidp/saml2/spassertion_consumer
 
+
 ![ill6](_media/vigo-idp/vigoidp6.png)
 
 - Klikk "Save"
