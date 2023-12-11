@@ -54,7 +54,7 @@ https://idp.felleskomponent.no/nidp/saml2/metadata
 
 - Fyll inn “Replay URL (Assertion Consumer Service URL”
 
-https://idp.felleskomponent.no/nidp/saml2/spassertion_consumer@
+https://idp.felleskomponent.no/nidp/saml2/spassertion_consumer
 
 ![ill6](_media/vigo-idp/vigoidp6.png)
 
