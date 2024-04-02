@@ -56,7 +56,7 @@ For instance, the schema for `Personalressurs` is available at <https://schema.f
 
 ### jsonvalidate
 
-This Python 2.7 script performs JSON schema validation on a collection of resources.  The schema to use is provided as an URI on the command line.  It reads the resources from standard input, so it can be piped with [`fint-curl`](./tools.md?id=fint-curl) to retrieve the data, i.e.
+This Python 2.7 script performs JSON schema validation on a collection of resources.  The schema to use is provided as an URI on the command line.  It reads the resources from standard input, so it can be piped with [`fint-curl`](tools.mdd=fint-curl) to retrieve the data, i.e.
 
 ```bash
 fint-curl https://beta.felleskomponent.no/administrasjon/personal/personalressurs | \
