@@ -3,6 +3,7 @@
 * [Kom i gang](getting-started.md)
 * [Informasjonsmodellen](informasjonsmodellen.md)
 * [Integrate with FINT](consumer/index.md)
+  * [Understanding the api](consumer/api.md)
 * [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)
 
