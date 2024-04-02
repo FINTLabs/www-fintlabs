@@ -1,16 +1,20 @@
 * [Forsiden](/)
-* [Hvorfor FINT?](home.md)
+* [Hva er FINT?](home.md)
 * [Kom i gang](getting-started/index.md)
+  * [Kundeportalen](getting-started/portal.md)
 * [Informasjonsmodellen](informasjonsmodellen.md)
-* [Arkitektur](architecture.md)
+* [Integrate with FINT](consumer/index.md)
+* [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)
-  * [Verktøy](technical/tools.md)
+
+- ****
+* [Arkitektur](architecture.md)
 * [Veiledninger](tutorials.md)
-* [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
+
 
 - ****
 * [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)

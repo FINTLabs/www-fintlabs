@@ -1,6 +1,6 @@
 * [Forsiden](/)
 * [Hva er FINT?](home.md)
-* [Kom i gang](getting-started.md)
+* [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](informasjonsmodellen.md)
 * [Integrate with FINT](consumer/index.md)
 * [Connect Your Data](provider/index.md)

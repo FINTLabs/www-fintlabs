@@ -1,6 +1,6 @@
 * [Forsiden](/)
 * [Hvorfor FINT?](home.md)
-* [Kom i gang](getting-started.md)
+* [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](informasjonsmodellen.md)
 * [Arkitektur](architecture.md)
 * [Technical documentation](technical/index.md)
