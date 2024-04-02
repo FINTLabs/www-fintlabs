@@ -5,7 +5,6 @@
 * [Arkitektur](architecture.md)
 * [Technical documentation](technical/index.md)
   * [The Information Model](technical/the-information-model/index.md)
-  * [FINT Enviroments](technical/fint-environments/index.md)
   * [API Documentation](technical/api/index.md)
   * [Verktøy](technical/tools.md)
 * [Veiledninger](tutorials.md)
