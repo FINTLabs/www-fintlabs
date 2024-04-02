@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - master
-      - CT-1211-reoganize-site
+      - CT-1211-reorganize-site
 
 jobs:
   deploy:
