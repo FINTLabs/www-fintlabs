@@ -5,12 +5,9 @@
 * [Integrate with FINT](consumer/index.md)
 * [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)
-
-- ****
 * [Tjenestekatalog](catalog.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
-
 
 - ****
 * [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)
