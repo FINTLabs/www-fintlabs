@@ -5,7 +5,7 @@
 * [Arkitektur](architecture.md)
 * [Technical documentation](technical/index.md)
   * [Verktøy](technical/tools.md)
-* [Veiledninger](tutorials.md)
+  * [Federering](technical/federation.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)

@@ -4,14 +4,14 @@
 * [Informasjonsmodellen](informasjonsmodellen.md)
 * [Integrate with FINT](consumer/index.md)
 * [Connect Your Data](provider/index.md)
-  * [Adapter Documentation](technical/adapter/index.md)
-  * [Developing an adapter](technical/developing-an-adapter/index.md)
-  * [Developing an v2 adapter](technical/developing-a-fint-v2-adapter/index.md)
+  * [Adapter Documentation](provider/adapter/index.md)
+  * [Developing an adapter](provider/developing-an-adapter/index.md)
+  * [Developing an v2 adapter](provider/developing-a-fint-v2-adapter/index.md)
+  * [Tutorial for developing adapter](provider/core1/index.md)
 * [Technical documentation](technical/index.md)
 
 - ****
 * [Arkitektur](architecture.md)
-* [Veiledninger](tutorials.md)
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)

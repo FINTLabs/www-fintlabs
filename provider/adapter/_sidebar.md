@@ -18,7 +18,6 @@
     * [Error handling](technical/adapter/errors.md)
     * [Tutorial: Java SSE adapter](technical/adapter/tut-java-sse.md)
     * [Tutorial: .Net SSE adapter](technical/adapter/tut-dotnet-sse.md)
-* [Veiledninger](tutorials.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)

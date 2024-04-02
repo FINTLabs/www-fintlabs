@@ -28,8 +28,6 @@ Tjenester med den fellesnevner at de i stor grad baserer seg på bruk av fellesk
 
 Elevfakturering er en sluttbrukertjeneste for massefakturering av elever i videregående opplæring. Tjenesten lar sluttbruker velge elever basert på informasjon fra skoleadministrativt system og varer basert på informasjon i vareregister fra økonomisystem. Tjenesten oppretter ordrer eller bestillinger som i sin tur produserer fakturagrunnlag for hver enkelt elev og sender disse til økonomisystem for videre prosessering. Tjenesten har også funksjonalitet for å slette og sjekke status og historikk på eksisterende ordrer.
 
-[Les mer...](catalog-invoice.md)
-
 ### IMS OneRoster
 
 IMS OneRoster er en internasjonal standard for utveksling av informasjon om elever og lærere, gruppetilhørigheter og resultater og karakterer. FINT tilbyr en tjeneste som har implementert støtte for standarden, en såkalt REST Provider med støtte for modulen Rostering. Tjenesten blir i hovedsak brukt mot Microsoft School Data Sync og itslearning.

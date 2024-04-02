@@ -19,7 +19,6 @@
     * [GraphQL API](technical/api/graphql.md)
     * [Tools](technical/api/tools.md)
   * [Adapter Documentation](technical/adapter/index.md)
-* [Veiledninger](tutorials.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)

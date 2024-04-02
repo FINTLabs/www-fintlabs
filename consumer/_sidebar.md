@@ -5,12 +5,12 @@
 * [Integrate with FINT](consumer/index.md)
   * [API Documentation](consumer/api/index.md)
   * [Understanding the api](consumer/api.md)
+  * [Testklient](consumer/testklient.md)
 * [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)
 
 - ****
 * [Arkitektur](architecture.md)
-* [Veiledninger](tutorials.md)
 * [Tjenestekatalog](catalog.md)
 * [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)
