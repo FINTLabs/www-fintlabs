@@ -2,8 +2,11 @@
 * [Hva er FINT?](home.md)
 * [Kom i gang](getting-started.md)
 * [Informasjonsmodellen](informasjonsmodellen.md)
-* [Integrate with FINT]
-* [Connect Your Data]
+* [Integrate with FINT](consumer/index.md)
+* [Connect Your Data](provider/index.md)
+  * [Adapter Documentation](technical/adapter/index.md)
+  * [Developing an adapter](technical/developing-an-adapter/index.md)
+  * [Developing an v2 adapter](technical/developing-a-fint-v2-adapter/index.md)
 * [Technical documentation](technical/index.md)
 
 - ****
