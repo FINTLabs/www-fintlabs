@@ -21,7 +21,6 @@
   * [Adapter Documentation](technical/adapter/index.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
-* [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
 

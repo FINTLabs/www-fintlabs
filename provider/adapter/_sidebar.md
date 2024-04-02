@@ -20,7 +20,6 @@
     * [Tutorial: .Net SSE adapter](technical/adapter/tut-dotnet-sse.md)
 * [Verktøy](tools.md)
 * [Tjenestekatalog](catalog.md)
-* [Visma InSchool (VIS)](vis.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
 
