@@ -11,7 +11,6 @@
 * [Technical documentation](technical/index.md)
 
 - ****
-* [Arkitektur](architecture.md)
 * [Tjenestekatalog](catalog.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)

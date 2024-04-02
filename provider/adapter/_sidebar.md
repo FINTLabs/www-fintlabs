@@ -2,7 +2,6 @@
 * [Hvorfor FINT?](home.md)
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](informasjonsmodellen.md)
-* [Arkitektur](architecture.md)
 * [Technical documentation](technical/index.md)
   * [Understanding the api](technical/understanding-the-api/index.md)
   * [The Information Model](technical/the-information-model/index.md)
