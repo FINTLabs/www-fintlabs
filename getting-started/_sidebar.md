@@ -5,7 +5,7 @@
   * [Kundeportalen](getting-started/portal.md)
   * [Visma InSchool](getting-started/vis.md)
   * [Hvorfor core2](getting-started/why-core-2.md)
-* [Informasjonsmodellen](informasjonsmodellen.md)
+* [Informasjonsmodellen](model/index.md)
 * [Integrate with FINT](consumer/index.md)
 * [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)

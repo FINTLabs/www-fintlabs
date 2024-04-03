@@ -1,7 +1,7 @@
 * [Forsiden](/)
 * [Hva er FINT?](home.md)
 * [Kom i gang](getting-started/index.md)
-* [Informasjonsmodellen](informasjonsmodellen.md)
+* [Informasjonsmodellen](model/index.md)
 * [Integrate with FINT](consumer/index.md)
   * [API Documentation](consumer/api/index.md)
   * [Understanding the api](consumer/api.md)
