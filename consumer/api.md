@@ -1,18 +1,5 @@
 # Understanding the API
 
-## REST? HATEOAS? HAL?
-
-### Representational state transfer
-
-<https://en.wikipedia.org/wiki/Representational_state_transfer>
-
-### Hypermedia As The Engine Of Application State
-
-<https://en.wikipedia.org/wiki/HATEOAS>
-
-### Hypertext Application Language
-
-<https://en.wikipedia.org/wiki/Hypertext_Application_Language>
 
 ## Information Model at the Center
 
