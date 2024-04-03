@@ -4,6 +4,7 @@
 * [Informasjonsmodellen](model/index.md)
   * [Oppbygning](model/api-model.md)
   * [Konvensjoner](model/conventions.md)
+  * [Skjema](model/schema.md)
 * [Integrate with FINT](consumer/index.md)
 * [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)
