@@ -8,7 +8,7 @@
   * [Verktøy](technical/tools.md)
   * [Federering](technical/federation.md)
   * [FINT inside](technical/fint-inside.md)
-* [Tjenestekatalog](catalog.md)
+* [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
 

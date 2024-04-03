@@ -9,7 +9,7 @@
 * [Integrate with FINT](consumer/index.md)
 * [Connect Your Data](provider/index.md)
 * [Technical documentation](technical/index.md)
-* [Tjenestekatalog](catalog.md)
+* [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
 

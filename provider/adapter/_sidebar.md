@@ -18,7 +18,7 @@
     * [Tutorial: Java SSE adapter](technical/adapter/tut-java-sse.md)
     * [Tutorial: .Net SSE adapter](technical/adapter/tut-dotnet-sse.md)
 * [Verktøy](tools.md)
-* [Tjenestekatalog](catalog.md)
+* [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
 

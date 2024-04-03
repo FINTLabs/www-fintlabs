@@ -19,7 +19,7 @@
     * [Tools](technical/api/tools.md)
   * [Adapter Documentation](technical/adapter/index.md)
 * [Verktøy](tools.md)
-* [Tjenestekatalog](catalog.md)
+* [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
 
