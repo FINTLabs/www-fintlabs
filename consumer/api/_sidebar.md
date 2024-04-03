@@ -4,7 +4,6 @@
 * [Informasjonsmodellen](model/index.md)
 * [Integrate with FINT](consumer/index.md)
   * [API Documentation](consumer/api/index.md)
-    * [REST APIs](consumer/api/rest.md)
     * [Overview of FINT’s APIs](consumer/api/overview.md)
     * [Using FINT APIs](consumer/api/guidelines.md)
     * [Updating information using FINT APIs](consumer/api/updating.md)
