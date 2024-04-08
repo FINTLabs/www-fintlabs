@@ -2,7 +2,7 @@
 * [Hvorfor FINT?](home.md)
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](model/index.md)
-* [Technical documentation](technical/index.md)
+* [Teknisk dokumentasjon](technical/index.md)
   * [Understanding the api](technical/understanding-the-api/index.md)
   * [The Information Model](technical/the-information-model/index.md)
   * [FINT Enviroments](technical/fint-environments/index.md)

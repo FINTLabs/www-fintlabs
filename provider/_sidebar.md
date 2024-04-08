@@ -8,7 +8,7 @@
   * [Developing an adapter](provider/developing-an-adapter/index.md)
   * [Developing an v2 adapter](provider/developing-a-fint-v2-adapter/index.md)
   * [Tutorial for developing adapter](provider/core1/index.md)
-* [Technical documentation](technical/index.md)
+* [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)

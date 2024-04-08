@@ -4,7 +4,7 @@
 * [Informasjonsmodellen](model/index.md)
 * [Integrere med FINT](consumer/index.md)
 * [Koble dine data](provider/index.md)
-* [Technical documentation](technical/index.md)
+* [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
 * [Kontakt](contact.md)
