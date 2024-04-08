@@ -1,37 +1,37 @@
-# Consepts
+# Konsepter
 
 ## REST API
 
-Our REST API is built upon key principles that ensure a robust and scalable architecture for distributed systems. Here's a brief overview of the foundational concepts:
+Vårt REST API er bygget med nøkkelprinsipper som skal sikre en robust og skalerbar arkitektur for distribuerte systemer. Her er en kort oversikt over de grunnleggende konseptene vi benytter:
 
-- **REST (Representational State Transfer):** This is the architectural style that guides our API design, emphasizing scalable interaction with web-based services. To deepen your understanding of REST principles, visit [Wikipedia: Representational state transfer](https://en.wikipedia.org/wiki/Representational_state_transfer).
-- **HATEOAS (Hypermedia as the Engine of Application State):** This constraint of RESTful design ensures that our clients remain decoupled from server-side logic, promoting long-term flexibility and evolvability of the API. You can read more about HATEOAS on [Wikipedia: HATEOAS](https://en.wikipedia.org/wiki/HATEOAS).
-- **HAL (Hypertext Application Language):** We employ HAL to standardize the way resources link to one another within our API, making it straightforward to navigate and consume. More information on HAL is available at [Wikipedia: Hypertext Application Language](https://en.wikipedia.org/wiki/Hypertext_Application_Language).
+- **REST (Representational State Transfer):** Dette er den arkitektoniske stilen som leder designet av vårt API, med mål om å kunne skape skalerbar interaksjon med web-baserte tjenester. For å fordype deg i REST-prinsippene, besøk [Wikipedia: Representational state transfer](https://en.wikipedia.org/wiki/Representational_state_transfer).
+- **HATEOAS (Hypermedia as the Engine of Application State):** Denne begrensningen av RESTful-design sikrer at våre klienter forblir koblet fra server-sidelogikk, og fremmer langsiktig fleksibilitet og utvikling av API-et. Du kan lese mer om HATEOAS på [Wikipedia: HATEOAS](https://en.wikipedia.org/wiki/HATEOAS).
+- **HAL (Hypertext Application Language):** Vi bruker HAL for å standardisere måten ressurser lenker til hverandre innen vårt API, noe som gjør det enkelt å navigere og konsumere. Mer informasjon om HAL er tilgjengelig på [Wikipedia: Hypertext Application Language](https://en.wikipedia.org/wiki/Hypertext_Application_Language).
 
-## General guidelines
 
-To get the most value from FINT APIs, some guidelines to follow.
+## Generelle retningslinjer
 
-### Information is a Graph
+For å få mest mulig verdi fra FINT APIer, er noen retningslinjer å følge.
 
-FINT resources have relatively few attributes, but more relations.  Every resource only has the attributes that are
-directly relevant for the resource.  Everything else is represented as relations (links) to other resources.
-As an example, the class `Personalressurs`, representing an employee, does not have the employee's name.  Instead there is
-a link to `Person`, representing a private person, where you find the properties of the employee as a private person.
+### Informasjon som en Graf
 
-### Refer, not Replicate
+FINT-ressurser har relativt få attributter, men flere relasjoner. Hver ressurs har bare de attributtene som er
+direkte relevant for ressursen. Alt annet representeres som relasjoner (lenker) til andre ressurser.
+Som et eksempel, klassen `Personalressurs`, som representerer en ansatt, har ikke den ansattes navn. I stedet er det
+en lenke til `Person`, som representerer en privatperson, hvor du finner egenskapene til den ansatte som en privatperson.
 
-Information always changes.  Stale data is often worse than not having any data at all.  The FINT API is based on the principle that information should be fetched from the source when needed, not replicated beforehand.
+### Referer, ikke repliker
 
-### References are Stable
+Informasjon endres alltid. Foreldet data er ofte verre enn å ikke ha noen data i det hele tatt. FINT APIet er basert på prinsippet om at informasjon bør hentes fra kilden når det er nødvendig, ikke replikeres på forhånd.
 
-Resources in FINT are represented using URIs.  These URIs are constructed by the API based on attributes that can be used to identify the resource, represented by the type `Identifikator`.
+### Stabile referanser
 
-As long as the identifiable attribute does not change, neither does the URI representing the resource.
+Ressurser i FINT representeres ved hjelp av URIer. Disse URIene er konstruert av APIet basert på attributter som kan brukes til å identifisere ressursen, representert ved typen `Identifikator`. 
 
-### Everything is a Resource
+Så lenge det identifiserbare attributtet ikke endres, endres heller ikke URIen som representerer ressursen.
 
-All classes in the FINT information model is represented in the exact same way, as resources with URIs and references using URIs to other classes it refers to.
+### Alt er en ressurs
 
-The type of the resource is explicit from the URI of the resource.  For instance, from the URI `/administrasjon/personal/personalressurs`, the type of the resource is always `Personalressurs`.
+Alle klasser i FINTs informasjonsmodell representeres på nøyaktig samme måte, som ressurser med URIer og referanser ved hjelp av URIer til andre klasser den refererer til.
 
+Typen av ressursen er eksplisitt fra URIen til ressursen. For eksempel, fra URIen `/administrasjon/personal/personalressurs`, er typen av ressursen alltid `Personalressurs`.
