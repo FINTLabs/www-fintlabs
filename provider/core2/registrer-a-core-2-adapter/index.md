@@ -1,5 +1,5 @@
 
-# Regisstrer et adapter for core 2
+# Registrer et adapter for core 2
 
 
 
