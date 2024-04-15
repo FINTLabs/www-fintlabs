@@ -1,26 +1,27 @@
-# Accessing FINT
+# Tilgang til FINT
 
-All FINT APIs are protected, and require Bearer token authorization.
+Alle FINT API-er er beskyttet og krever godkjenning med Bearer-token.
 
 ## OAuth 2.0 Resource Owner Credentials Flow
 
-To access FINT resources, a valid Bearer token must be obtained from the FINT IDP.  Authorization details are available from the FINT customer portal, https://kunde.felleskomponent.no
+For å få tilgang til FINT-ressurser, må et gyldig Bearer-token innhentes fra FINT IDP. Autorisasjonsdetaljer er tilgjengelige fra FINTs kundeportal, https://kunde.felleskomponent.no
 
-### Example projects for accessing FINT data
 
-- Java, using Spring Boot: https://github.com/FINTLabs/client-example-spring
-- Java, using Google HTTP and OAuth libraries: https://github.com/FINTLabs/client-example-plain-java
+### Eksempelprosjekter for tilgang til FINT-data
+
+- Java, ved bruk av Spring Boot: https://github.com/FINTLabs/client-example-spring
+- Java, ved bruk av Google HTTP og OAuth-biblioteker: https://github.com/FINTLabs/client-example-plain-java
 - Node.JS: https://github.com/FINTLabs/client-example-node
-- Kotlin, using Spring Boot: https://github.com/FINTLabs/client-example-kotlin-spring
+- Kotlin, ved bruk av Spring Boot: https://github.com/FINTLabs/client-example-kotlin-spring
 - Elm: https://github.com/FINTLabs/fint-api-client-demo
 - BizTalk: https://github.com/FINTLabs/Fint.BizTalk.Example
 - C#: https://github.com/FINTLabs/Fint.DotNet.Example
 
-### Libraries for accessing OAuth protected resources
+### Biblioteker for tilgang til OAuth-beskyttede ressurser
 
 - Spring Boot OAuthRestTemplate: https://github.com/FINTLabs/fint-oauth-token-service
 
-### Obtaining a valid Bearer token using `curl`
+### Innhenting av et gyldig Bearer-token ved bruk av `curl`
 
 ```sh
 curl -s ${IDP_URL} \
@@ -32,19 +33,19 @@ curl -s ${IDP_URL} \
 jq -r '.access_token'
 ```
 
-After obtaining the valid token, add it to the request header:
+Etter å ha fått det gyldige tokenet, legg det til i forespørselens header:
 
 ```sh
 curl -H "Authorization: Bearer ${TOKEN}" https://.....
 ```
 
-## FINT environments
+## FINT-miljøer
 
-FINT offers three environments, Play-with-FINT, Beta and Production:
+FINT tilbyr tre miljøer, play-with-fint, Beta og Produksjon:
 
 - https://play-with-fint.felleskomponent.no
 - https://beta.felleskomponent.no
 - https://api.felleskomponent.no
 
-For all of these environments the URIs follow the same pattern, so to find employee #33445, append the following path to the URI: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
+For alle disse miljøene følger URIene samme mønster, så for å finne ansatt #33445, legg til følgende bane i URIen: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
 

@@ -1,4 +1,4 @@
-# Konsepter
+# Retningslinjer
 
 ## REST API
 
