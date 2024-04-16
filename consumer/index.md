@@ -1,4 +1,4 @@
-# Integrer med FINT - Kom i gang
+# Kom i gang
 
 Hvis du skal bruke FINT en del, for eksempel til å lage en integrasjon eller et adapter, anbefaler vi at du gjør deg kjent med [våre retningslinjer](consumer/guidelines.md).
 
