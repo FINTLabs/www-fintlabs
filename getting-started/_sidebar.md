@@ -6,7 +6,7 @@
   * [Visma InSchool](getting-started/vis.md)
   * [Hvorfor core2](getting-started/why-core-2.md)
 * [Informasjonsmodellen](model/index.md)
-* [Integrere med FINT](consumer/index.md)
+* [Integrere med FINT](consumer/README.md)
 * [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
