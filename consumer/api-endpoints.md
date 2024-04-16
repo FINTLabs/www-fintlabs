@@ -1,13 +1,13 @@
-# Understanding the API
+# Forstå API-et
 
-These operations are available for all classes in the FINT information model.
+Disse operasjonene er tilgjengelige for alle klasser i FINT informasjonsmodellen.
 
-## Get all objects of a given class
+## Hent alle objekter av en gitt klasse
 
-`/domain/package/class`, i.e. `/administrasjon/personal/personalressurs`
+`/domain/package/class`, for eksempel `/administrasjon/personal/personalressurs`
 
-This operation fetches all objects of a given class from the FINT cache. The response looks
-like this:
+Denne operasjonen henter alle objekter av en gitt klasse fra FINTs cache. Responsen ser slik ut:
+
 
 ```json
 {
@@ -32,14 +32,13 @@ like this:
 }
 ```
 
-## Pagination
+## Paginering
 
-`/domain/package/class?size=X&offset=Y`, i.e. `/administrasjon/personal/personalressurs?size=10000&offset=20000`
+`/domain/package/class?size=X&offset=Y`, for eksempel `/administrasjon/personal/personalressurs?size=10000&offset=20000`
 
-The complete list of resources could be very long, and the FINT API supports pagination in order to enable clients to
-consume parts of the data.
+Den komplette listen over ressurser kan være svært lang, og FINT API støtter paginering for å muliggjøre at klienter kan konsumere deler av dataene.
 
-Pagination is enabled by providing a `size` request parameter.  The response then looks like this:
+Paginering er aktivert ved å oppgi en `size` forespørselsparameter. Responsen ser da slik ut:
 
 ```json
 {
@@ -76,23 +75,22 @@ Pagination is enabled by providing a `size` request parameter.  The response the
 }
 ```
 
-The `prev` and `next` links will only appear if there are additional pages before or after this page, respectively.
+`prev` og `next` lenkene vil kun vises hvis det er ytterligere sider før eller etter denne siden, henholdsvis.
 
-In addition, the `total_items` attribute indicates the total size of the dataset, and the `offset` and `size` parameters
-correspond to the ones in the `self` link.
+I tillegg indikerer `total_items` attributtet den totale størrelsen på datasettet, og `offset` og `size` parametrene svarer til de i `self`-lenken.
 
-## Fetch individual item by identifier
 
-`/domain/package/class/field/value`, i.e. `/administrasjon/personal/personalressurs/ansattnummer/123456`
+## Hent individuelt element ved identifikator
 
-Given an identifier field name (any field of type `Identifikator`) and the identifier value, try
-fetching the individual item.
+`/domain/package/class/field/value`, for eksempel `/administrasjon/personal/personalressurs/ansattnummer/123456`
 
-## Size of cache for a given class
+Gitt et identifikatorfeltnavn (ethvert felt av type `Identifikator`) og identifikatorverdien, forsøk å hente det individuelle elementet.
 
-`/domain/package/class/cache/size`, i.e. `/administrasjon/personal/personalressurs/cache/size`
+## Størrelse på cache for en gitt klasse
 
-Return the size of the cache for a given class.  The response looks like this:
+`/domain/package/class/cache/size`, for eksempel `/administrasjon/personal/personalressurs/cache/size`
+
+Returner størrelsen på cachen for en gitt klasse. Responsen ser slik ut:
 
 ```json
 {
@@ -100,11 +98,11 @@ Return the size of the cache for a given class.  The response looks like this:
 }
 ```
 
-## Timestamp for when cache was last updated
+## Tidsstempel for når cachen sist ble oppdatert
 
-`/domain/package/class/last-updated`, i.e. `/administrasjon/personal/personalressurs/last-updated`
+`/domain/package/class/last-updated`, for eksempel `/administrasjon/personal/personalressurs/last-updated`
 
-Return a timestamp indicating when the cache was last updated.  The response looks like this:
+Returner et tidsstempel som angir når cachen sist ble oppdatert. Responsen ser slik ut:
 
 ```json
 {
@@ -112,12 +110,11 @@ Return a timestamp indicating when the cache was last updated.  The response loo
 }
 ```
 
-## Get objects updated since timestamp
+## Hent objekter oppdatert siden tidsstempel
 
-`/domain/package/class?sinceTimeStamp=<time>`, i.e. `/administrasjon/personal/personalressurs?sinceTimeStamp=1559551091034`
+`/domain/package/class?sinceTimeStamp=<time>`, for eksempel `/administrasjon/personal/personalressurs?sinceTimeStamp=1559551091034`
 
-Returns a collection of all objects that have been updated (added or modified) later than the
-provided timestamp.  The response looks like this:
+Returnerer en samling av alle objekter som har blitt oppdatert (lagt til eller endret) etter det oppgitte tidsstemplet. Responsen ser slik ut:
 
 ```json
 {
@@ -142,23 +139,23 @@ provided timestamp.  The response looks like this:
 }
 ```
 
-If `total_items` is `0`, this indicates that there are no new updates since the given timestamp.
+Hvis `total_items` er `0`, indikerer dette at det ikke er noen nye oppdateringer siden det gitte tidsstemplet.
 
-The general algorithm for continuously retrieving updates are this:
+Den generelle algoritmen for kontinuerlig å hente oppdateringer er denne:
 
-1. Maintain a `timestamp` variable, initially set to `0`.
-2. Fetch the `.../last-updated` value, and store this in a _new_ variable.
-3. Fetch resources, using the request parameter `sinceTimeStamp=<timestamp>`
-4. Update the `timestamp` variable with the value retrieved from step 2.
-5. Repeat as often as you find necessary.
+1. Opprett en `timestamp`-variabel, opprinnelig satt til `0`.
+2. Hent verdien fra `.../last-updated`, og lagre denne i en _ny_ variabel.
+3. Hent ressurser, ved å bruke forespørselsparameteren `sinceTimeStamp=<timestamp>`
+4. Oppdater `timestamp`-variabelen med verdien hentet fra trinn 2.
+5. Gjenta så ofte som du finner nødvendig.
 
-__NOTE:__ This algorithm can be combined with pagination.  In this case, step 3 becomes a loop where resources
-are fetched until the response no longer contains a `next` link.
+__NOTE:__ Denne algoritmen kan kombineres med paginering. I dette tilfellet blir trinn 3 en løkke der ressurser
+hentes til responsen ikke lenger inneholder en `next`-lenke.
 
-## Health Check
+## Helsesjekk
 
-`/domain/package/admin/health`, i.e. `/administrasjon/personal/admin/health`
+`/domain/package/admin/health`, for eksempel `/administrasjon/personal/admin/health`
 
-Triggers a health check towards the adapter providing data.  The response indicates whether the adapter is connected and responding.
+Utløser en helsesjekk mot adapteren som leverer data. Responsen indikerer om adapteren er tilkoblet og svarer.
 
 
