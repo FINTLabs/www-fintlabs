@@ -2,7 +2,7 @@
 * [Hva er FINT?](home.md)
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](model/index.md)
-* [Integrere med FINT](consumer/README.md)
+* [Integrere med FINT](consumer/index.md)
 * [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)

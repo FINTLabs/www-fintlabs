@@ -5,7 +5,7 @@
   * [Oppbygning](model/api-model.md)
   * [Konvensjoner](model/conventions.md)
   * [Skjema](model/schema.md)
-* [Integrere med FINT](consumer/README.md)
+* [Integrere med FINT](consumer/index.md)
 * [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
