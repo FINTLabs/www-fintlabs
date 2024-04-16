@@ -1,11 +1,11 @@
-# Adapter Documentation
+# Hente data
 
-| Dokument                                  | Beskrivelse                                                    |
-|:------------------------------------------|:---------------------------------------------------------------|
-| [Kom i gang](consumer/start.md)           | Her kan du starte din reise med å lage en integrasjon mot FINT |
-| [Tilgang](consumer/access.md)             | Hvordan du kan autentiserer din tjeneste for å få tilgang      |
-| [Retningslinjer](consumer/guidelines.md)  | Les om retningslinjene til FINT for en konseptuell forståelse  |
-| [Testklient](consumer/testklient.md)      | Bruk vår webbaserte testklient                                 |
-| [Forstå APIet](consumer/api-endpoints.md) | Hvilke endepunkter er vårt API bygget opp av                   |
-| [Oppdateringer](consumer/updating.md)     | Hvordan du kan sende POST/PUT eventer                          |
-| [GraphQL](consumer/graphql.md)            | Bruk vårt GraphQL-endepunkt                                    |
+| Dokument                                           | Beskrivelse                                                   |
+|:---------------------------------------------------|:--------------------------------------------------------------|
+| [Kom i gang](integrate/consume/start.md)           | Start din integrasjonsreise her                               |
+| [Tilgang](integrate/consume/access.md)             | Hvordan du kan autentiserer din tjeneste for å få tilgang     |
+| [Retningslinjer](integrate/consume/guidelines.md)  | Les om retningslinjene til FINT for en konseptuell forståelse |
+| [Testklient](integrate/consume/testklient.md)      | Bruk vår webbaserte testklient                                |
+| [Forstå APIet](integrate/consume/api-endpoints.md) | Hvilke endepunkter er vårt API bygget opp av                  |
+| [Oppdateringer](integrate/consume/updating.md)     | Hvordan du kan sende POST/PUT eventer                         |
+| [GraphQL](integrate/consume/graphql.md)            | Bruk vårt GraphQL-endepunkt                                   |
