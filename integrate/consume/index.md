@@ -2,7 +2,7 @@
 
 | Dokument                                  | Beskrivelse                                                    |
 |:------------------------------------------|:---------------------------------------------------------------|
-| [Kom i gang](consumer/index.md)           | Her kan du starte din reise med å lage en integrasjon mot FINT |
+| [Kom i gang](consumer/start.md)           | Her kan du starte din reise med å lage en integrasjon mot FINT |
 | [Tilgang](consumer/access.md)             | Hvordan du kan autentiserer din tjeneste for å få tilgang      |
 | [Retningslinjer](consumer/guidelines.md)  | Les om retningslinjene til FINT for en konseptuell forståelse  |
 | [Testklient](consumer/testklient.md)      | Bruk vår webbaserte testklient                                 |
