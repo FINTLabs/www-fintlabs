@@ -22,9 +22,6 @@ REST API-endepunktene er bygget i henhold til informasjonsmodellen. For å vite 
 
 Se [Forstå APIet](consumer/api-endpoints.md) for å forstå endepunktstrukturen for ulike funksjonaliteter som å hente ved ID, paginering og last-updated. [Oppdatering](consumer/updating.md) angående hvordan du utfører UPDATE- og POST-forespørsler.
 
-
-Many users prefer to test queries against the REST API using applications like Postman or Insomnia. If you'd rather not install a separate client, you can utilize our web-based [Testklient](consumer/testklient.md) for convenient and direct access to our API endpoints.
-
 Mange brukere foretrekker å teste spørringer mot REST APIet ved hjelp av applikasjoner som Postman eller Insomnia. Om du vil teste spørringer uten å installere en separat klient, kan du benytte vår nettbaserte [Testklient](consumer/testklient.md) for direkte tilgang til våre API-endepunkter.
 
 
