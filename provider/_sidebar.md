@@ -3,7 +3,7 @@
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](model/index.md)
 * [Integrere med FINT](consumer/index.md)
-* [Koble dine data](provider/index.md)
+* [Tilby data](provider/index.md)
   * [Adapter Documentation](provider/adapter/index.md)
   * [Developing an adapter](provider/developing-an-adapter/index.md)
   * [Developing an v2 adapter](provider/developing-a-fint-v2-adapter/index.md)

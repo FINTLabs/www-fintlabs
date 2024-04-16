@@ -9,7 +9,7 @@
   * [Forstå APIet](consumer/api-endpoints.md)
   * [Behandle oppdateringer](consumer/updating.md)
   * [GraphQL](consumer/graphql.md)
-* [Koble dine data](provider/index.md)
+* [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)

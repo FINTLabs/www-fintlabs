@@ -6,7 +6,7 @@
   * [Konvensjoner](model/conventions.md)
   * [Skjema](model/schema.md)
 * [Integrere med FINT](consumer/index.md)
-* [Koble dine data](provider/index.md)
+* [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
