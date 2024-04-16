@@ -3,6 +3,7 @@
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](model/index.md)
 * [Integrere med FINT](consumer/index.md)
+  * [Kom i gang](consumer/index.md)
   * [Tilgang](consumer/access.md)
   * [Retningslinjer](consumer/guidelines.md)
   * [Testklient](consumer/testklient.md)
