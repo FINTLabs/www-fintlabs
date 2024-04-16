@@ -1,56 +1,56 @@
-## Updating information using FINT
+## Oppdatere informasjon ved bruk av FINT
 
-Updates use HTTP operations to create, modify and delete information.  It builds upon the "everything
-is a resource" principle, so when updating information the resource URI is central.
+Oppdateringer bruker HTTP-operasjoner for å opprette, endre og slette informasjon. Det bygger på prinsippet om at "alt er en ressurs", så når man oppdaterer informasjon, er ressursens URI sentral.
 
-### Asynchronous operations
+### Asynkrone operasjoner
 
-Since the updates must propagate via the FINT component and an adapter before being processed by the
-back-end system, updates might take some time to complete.  For this, FINT APIs use asynchronous
-operations as described in <http://restcookbook.com/Resources/asynchroneous-operations/.>
+Siden oppdateringene må formidles via FINT-komponenten og en adapter før de behandles av
+baksystemet, kan oppdateringer ta noe tid å fullføre. For dette bruker FINT APIer asynkrone
+operasjoner som beskrevet i <http://restcookbook.com/Resources/asynchroneous-operations/>.
 
-The process is as follows:
 
-1. The client initiates an update operation.
-1. The FINT API validates the syntax of the operation and responds with status code [`202`](https://http.cat/202) and a `Location`
-   header referring to a `/status/<uuid>` resource
-1. The client fetches the *Status* resource.
-    - If the operation is still pending, the FINT API keeps responding with status code `202`.
-1. If the operation has completed, the FINT API responds with the final status of the update:
-    - If successful, status [`201`](https://http.cat/201) with a `Location` referring to the resource that has been
-      created or updated, and a payload with the updated resource.
-    - _Note:_ If the operation is a deletion, the status code is [`204`](https://http.cat/204) instead.
-    - If rejected by the back-end system, status [`400`](https://http.cat/400) with a response body indicating the error.
-    - If the update is in conflict with other updates or data in the back-end system, the status
-      is [`409`](https://http.cat/409) and the response body contains the original information the update conflicts with.
-    - If there was a temporary failure processing the request, status [`500`](https://http.cat/500) with the
-      error message.
-      In this case the client can retry the request.
+Prosessen er som følger:
 
-The *Status* resource is valid for 30 minutes after initiating the original request.
+1. Klienten initierer en oppdateringsoperasjon.
+2. FINT API validerer syntaksen til operasjonen og responderer med statuskode [`202`](https://http.cat/202) og en `Location` header som henviser til en `/status/<uuid>`-ressurs.
+3. Klienten henter *Status*-ressursen.
+   - Hvis operasjonen fortsatt pågår, fortsetter FINT API å svare med statuskode `202`.
+1. Hvis operasjonen er fullført, svarer FINT API med den endelige statusen for oppdateringen:
+   - Hvis vellykket, status [`201`](https://http.cat/201) med en `Location` som henviser til ressursen som har blitt
+     opprettet eller oppdatert, og en payload med den oppdaterte ressursen.
+   - _Merk:_ Hvis operasjonen er en sletting, er statuskoden [`204`](https://http.cat/204) i stedet.
+   - Hvis avvist av baksystemet, status [`400`](https://http.cat/400) med en respons-body som indikerer feilen.
+   - Hvis oppdateringen er i konflikt med andre oppdateringer eller data i baksystemet, er status
+     [`409`](https://http.cat/409) og responslegemet inneholder den opprinnelige informasjonen oppdateringen er i konflikt med.
+   - Hvis det var en midlertidig feil under behandlingen av forespørselen, status [`500`](https://http.cat/500) med
+     feilmeldingen. I dette tilfellet kan klienten forsøke forespørselen på nytt.
 
-### Creating new objects
+*Status*-ressursen er gyldig i 30 minutter etter at den opprinnelige forespørselen ble initiert.
 
-`POST /domain/package/class`, i.e.
+### Opprette nye objekter
+
+`POST /domain/package/class`, for eksempel
 `POST /administrasjon/personal/fravar`
 
-The body must be a complete resource to be created, including `_links` to other resources it refers to.
+HTTP-forespørselens innhold må være en komplett ressurs som skal opprettes, inkludert `_links` til andre ressurser den refererer til.
 
-Internal identifiers controlled by the back-end system can be omitted.
+Interne identifikatorer kontrollert av baksystemet kan utelates.
 
-### Modifying existing objects
+### Endre eksisterende objekter
 
-`PUT /domain/package/class/field/value`, i.e. `PUT /administrasjon/personal/personalressurs/ansattnummer/123456`
+`PUT /domain/package/class/field/value`, for eksempel `PUT /administrasjon/personal/personalressurs/ansattnummer/123456`
 
-The resource to be modified is identified by the identifiable field and value.
-Any field of type `Identifikator` can be used to identify the resource.
+Ressursen som skal endres identifiseres ved det identifiserbare feltet og verdien.
+Ethvert felt av typen `Identifikator` kan brukes for å identifisere ressursen.
 
-The body must be the complete resource after modification.
-Attributes that can be modified are indicated in the information model.
+HTTP-forespørselens innhold må være den komplette ressursen etter endring.
+Attributter som kan endres er angitt i informasjonsmodellen.
 
-### Deleting objects
 
-`DELETE /domain/package/class/field/value`, i.e. `DELETE /administrasjon/personal/fravar/systemid/abcdef1234`
+### Slette objekter
 
-Not all information classes support deletion.
-If deletion is not supported, the operation is rejected with status `400`.
+`DELETE /domain/package/class/field/value`, for eksempel `DELETE /administrasjon/personal/fravar/systemid/abcdef1234`
+
+Ikke alle informasjonsklasser støtter sletting.
+Hvis sletting ikke støttes, blir operasjonen avvist med status `400`.
+
