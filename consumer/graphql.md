@@ -1,24 +1,25 @@
 # GraphQL API
 
-FINT also offers an experimental [GraphQL](https://graphql.org/) API for accessing data as a graph.
+FINT tilbyr også et eksperimentelt [GraphQL](https://graphql.org/) API for å få tilgang til data som et graf.
 
-The GraphQL endpoint is at `/graphql/graphql`.  It requires the same Bearer token as the rest of the FINT APIs.
+GraphQL-endepunktet er på `/graphql/graphql`. Det krever det samme Bearer-tokenet som resten av FINT APIene.
 
-Our recommended client to test GrapqQL is https://insomnia.rest - using this the OAuth credentials from the customer portal can be used directly as an Environment.
+Vår anbefalte klient for å teste GraphQL er https://insomnia.rest - ved bruk av denne kan OAuth-legitimasjonen fra kundeportalen brukes direkte som et miljø.
 
-Create a `POST` request to the GraphQL endpoint, configure OAuth 2, and Insomnia fetches the GraphQL schema so you can validate the query and see the results.
+Opprett en `POST`-forespørsel til GraphQL-endepunktet, konfigurer OAuth 2, og Insomnia henter GraphQL-skjemaet slik at du kan validere forespørselen og se resultatene.
 
-## FINT GraphQL Schema
+## FINT GraphQL-skjema
 
-The GraphQL schema for FINT follow the information model exactly.  The root schema defines query endpoints for all resources by an identifier.  It is not possible to get all resources for a class for performance reasons.
+GraphQL-skjemaet for FINT følger informasjonsmodellen nøyaktig. Rot-skjemaet definerer spørre-endepunkter for alle ressurser ved en identifikator. Det er ikke mulig å få alle ressurser for en klasse av ytelseshensyn.
 
-## Example queries
+## Eksempel på spørringer
 
-Here are some examples to get you started.
+Her er noen eksempler for å komme i gang.
 
-## Employee information
+## Informasjon om ansatte
 
-Given an employee ID, find person's name and National Identity Number, all positions with size and place of employment:
+Gitt et ansattnummer, finn personens navn og fødselsnummer, alle stillinger med størrelse og arbeidssted:
+
 
 ```graphql
 query ($ansattnummer: String) {
@@ -45,9 +46,9 @@ query ($ansattnummer: String) {
 }
 ```
 
-## Student information
+## Informasjon om studenter
 
-Given a student's FEIDE name, find student's contact information, school and home address. 
+Gitt en students FEIDE-navn, finn studentens kontaktinformasjon, skole og hjemmeadresse.
 
 ```graphql
 query ($feidenavn: String) {
@@ -79,9 +80,9 @@ query ($feidenavn: String) {
 }
 ```
 
-## Class membership
+## Klassemedlemskap
 
-Given a teaching group's systemId, find names and contact information for all students in that group:
+Gitt et systemId for en undervisningsgruppe, finn navn og kontaktinformasjon for alle studenter i den gruppen:
 
 ```graphql
 query ($systemId: String) {
