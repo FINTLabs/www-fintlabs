@@ -1,6 +1,6 @@
 # Dataoverføring til FINT
 
-Du trenger et fint-adapter for å overføre data, se artikkel om hvordan opprette adapter [her](/provider/core2/registrer-a-core-2-adapter/index.md)
+Du trenger et fint-adapter for å overføre data, se artikkel om hvordan opprette adapter [her](/integrate/providere/provider/core2/registrer-a-core-2-adapter/index.md)
 
 Når du har registrert adapteret kan du sende data. En dataoverføring ser slik ut:
 ```json

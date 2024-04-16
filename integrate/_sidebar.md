@@ -3,6 +3,8 @@
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](model/index.md)
 * [Integrere med FINT](integrate/index.md)
+  * [Hente data](integrate/consume/index.md)
+  * [Levere data](integrate/provide/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
