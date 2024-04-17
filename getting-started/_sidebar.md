@@ -4,7 +4,6 @@
   * [Arkitektur](getting-started/architecture.md)
   * [Kundeportalen](getting-started/portal.md)
   * [Visma InSchool](getting-started/vis.md)
-  * [Hvorfor core2](getting-started/why-core-2.md)
 * [Informasjonsmodellen](model/index.md)
 * [Integrere med FINT](integrate/index.md)
 * [Teknisk dokumentasjon](technical/index.md)

@@ -5,13 +5,14 @@
 * [Integrere med FINT](integrate/index.md)
   * [Hente data](integrate/consume/index.md)
   * [Levere data](integrate/provide/index.md)
-    * [Version 1]
+    * Versjon 1
       * [Develop adapter](integrate/provide/core1-tutorial.md)
       * [Develop adapter (old)](integrate/provide/core1-tutorial-old.md)
       * [Java adapter](integrate/provide/core1-java-adapter.md)
       * [.NET adapter](integrate/provide/core1-dotnet-adapter.md)
-    * [Version 2]
-      * [Develop java adapter](integrate/provide/core2-java-adapter.md)
+    * Versjon 2
+      * [Hvorfor versjon 2](integrate/provide/core2-why.md) 
+      * [Java adapter](integrate/provide/core2-java-adapter.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
