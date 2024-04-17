@@ -1,22 +1,14 @@
 # Levere data
 
-| Dokument                                  | Beskrivelse                                                    |
-|:------------------------------------------|:---------------------------------------------------------------|
-
-[//]: # (| [Kom i gang]&#40;consumer/start.md&#41;           | Her kan du starte din reise med å lage en integrasjon mot FINT |)
-
-[//]: # (| [Tilgang]&#40;consumer/access.md&#41;             | Hvordan du kan autentiserer din tjeneste for å få tilgang      |)
-
-[//]: # (| [Retningslinjer]&#40;consumer/guidelines.md&#41;  | Les om retningslinjene til FINT for en konseptuell forståelse  |)
-
-[//]: # (| [Testklient]&#40;consumer/testklient.md&#41;      | Bruk vår webbaserte testklient                                 |)
-
-[//]: # (| [Forstå APIet]&#40;consumer/api-endpoints.md&#41; | Hvilke endepunkter er vårt API bygget opp av                   |)
-
-[//]: # (| [Oppdateringer]&#40;consumer/updating.md&#41;     | Hvordan du kan sende POST/PUT eventer                          |)
-
-[//]: # (| [GraphQL]&#40;consumer/graphql.md&#41;            | Bruk vårt GraphQL-endepunkt                                    |)
+Adapterne som leverer data til FINT finnes i to ulike generasjoner. Den første generasjonen baserer seg på SSE (server-sent events) hvor FINT er den aktive part og ber normalt om oppdaterte data hvert 15. minutt. Andre generasjons adaptere baserer seg hovedsakelig av REST API hvor leverandøren overfører data på avtalte intervaller.  
 
 
 
+| Versjon | Dokument                                  | Beskrivelse                                           |
+|:--------|:------------------------------------------|:------------------------------------------------------|
+| 1       | [Develop adapter](integrate/provide/core1-tutorial.md)  | Hvordan et SSE-adapter fungerer                       |
+| 1       | [Java adapter](integrate/provide/core1-java-adapter.md)| Vårt Java-baserte adapterrammeverk                    |
+| 1       | [Java adapter](integrate/provide/core1-java-adapter.md)| Vårt .NET-baserte adapterrammeverk                    |
+| 2       | [Hvorfor versjon 2](integrate/provide/core2-why.md)  | Grunnen til at vi har laget en ny generasjon adaptere |
+| 2       | [Java adapter](integrate/provide/core2-java-adapter.md)  | Vårt Java-baserte adapterrammeverk (versjon 2)        |
 
