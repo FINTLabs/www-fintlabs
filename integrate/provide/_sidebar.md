@@ -7,7 +7,6 @@
   * [Levere data](integrate/provide/index.md)
     * Versjon 1
       * [Develop adapter](integrate/provide/core1-tutorial.md)
-      * [Develop adapter (old)](integrate/provide/core1-tutorial-old.md)
       * [Java adapter](integrate/provide/core1-java-adapter.md)
       * [.NET adapter](integrate/provide/core1-dotnet-adapter.md)
     * Versjon 2
