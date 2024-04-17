@@ -14,4 +14,4 @@ FINT 2, vår oppdaterte API-integrasjonsplattform, bygger videre på det beste f
 
 5. **Full bakoverkompatibilitet:** Løsninger som allerede er bygget mot konsumer-API-et (klienter) trenger ikke å gjøre noen endringer. Dette gir kontinuitet og stabilitet for eksisterende integrasjoner.
 
-![ill3](_media/core2-flow.svg)
+![ill3](/_media/core2-flow.svg)
