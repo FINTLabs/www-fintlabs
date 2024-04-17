@@ -1,20 +1,20 @@
-# Developing a FINT 2 adapter
+# Utvikling av en FINT 2-adapter
 
-## Before you start
-If you'd like to observe the complete integration in action, you can refer to the example adapter available at the following [GitHub repository](https://github.com/FINTLabs/fint-core-adapter-skeleton)
+## Før du starter
+Hvis du ønsker å observere den komplette integrasjonen i aksjon, kan du henvise til eksempeladapteren som er tilgjengelig på følgende [GitHub repository](https://github.com/FINTLabs/fint-core-adapter-skeleton)
 
-## Publisher-subscriber pattern
-To achieve the publisher-subscriber pattern in FINT 2, we will be using Reactive WebClient for making asynchronous API calls and Kafka as the message broker for handling event-based communication between components and services.
+## Utgiver-abonnent mønster
+For å oppnå utgiver-abonnent mønsteret i FINT 2, vil vi bruke Reactive WebClient for å utføre asynkrone API-kall og Kafka som meldingsmegler for å håndtere hendelsesbasert kommunikasjon mellom komponenter og tjenester.
 
-## Application properties
+## Applikasjons konfigurasjon
 
-Before setting up the adapter, you first need to configure application properties in the application.yaml file. This allows you to set the necessary configuration properties for the adapter, such as ID, username, password, and so on.
+Før du setter opp adapteren, må du først konfigurere applikasjonsen i application.yaml-filen. Dette lar deg sette nødvendige konfigurasjonsegenskaper for adapteren, som ID, brukernavn, passord og så videre.
 
-This will be sent to the provider at registration.
+Dette vil bli sendt til leverandøren ved registrering.
 
-In the standard code example provided, a single AdapterProperties is configured as follows:
+I det standard kodeeksempelet som er gitt, er en enkelt AdapterProperties konfigurert som følger:
 
-example of application.yaml if we are posting elevfravar to utdanning vurdering in alpha enviornment.
+eksempel på application.yaml hvis vi poster elevfravær til utdanning vurdering i alpha-miljøet.
 ```yaml
 fint:
   adapter:
@@ -35,25 +35,25 @@ fint:
         deltaSyncInterval: IMMEDIATE
 ```
 
-* `id` Specifies the unique identifier for the adapter.
-* `username/password` Specify the credentials required for authentication.
-* `base-url` Specifies the URL of the external provider that the adapter will be communicating with.
-* `registration-id` Specifies the registration ID to be used.
-* `org-id` Specifies the organization ID for the adapter.
-* `heartbeat-interval` Specifies the interval in minutes between the adapter's heartbeats. The recommended value is between 1-3 minutes.
-* `capabilities` This property specifies the list of capabilities the adapter will provide. For each capability, the domain-name, package-name, resource-name, fullSyncIntervalInDays, and deltaSyncInterval should be specified.
-* `page-size` Specifies the amount of resources one page can contain. The default value is 100, but this can be ignored if you're not planning to use our adapter-common library.
-  The `deltaSyncInterval` parameter determines the frequency at which the adapter sends updates. You can choose from the following options:
+* `id` Spesifiserer den unike identifikatoren for adapteren..
+* `username/password` Spesifiser brukernavn og passord for FINT adapteret.
+* `base-url` Spesifiser hvilket miljø dataen skal leveres til.
+* `registration-id` Spesifiserer registrerings-IDen som skal brukes.
+* `org-id` Spesifiserer organisasjons-IDen for adapteren.
+* `heartbeat-interval` Spesifiserer intervall i minutter mellom adapterens hjerteslag. Den anbefalte verdien er mellom 1-3 minutter..
+* `capabilities` Denne egenskapen spesifiserer listen over evner adapteren vil tilby. For hver evne, skal domene-navn, pakke-navn, ressurs-navn, fullSyncIntervalInDays og deltaSyncInterval spesifiseres.
+* `page-size` Spesifiserer hvor mange ressurser en side kan inneholde. Standardverdien er 100, men dette kan ignoreres hvis du ikke planlegger å bruke vårt adapter-fellesbibliotek.
+  The `deltaSyncInterval` bestemmer frekvensen som adapteren sender oppdateringer. Du kan velge blant følgende alternativer:
 
-- **IMMEDIATE**: This option indicates that the adapter will send updates as soon as they are available in the application.
+- **IMMEDIATE**: Dette alternativet indikerer at adapteren vil sende oppdateringer så snart de er tilgjengelige i applikasjonen.
 
-- **LEGACY**: This option indicates that the adapter will send updates every `<=15` minutes. 
+- **LEGACY**: Dette alternativet indikerer at adapteren vil sende oppdateringer hver 15 minutter.
 
-It is essential to configure these properties correctly before proceeding with setting up the adapter.
+Det er essensielt å konfigurere disse egenskapene korrekt før du fortsetter med å sette opp adapteren.
 
-## Dependencies
+## Avhengiheter
 
-The first step in setting up an adapter for FINT 2 is to ensure that you have all the required dependencies. There are only two critical dependencies required if you're follwing our method.
+Det første steget i å sette opp en adapter for FINT 2 er å sikre at du har alle nødvendige avhengigheter. Det er bare to kritiske avhengigheter som kreves hvis du følger vår metode.
 
 build.gradle
 ```groovy
@@ -78,13 +78,13 @@ pom.xml
 </dependencies>
 ```
 
-Depending on what resources the adapter will handle, you may need additional dependencies. Ensure that all dependencies are added to the build.gradle file in the project.
+Avhengig av hvilke ressurser adapteren vil håndtere, kan det være nødvendig med tilleggsavhengigheter. Sørg for at alle avhengigheter er lagt til i build.gradle-filen i prosjektet.
 
-## Resource Repository
+## Ressursarkiv
 
-After setting up dependencies, the next step is to create a repository that implements WriteableResourceRepository<ResourceName> of the resource. This repository will handle the communication between the adapter and the external system.
+Etter å ha satt opp avhengigheter, er neste steg å opprette et arkiv som implementerer WriteableResourceRepository for ressursen. Dette arkivet vil håndtere kommunikasjonen mellom adapteren og det eksterne systemet.
 
-Example of a Repository that contains ElevFravar resource.
+Eksempel på et arkiv som inneholder ElevFravær-ressursen.
 ```java
 @Repository
 public class ElevfravarRepository implements WriteableResourceRepository<Elevfravar> {
@@ -92,9 +92,9 @@ public class ElevfravarRepository implements WriteableResourceRepository<Elevfra
 }
 ```
 
-## Resource Publisher
+## Ressursutgiver
 
-Once the resource repository is set up, the next step is to create a publisher that extends ResourcePublisher<ResourceName, ResourceRepository<ResourceName>>. The resource publisher is responsible for publishing the resources to the FINT 2 provider. Override the full and delta sync methods in the publisher to ensure that the resources are synced correctly.
+Når ressursarkivet er satt opp, er neste steg å opprette en utgiver som utvider ResourcePublisher<ResourceName, ResourceRepository>. Ressursutgiveren er ansvarlig for å publisere ressursene til FINT 2 provideren. Overstyr de fulle og delta-synkroniseringsmetodene i utgiveren for å sikre at ressursene er synkronisert korrekt.
 
 ```java
 @Service
@@ -123,9 +123,9 @@ public class ElevfravarPublisher extends ResourcePublisher<ElevfravarResource, R
 }
 ```
 
-## Resource Subscriber
+## Ressursabonnent
 
-To set up the subscriber, create a new class that extends ResourceSubscriber<ResourceName, CreatedPublisher> and super Webclient, AdapterProperties, CreatedPublisher, and ValidatorService. This class should also override the getCapability method and return the AdapterProperties getCapabilities method.
+For å sette opp abonnenten, opprett en ny klasse som utvider ResourceSubscriber<ResourceName, CreatedPublisher> og over Webclient, AdapterProperties, CreatedPublisher, og ValidatorService. Denne klassen bør også overstyre getCapability-metoden og returnere AdapterProperties getCapabilities-metoden.
 
 ```java
 @Service
@@ -144,9 +144,9 @@ public class ElevfravarSubscriber extends ResourceSubscriber<ElevfravarResource,
 ```
 
 
-The final step is to override the last method, createSyncPageEntry of SyncPageEntry<ResourceName>. There are multiple ways of creating a SyncPageEntry, here are three examples with different use cases.
+Det siste trinnet er å overstyre den siste metoden, createSyncPageEntry of SyncPageEntry. Det er flere måter å opprette en SyncPageEntry på, her er tre eksempler med ulike bruksområder.
 
-SyncPageEntry of Identifier and Resource:
+SyncPageEntry av Identifikator og Ressurs:
 ```java
     @Override
     protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
@@ -155,7 +155,7 @@ SyncPageEntry of Identifier and Resource:
     }
 ```
 
-If SystemId is provided as selflink you can use exclude the identifier and only provide the resource as such:
+Hvis SystemId gis som selflink kan du utelate identifikatoren og bare gi ressursen som slik:
 ```java
 @Override
     protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
@@ -163,7 +163,7 @@ If SystemId is provided as selflink you can use exclude the identifier and only 
     }
 ```
 
-Finally you can provide the identifierName and resource:
+Til slutt kan du gi identifikatornavnet og ressursen:
 ```java
     @Override
     protected SyncPageEntry<ElevfravarResource> createSyncPageEntry(ElevfravarResource resource) {
