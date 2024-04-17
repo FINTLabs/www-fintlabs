@@ -16,17 +16,17 @@ OrgId: xxxxxxx
 
 Når man har logget inn kommer man hit:
 
-![ill1](../_media/testclient-1.png)
+![ill1](../../_media/testclient-1.png)
 
 Her kan man legge inn de endepunktene som skal sjekkes ved å lime/skrive inn endepunktet på følgende måte:
 
-![ill2](../_media/testclient-2.png)
+![ill2](../../_media/testclient-2.png)
 
 Trykk så på knappen bak hvor det står FINT!
 
 Da får du opp resultatet i JSON format:
 
-![ill3](../_media/testclient-3.png)
+![ill3](../../_media/testclient-3.png)
 
 Under `_links` er koblinger til andre modeller. Man kan klikke på linkene for å se hvilken informasjon som ligger i koblingen.
 
@@ -40,7 +40,7 @@ Informasjonsmodellen finnes her:
 
 Her kan man også finne de andre modellene/endepunktene som skal sjekkes (i menyen til venstre)
 
-![ill4](_media/testclient-4.png)
+![ill4](../../_media/testclient-4.png)
 
 
 Endepunkter som må sjekkes:

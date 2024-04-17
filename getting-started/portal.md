@@ -10,13 +10,13 @@ Hver fylkeskommune har fått i oppgave å sende inn personaldata på en person h
 
 Når man har logget inn på kundeportalen, kommer man inn til et dashboard. Her kan man se antall klienter, adaptere og komponenter.
 
-![ill1](_media/kundeportal-1.png)
+![ill1](../_media/kundeportal-1.png)
 
 * `Komponent`: Inneholder alle felleskomponenter som er tilgjengelige. Her kan den enkelte fylkeskommune velge hvilke komponenter som skal være tilgjengelig for sin fylkeskommune. En felleskomponent må være aktivert for fylket for å kunne benyttes av klienter og adaptere.
 * `Adapter`: Angir påloggingsinformasjon for adaptere som er installert av leverandøren til et av fylkeskommunens fagsystem. For eksempel må det opprettes et adapter i kundeportalen, slik at adapteret mot HR-systemet får korrekt påloggingsinformasjon, til komponenten som inneholder HR-informasjon.
 * `Klient`: Her angis pålogginsinformasjon til komponenten som kan brukes av integrasjonsmotor, klient, applikasjon eller annen komponent i en arbeidsprosess. F.eks. må det opprettes en klient for at VIS skal få tilgang til ansattinformasjonen fra FINTs Felleskomponenter.
 
-![ill2](_media/kundeportal-2.png)
+![ill2](../_media/kundeportal-2.png)
 
 Her illustreres hvor klient, komponent og adapter er i dataflyten.
 
@@ -33,15 +33,15 @@ Første menypunkt, vist med blå sirkel i bildet under, er hvor man setter opp t
 
 Gå til Kontakter (1), og klikk på det grønne ikonet med en svart pluss i (2). Deretter trykk på det røde ikonet med en pluss i som kommer i vinduet som åpner seg (3). Der kan du, dersom du er juridisk teknisk kontakt, legge inn de tekniske kontaktene du ønsker skal ha tilgang til kundeportalen. Dersom kontakten du ønsker skal ha tilgang til kundeportalen ikke finnes i listen, ber du dem opprette en bruker.
 
-![ill3](_media/kundeportal-3.jpeg)
+![ill3](../_media/kundeportal-3.jpeg)
 
 ### Komponenter
 
-![ill4](_media/kundeportal-4.png)
+![ill4](../_media/kundeportal-4.png)
 
 Her velger man hvilke komponenter man ønsker å gjøre tilgjengelig for sin organisasjon (hvilken organisasjon man har valgt vises i øvre høyre hjørne, i eksemplene vil det være Møre og Romsdal). De som har et grønt symbol med et pluss i, er komponenter som du kan legge til. De med rødt symbol med en minus i, er komponenter som allerede er lagt til. Man klikker på symbolet for å legge til eller fra komponenten. Hvis man klikker på tannhjulet bak det røde eller grønne symbolet, vil man få opp et vindu som viser informasjon om komponenten.
 
-![ill5](_media/kundeportal-5.png)
+![ill5](../_media/kundeportal-5.png)
 
 ### Adapter
 
@@ -49,25 +49,25 @@ Når man har koblet komponentene til organisasjonen så går man videre til tred
 
 Oppsettet som genereres her skal brukes i konfigurasjon av FINT-adapter.
 
-![ill6](_media/kundeportal-6.png)
+![ill6](../_media/kundeportal-6.png)
 
 Man klikker på det store grønne symbolet med en svart pluss i, for å legge til et adapter. Da vil man få opp følgende bilde:
 
-![ill7](_media/kundeportal-7.png)
+![ill7](../_media/kundeportal-7.png)
 
 Først fyller du ut brukernavn til adapteret. Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen.
 
 Deretter klikker du på edit-symbolet (en grå blyant) bak adapteret i listen, og får opp dette bildet:
 
-![ill8](_media/kundeportal-8.png)
+![ill8](../_media/kundeportal-8.png)
 
 Her kan man endre på beskrivelse og Note, hvis man ønsker.  Ved å klikke på “Komponenter” i toppmenyen, kommer man til følgende bilde:
 
-![ill9](_media/kundeportal-9.png)
+![ill9](../_media/kundeportal-9.png)
 
 Her finner du igjen de komponentene vi valgte i sted, og kan koble dem til adapteret. Klikk på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Det vil si at en tilkoblet komponent vises med rødt symbol. Deretter går man videre i toppmenyen til Autentisering.
 
-![ill10](_media/kundeportal-10.png)
+![ill10](../_media/kundeportal-10.png)
 
 Her kommer informasjonen som skal inn i konfigfilene til adapteret. Det er denne informasjonen som skal sendes til den som installerer FINT-adapteret i deres miljø. Dette er ikke denne informasjonen som skal sendes til VISMA for oppsett i VIS. Det skal man sette opp en klient for. Husk å trykke på symbolene bak Passord og Klient Hemmelighet for å generere disse første gangen. Hvis man genererer opp passord på nytt senere, må man endre i konfigfilene til adapteret også, hvis ikke vil adapteret feile ved oppkobling mot FINT. Klient Hemmeligheten vil hentes fra FINTs OAuth-server og vil ikke endres selv om han henter verdien på nytt.
 
@@ -93,25 +93,25 @@ Menyvalgene Adapter og Klienter fungerer på samme måte, men skilles på hvilke
 
 Man skal opprette en klient for hvert formål, dvs. ikke gjenbruke den samme klienten til forskjellige oppgaver. En for å kjøre testene som ligger på kundeportalen, en for testing i testklienten til FINT, og ikke minst en egen klient for å koble VIS mot fylkeskommunens egne data. Autentiseringsinformasjonen for den klienten som opprettes for VIS (Visma InSchool), må på et tidspunkt oppgis til Visma for å få tilgang til VIS.
 
-![ill11](_media/kundeportal-11.png)
+![ill11](../_media/kundeportal-11.png)
 
 For å legge til en klient så klikker man på det store grønne symbolet med en svart plus i.
 
-![ill12](_media/kundeportal-12.png)
+![ill12](../_media/kundeportal-12.png)
 
 Fremgangsmåten her er ganske lik den som var for Adapter. Man legger til et brukernavn, som får ditt fylkes domenenavn bak. Den vi lager på bildet, er i første omgang en klient for å kjøre tester, så vi har kalt den basictestclient@mrfylke.no for Møre og Romsdal. Det er viktig at denne ikke blir gitt samme brukernavn som ble brukt i adapteroppsettet. Den korte beskrivelsen, er det som kommer opp som navn på klienten, i listen over klienter. Fyll ut og legg til.
 
 Deretter klikker man på det grå edit-symbolet, som er en blyant, for å sette opp innstillingene til klienten.
 
-![ill13](_media/kundeportal-13.png)
+![ill13](../_media/kundeportal-13.png)
 
 På første fane kan kan endre beskrivelse og Note.
 
-![ill14](_media/kundeportal-14.png)
+![ill14](../_media/kundeportal-14.png)
 
 På fanen Komponenter kan man legge til de komponentene som skal kobles til klienten. For en testklient velger man alle komponenter som skal testes. Her klikker man på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Deretter går man videre til Autentisering.
 
-![ill15](_media/kundeportal-15.png)
+![ill15](../_media/kundeportal-15.png)
 
 På samme måte som for Adapter, må Passord og Klient Hemmelighet genereres manuelt, ved å klikke på symbolene nest bakerst på linjen. Disse autentiseringsdataene må man oppgi til de som skal teste FINT med f.eks. FINTs testklient (<https://www.fintlabs.no/#/test-klient).> Det er ikke denne informasjonen som brukes for å sette opp adapteret mot f.eks HR. Da må du bruke informasjonen fra adapteroppsettet.
 
@@ -172,21 +172,21 @@ I kundeportalen ligger det to typer tester som skal brukes for å teste integras
 
 Den første er en basistest, der du kan sjekke helsestatusen til hver komponent. Test-klienten må ha aktivert felleskomponenten som den skal kjøre basistest mot.
 
-![ill16](_media/kundeportal-16.jpeg)
+![ill16](../_media/kundeportal-16.jpeg)
 
 Her velger du hvilken komponent du ønsker å sjekke, hvilket miljø og hvilken klient du bruker for å kjøre testen.
 Det er viktig å ha en egen testklient for å kjøre testene, som ikke brukes til noen annet, da passordet bli regenerert hver gang.
 
 For å kjøre testen klikker du på det grønne symbolet med en hvit trekant i.
 
-![ill17](_media/kundeportal-17.jpeg)
+![ill17](../_media/kundeportal-17.jpeg)
 
 Resultatet av testen sier noe om helsen til komponenten, og hvor ferske dataen som ligger der er.
 På bildet over ser man en test, som viser en komponent, som kjører og som har oppdaterte data. Komponentene som har oppdaterte data vises med grønt symbol. Her ser man også at det er noen ressurser som ikke er oppdaterte. I dette tilfellet er det fordi disse kompnentene ikke er aktivert i trinn 1 av adapteret.
 
 Man kan også få tilfeller der helsestatusen er grønn, men cachestatusen er oransje. Eller at helsestatus er rød.
 
-![ill18](_media/kundeportal-18.jpeg)
+![ill18](../_media/kundeportal-18.jpeg)
 
 Hvis helsestatus er grønn og cache er orange, kan det være adapteret nylig har restartet, og man kan vente ca. 15 minutter for å sjekke igjen. Hvis problemet vedvarer, eller om helsestatus er rød, bør man inn på serveren som adapteret er installert på, og restarte tjenestene. Hvis ikke dette hjelper, kan må man kontakte FINT-prosjektet for å undersøke at alt er ok på den siden. I kundeportalen kan du opprette og fylle ut en supportsak fra menyen på venstre side.
 
@@ -195,12 +195,12 @@ Hvis helsestatus er grønn og cache er orange, kan det være adapteret nylig har
 FINTs relasjonstest kontrollerer alle utgående relasjoner fra en type ressurs.
 Det vil si at fra ressursen Person, vil relasjonstesten kontrollere relasjonene til Kjønn, Landkode, Språk, Kontaktperson, Elev og Personalressurs, og kontrollere at relasjonen peker til en ressurs som eksisterer.
 
-![ill19](_media/kundeportal-19.png)
+![ill19](../_media/kundeportal-19.png)
 
 Starte relasjonstest
 Opprett ny relasjonstest, og fyll ut følgende dialogboks:
 
-![ill20](_media/kundeportal-20.png)
+![ill20](../_media/kundeportal-20.png)
 
 Komponent-, Miljø- og Klientvalgene er like som for Basistest, mens Ressursvalget indikerer hvilken ressurs innenfor komponenten du ønsker å teste.
 

@@ -3,7 +3,7 @@
 ## Oppsett av Azure AD Federering - VIGO-IDP
 
 ### Virkemåte
-![ill1](_media/vigo-idp/vigoidp1.png)
+![ill1](../_media/vigo-idp/vigoidp1.png)
 
 - I vigoBAS hentes studentnumber og employeeId fra Fint.
 
@@ -33,20 +33,20 @@ Hver fylkeskommune må sette opp en Enterprise applications i sin egen Azure ten
 
 - Gi den ett navn (VIGO-IDP)
 
-![ill2](_media/vigo-idp/vigoidp2.png)
+![ill2](../_media/vigo-idp/vigoidp2.png)
 
 - Appen lages og når den popper opp - > klikk på “ 2. Set up single sign on”
 
-![ill3](_media/vigo-idp/vigoidp3.png)
+![ill3](../_media/vigo-idp/vigoidp3.png)
 
 - Klikk på [Create]
 - Klikk på "SAML"
 
-![ill4](_media/vigo-idp/vigoidp4.png)
+![ill4](../_media/vigo-idp/vigoidp4.png)
 
 - Klikk på “Edit” under punkt 1 “Basic SAML Configuration”
 
-![ill5](_media/vigo-idp/vigoidp5.png)
+![ill5](../_media/vigo-idp/vigoidp5.png)
 
 - Fyll inn “Identifier (Entity ID):
 
@@ -56,7 +56,7 @@ https://idp.felleskomponent.no/nidp/saml2/metadata
 
 https://idp.felleskomponent.no/nidp/saml2/spassertion_consumer@
 
-![ill6](_media/vigo-idp/vigoidp6.png)
+![ill6](../_media/vigo-idp/vigoidp6.png)
 
 - Klikk "Save"
 
@@ -64,19 +64,19 @@ https://idp.felleskomponent.no/nidp/saml2/spassertion_consumer@
 
 - Gå tilbake til Azure Active Directory og klikk på “App registrations”:
 
-![ill7](_media/vigo-idp/vigoidp7.png)
+![ill7](../_media/vigo-idp/vigoidp7.png)
 
 - Klikk på “All applications”. Da kommer alle apper i tennanten opp. Hvis du ikke ser “VIGO-IDP” så søk den opp. Klikk på “VIGO-IDP” appen.
 
-![ill8](_media/vigo-idp/vigoidp8.png)
+![ill8](../_media/vigo-idp/vigoidp8.png)
 
 - Klikk på “App roles|Preview”:
 
-![ill9](_media/vigo-idp/vigoidp9.png)
+![ill9](../_media/vigo-idp/vigoidp9.png)
 
 - Klikk på “ + Create app role”:
 
-![ill10](_media/vigo-idp/vigoidp10.png)
+![ill10](../_media/vigo-idp/vigoidp10.png)
 
 Fyll inn:
 
@@ -87,7 +87,7 @@ Fyll inn:
 
 Klikk på [Apply]
 
-![ill11](_media/vigo-idp/create-app-role.png)
+![ill11](../_media/vigo-idp/create-app-role.png)
 
 
 For å opprette flere roller: gjenta prosessen ved å trykke på “ +Create app role” og fyll inn som ovenfor. 
@@ -100,67 +100,67 @@ Figuren under viser 4 roller som er satt opp:
 
 Alle rollene, med beskrivelse, finnes i Rollekatalogen: https://role-catalog.vigoiks.no
 
-![ill12](_media/vigo-idp/app-roles.png)
+![ill12](../_media/vigo-idp/app-roles.png)
 
 
 ### Koble gruppe i Azure med rolle
 
 - Gå tilbake til Azure AD og klikk på “Enterprise applications”:
 
-![ill13](_media/vigo-idp/vigoidp13.png)
+![ill13](../_media/vigo-idp/vigoidp13.png)
 
 - Hvis du ikke ser “VIGO-IDP”: Søk den opp i søkefeltet. Klikk på VIGO-IDP:
 
-![ill14](_media/vigo-idp/vigoidp14.png)
+![ill14](../_media/vigo-idp/vigoidp14.png)
 
 - Klikk på “Users and groups”
 
-![ill15](_media/vigo-idp/vigoidp15.png)
+![ill15](../_media/vigo-idp/vigoidp15.png)
 
 - Klikk på “Add user/group”:
 
-![ill16](_media/vigo-idp/vigoidp16.png)
+![ill16](../_media/vigo-idp/vigoidp16.png)
 
 - Klikk på “None selected” under “Users and groups”:
 
-![ill17](_media/vigo-idp/vigoidp17.png)
+![ill17](../_media/vigo-idp/vigoidp17.png)
 
 - Søk opp gruppen:
 
-![ill18](_media/vigo-idp/vigoidp18.png)
+![ill18](../_media/vigo-idp/vigoidp18.png)
 
 - Velg gruppen som skal ha tilgang (som skal ha rollen) og velg [Select]:
 
-![ill19](_media/vigo-idp/vigoidp19.png)
+![ill19](../_media/vigo-idp/vigoidp19.png)
 
 - Klikk på “None selected” under “Select a role”:
 
-![ill20](_media/vigo-idp/vigoidp20.png)
+![ill20](../_media/vigo-idp/vigoidp20.png)
 
 - Har du mange roller så søk opp rollen du opprettet tidligere. Klikk på rollen og velg [Select]:
 
-![ill21](_media/vigo-idp/vigoidp21.png)
+![ill21](../_media/vigo-idp/vigoidp21.png)
 
 - Klikk på [Assign]:
 
 I dette tilfellet vil medlemmer av gruppen “TILGANG-VIGO-SAMTYKKE” få rollen “vigo-samtykke-enduser”
 
-![ill22](_media/vigo-idp/vigoidp22.png)
+![ill22](../_media/vigo-idp/vigoidp22.png)
 
 I bildet under “Users and groups” vil det vises de som har tilgang til appen og de tilknyttede rollene:
 
-![ill23](_media/vigo-idp/vigoidp23.png)
+![ill23](../_media/vigo-idp/vigoidp23.png)
 
 
 ### Legge til claims for SAML autentisering
 
 - I ventre menyen: klikk på “Single sign-on”. Klikk så på “Edit” på punkt 2 under “User Attributes & claims”:
 
-![ill24](_media/vigo-idp/vigoidp24.png)
+![ill24](../_media/vigo-idp/vigoidp24.png)
 
 - Klikk på “ + Add new claim”:
 
-![ill25](_media/vigo-idp/vigoidp25.png)
+![ill25](../_media/vigo-idp/vigoidp25.png)
 
 Fyll inn:
 
@@ -170,7 +170,7 @@ Fyll inn:
 - Source attribute: Det attributtet i azure ad som innholder studentnumber
   - Verdien hentes fra /utdanning/elev/elev/systemid i Fint og synces via VigoBAS → onprem Ad → Azure AD
 
-![ill26](_media/vigo-idp/vigoidp26.png)
+![ill26](../_media/vigo-idp/vigoidp26.png)
 
 Klikk på “ + Add new claim” og fyll inn:
 - Name: employeeId
@@ -179,7 +179,7 @@ Klikk på “ + Add new claim” og fyll inn:
 - Source attribute: Det attributtet i azure ad som inneholder employeeId 
   - Verdien hentes fra /administrasjon/personal/personalressurs/ansattnummer/ i Fint og synces via VigoBAS → onprem Ad → Azure AD
 
-![ill27](_media/vigo-idp/vigoidp27.png)
+![ill27](../_media/vigo-idp/vigoidp27.png)
 
 Klikk på “ + Add new claim” og fyll inn:
 - Name: roles
@@ -187,7 +187,7 @@ Klikk på “ + Add new claim” og fyll inn:
 - Source: Attribute
 - Source attribute: user.assignroles
 
-![ill28](_media/vigo-idp/vigoidp28.png)
+![ill28](../_media/vigo-idp/vigoidp28.png)
 
 Klikk på “ + Add new claim” og fyll inn:
 - Name: organizationnumber
@@ -195,7 +195,7 @@ Klikk på “ + Add new claim” og fyll inn:
 - Source: Attribute
 - Source attribute: “organisasjonsnummer til fylkeskommunen”
 
-![ill29](_media/vigo-idp/vigoidp29.png)
+![ill29](../_media/vigo-idp/vigoidp29.png)
 
 Klikk på “ + Add new claim” og fyll inn:
 - Name: organizationid
@@ -203,17 +203,17 @@ Klikk på “ + Add new claim” og fyll inn:
 - Source: Attribute
 - Source attribute: “dns navn til fylkeskommunen”
 
-![ill30](_media/vigo-idp/vigoidp30.png)
+![ill30](../_media/vigo-idp/vigoidp30.png)
 
 I oversikten over User attributes and claims skal det se slik ut:
 
-![ill31](_media/vigo-idp/vigoidp31.png)
+![ill31](../_media/vigo-idp/vigoidp31.png)
 
 - Påse at claim under “Required claim” (Name ID) har disse egenskapene:
 
-![ill32](_media/vigo-idp/vigoidp32.png)
+![ill32](../_media/vigo-idp/vigoidp32.png)
 
-![ill33](_media/vigo-idp/vigoidp33.png)
+![ill33](../_media/vigo-idp/vigoidp33.png)
 
 
 ### Last ned og send sertifikat og metadata til FINT
@@ -222,7 +222,7 @@ I punkt “3 SAML Signing Certificate” : last ned følgende:
 - “Certificate (Base64)”
 - “Federation Metadata XML”
 
-![ill34](_media/vigo-idp/vigoidp34.png)
+![ill34](../_media/vigo-idp/vigoidp34.png)
 
 Disse sendes til kontaktpersonen i fintlabs.
 
@@ -234,7 +234,7 @@ Dette kan gjøres etter at Fint har mottat metadata og sertifikat samt konfigure
 - Gå til: https://idp.felleskomponent.no/nidp/
 - I vaffelmenyen, klikk på din fylkeskommune.
 
-![ill35](_media/vigo-idp/vigoidp35.png)
+![ill35](../_media/vigo-idp/vigoidp35.png)
 
 For å se selve SAML tokenet så kan man benytte Firefox med SAML-tracer tilleget. 
 
@@ -274,15 +274,15 @@ Gå til url'en som er oppgitt for den tjenesten du skal inn på. Dette kan feks 
 
 Hvis du ikke allrede er innlogget i Office365 til fylket vil du bli videresendt til en autentiseringsvelger. Se under:
 
-![](_media/vigo-idp/authSelector.png)
+![](../_media/vigo-idp/authSelector.png)
 
 Klikk på pilen i [Velg tilhøringhet]-boksen og velg din fylkeskommune fra listen som dukker opp. Se under:
 
-![](_media/vigo-idp/authSelectorList.png)
+![](../_media/vigo-idp/authSelectorList.png)
 
 Når du har valgt fylkeskommune vil [FORTSETT]-knappen bli grønn. Klikk på denne. Da sendes du til din vanlige pålogging for Office365 til din fylkeskommune. Se under:
 
-![](_media/vigo-idp/authSelectorSelected.png)
+![](../_media/vigo-idp/authSelectorSelected.png)
 
 Logg deg inn på vanlig måte i Office365. Du vil nå komme inn i tjenesten hvis din fylkeskommune har gitt deg tilgang til det.
 
@@ -307,7 +307,7 @@ Attributtene som overføres i tokenet ligger da mellom
 
 Se under:
 
-![](_media/vigo-idp/samlTracer.png)
+![](../_media/vigo-idp/samlTracer.png)
 
 
 
