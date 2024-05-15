@@ -156,6 +156,6 @@ hentes til responsen ikke lenger inneholder en `next`-lenke.
 
 `/domain/package/admin/health`, for eksempel `/administrasjon/personal/admin/health`
 
-Utløser en helsesjekk mot adapteren som leverer data. Responsen indikerer om adapteren er tilkoblet og svarer.
+Utløser en helsesjekk mot adapteret som leverer data. Responsen indikerer om adapteret er tilkoblet og svarer.
 
 

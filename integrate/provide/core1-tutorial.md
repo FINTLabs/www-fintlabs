@@ -1,4 +1,4 @@
-# Utvikling av en adapter
+# Utvikling av et adapter
 
 ## Kom i gang
 
@@ -16,7 +16,7 @@ Bruk en av våre maler til å sette opp ditt adapter:
 
 Malen håndterer **tilkobling**, **autorisasjon** og **kommunikasjon** med FINT.
 
-Din oppgave som utvikler av en adapter er å:
+Din oppgave som utvikler av et adapter er å:
 
 1. Svare på `events` sendt fra FINT
 2. Interagere med ditt baksystem
@@ -66,8 +66,8 @@ Den generelle flyten mellom FINT og adaptere er som følger:
 
 1. Adapter abonnerer på hendelser ved hjelp av SSE-endepunktet.
 2. FINT leverer hendelser på SSE-strømmen.
-3. Adapteren aksepterer hendelsen ved å `POST`e til statusendepunktet. Det er en tidsbegrensning på 2 minutter for å akseptere hendelser. Hvis du bruker adaptermalen, er dette allerede håndtert.
-4. Adapteren svarer på hendelsen ved å `POST`e til svar-endepunktet. Det er en tidsbegrensning på 20 minutter for å svare på hendelser (90 minutter for lønnstransaksjoner).
+3. Adapteret aksepterer hendelsen ved å `POST`e til statusendepunktet. Det er en tidsbegrensning på 2 minutter for å akseptere hendelser. Hvis du bruker adaptermalen, er dette allerede håndtert.
+4. Adapteret svarer på hendelsen ved å `POST`e til svar-endepunktet. Det er en tidsbegrensning på 20 minutter for å svare på hendelser (90 minutter for lønnstransaksjoner).
 
 
 ### Årsaker til generering av hendelser i FINT
@@ -196,7 +196,7 @@ Svaret må være et enkelt element som representerer den nåværende tilstanden 
 - `ERROR`: Oppdatert informasjon blir ignorert.
 - `CONFLICT`: Nyeste informasjon returneres til klienten, og oppdatert i FINT.
 
-Merk det siste tilfellet. For `CONFLICT` er det meningen at adapteren skal levere den mest oppdaterte versjonen av informasjonen, slik at klienter og FINT-cachet kan oppdateres.
+Merk det siste tilfellet. For `CONFLICT` er det meningen at adapteret skal levere den mest oppdaterte versjonen av informasjonen, slik at klienter og FINT-cachet kan oppdateres.
 
 ## Hvordan håndtere feil
 
@@ -257,7 +257,7 @@ Client <-- consumer: 200
 @enduml
 ```
 
-#### Hendelsen går tapt før den når adapteren
+#### Hendelsen går tapt før den når adapteret
 
 Dette er det enkleste feilscenarioet å håndtere. Ingen blir informert om oppdateringen, og oppdateringen kan trygt prøves på nytt etter at den opprinnelige oppdateringen har utløpt.
 
@@ -282,7 +282,7 @@ Client <-[#red]- consumer: 500 "Event expired"
 @enduml
 ```
 
-#### Hendelsen bekreftes av adapteren, men ikke oppdatert i backend-systemet
+#### Hendelsen bekreftes av adapteret, men ikke oppdatert i backend-systemet
 
 Dette scenarioet er veldig likt det ovenfor - den eneste forskjellen er tiden det tar for hendelsen å utløpe.
 
@@ -352,7 +352,7 @@ Client <-[#red]- consumer: 410
 ```
 
 For at dette tilfellet skal være mulig, må tilkoblingen mellom
-adapteren og backend-systemet støtte transaksjonsrullering
+adapteret og backend-systemet støtte transaksjonsrullering
 eller lignende kompenserende operasjoner.
 
 ##### Bruk konfliktdeteksjon for å avvise et nytt forsøk med `CONFLICT`-status.
@@ -394,7 +394,7 @@ Client <-[#red]- consumer: 409 "Conflicts with systemId XYZ"
 I dette siste tilfellet kreves det støtte fra klienten for at
 tilstanden til oppdateringen skal synkroniseres riktig mellom klienten og
 backend-systemet. For at dette skal fungere, er det avgjørende at
-adapteren responderer korrekt på `CONFLICT` med en svarlast
+adapteret responderer korrekt på `CONFLICT` med en svarlast
 som indikerer den nåværende tilstanden til informasjonen i
 backend-systemet, og at klienten håndterer `409`-statusen korrekt og
 oppdaterer sin ventende transaksjon med denne informasjonen.

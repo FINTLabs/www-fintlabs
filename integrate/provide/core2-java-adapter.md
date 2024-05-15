@@ -1,14 +1,14 @@
 # Utvikling av en FINT 2-adapter
 
 ## Før du starter
-Hvis du ønsker å observere den komplette integrasjonen i aksjon, kan du henvise til eksempeladapteren som er tilgjengelig på følgende [GitHub repository](https://github.com/FINTLabs/fint-core-adapter-skeleton)
+Hvis du ønsker å observere den komplette integrasjonen i aksjon, kan du henvise til eksempeladapteret som er tilgjengelig på følgende [GitHub repository](https://github.com/FINTLabs/fint-core-adapter-skeleton)
 
 ## Utgiver-abonnent mønster
 For å oppnå utgiver-abonnent mønsteret i FINT 2, vil vi bruke Reactive WebClient for å utføre asynkrone API-kall og Kafka som meldingsmegler for å håndtere hendelsesbasert kommunikasjon mellom komponenter og tjenester.
 
 ## Applikasjons konfigurasjon
 
-Før du setter opp adapteren, må du først konfigurere applikasjonsen i application.yaml-filen. Dette lar deg sette nødvendige konfigurasjonsegenskaper for adapteren, som ID, brukernavn, passord og så videre.
+Før du setter opp adapteret, må du først konfigurere applikasjonsen i application.yaml-filen. Dette lar deg sette nødvendige konfigurasjonsegenskaper for adapteret, som ID, brukernavn, passord og så videre.
 
 Dette vil bli sendt til leverandøren ved registrering.
 
@@ -35,25 +35,25 @@ fint:
         deltaSyncInterval: IMMEDIATE
 ```
 
-* `id` Spesifiserer den unike identifikatoren for adapteren..
+* `id` Spesifiserer den unike identifikatoren for adapteret..
 * `username/password` Spesifiser brukernavn og passord for FINT adapteret.
 * `base-url` Spesifiser hvilket miljø dataen skal leveres til.
 * `registration-id` Spesifiserer registrerings-IDen som skal brukes.
-* `org-id` Spesifiserer organisasjons-IDen for adapteren.
-* `heartbeat-interval` Spesifiserer intervall i minutter mellom adapterens hjerteslag. Den anbefalte verdien er mellom 1-3 minutter..
-* `capabilities` Denne egenskapen spesifiserer listen over evner adapteren vil tilby. For hver evne, skal domene-navn, pakke-navn, ressurs-navn, fullSyncIntervalInDays og deltaSyncInterval spesifiseres.
+* `org-id` Spesifiserer organisasjons-IDen for adapteret.
+* `heartbeat-interval` Spesifiserer intervall i minutter mellom adapterets hjerteslag. Den anbefalte verdien er mellom 1-3 minutter..
+* `capabilities` Denne egenskapen spesifiserer listen over evner adapteret vil tilby. For hver evne, skal domene-navn, pakke-navn, ressurs-navn, fullSyncIntervalInDays og deltaSyncInterval spesifiseres.
 * `page-size` Spesifiserer hvor mange ressurser en side kan inneholde. Standardverdien er 100, men dette kan ignoreres hvis du ikke planlegger å bruke vårt adapter-fellesbibliotek.
-  The `deltaSyncInterval` bestemmer frekvensen som adapteren sender oppdateringer. Du kan velge blant følgende alternativer:
+  The `deltaSyncInterval` bestemmer frekvensen som adapteret sender oppdateringer. Du kan velge blant følgende alternativer:
 
-- **IMMEDIATE**: Dette alternativet indikerer at adapteren vil sende oppdateringer så snart de er tilgjengelige i applikasjonen.
+- **IMMEDIATE**: Dette alternativet indikerer at adapteret vil sende oppdateringer så snart de er tilgjengelige i applikasjonen.
 
-- **LEGACY**: Dette alternativet indikerer at adapteren vil sende oppdateringer hver 15 minutter.
+- **LEGACY**: Dette alternativet indikerer at adapteret vil sende oppdateringer hver 15 minutter.
 
-Det er essensielt å konfigurere disse egenskapene korrekt før du fortsetter med å sette opp adapteren.
+Det er essensielt å konfigurere disse egenskapene korrekt før du fortsetter med å sette opp adapteret.
 
 ## Avhengiheter
 
-Det første steget i å sette opp en adapter for FINT 2 er å sikre at du har alle nødvendige avhengigheter. Det er bare to kritiske avhengigheter som kreves hvis du følger vår metode.
+Det første steget i å sette opp et adapter for FINT 2 er å sikre at du har alle nødvendige avhengigheter. Det er bare to kritiske avhengigheter som kreves hvis du følger vår metode.
 
 build.gradle
 ```groovy
@@ -78,11 +78,11 @@ pom.xml
 </dependencies>
 ```
 
-Avhengig av hvilke ressurser adapteren vil håndtere, kan det være nødvendig med tilleggsavhengigheter. Sørg for at alle avhengigheter er lagt til i build.gradle-filen i prosjektet.
+Avhengig av hvilke ressurser adapteret vil håndtere, kan det være nødvendig med tilleggsavhengigheter. Sørg for at alle avhengigheter er lagt til i build.gradle-filen i prosjektet.
 
 ## Ressursarkiv
 
-Etter å ha satt opp avhengigheter, er neste steg å opprette et arkiv som implementerer WriteableResourceRepository for ressursen. Dette arkivet vil håndtere kommunikasjonen mellom adapteren og det eksterne systemet.
+Etter å ha satt opp avhengigheter, er neste steg å opprette et arkiv som implementerer WriteableResourceRepository for ressursen. Dette arkivet vil håndtere kommunikasjonen mellom adapteret og det eksterne systemet.
 
 Eksempel på et arkiv som inneholder ElevFravær-ressursen.
 ```java
