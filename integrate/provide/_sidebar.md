@@ -6,7 +6,7 @@
   * [Hente data](integrate/consume/index.md)
   * [Levere data](integrate/provide/index.md)
     * Versjon 1
-      * [Develop adapter](integrate/provide/core1-tutorial.md)
+      * [Utvikle adapter](integrate/provide/core1-tutorial.md)
       * [Java adapter](integrate/provide/core1-java-adapter.md)
       * [.NET adapter](integrate/provide/core1-dotnet-adapter.md)
     * Versjon 2
