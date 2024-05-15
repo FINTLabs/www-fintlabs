@@ -2,27 +2,27 @@
 
 ## OAuth 2.0
 
-All FINT APIs are protected, and require Bearer token authorization.
+Alle FINT API-er er beskyttet og krever autorisasjon med Bearer-token.
 
 ### OAuth 2.0 Resource Owner Credentials Flow
 
-To access FINT resources, a valid Bearer token must be obtained from the FINT IdP.  Authorization details are available from the FINT customer portal, <https://kunde.felleskomponent.no>.
+For å få tilgang til FINT-ressurser, må et gyldig Bearer-token innhentes fra FINT IdP. Autorisasjonsdetaljer er tilgjengelige fra FINTs kundeportal, <https://kunde.felleskomponent.no>.
 
-### Example projects for accessing FINT data
+### Eksempelprosjekter for å få tilgang til FINT-data
 
-- Java, using Spring Boot: <https://github.com/FINTLabs/client-example-spring>
-- Java, using Google HTTP and OAuth libraries: <https://github.com/FINTLabs/client-example-plain-java>
+- Java, ved bruk av Spring Boot: <https://github.com/FINTLabs/client-example-spring>
+- Java, ved bruk av Google HTTP- og OAuth-biblioteker: <https://github.com/FINTLabs/client-example-plain-java>
 - Node.JS: <https://github.com/FINTLabs/client-example-node>
-- Kotlin, using Spring Boot: <https://github.com/FINTLabs/client-example-kotlin-spring>
+- Kotlin, ved bruk av Spring Boot: <https://github.com/FINTLabs/client-example-kotlin-spring>
 - Elm: <https://github.com/FINTLabs/fint-api-client-demo>
 - BizTalk: <https://github.com/FINTLabs/Fint.BizTalk.Example>
 - C#: <https://github.com/FINTLabs/Fint.DotNet.Example>
 
-### Libraries for accessing OAuth protected resources
+### Biblioteker for å få tilgang til OAuth-beskyttede ressurser
 
 - Spring Boot OAuthRestTemplate: <https://github.com/FINTLabs/fint-oauth-token-service>
 
-### Obtaining a valid Bearer token using `curl`
+### Skaffe et gyldig Bearer-token ved bruk av `curl`
 
 ```bash
 curl -s ${IDP_URL} \
@@ -34,36 +34,36 @@ curl -s ${IDP_URL} \
 jq -r '.access_token'
 ```
 
-After obtaining the valid token, add it to the request header:
+Etter å ha skaffet det gyldige tokenet, legg det til i forespørselens header:
 
 ```bash
 curl -H "Authorization: Bearer ${TOKEN}" https://.....
 ```
 
-### Obtaining a valid Bearer token using web-based tool
+### Skaffe et gyldig Bearer-token ved bruk av webbasert verktøy
 
-FINT has a web-based tool to get a token that you can use to insert a token using i.e. `ModHeader` plugin for `Chrome`.
+FINT tilbyr et webbasert verktøy for å skaffe et token som du kan bruke i for eksempel `ModHeader`-tillegget for `Chrome`.
 
 <https://token.fintlabs.no/>
 
 ## JSON
 
-FINT offer [draft-07](https://json-schema.org/specification.html) JSON Schema for all classes in the FINT information model.  These are available under <https://schema.fintlabs.no/>.
+FINT tilbyr JSON-skjema [draft-07](https://json-schema.org/specification.html) for alle klasser i FINTs informasjonsmodell. Disse er tilgjengelige under <https://schema.fintlabs.no/>.
 
-To find a particular schema, the domain of the resource class and the name of the resource is added to the URI in the form `<domain>/<class>.json`
+For å finne et bestemt skjema, legges domenet for ressursklassen og navnet på ressursen til URIen i formen `<domain>/<class>.json`
 
-For instance, the schema for `Personalressurs` is available at <https://schema.fintlabs.no/administrasjon/personalressurs.json>.
+For eksempel er skjemaet for `Personalressurs` tilgjengelig på <https://schema.fintlabs.no/administrasjon/personalressurs.json>.
 
 ### jsonvalidate
 
-This Python 2.7 script performs JSON schema validation on a collection of resources.  The schema to use is provided as an URI on the command line.  It reads the resources from standard input, so it can be piped with [`fint-curl`](tools.mdd=fint-curl) to retrieve the data, i.e.
+Dette Python 2.7-scriptet utfører JSON-skjemavalidering på en samling ressurser. Skjemaet som skal brukes, angis som en URI på kommandolinjen. Det leser ressursene fra standard input, så det kan kobles sammen med [`fint-curl`](tools.mdd=fint-curl) for å hente data, for eksempel:
 
 ```bash
 fint-curl https://beta.felleskomponent.no/administrasjon/personal/personalressurs | \
 jsonvalidate https://schema.fintlabs.no/administrasjon/personalressurs.json
 ```
 
-Make sure the libraries are the most recent ones from PyPI, the versions supplied with Debian / Ubuntu are too old.
+Sørg for at bibliotekene er de nyeste fra PyPI, versjonene som følger med Debian / Ubuntu er for gamle.
 
 ```python
 #!/usr/bin/python
@@ -99,136 +99,29 @@ print "Validation completed with", errors, "errors."
 
 ```
 
-## GraphQL
+## Testklient
 
-FINT also offers an experimental [GraphQL](https://graphql.org/) API for accessing data as a graph.
+FINT tilbyr en webbasert testklient for å få tilgang til og inspisere data som er tilgjengelige gjennom FINT.
 
-The GraphQL endpoint is at `/graphql/graphql`.  It requires the same Bearer token as the rest of the FINT APIs.
-
-Our recommended client to test GraphQL is <https://insomnia.rest> - using this the OAuth credentials from the customer portal can be used directly as an Environment.
-
-Create a `POST` request to the GraphQL endpoint, configure OAuth 2, and Insomnia fetches the GraphQL schema so you can validate the query and see the results.
-
-### FINT GraphQL Schema
-
-The GraphQL schema for FINT follow the information model exactly.  The root schema defines query endpoints for all resources by an identifier.  It is not possible to get all resources for a class for performance reasons.
-
-### Example queries
-
-Here are some examples to get you started.
-
-#### Employee information
-
-Given an employee ID, find person's name and National Identity Number, all positions with size and place of employment:
-
-```graphql
-query ($ansattnummer: String) {
-  personalressurs(ansattnummer: $ansattnummer) {
-    person {
-      fodselsnummer {
-        identifikatorverdi
-      }
-      navn {
-        fornavn
-        etternavn
-      }
-    }
-    arbeidsforhold {
-      ansettelsesprosent
-      arbeidssted {
-        organisasjonsKode {
-          identifikatorverdi
-        }
-        organisasjonsnavn
-      }
-    }
-  }
-}
-```
-
-#### Student information
-
-Given a student's FEIDE name, find student's contact information, school and home address. 
-
-```graphql
-query ($feidenavn: String) {
-  elev(feidenavn: $feidenavn) {
-    kontaktinformasjon {
-      epostadresse
-      mobiltelefonnummer
-    }
-    elevforhold {
-      skole {
-        navn
-        organisasjon {
-          organisasjonsnavn
-        }
-      }
-    }
-    person {
-      navn {
-        fornavn
-        etternavn
-      }
-      bostedsadresse {
-        adresselinje
-        postnummer
-        poststed
-      }
-    }
-  }
-}
-```
-
-#### Class membership
-
-Given a teaching group's systemId, find names and contact information for all students in that group:
-
-```graphql
-query ($systemId: String) {
-  undervisningsgruppe(systemId: $systemId) {
-    navn
-    beskrivelse
-    elevforhold {
-      elev {
-        kontaktinformasjon { 
-          mobiltelefonnummer
-        }
-        person {
-          navn {
-            fornavn
-            etternavn
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-## Test Client
-
-FINT has a web-based test client for accessing and inspecting data available through FINT.
-
-This test client is available under the URL `/test-client/` for each environment, i.e.:
+Denne testklienten er tilgjengelig under URLen `/test-client/` for hvert miljø:
 
 - <https://play-with-fint.felleskomponent.no/test-client/>
 - <https://beta.felleskomponent.no/test-client/>
 - <https://api.felleskomponent.no/test-client/>
 
-For Play-with-FINT the test client immediately presents you with the welcome page where you can
-enter the URI for a resource to access.  The other two requires authentication, so you'll need to provide
-valid authorization details for a client from FINT's customer portal.
+For Play-with-FINT presenterer testklienten umiddelbart velkomstsiden hvor du kan
+taste inn URIen for en ressurs for å få tilgang. De to andre krever autentisering, så du må oppgi
+gyldige autorisasjonsdetaljer for en klient fra FINTs kundeportal.
 
-On the welcome page, enter the URI for a resource, i.e. `/administrasjon/organisasjon/organisasjonselement`
-and hit the button.  Results are presented as JSON, and all the URLs can be clicked to follow links to
-other resources from within the test client.
+På velkomstsiden, skriv inn URIen for en ressurs, for eksempel `/administrasjon/organisasjon/organisasjonselement`
+og trykk på knappen. Resultatene presenteres som JSON, og alle URLene kan klikkes for å følge lenker til
+andre ressurser fra innsiden av testklienten.
 
 ### fint-curl
 
-This script can be used to fetch a protected FINT resource, fetching a bearer token when needed.
+Dette skriptet kan brukes til å hente en beskyttet FINT-ressurs, og skaffe et Bearer-token når det trengs.
 
-To use it, copy the client authorization details from <https://kunde.felleskomponent.no> to a file called `client.json` in the current directory. The name and location of this file can be overridden using the environment variable `CLIENT`.
+For å bruke det, kopier klientautorisasjonsdetaljene fra <https://kunde.felleskomponent.no> til en fil kalt `client.json` i gjeldende katalog. Navnet og plasseringen av denne filen kan overstyres ved å bruke miljøvariabelen `CLIENT`.
 
 ```bash
 #!/bin/bash

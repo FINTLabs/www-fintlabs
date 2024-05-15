@@ -1,37 +1,37 @@
-## FINT innvendig (in english)
+## FINTs interne oppbygning
 
-The Common API has two main services:
+Det felles APIet har to hovedtjenester:
 
-* Cache service
-* Event service
+* Cache-tjeneste
+* Hendelsestjeneste
 
-### Cache Service
+### Cache-tjeneste
 
-The cache service has the following responsibility:
+Cache-tjenesten har følgende ansvarsområder:
 
-* Store data from the business applications for all the organisations using the Common API
-* Populate the cache
-* Keeps track of which data has changed since the last time the cache was populated
+* Lagrer data fra forretningssystemene for alle organisasjonene som bruker det felles APIet
+* Populerer cachen
+* Holder oversikt over hvilke data som har endret seg siden sist cachen ble fylt opp
 
-### Event service
+### Hendelsestjeneste
 
-The internals in the Common API is event based. An event is created by:
+Det interne i det felles APIet er basert på hendelser. En hendelse opprettes av:
 
-* Cache Service
-* Client
+* Cache-tjeneste
+* Klient
 
-When a client hits a endpoint in the Consumer API the Common API is generating an event and sends it to the Cache Service. An event from the client will never go all the way down to the adapter.
+Når en klient treffer et endepunkt i konsumer-APIet, genererer det felles APIet en hendelse og sender den til Cache-tjenesten. En hendelse fra klienten vil aldri gå helt ned til adapteren.
 
-When the Cache Service need to update the cache it sends an event down to the adapter through the Provider.
+Når Cache-tjenesten trenger å oppdatere cachen, sender den en hendelse ned til adapteren gjennom tilbyderen.
 
-All events are logged at all stages.
+Alle hendelser logges på alle stadier.
 
 ![ill2](../_media/event-flow.svg)
 
-### Vocabulary
+### Ordliste
 
-| English term         | Norwegian term       |
-|----------------------|----------------------|
-| Common API           | Felleskomponent      |
-| Business application | Fagsystem            |
+| Engelsk term         | Norsk term            |
+|----------------------|-----------------------|
+| Common API           | Felleskomponent       |
+| Business application | Fagsystem             |
 
