@@ -1,54 +1,54 @@
-# Developing an adapter
+# Utvikling av en adapter
 
-## Getting started
+## Kom i gang
 
-A good starting point for developing an adapter is our quick tutorials:
+Et godt utgangspunkt kan være å se våre Java eller .NET hurtigguider:
 
-* [Java](../tutorials?id=java-sse-adapter)
-* [C Sharp/.NET](../tutorials?id=net-sse-adapter)
+* [Java](integrate/provide/core1-java-adapter.md)
+* [C Sharp/.NET](integrate/provide/core1-dotnet-adapter.md)
 
-After that you can setup your adapter skeleton of choice:
+Bruk en av våre maler til å sette opp ditt adapter:
 
-* Java skeleton - <https://github.com/fintlabs/fint-sse-adapter-skeleton>
-* C Sharp/.NET skeleton -  <https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton>
+* Java-mal - <https://github.com/fintlabs/fint-sse-adapter-skeleton>
+* C'#'/.NET-mal - <https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton>
 
-## What does the skeleton do and what do you need to do?
+## Hva gjør malen og hva trenger du å gjøre?
 
-The skeleton handles **connection**, **authorization** and **communication** with FINT.
+Malen håndterer **tilkobling**, **autorisasjon** og **kommunikasjon** med FINT.
 
-Your task as developer of an adapter is to:
+Din oppgave som utvikler av en adapter er å:
 
-1. Respond to `events` sent from FINT
-2. Interact with you back-end system
-3. Map you data to FINT
-4. Send back the information asked for in the `event`
+1. Svare på `events` sendt fra FINT
+2. Interagere med ditt baksystem
+3. Kartlegge dine data til FINT
+4. Sende tilbake informasjonen som er etterspurt i `event`
 
-## Mapping data
+## Datamodell
 
-FINT's information model is available as classes in Java and C#.  The naming of classes follow the naming of the classes in the information model.  Model classes are available here:
+FINTs informasjonsmodell er tilgjengelig som klasser i Java og C#. Navngivningen av klassene følger navngivningen av klassene i informasjonsmodellen. Modellklasser er tilgjengelige her:
 
 * Java -- <https://github.com/FINTmodels/fint-information-model-java>
 * C# -- <https://github.com/FINTmodels/FINT.Information.Model>
 
-### Maven and Nuget dependencies
+### Biblioteker fra Maven eller NuGet 
 
-Libraries are deployed to [repo.fintlabs.no](https://repo.fintlabs.no/) and [NuGet](https://www.nuget.org/profiles/FINTLabs) for each component, i.e. `administrasjon`, `utdanning`, `arkiv`, `okonomi`.  The library version is the same as the model version.  They have the following naming convention:
+Bibliotekene er distribuert til [repo.fintlabs.no](https://repo.fintlabs.no/) og [NuGet](https://www.nuget.org/profiles/FINTLabs) for hver komponent, for eksempel `administrasjon`, `utdanning`, `arkiv`, `økonomi`. Versjonen av biblioteket er den samme som modellversjonen. De følger denne navngivningskonvensjonen:
 
 * Java -- `fint-<component>-resource-model-java`, i.e. `fint-administrasjon-resource-model-java`.
 * C# -- `FINT.Model.Resource.<Compponent>`, i.e. `FINT.Model.Resource.Administrasjon`.
 
-## Linking resources
+## Lenker i ressurser
 
-The FINT APIs have a link mapping service which ensures that links between resources follow the naming conventions and locations for our API endpoints.  Using these mapped links ensures that all URIs presented to clients are valid.
+FINT APIer her en funksjon som sikrer at lenker mellom ressurser følger navnekonvensjonene og plasseringene for våre API-endepunkter. Ved å bygge opp lenker på denne måten sikres det at alle URI-er er gyldige.
 
-Mappable links are represented according to the following pattern:
+Lenkene bygges opp etter følgende mønster:
 
 * `${<component>[.<package>].<class>}/<field>/<identifier>`
 * `${felles.person}/fodselsnummer/12345678901`
 * `${administrasjon.personal.personalressurs}/ansattnummer/12345`
 * `${utdanning.elev.skoleressurs}/systemid/ABCD123`
 
-In the Java and C# libraries, links are represented using a `Link` class.  This class has static constructors that can be used to create valid relations.
+I Java- og C#-bibliotekene er lenker representert ved hjelp av en `Link`-klasse. Denne klassen har statiske konstruktører som kan brukes til å opprette gyldige relasjoner.
 
 Java:
 ```java
@@ -60,59 +60,60 @@ C#:
 Link.with(typeof(Person), "fodselsnummer", "12345678901");
 ```
 
-## Events
+## Hendelser
 
-The general flow between FINT and adapters are:
+Den generelle flyten mellom FINT og adaptere er som følger:
 
-1. Adapter subscribes to events using the SSE endpoint
-2. FINT delivers events on the SSE stream
-3. Adapter accepts the event by `POST`ing to the status endpoint.  There is a 2-minute timeout on accepting events. If you use the adapter skeleton this is already handled.
-4. Adapter responds to the event by `POST`ing to the response endpoint.  There is a 15-minute timeout on responding to events.
+1. Adapter abonnerer på hendelser ved hjelp av SSE-endepunktet.
+2. FINT leverer hendelser på SSE-strømmen.
+3. Adapteren aksepterer hendelsen ved å `POST`e til statusendepunktet. Det er en tidsbegrensning på 2 minutter for å akseptere hendelser. Hvis du bruker adaptermalen, er dette allerede håndtert.
+4. Adapteren svarer på hendelsen ved å `POST`e til svar-endepunktet. Det er en tidsbegrensning på 20 minutter for å svare på hendelser (90 minutter for lønnstransaksjoner).
 
-### Causes for events
 
-FINT components produce events for three reasons:
+### Årsaker til generering av hendelser i FINT
 
-* Health status requests
-* Periodic cache update events every 15 minutes, triggering `GET_ALL_*` events.
-* Incoming POST / PUT requests from clients.  Every request produces exactly one event.
+FINT-komponenter produserer hendelser av tre grunner:
 
-FINT expects exactly one status and one response to every event delivered.  Additional responses will be rejected with [`410 GONE`](https://http.cat/410).
+* Forespørsler om helsestatus
+* Periodiske cache-oppdateringshendelser hvert 15. minutt, som utløser `GET_ALL_*`-hendelser.
+* Innkommende POST/PUT-forespørsler fra klienter. Hver forespørsel produserer nøyaktig én hendelse.
 
-### Event kinds
+FINT forventer nøyaktig én status og ett svar på hver leverte hendelse. Ytterligere svar vil bli avvist med [`410 GONE`](https://http.cat/410).
 
-FINT Adapters must be able to handle three different kinds of events:
+### Typer hendelser
 
-  1. Request for system health status
-  1. Requests to get all instances of a class from the FINT Consumer Cache Service
-  1. Requests to get a single element of a class from the FINT Consumer API.
-  1. Requests to update (create, modify or delete) a single element of a class from the FINT Consumer API.
+FINT-adaptører må kunne håndtere fire forskjellige typer hendelser:
 
-The FINT Consumer will be issuing the events to the FINT Provider for the relevant `assetID`, and the FINT Provider will dispatch the event to all adapters connected and registered for this `assetID`.
+  1. Forespørsel om systemets helsetilstand
+  2. Forespørsler om å hente alle instanser av en klasse fra FINT Consumer Cache Service
+  3. Forespørsler om å hente et enkelt element av en klasse fra FINT Consumer API.
+  4. Forespørsler om å oppdatere (opprette, endre eller slette) et enkelt element av en klasse fra FINT Consumer API.
 
-This enables scenarios with distributed or redundant adapters where several adapters share the workload of handling events.  The adapter run-time instances must coordinate between themselves which instance responds to an event, since the provider will only accept a single set of responses for any given event.
+FINT Consumer vil sende hendelsene til FINT Provider for den relevante `assetID`, og FINT Provider vil distribuere hendelsen til alle tilkoblede og registrerte adaptere for denne `assetID`.
 
-Workloads can be distributed using two different strategies, which also could be combined:
+Dette muliggjør scenarioer med distribuerte eller redundante adaptere der flere adaptører deler arbeidsbelastningen med å håndtere hendelser. Adapterkjøretidsinstansene må koordinere seg imellom hvilken instans som skal svare på en hendelse, siden leverandøren bare vil akseptere ett sett med svar for enhver gitt hendelse.
 
-  1. Divide and conquer: Different adapters handle different actions for a given component.  For instance, for `/administrasjon/personal`, one adapter could handle `Personalressurs` and `Arbeidsforhold`, and a different adapter could handle `Fastlonn`, `Variabellonn`, etc.
-  1. Active and passive:  Several adapters are configured to respond to the same event, but coordinate internally to determine which of the instances should respond.
+Arbeidsbelastninger kan distribueres ved hjelp av to forskjellige strategier, som også kan kombineres:
 
-Any adapter instance registered with the asset ID can handle events in three ways:
+  1. Divide and conquer: Forskjellige adaptere håndterer forskjellige handlinger for en gitt komponent. For eksempel, for `/administrasjon/personal`, kan et adapter håndtere `Personalressurs` og `Arbeidsforhold`, og et annet adapter kan håndtere `Fastlønn`, `Variabellønn`, etc.
+  1. Aktiv og passiv: Flere adaptere er konfigurert til å svare på samme hendelse, men koordinerer internt for å bestemme hvilken av instansene som skal svare.
 
-  1. Accept the event and respond with data.  The consumer handles the data from the response.  Other adapters attempting to respond will receive a [`410`](https://http.cat/410) status from the Provider.
-  1. Reject the event.  The consumer ignores any data from the response.  Other adapters attempting to respond will receive a [`410`](https://http.cat/410) status from the Provider.
-  1. Ignore the event, assuming another instance is handling it.  If no other adapter is handling the events, the provider will expire the event after 120 seconds.
+Enhver adapterinstans registrert med asset ID kan håndtere hendelser på tre måter:
 
-### System health status (`HEALTH`)
+  1. Aksepter hendelsen og svar med data. Consumeren håndterer dataene fra svaret. Andre adaptere som forsøker å svare, vil motta en [`410`](https://http.cat/410) status fra provideren.
+  2. Avvis hendelsen. Consumeren ignorerer alle data fra svaret. Andre adaptere som forsøker å svare, vil motta en [`410`](https://http.cat/410) status fra provideren.
+  3. Ignorer hendelsen, under antagelse av at en annen instans håndterer den. Hvis ingen andre adaptere håndterer hendelsene, vil leverandøren la hendelsen utløpe etter 120 sekunder.
 
-Every FINT Consumer has a health endpoint (`/admin/health`) that clients could `GET` from to
-request health status.
+### Helsestatus (`HEALTH`)
 
-Adapters have 30 seconds to respond to this health event.  The request payload contains an array
-of health status structures, and the response should contain the same, with one additional element
-for the status of the adapter and connection to the back-end systems.
+Hver FINT Consumer har et helse-endepunkt (`/admin/health`) som klienter kan `GET` fra for å
+forespørre helsestatus.
 
-The health status structure looks like this:
+Adaptere har 30 sekunder på å svare på denne helsehendelsen. Forespørselslasten inneholder en matrise
+av helsestatusstrukturer, og svaret bør inneholde det samme, med ett ekstra element
+for statusen til adaptøren og tilkoblingen til baksystem/datakilde.
+
+Helsestatusstrukturen ser slik ut:
 
 ```json
 {
@@ -123,111 +124,103 @@ The health status structure looks like this:
 }
 ```
 
-`timestamp` is in milliseconds since Unix epoch, `time` in ISO 8601.
+`timestamp` er i millisekunder siden Unix-epoken, `time` i ISO 8601.
 
-`status` should be `APPLICATION_HEALTHY` or `APPLICATION_UNHEALTHY` depending on the state of the back-end application.
+`status` bør være `APPLICATION_HEALTHY` eller `APPLICATION_UNHEALTHY` avhengig av tilstanden til bakapplikasjonen.
 
-### Get all instances of a class (`GET_ALL_`_type_)
+### Hente alle instanser av en klasse (`GET_ALL_`_type_)
 
-The FINT Consumer Cache Service issues these events every 15 minutes to update the consumer in-memory cache with all elements of the type.
+FINT Consumer Cache Service utsteder normalt disse hendelsene hvert 15. minutt for å oppdatere consumerens in-memory cache med alle elementer av typen.
 
-Adapters are expected to retrieve all active elements from the back-end system and insert the data in the response event.
+Adaptere forventes å hente alle aktive elementer fra baksystemet og legge inn dataene i respons-hendelsen.
 
-The response payload must contain an array of individual information elements in JSON format, conforming to the FINT 
-information model.
+Svaret må inneholde en matrise av individuelle informasjonselementer i JSON-format, i samsvar med FINT-informasjonsmodellen.
 
-### Get a single instance of a class by ID (`GET_`_type_)
+### Hente en enkelt instans av en klasse etter ID (`GET_`_type_)
 
-FINT Consumer APIs issue these events in cases where clients want the most recent version of a given element, and waits for the adapter to respond before returning data to the client.
+FINT Consumer APIer utsteder disse hendelsene i tilfeller der klienter ønsker den nyeste versjonen av et gitt element, og venter på at adapteret skal svare før data returneres til klienten.
 
-The event's `query` attribute contains the `Identifikator` field name and field value to identify the element in the form _`field/value`_, exactly as the URI of the element in the Consumer API.
+Hendelsens `query`-attributt inneholder `Identifikator` feltets navn og feltverdi for å identifisere elementet i formen _`field/value`_, akkurat som URIen til elementet i Consumer API.
 
-For instance, for `Personalressurs` with an `ansattnummer` ID of `12345`, the URI would be `/administrasjon/personal/personalressurs/ansattnummer/12345`, and the `query` attribute would then be `ansattnummer/12345`.
+For eksempel, for `Personalressurs` med et `ansattnummer` ID på `12345`, ville URIen være `/administrasjon/personal/personalressurs/ansattnummer/12345`, og `query`-attributtet ville da være `ansattnummer/12345`.
 
-Adapters are expected to extract the `query` attribute, search the back-end system for the most recent version of the requested element.
+Adapteret forventes å trekke ut `query`-attributtet, søke i baksystemet etter den nyeste versjonen av det forespurte elementet.
 
-The response payload must contain a single element in JSON format, conforming to the information model.
+Svaret må inneholde et enkelt element i JSON-format, i samsvar med informasjonsmodellen.
 
-For error situations, the adapter can control the HTTP response returned to the client using the following:
+For feilsituasjoner kan adapteret kontrollere HTTP-responsen som returneres til klienten ved hjelp av følgende:
 
-| `responseStatus` | `statusCode`   | HTTP result                   |
-| ---------------- | -------------- | ----------------------------- |
-| `ERROR`          | (any)          | [`500`](https://http.cat/500) |
-| `REJECTED`       | `"GONE"`       | [`410`](https://http.cat/410) |
-| `REJECTED`       | `"NOT_FOUND"`  | [`404`](https://http.cat/404) |
-| `REJECTED`       | (other values) | [`400`](https://http.cat/400) |
+| `responseStatus` | `statusCode`   | HTTP-resultat           |
+| ---------------- | -------------- |-------------------------|
+| `ERROR`          | (any)          | [`500`](https://http.cat/500)            |
+| `REJECTED`       | `"GONE"`       | [`410`](https://http.cat/410)            |
+| `REJECTED`       | `"NOT_FOUND"`  | [`404`](https://http.cat/404)            |
+| `REJECTED`       | (other values) | [`400`](https://http.cat/400)            |
 
-### Create a new element, or update an existing element by ID (`UPDATE_`_type_)
+### Opprette et nytt element, eller oppdatere et eksisterende element etter ID (`UPDATE_`_type
 
-FINT Consumer APIs issue these events for `POST`, `PUT`, and `DELETE` requests for a given type, according to the following:
+FINT Consumer APIer utsteder disse hendelsene for `POST`, `PUT` og `DELETE`-forespørsler for en gitt type, i henhold til følgende:
 
-| REST Operation                     | `operation` | `query`       |
-| ---------------------------------- | ----------- | ------------- |
+| REST-operasjon                     | `operation` | `query`       |
+|------------------------------------| ----------- | ------------- |
 | `POST /path/to/type`               | `CREATE`    | (empty)       |
 | `POST /path/to/type?validate=true` | `VALIDATE`  | (empty)       |
 | `PUT /path/to/type/field/value`    | `UPDATE`    | `field/value` |
 | `DELETE /path/to/type/field/value` | `DELETE`    | `field/value` |
 
-The adapters are expected to handle the various operations according to the following:
+Adapteret forventes å håndtere de ulike operasjonene i henhold til følgende:
 
-  - `VALIDATE`: The payload must be subjected to a semantic validation according to business rules, but not stored in the back-end system.  The response must either be `ACCEPTED` or `REJECTED` to indicate whether the payload is valid or not, or `ERROR` if the validation cannot be performed and should be retried.
-  - `CREATE`: The payload must be subjected to a semantic validation according to business rules, supplied with a `systemId` `Indentifikator` (if relevant), and stored in the back-end system.  The response payload must be updated to correspond to the final version stored in the back-end system.  The response status must be `ACCEPTED`, `REJECTED`, or `CONFLICT` to indicate if the payload was valid or not, or if the creation conflicts with any other data in the system.  The `ERROR` response indicates a transient error, and that the creation can be retried.
-  - `UPDATE`: The existing element, identified by the `query` field, should be updated with the payload according to business rules and which fields are `writable` in the FINT information model.  The response payload must include the final version stored in the back-end system.  Response status as above.
-  - `DELETE`: The existing element, identified by the `query` field, should be removed from the back-end system if this is valid according to the business rules.  No response payload is expected, response status as above.
+  - `VALIDATE`: Lasten må underlegges en semantisk validering i henhold til forretningsregler, men ikke lagres i baksystemet. Svaret må enten være `ACCEPTED` eller `REJECTED` for å indikere om lasten er gyldig eller ikke, eller `ERROR` hvis valideringen ikke kan utføres og bør prøves på nytt.
+  - `CREATE`: Lasten må underlegges en semantisk validering i henhold til forretningsregler, tilføres en `systemId` `Identifikator` (hvis relevant), og lagres i baksystemet. Svaret må oppdateres for å svare til den endelige versjonen som er lagret i baksystemet. Svaret må være `ACCEPTED`, `REJECTED` eller `CONFLICT` for å indikere om lasten var gyldig eller ikke, eller om opprettelsen er i konflikt med andre data i systemet. Svaret `ERROR` indikerer en forbigående feil, og at opprettelsen kan prøves på nytt.
+  - `UPDATE`: Det eksisterende elementet, identifisert av `query`-feltet, skal oppdateres i henhold til forretningsregler og hvilke felt som er `skrivbare` i FINT-informasjonsmodellen. Svaret må inkludere den endelige versjonen som er lagret i baksystemet. Svarstatus som ovenfor.
+  - `DELETE`: Det eksisterende elementet, identifisert av `query`-feltet, skal fjernes fra baksystemet hvis dette er gyldig i henhold til forretningsreglene. Ingen payload forventes i svaret, men svarstatus som ovenfor.
 
-Events *must* be responded with a `responseStatus` setting indicating the result of the operation:
+Hendelser *må* svares med en `responseStatus`-innstilling som indikerer resultatet av operasjonen:
 
-| `responseStatus` | HTTP status sent to client    | Response body | Description of result                                                                                                                                              |
-| ---------------- | ----------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CREATED`        | [`201`](https://http.cat/201) | FINT object   | The operation was accepted and completed successfully.  Based on event payload, the FINT API produces a `Location` header referring to the newly created resource. |
-| `ACCEPTED`       | [`202`](https://http.cat/202) |               | The operation is treated as an ascyn request and it is accepted. Recheck status until it is either successful (200) or has failed.                                 |
-| `REJECTED`       | [`400`](https://http.cat/400) | Error details | The operation was rejected.  The `message`, `statusCoude` and `problems` fields contain explanations as to why.                                                    |
-| `ERROR`          | [`500`](https://http.cat/500) | Error details | An error occurred during processing of the event.  The client may retry the same operation later.                                                                  |
-| `CONFLICT`       | [`409`](https://http.cat/409) | FINT object   | The operation is in conflict with other activity.  The response contains an updated version of the resource so the client can update its own state.                |
+| `responseStatus` | HTTP status sendt til klienten   | Svartype      | Beskrivelse                                                                                                                                                               |
+| ---------------- |----------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `CREATED`        | [`201`](https://http.cat/201)                     | FINT-objekt   | Operasjonen ble akseptert og fullført vellykket. Basert på forespørselstype, produserer FINT APIet en `Location`-header som refererer til den nylig opprettede ressursen. |
+| `ACCEPTED`       | [`202`](https://http.cat/202)                     |               | Operasjonen behandles som en asynkron forespørsel og er akseptert. Sjekk statusen til den er enten vellykket (200) eller mislykket.                                       |
+| `REJECTED`       | [`400`](https://http.cat/400)                     | Error details | Operasjonen ble avvist. `message`, `statusCode` og `problems` feltene inneholder forklaringer på hvorfor.                                                                 |
+| `ERROR`          | [`500`](https://http.cat/500)                     | Error details | En feil oppstod under behandlingen av hendelsen. Klienten kan prøve samme operasjon senere.                                                                               |
+| `CONFLICT`       | [`409`](https://http.cat/409)                     | FINT object   | Operasjonen er i konflikt med annen aktivitet. Svaret inneholder en oppdatert versjon av ressursen slik at klienten kan oppdatere sin egen tilstand.                      |
 
-?> If the response is a 202 ACCEPTED, it means that the request is being processed async. You should then use a backoff strategy to recheck if the operation is complete. The period you wait between each check should increase and you should wait until you get a different response. This can take up to 20 minutes.
+?> Hvis svaret er en `202 ACCEPTED`, betyr det at forespørselen behandles asynkront. Du bør da bruke en backoff-strategi for å sjekke om operasjonen er fullført. Perioden du venter mellom hver sjekk bør øke og du bør vente til du får et annet svar. Dette kan ta opptil 20 minutter.
 
-If write operations are not supported or permitted, the event must be rejected by posting `ADAPTER_REJECTED` at the `/status` phase.
+Hvis skriveoperasjoner ikke støttes eller er tillatt, må hendelsen avvises ved å poste `ADAPTER_REJECTED` i `/status`-fasen.
 
-The response payload must be a single element representing the current state of the information, conforming to the 
-information model.  It is handled according to the following, depending on ResponseStatus:
+Svaret må være et enkelt element som representerer den nåværende tilstanden til informasjonen, i samsvar med informasjonsmodellen. Det håndteres i henhold til følgende, avhengig av `responseStatus`:
 
-- `ACCEPTED`: The payload is returned to the client, and possibly cached.
-- `REJECTED`: The payload is ignored.
-- `ERROR`: The payload is ignored.
-- `CONFLICT`: The payload is returned to the client, and possibly cached.
+- `ACCEPTED`: Oppdatert informasjon returneres til klienten, og oppdatert i FINT.
+- `REJECTED`: Oppdatert informasjon blir ignorert.
+- `ERROR`: Oppdatert informasjon blir ignorert.
+- `CONFLICT`: Nyeste informasjon returneres til klienten, og oppdatert i FINT.
 
-Note the last clause. For `CONFLICT` the adapter is supposed to deliver the most recent version of the information, so clients and the FINT cache can be updated.
+Merk det siste tilfellet. For `CONFLICT` er det meningen at adapteren skal levere den mest oppdaterte versjonen av informasjonen, slik at klienter og FINT-cachet kan oppdateres.
 
-## How to deal with errors
+## Hvordan håndtere feil
 
-Since `UPDATE_` events involves multiple components and is based on events,
-errors are bound to happen. 
+Siden `UPDATE_`-hendelser involverer flere komponenter og er basert på hendelser, er det uunngåelig at feil vil oppstå.
 
-### Update conflicts
+### Konflikt ved oppdatering
 
-Sometimes the update attempted is in conflict with other data in the back-end
-system.  This could for instance be:
+Noen ganger kan oppdateringen som forsøkes være i konflikt med andre data i baksystemet. Dette kan for eksempel være:
 
- - Attempts to create data with identifiers that refer to existing information.
- - Modifications that create illegal state when combined with existing information.
+ - Forsøk på å opprette data med identifikatorer som refererer til eksisterende informasjon.
+ - Modifikasjoner som skaper ulovlig tilstand når de kombineres med eksisterende informasjon.
 
- In both cases, the adapter must reject the update with `CONFLICT` response status.  Furthermore, the response must contain the payload that the original
- update conflicts with.
+I begge tilfeller må adapteret avvise oppdateringen med `CONFLICT` som responsstatus. Videre må svaret inneholde det som er den opprinnelige oppdateringen er i konflikt med.
 
- This enables the client to update its information and possibly modify the
- update before another attempt is made.
+Dette gjør det mulig for klienten å oppdatere sin informasjon og muligens modifisere oppdateringen før et nytt forsøk gjøres.
 
-### Lost events
+### Tapt hendelser
 
-The update events could be lost at multiple stages of the flow.  To better
-illustrate where this happens, let's first describe the successful scenario.
+Oppdateringshendelser kan gå tapt på flere stadier i flyten. For å bedre illustrere hvor dette skjer, la oss først beskrive det vellykkede scenarioet.
 
-#### Successful case
 
-The following sequence diagram illustrates the successful case, where 
-information is updated, and the client successfully recieves confirmation
-of the update.
+#### Vellykket tilfelle
+
+Følgende sekvensdiagram illustrerer det vellykkede tilfellet, der informasjon oppdateres, og klienten mottar vellykket bekreftelse på oppdateringen.
 
 ```plantuml
 @startuml normal
@@ -264,11 +257,9 @@ Client <-- consumer: 200
 @enduml
 ```
 
-#### Event is lost before it reaches adapter
+#### Hendelsen går tapt før den når adapteren
 
-This is the simplest failure scenaro to handle.  Nobody gets informed of the
-update, and the update can safely be retried after the original update
-has expired.
+Dette er det enkleste feilscenarioet å håndtere. Ingen blir informert om oppdateringen, og oppdateringen kan trygt prøves på nytt etter at den opprinnelige oppdateringen har utløpt.
 
 ```plantuml
 @startuml timeout
@@ -291,10 +282,9 @@ Client <-[#red]- consumer: 500 "Event expired"
 @enduml
 ```
 
-#### Event is confirmed by adapter, but not updated in back-end system
+#### Hendelsen bekreftes av adapteren, men ikke oppdatert i backend-systemet
 
-This scenario is very similar to the one above - the only difference is 
-the time it takes for the event to expire.
+Dette scenarioet er veldig likt det ovenfor - den eneste forskjellen er tiden det tar for hendelsen å utløpe.
 
 ```plantuml
 @startuml noresponse
@@ -322,13 +312,13 @@ Client <-[#red]- consumer: 500 "Event expired"
 @enduml
 ```
 
-#### Event is confirmed and updated in back-end system, but client is not notified
+#### Hendelsen bekreftes og oppdateres i backend-systemet, men klienten blir ikke varslet
 
-This is the most difficult scenario.  Since the back-end system has been updated, the event cannot safely be retried, although the client does not know. There are basically two ways to resolve this issue.
+Dette er det vanskeligste scenarioet. Siden backend-systemet er oppdatert, kan hendelsen ikke trygt prøves på nytt, selv om klienten ikke vet dette. Det er hovedsakelig to måter å løse dette problemet på.
 
-Which of these is better depends on the back-end system's ability to record and roll back pending modifications.
+Hvilken av disse som er bedre, avhenger av backend-systemets evne til å registrere og rulle tilbake ventende modifikasjoner.
 
-##### Roll back the modification so it can safely be retried
+##### Rull tilbake modifikasjonen slik at den trygt kan prøves på nytt
 
 ```plantuml
 @startuml orphaned
@@ -361,11 +351,11 @@ Client <-[#red]- consumer: 410
 @enduml
 ```
 
-For this case to be possible, the connection between the
-adapter and the back-end system must support transaction
-rollback, or similar compensating operations.
+For at dette tilfellet skal være mulig, må tilkoblingen mellom
+adapteren og backend-systemet støtte transaksjonsrullering
+eller lignende kompenserende operasjoner.
 
-##### Use conflict detection to reject a retry with `CONFLICT` status.
+##### Bruk konfliktdeteksjon for å avvise et nytt forsøk med `CONFLICT`-status.
 
 ```plantuml
 @startuml duplicate
@@ -401,11 +391,10 @@ Client <-[#red]- consumer: 409 "Conflicts with systemId XYZ"
 @enduml
 ```
 
-In this latter case, client support is required for the state
-of the update to be synchronized correctly between client and
-back-end system.  For this to work, it is essential that the
-adapter correctly responds to the `CONFLICT` with a response
-payload indicating the current state of the information in the
-back-end system, and that the client correctly handles the
-`409` status and updates its pending transaction with this
-information.
+I dette siste tilfellet kreves det støtte fra klienten for at
+tilstanden til oppdateringen skal synkroniseres riktig mellom klienten og
+backend-systemet. For at dette skal fungere, er det avgjørende at
+adapteren responderer korrekt på `CONFLICT` med en svarlast
+som indikerer den nåværende tilstanden til informasjonen i
+backend-systemet, og at klienten håndterer `409`-statusen korrekt og
+oppdaterer sin ventende transaksjon med denne informasjonen.
