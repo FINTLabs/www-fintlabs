@@ -1,2 +1,2 @@
 * [Hjem](/)
-* [Teknisk dokumentasjon](technical.md)
+* [English?](english.md)
