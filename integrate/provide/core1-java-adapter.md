@@ -1,12 +1,12 @@
-## Java SSE adapter
+## Java SSE-adapter
 
-### Introduction
+### Introduksjon
 
-This tutorial will lead you through the process of setting up and adapter to communicate with the Play-With-FINT-Adapter service.
+Denne veiledningen vil lede deg gjennom prosessen med å sette opp og adapter for å kommunisere med Play-With-FINT-Adapter-tjenesten.
 
-### Setting up the environment
+### Oppsett av miljøet
 
-#### Clone the skeleton
+#### Klon malen
 
 ```bash
 $ git clone https://github.com/FINTLabs/fint-sse-adapter-skeleton.git my-adapter
@@ -14,23 +14,23 @@ $ cd my-adapter
 $ rm -rf .git
 ```
 
-#### Open the project in your favorite IDE
+#### Åpne prosjektet i din favoritt-IDE
 
-This is a Gradle project so make sure to import the Gradle dependencies. You can either do it in the IDE or in the commandline:
+Dette er et Gradle-prosjekt, så sørg for å importere Gradle-avhengighetene. Du kan enten gjøre det i IDE-en eller i kommandolinjen:
 
 ```bash
 $ ./gradlew --refresh-dependencies build
 ```
 
-!>*Note that this project uses `Lombok` so you need to enable `annotation processing` if you use `IntelliJ`. There is also a `Lombok`-plugin for `IntelliJ`*
+!> *Merk at dette prosjektet bruker `Lombok`, så du må aktivere `annotation processing` hvis du bruker `IntelliJ`. Det finnes også en `Lombok`-plugin for `IntelliJ`.*
 
-### Get an OrgId
+### Få en OrgId
 
-* Go to <https://play-with-fint-adapter.felleskomponent.no/demo/organization/generateOrgId> to generate an `OrgId`.
+* Gå til <https://play-with-fint-adapter.felleskomponent.no/demo/organization/generateOrgId> for å generere en `OrgId`.
 
-!> This `OrgId` is vaild until midnight the same day.
+!> Denne `OrgId` er gyldig til midnatt samme dag.
 
-* Replace `pwfa.no` with your `OrgId` in the `application.yml` file:
+* Erstatt `pwfa.no` med din `OrgId` i `application.yml`-filen:
 
 ```yaml
 fint:
@@ -38,9 +38,10 @@ fint:
   organizations: OrgId
 ```
 
-### The first test
+### Den første testen
 
-* Set a breakpoint at the start of the handleEvent method in the `EventHandlerService` class.
+* Sett et breakpoint ved starten av handleEvent-metoden i klassen `EventHandlerService`.
+
 
 ```java
                 public void handleEvent(Event event) {
@@ -49,18 +50,18 @@ Breakpoint -->      if (event.isHealthCheck()) {
                 }
 ```
 
-* Start the adapter in debug mode
-* Open a browser and hit <https://play-with-fint-adapter.felleskomponent.no/swagger-ui.html>
-* From the `Admin` controller, configure the `/admin/health` with setting the following headers:
-    * `x-org-id` use the generated OrgId
-    * `x-client` to `test`
-* Send the health event from the `/admin/health` endpoint.
-* Step through the code to see what happens.
-* You can also hit the `dog` and `owner` controllers to see how `FintResources` and `Relations` are build. See <https://github.com/FINTmodels/fint-relation-model> for more information.
+* Start adapteren i debug mode
+* Åpne en nettleser og gå til <https://play-with-fint-adapter.felleskomponent.no/swagger-ui.html>
+* Fra `Admin`-kontrolleren, konfigurer `/admin/health` ved å sette følgende overskrifter:
+  * `x-org-id` bruk den genererte OrgId
+  * `x-client` til `test`
+* Send health-hendelsen fra `/admin/health`-endepunktet.
+* Gå gjennom koden steg for steg for å se hva som skjer.
+* Du kan også bruke `dog` og `owner`-kontrollerne for å se hvordan `FintResources` og `Relations` er bygget. Se <https://github.com/FINTmodels/fint-relation-model> for mer informasjon.
 
-### Security
+### Sikkerhet
 
-The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoint. This tutorial is set up with at tutorial user. In production one will get a *real* user. This is the `OAuth2` config:
+`adapteren` bruker `OAuth2` som standard for å autentisere til `provider`-endepunktet. Denne veiledningen er satt opp med en veiledningsbruker. I produksjon vil man få en *ekte* bruker. Dette er `OAuth2`-konfigurasjonen:
 
 ```yaml
 fint:
@@ -74,12 +75,12 @@ fint:
   scope: fint-client
 ```
 
-### Links
+### Lenker
 
-* <https://github.com/fintlabs/fint-sse-adapter-skeleton> - FINT SSE adapter skeleton
-* <https://github.com/FINTlibs/fint-sse> - FINT SSE client library
-* <https://github.com/FINTmodels/fint-relation-model> - FINT Relation model
+* <https://github.com/fintlabs/fint-sse-adapter-skeleton> - FINT SSE adapter mal
+* <https://github.com/FINTlibs/fint-sse> - FINT SSE klientbibliotek
+* <https://github.com/FINTmodels/fint-relation-model> - FINT Relationsmodell
 
-### Contribute
+### Bidra
 
-If you find bugs or have suggestions for improvement please feel free to submit an issue at <https://github.com/fintlabs/fint-sse-adapter-skeleton/issues>.
+Hvis du finner feil eller har forslag til forbedringer, vennligst gi oss tilbakemelding!

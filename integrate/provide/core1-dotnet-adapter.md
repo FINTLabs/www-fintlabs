@@ -1,10 +1,10 @@
-## .NET SSE adapter
+## .NET SSE-adapter
 
-This tutorial will lead you through the process of setting up and adapter to communicate with the Play-With-FINT-Adapter service.
+Denne veiledningen vil lede deg gjennom prosessen med å sette opp og adapter for å kommunisere med Play-With-FINT-Adapter-tjenesten.
 
-### Setting up the enviornment
+### Oppsett av miljøet
 
-#### Clone the skeleton
+#### Klon malen
 
 ```bash
 $ git clone https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton.git my-adapter
@@ -12,27 +12,27 @@ $ cd my-adapter
 $ rm -rf .git
 ```
 
-#### Open the project in our favorite IDE
+#### Åpne prosjektet i din favoritt-IDE
 
-This is a `netcoreapp2.0`\\`netstandard2.0` project. You need to import the dependencies. You can either do it in the IDE or in the commandline. This example uses the `dotnet` CLI:
+Dette er et `netcoreapp2.0`\\`netstandard2.0`-prosjekt. Du må importere avhengighetene. Du kan enten gjøre det i IDE-en eller i kommandolinjen. Dette eksempelet bruker `dotnet` CLI:
 
 ```bash
 $ dotnet restore
 ```
 
-This `repo` consists of three projects:
+Dette `repo` består av tre prosjekter:
 
-- **FINT.Sse.Adapter** - This is the main `adapter` code.
-- **FINT.Sse.Adapter.Console** - This is a wrapper around `FINT.Sse.Adaper` to make it run using `netcoreapp2.0`. You can create another wrapper for your favorit version/framework.
-- **FINT.Sse.Adapter.Tests** - This is the `unit test` project.
+- **FINT.Sse.Adapter** - Dette er hovedkoden for `adapteret`.
+- **FINT.Sse.Adapter.Console** - Dette er en wrapper rundt `FINT.Sse.Adapter` for å få den til å kjøre ved bruk av `netcoreapp2.0`. Du kan lage en annen wrapper for din favorittversjon/-rammeverk.
+- **FINT.Sse.Adapter.Tests** - Dette er prosjektet for `enhetstester`.
 
-### Get an OrgId
+### Få en OrgId
 
-* Go to <https://play-with-fint-adapter.felleskomponent.no/demo/organization/generateOrgId> to generate an `OrgId`.
+* Gå til <https://play-with-fint-adapter.felleskomponent.no/demo/organization/generateOrgId> for å generere en `OrgId`.
 
-!> This `OrgId` is vaild until midnight the same day.
+!> Denne `OrgId` er gyldig til midnatt samme dag.
 
-* Replace `pwfa.no` with your `OrgId` in the `appsettings.json` file in the `Fint.Sse.Adapter.Console` project:
+* Erstatt `pwfa.no` med din `OrgId` i `appsettings.json`-filen i `Fint.Sse.Adapter.Console`-prosjektet:
 
 ```json
 {
@@ -64,18 +64,18 @@ Breakpoint -->      if (serverSideEvent.IsHealthCheck())
                 }
 ```
 
-* Start the adapter in debug mode
-* Open a browser and hit <https://play-with-fint-adapter.felleskomponent.no/swagger-ui.html>
-* From the `Admin` controller, configure the `/admin/health` with setting the following headers:
-    * `x-org-id` use the generated OrgId
-    * `x-client` to `test`
-* Send the health event from the `/admin/health` endpoint.
-* Step through the code to see what happens.
-* You can also hit the `dog` and `owner` controllers to see how `FintResources` and `Relations` are build. See <https://github.com/FINTmodels/Fint.Relation.Model> for more information.
+* Start adapteren i debug-mode.
+* Åpne en nettleser og gå til <https://play-with-fint-adapter.felleskomponent.no/swagger-ui.html>
+* Fra `Admin`-kontrolleren, konfigurer `/admin/health` ved å sette følgende overskrifter:
+  * `x-org-id` bruk den genererte OrgId
+  * `x-client` til `test`
+* Send health-hendelsen fra `/admin/health`-endepunktet.
+* Gå gjennom koden steg for steg for å se hva som skjer.
+* Du kan også bruke `dog` og `owner`-kontrollerne for å se hvordan `FintResources` og `Relations` er bygget. Se <https://github.com/FINTmodels/Fint.Relation.Model> for mer informasjon.
 
-### Security
+### Sikkerhet
 
-The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoint. This tutorial is set up with at tutorial user. In production one will get a *real* user. This is the `OAuth2` config:
+`adapteren` bruker `OAuth2` som standard for å autentisere til `provider`-endepunktet. Denne veiledningen er satt opp med en veiledningsbruker. I produksjon vil man få en *ekte* bruker. Dette er `OAuth2`-konfigurasjonen:
 
 ```json
 "OAuthTokenService": {
@@ -89,12 +89,12 @@ The `adapter` uses `OAuth2` by default to authenticated to the `provider` endpoi
 }
 ```
 
-### Links
+### Lenker
 
-* <https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton> - FINT SSE adapter skeleton
-* <https://github.com/FINTlibs/Fint.Sse> - FINT SSE client library
-* <https://github.com/FINTmodels/Fint.Relation.Model]> - FINT Relation model
+* <https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton> - FINT SSE adapter skjelett
+* <https://github.com/FINTlibs/Fint.Sse> - FINT SSE klientbibliotek
+* <https://github.com/FINTmodels/Fint.Relation.Model> - FINT Relationsmodell
 
-### Contribute
+### Bidra
 
-If you find bugs or have suggestions for improvement please feel free to submit an issue at <https://github.com/fintlabs/Fint.Sse.Adapter.Skeleton/issues>.
+Hvis du finner feil eller har forslag til forbedringer, vennligst gi oss tilbakemelding!
