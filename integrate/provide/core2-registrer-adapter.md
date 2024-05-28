@@ -5,9 +5,9 @@
 
 1. Registrer deg på https://kunde.felleskomponent.no
    1. I kunde portalen må du registrere et adapter med å trykke på plussikonet på adapter siden
-   ![img_1.png](img_1.png)
+   ![img_1.png](../../_media/customer-portal-adapter-info.png)
    2. Når du har registrert adapteret, kan du velge komponentene det skal ha tilgang til.
-   ![img_2.png](img_2.png)
+   ![img_2.png](../../_media/customer-portal-component-list.png)
    3. Nå kan du gå til autentisering-tabben og hente authetiserings-infoen
 
 

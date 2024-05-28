@@ -12,7 +12,7 @@
     * Versjon 2
       * [Hvorfor versjon 2](integrate/provide/core2-why.md) 
       * [Java adapter](integrate/provide/core2-java-adapter.md)
-      * [Registrer et adapter](integrate/provide/registrer-a-core-2-adapter/index.md)
+      * [Registrer et adapter](integrate/provide/core2-registrer-adapter.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [FINT illustrert](cartoon.md)
 * [Tjenester](service.md)
