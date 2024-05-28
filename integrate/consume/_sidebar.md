@@ -14,9 +14,8 @@
   * [Levere data](integrate/provide/index.md)
 * [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
-* [Tjenester](service.md)
 * [FINT illustrert](cartoon.md)
-* [Kontakt](contact.md)
+* [Tjenester](service.md)
 
 - ****
 * [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)

@@ -34,7 +34,7 @@ Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du øn
 
 * *Vismas FINT-adapter*, kontakter man fylkets eksisterende kontaktperson/key account. Installasjonsveiledning for Visma Adapter.
 * *Agresso* har en egen kontaktperson for adapterne: Rolf Arne Flå hos Evry.
-* *FINT*, se [Kontakt](./contact.md).
+* *FINT*, se [Novari.no](https://www.vigoiks.no/om-oss/).
 
 #### Installasjon av adapteret
 
