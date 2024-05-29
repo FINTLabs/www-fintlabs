@@ -2,6 +2,7 @@
 * [Hva er FINT?](home.md)
 * [Kom i gang](getting-started/index.md)
 * [Informasjonsmodellen](model/index.md)
+* [Kundeportalen](portal/index.md)
 * [Integrere med FINT](integrate/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [FINT illustrert](cartoon.md)

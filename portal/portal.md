@@ -1,10 +1,5 @@
 ## Kundeportal
 
-Vi anbefaler å lese gjennom hele veiledningen før Kundeportalen tas i bruk. Det er viktig å vite forskjellen mellom Adapter og Klient, og hva som brukes til hva. Vi har prøvd å holde teksten til et minimum, men det betyr også at alt som står skrevet er relevant og bør leses grundig.
-
-Du finner kundeportalen på <https://kunde.felleskomponent.no>.
-
-Hver fylkeskommune har fått i oppgave å sende inn personaldata på en person hver, som FINT prosjektet legger inn som bruker av portalen. Hvis du ikke får logget inn, må du ta kontakt med din fylkeskommunes LIP for å få vite hvem som har fått tilgang. Du kan eventuelt purre på dem, dersom de ikke har sendt personaldata til FINT-prosjektet. Den som har tilgang, kan gi andre tilgang.
 
 ### Startsiden
 
