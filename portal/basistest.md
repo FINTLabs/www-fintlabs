@@ -1,4 +1,4 @@
-# Basic test
+# Basistest
 
 I kundeportalen ligger det to typer tester som skal brukes for å teste integrasjonene med FINT adapteret.
 
