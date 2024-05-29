@@ -1,26 +1,29 @@
 # Adapter
 
-Når man har koblet komponentene til organisasjonen så går man videre til tredje menypunkt som er Adapter.
+Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir et FINT-adapter tilgang til å kommunisere med FINT.
 
-Oppsettet som genereres her skal brukes i konfigurasjon av FINT-adapter.
+## Hvordan opprette et nytt adapter?
+
+1. Trykk på **Adapter** i menyen (fjerde ikon fra toppen).
 
 ![ill6](../_media/kundeportal-6.png)
 
-Man klikker på det store grønne symbolet med en svart pluss i, for å legge til et adapter. Da vil man få opp følgende bilde:
+2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et adapter. Da vil du få opp følgende bilde:
 
 ![ill7](../_media/kundeportal-7.png)
 
-Først fyller du ut brukernavn til adapteret. Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen.
+3. Først fyller du ut brukernavn til adapteret. Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen.
 
-Deretter klikker du på edit-symbolet (en grå blyant) bak adapteret i listen, og får opp dette bildet:
+4. Deretter klikker du på edit-symbolet (en grå blyant) bak adapteret i listen, og får opp dette bildet:
 
 ![ill8](../_media/kundeportal-8.png)
+Her kan man endre på beskrivelse og Note, hvis man ønsker.  
 
-Her kan man endre på beskrivelse og Note, hvis man ønsker.  Ved å klikke på “Komponenter” i toppmenyen, kommer man til følgende bilde:
+5. Ved å klikke på “Komponenter” i toppmenyen, kommer man til følgende bilde:
 
 ![ill9](../_media/kundeportal-9.png)
 
-Her finner du igjen de komponentene vi valgte i sted, og kan koble dem til adapteret. Klikk på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Det vil si at en tilkoblet komponent vises med rødt symbol. Deretter går man videre i toppmenyen til Autentisering.
+6. Her finner du igjen de komponentene vi valgte i sted, og kan koble dem til adapteret. Klikk på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Det vil si at en tilkoblet komponent vises med rødt symbol. Deretter går man videre i toppmenyen til Autentisering.
 
 ![ill10](../_media/kundeportal-10.png)
 
