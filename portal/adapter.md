@@ -4,10 +4,10 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 
 ## Opprette et nytt adapter
 
-1. Klikk på **Adapter** i menyen (fjerde ikon fra toppen).
+1. Klikk på **Adapter** i menyen (fjerde ikon fra toppen).  
    ![Menyelement adapter](../_media/kundeportal-adapter-1.png)
 
-2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.
+2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.  
    ![Legg til pluss](../_media/kundeportal-adapter-2.png)
 
 3. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
@@ -18,7 +18,7 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 
 4. Klikk på **Legg til**.
 
-5. Klikk på endre-symbolet bak det adapteret du akkurat opprettet i listen.
+5. Klikk på endre-symbolet bak det adapteret du akkurat opprettet i listen.  
    ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
 6. Klikk på **Komponenter** og huk av den/de komponentene som adapteret skal ha tilgang til.
@@ -29,10 +29,10 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 7. Klikk så på **Autentisering**.
    ![Autentisering](../_media/kundeportal-adapter-6.png)
 
-8. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.
+8. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.  
    ![Generer passord](../_media/kundeportal-adapter-7.png)
 
-9. Klikk på nedlasting-ikonet til høyre for **Klient Hemmelighet** for å hente hemmeligheten for klienten.
+9. Klikk på nedlasting-ikonet til høyre for **Klient Hemmelighet** for å hente hemmeligheten for klienten.  
    ![Hent hemmelighet](../_media/kundeportal-adapter-8.png)
 
 10. Klikk på **Kopier autentiseringsinformasjon**. Påloggingsinformasjonen kan nå limes inn der du vil benytte den. Den kommer i dette formatet:
