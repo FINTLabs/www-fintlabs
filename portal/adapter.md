@@ -4,47 +4,53 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 
 ## Opprette et nytt adapter
 
-1. Trykk på **Adapter** i menyen (fjerde ikon fra toppen).
+1. Klikk på **Adapter** i menyen (fjerde ikon fra toppen).
    ![Menyelement adapter](../_media/kundeportal-adapter-1.png)
 
 2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.
    ![Legg til pluss](../_media/kundeportal-adapter-2.png)
 
 3. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
-    - **Brukernavn**: Beskriv hva adapteret skal brukes til (f.eks. visma-hrm-test).
-    - **Kort beskrivelse**: Dette vises i listen over adaptere.
-    - **Beskrivelse**: Legg til en mer detaljert forklaring av adapterets funksjon.
-      ![Adapter registrering](../_media/kundeportal-adapter-3.png)
+   - **Brukernavn**: Beskriv hva adapteret skal brukes til (f.eks. visma-hrm-test).
+   - **Kort beskrivelse**: Dette vises i listen over adaptere.
+   - **Beskrivelse**: Legg til en mer detaljert forklaring av adapterets funksjon.
+     ![Adapter registrering](../_media/kundeportal-adapter-3.png)
 
-4. Trykk på **Legg til**.
+4. Klikk på **Legg til**.
 
-5. Klikk på endre-symbolet (en grå blyant) bak det adapteret du akkurat opprettet i listen.
+5. Klikk på endre-symbolet bak det adapteret du akkurat opprettet i listen.
+   ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
-6. Ved å klikke på **Komponenter**, kommer man til følgende bilde:
+6. Klikk på **Komponenter** og huk av den/de komponentene som adapteret skal ha tilgang til.
+   ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
 
-![ill9](../_media/kundeportal-9.png)
+   ?>Enkelte adaptere må kunne lese fra FINT, i tillegg til å levere data. I så fall må det opprettes en egen klient for adapteret. Rettigheten som settes gjelder kun det som adapteret skal kunne levere data for. 
+ 
+7. Klikk så på **Autentisering**.
+   ![Autentisering](../_media/kundeportal-adapter-6.png)
 
-6. Her finner du igjen de komponentene vi valgte i sted, og kan koble dem til adapteret. Klikk på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Det vil si at en tilkoblet komponent vises med rødt symbol. Deretter går man videre i toppmenyen til Autentisering.
+8. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.
+   ![Generer passord](../_media/kundeportal-adapter-7.png)
 
-![ill10](../_media/kundeportal-10.png)
+9. Klikk på nedlasting-ikonet til høyre for **Klient Hemmelighet** for å hente hemmeligheten for klienten.
+   ![Hent hemmelighet](../_media/kundeportal-adapter-8.png)
 
-Her kommer informasjonen som skal inn i konfigfilene til adapteret. Det er denne informasjonen som skal sendes til den som installerer FINT-adapteret i deres miljø. Dette er ikke denne informasjonen som skal sendes til VISMA for oppsett i VIS. Det skal man sette opp en klient for. Husk å trykke på symbolene bak Passord og Klient Hemmelighet for å generere disse første gangen. Hvis man genererer opp passord på nytt senere, må man endre i konfigfilene til adapteret også, hvis ikke vil adapteret feile ved oppkobling mot FINT. Klient Hemmeligheten vil hentes fra FINTs OAuth-server og vil ikke endres selv om han henter verdien på nytt.
+10. Klikk på **Kopier autentiseringsinformasjon**. Påloggingsinformasjonen kan nå limes inn der du vil benytte den. Den kommer i dette formatet:
 
-Når man har generert opp Passord og hentet Klient Hemmelighet, kan man kopiere informasjonen ut i JSON-format, ved å klikke på knappen `KOPIER AUTENTISERINGSINFORMASJON`. Da kommer det på dette formatet:
+    ```json
+    {
+      “username”: “<klientnavn>@adapter.<fylke>.no”,
+      “password”: “<fjernet>”,
+      “clientId”: “<fjernet>”,
+      “openIdSecret”: “<fjernet>“,
+      “assetIds”: [“<fylke>.no”]
+    }
+    ```
 
-```json
-{
-  “username”: “mrfylke_test_client@mrfylke.no”,
-  “password”: “<fjernet>”,
-  “clientId”: “<fjernet>”,
-  “openIdSecret”: “<fjernet> “,
-  “assetIds”: [ “mrfylke.no” ]
-}
-```
-
-NB: Hvis passordet er “topseceret”, har du glemt å generere passordet. Dette er et default passord som ikke fungerer ved pålogging til adapteret. Da må du oppdatere passordet ved å klikke på oppdateringssymbolet (en pil formet som en sirkel).
-
-Bruker som lages for å benytte FINT-adapteret, blir ikke opprettet som en domenebruker hos fylkeskommunen. Denne finnes bare i FINT-sammenheng.
+Tips om autentiseringsinformasjonen:
+- Hvis passordet er “**********”, har du glemt å generere passordet. Dette vil ikke fungere ved pålogging til adapteret.
+- Selv om brukernavnet ser ut som en vanlig e-postadresse, er dette kun en tilgang i FINT-sammenheng og bør ikke forveksles med en domenebruker.
+- Tenk på sikkerhet når autentiseringsinformasjonen skal videresendes. Den bør ikke utveksles som klartekst i for eksempel en e-post.
 
 ### Endre konfig for FINT adapteret
 
