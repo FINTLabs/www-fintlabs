@@ -8,24 +8,51 @@ Følg denne veiledningen for å opprette en ny FINT-klient. Denne kan brukes i [
 
 ?> Det er anbefalt å opprette en egen klient for hvert formål, dvs. ikke gjenbruke den samme klienten til forskjellige oppgaver. Hvis du endrer en klient som er i bruk, kan det føre til at integrasjonen slutter å fungere. Funksjonene **Basistest** og **Relasjonstest** i kundeportalen kan automatisk endre passord på klienten, så vi anbefaler at du ALLTID bruker egne klienter for disse funksjonene.
 
-![ill11](../_media/kundeportal-11.png)
+1. Logg inn på kundeportalen.
 
-For å legge til en klient så klikker man på det store grønne symbolet med en svart plus i.
+2. Klikk på **Klienter** i menyen (femte ikon fra toppen).  
+   ![Menyelement klient](../_media/kundeportal-klient-1.png)
 
-![ill12](../_media/kundeportal-12.png)
+3. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.  
+   ![Legg til pluss](../_media/kundeportal-adapter-2.png)
 
-Fremgangsmåten her er ganske lik den som var for Adapter. Man legger til et brukernavn, som får ditt fylkes domenenavn bak. Den vi lager på bildet, er i første omgang en klient for å kjøre tester, så vi har kalt den basictestclient@mrfylke.no for Møre og Romsdal. Det er viktig at denne ikke blir gitt samme brukernavn som ble brukt i adapteroppsettet. Den korte beskrivelsen, er det som kommer opp som navn på klienten, i listen over klienter. Fyll ut og legg til.
+4. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
+   - **Brukernavn**: Beskriv hva klienten skal brukes til (f.eks. relasjonstest).
+   - **Kort beskrivelse**: Dette vises i listen over klienter.
+   - **Beskrivelse**: Legg til en mer detaljert forklaring av klientens funksjon.
+     ![Klient registrering](../_media/kundeportal-klient-2.png)
 
-Deretter klikker man på det grå edit-symbolet, som er en blyant, for å sette opp innstillingene til klienten.
+5. Klikk på **Legg til**.
 
-![ill13](../_media/kundeportal-13.png)
+6. Finn klienten som nettopp ble opprettet, og klikk på endre-symbolet.     
+   ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
-På første fane kan kan endre beskrivelse og Note.
+7. Klikk på **Komponenter** og huk av de komponentene som klienten skal ha tilgang til.
+   ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
 
-![ill14](../_media/kundeportal-14.png)
+8. Klikk så på **Autentisering**.
+   ![Autentisering](../_media/kundeportal-klient-3.png)
 
-På fanen Komponenter kan man legge til de komponentene som skal kobles til klienten. For en testklient velger man alle komponenter som skal testes. Her klikker man på grønt symbol med en pluss for å koble til, eller et rødt symbol med en minus for å koble fra. Deretter går man videre til Autentisering.
+9. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.  
+   ![Generer passord](../_media/kundeportal-adapter-7.png)
 
-![ill15](../_media/kundeportal-15.png)
+10. Klikk på nedlasting-ikonet til høyre for **Klient Hemmelighet** for å hente hemmeligheten for klienten.  
+    ![Hent hemmelighet](../_media/kundeportal-adapter-8.png)
 
-På samme måte som for Adapter, må Passord og Klient Hemmelighet genereres manuelt, ved å klikke på symbolene nest bakerst på linjen. Disse autentiseringsdataene må man oppgi til de som skal teste FINT med f.eks. FINTs testklient (<https://www.fintlabs.no/#/test-klient).> Det er ikke denne informasjonen som brukes for å sette opp adapteret mot f.eks HR. Da må du bruke informasjonen fra adapteroppsettet.
+11. Klikk på **Kopier autentiseringsinformasjon**. Påloggingsinformasjonen kan nå limes inn der du vil benytte den. Den kommer i dette formatet:
+
+    ```json
+    {
+      “username”: “<klientnavn>@client.<fylke>.no”,
+      “password”: “<fjernet>”,
+      “clientId”: “<fjernet>”,
+      “openIdSecret”: “<fjernet>“,
+      “assetIds”: [“<fylke>.no”]
+    }
+    ```
+
+**Tips:**
+- Hvis passordet er `**********`, har du glemt å generere passord. Dette vil ikke fungere (se punkt 8).
+- Selv om brukernavnet ser ut som en vanlig e-postadresse, er dette kun en tilgang i FINT-sammenheng og bør ikke forveksles med en domenebruker.
+- Tenk på sikkerhet når autentiseringsinformasjonen skal videresendes. Den bør ikke sendes som klartekst i for eksempel en epost.
+
