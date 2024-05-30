@@ -4,38 +4,40 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 
 ## Opprette et nytt adapter
 
-1. Klikk på **Adapter** i menyen (fjerde ikon fra toppen).  
+1. Logg inn på kundeportalen.
+
+2. Klikk på **Adapter** i menyen (fjerde ikon fra toppen).  
    ![Menyelement adapter](../_media/kundeportal-adapter-1.png)
 
-2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.  
+3. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.  
    ![Legg til pluss](../_media/kundeportal-adapter-2.png)
 
-3. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
-   - **Brukernavn**: Beskriv hva adapteret skal brukes til (f.eks. visma-hrm-test).
+4. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
+   - **Brukernavn**: Beskriv hva adapteret skal brukes til (f.eks. visma-hrm).
    - **Kort beskrivelse**: Dette vises i listen over adaptere.
    - **Beskrivelse**: Legg til en mer detaljert forklaring av adapterets funksjon.
-     ![Adapter registrering](../_media/kundeportal-adapter-3.png)
+   ![Adapter registrering](../_media/kundeportal-adapter-3.png)
 
-4. Klikk på **Legg til**.
+5. Klikk på **Legg til**.
 
-5. Klikk på endre-symbolet bak det adapteret du akkurat opprettet i listen.  
+6. Finn adapteret som nettopp ble opprettet, og klikk på endre-symbolet. 
    ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
-6. Klikk på **Komponenter** og huk av den/de komponentene som adapteret skal ha tilgang til.
+7. Klikk på **Komponenter** og huk av den/de komponentene som adapteret skal ha tilgang til.
    ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
 
    ?>Enkelte adaptere må kunne lese fra FINT, i tillegg til å levere data. I så fall må det opprettes en egen klient for adapteret. Rettigheten som settes gjelder kun det som adapteret skal kunne levere data for. 
  
-7. Klikk så på **Autentisering**.
+8. Klikk så på **Autentisering**.
    ![Autentisering](../_media/kundeportal-adapter-6.png)
 
-8. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.  
+9. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.  
    ![Generer passord](../_media/kundeportal-adapter-7.png)
 
-9. Klikk på nedlasting-ikonet til høyre for **Klient Hemmelighet** for å hente hemmeligheten for klienten.  
+10. Klikk på nedlasting-ikonet til høyre for **Klient Hemmelighet** for å hente hemmeligheten for klienten.  
    ![Hent hemmelighet](../_media/kundeportal-adapter-8.png)
 
-10. Klikk på **Kopier autentiseringsinformasjon**. Påloggingsinformasjonen kan nå limes inn der du vil benytte den. Den kommer i dette formatet:
+11. Klikk på **Kopier autentiseringsinformasjon**. Påloggingsinformasjonen kan nå limes inn der du vil benytte den. Den kommer i dette formatet:
 
     ```json
     {
@@ -48,7 +50,7 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
     ```
 
 Tips om autentiseringsinformasjonen:
-- Hvis passordet er “**********”, har du glemt å generere passordet. Dette vil ikke fungere ved pålogging til adapteret.
+- Hvis passordet er `**********`, har du glemt å generere passord. Dette vil ikke fungere ved pålogging (se punkt 8).
 - Selv om brukernavnet ser ut som en vanlig e-postadresse, er dette kun en tilgang i FINT-sammenheng og bør ikke forveksles med en domenebruker.
 - Tenk på sikkerhet når autentiseringsinformasjonen skal videresendes. Den bør ikke utveksles som klartekst i for eksempel en e-post.
 
