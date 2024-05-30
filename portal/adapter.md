@@ -2,17 +2,23 @@
 
 Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir et FINT-adapter tilgang til å kommunisere med FINT.
 
-## Hvordan opprette et nytt adapter?
+## Opprette et nytt adapter
 
 1. Trykk på **Adapter** i menyen (fjerde ikon fra toppen).
 
-![ill6](../_media/kundeportal-6.png)
+![Menyelement adapter](../_media/kundeportal-adapter-1.png)
 
-2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et adapter. Da vil du få opp følgende bilde:
+2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et adapter.
+
+![Legg til pluss](../_media/kundeportal-adapter-2.png)
+
+3. Først fyller du ut brukernavn til adapteret. 
 
 ![ill7](../_media/kundeportal-7.png)
 
-3. Først fyller du ut brukernavn til adapteret. Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen.
+->Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. 
+
+I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen. 
 
 4. Deretter klikker du på edit-symbolet (en grå blyant) bak adapteret i listen, og får opp dette bildet:
 
