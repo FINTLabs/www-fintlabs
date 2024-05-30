@@ -20,10 +20,10 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 
 5. Klikk på **Legg til**.
 
-6. Finn adapteret som nettopp ble opprettet, og klikk på endre-symbolet. 
+6. Finn adapteret som nettopp ble opprettet, og klikk på endre-symbolet.   
    ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
-7. Klikk på **Komponenter** og huk av den/de komponentene som adapteret skal ha tilgang til.
+7. Klikk på **Komponenter** og huk av de komponentene som adapteret skal ha tilgang til.
    ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
 
    ?>Enkelte adaptere må kunne lese fra FINT, i tillegg til å levere data. I så fall må det opprettes en egen klient for adapteret. Rettigheten som settes gjelder kun det som adapteret skal kunne levere data for. 
@@ -49,10 +49,10 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
     }
     ```
 
-Tips om autentiseringsinformasjonen:
-- Hvis passordet er `**********`, har du glemt å generere passord. Dette vil ikke fungere ved pålogging (se punkt 8).
+**Tips:**
+- Hvis passordet er `**********`, har du glemt å generere passord. Dette vil ikke fungere (se punkt 8).
 - Selv om brukernavnet ser ut som en vanlig e-postadresse, er dette kun en tilgang i FINT-sammenheng og bør ikke forveksles med en domenebruker.
-- Tenk på sikkerhet når autentiseringsinformasjonen skal videresendes. Den bør ikke utveksles som klartekst i for eksempel en e-post.
+- Tenk på sikkerhet når autentiseringsinformasjonen skal videresendes. Den bør ikke sendes som klartekst i for eksempel en epost.
 
 ### Endre konfig for FINT adapteret
 
