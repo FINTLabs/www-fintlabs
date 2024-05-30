@@ -1,8 +1,12 @@
 # Klienter
 
-Menyvalgene Adapter og Klienter fungerer på samme måte, men skilles på hvilket grensesnitt i felleskomponenten det gis tilgang til. Adaptere får tilgang til Provider-grensesnittet og kan levere data til felleskomponenten, mens Klienter får tilgang til Consumer-grensesnittet og kan hente ut data fra felleskomponenten. Adaptere leverer vanligvis til èn komponent, mens klienter kan hente fra flere. Dvs at det er konfigurasjonen som ble satt opp for adapter, som brukes for å oppdatere FINT-adapterets konfigfiler. Det oppsettet vi skal lage nå, skal brukes for å logge på FINT test klient.
+Menyvalgene Adapter og Klienter fungerer på samme måte, men de skiller seg basert på hvilket grensesnitt i felleskomponenten de har tilgang til. Adaptere får tilgang til Provider-grensesnittet og kan levere data til felleskomponenten, mens Klienter får tilgang til Consumer-grensesnittet og kan hente data fra felleskomponenten. Adaptere leverer vanligvis data til én komponent, mens Klienter kan hente data fra flere komponenter.
 
-Man skal opprette en klient for hvert formål, dvs. ikke gjenbruke den samme klienten til forskjellige oppgaver. En for å kjøre testene som ligger på kundeportalen, en for testing i testklienten til FINT, og ikke minst en egen klient for å koble VIS mot fylkeskommunens egne data. Autentiseringsinformasjonen for den klienten som opprettes for VIS (Visma InSchool), må på et tidspunkt oppgis til Visma for å få tilgang til VIS.
+## Opprette en ny klient
+
+Følg denne veiledningen for å opprette en ny FINT-klient. Denne kan brukes i [Testklient](technical/testclient.md), verktøy for å teste API-er som Postman eller Insomnia, eller for å opprette OAuth2-klienter i skreddersydde integrasjonstjenester.
+
+?> Det er anbefalt å opprette en egen klient for hvert formål, dvs. ikke gjenbruke den samme klienten til forskjellige oppgaver. Hvis du endrer en klient som er i bruk, kan det føre til at integrasjonen slutter å fungere. Funksjonene **Basistest** og **Relasjonstest** i kundeportalen kan automatisk endre passord på klienten, så vi anbefaler at du ALLTID bruker egne klienter for disse funksjonene.
 
 ![ill11](../_media/kundeportal-11.png)
 

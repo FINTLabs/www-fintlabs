@@ -1,7 +1,7 @@
 # Adapter
 
 Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir et FINT-adapter tilgang til å kommunisere med FINT.
-Dersom du hovedsakelig skal hente informasjon fra FINT (som en konsument), bør du heller [opprette en klient](klient.md).
+Dersom du hovedsakelig skal hente informasjon fra FINT (som en konsument), bør du heller [opprette en klient](portal/klient.md).
 
 ## Opprette et nytt adapter
 
