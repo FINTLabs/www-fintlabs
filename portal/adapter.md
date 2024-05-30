@@ -5,27 +5,22 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 ## Opprette et nytt adapter
 
 1. Trykk på **Adapter** i menyen (fjerde ikon fra toppen).
+   ![Menyelement adapter](../_media/kundeportal-adapter-1.png)
 
-![Menyelement adapter](../_media/kundeportal-adapter-1.png)
+2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.
+   ![Legg til pluss](../_media/kundeportal-adapter-2.png)
 
-2. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et adapter.
+3. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
+    - **Brukernavn**: Beskriv hva adapteret skal brukes til (f.eks. visma-hrm-test).
+    - **Kort beskrivelse**: Dette vises i listen over adaptere.
+    - **Beskrivelse**: Legg til en mer detaljert forklaring av adapterets funksjon.
+      ![Adapter registrering](../_media/kundeportal-adapter-3.png)
 
-![Legg til pluss](../_media/kundeportal-adapter-2.png)
+4. Trykk på **Legg til**.
 
-3. Først fyller du ut brukernavn til adapteret. 
+5. Klikk på endre-symbolet (en grå blyant) bak det adapteret du akkurat opprettet i listen.
 
-![ill7](../_media/kundeportal-7.png)
-
-->Hvis vi velger brukerennavnet `mrfylke_test_adapter`, vil det automatisk legges på orginisasjonsdomene bak brukernavnet. Som eksempel blir brukernavnet `mrfylke_test_adapter` endret til `mrfylke_test_adapter.mrfylke.no` for Møre og Romsdal. 
-
-I feltet Kort beskrivelse legger du inn navnet som vil vises i listen over Adaptere. Man kan endre beskrivelsen senere.  Når man har lagt inn en Note, kan man legge til adapteret, og det kommer opp i listen. 
-
-4. Deretter klikker du på edit-symbolet (en grå blyant) bak adapteret i listen, og får opp dette bildet:
-
-![ill8](../_media/kundeportal-8.png)
-Her kan man endre på beskrivelse og Note, hvis man ønsker.  
-
-5. Ved å klikke på “Komponenter” i toppmenyen, kommer man til følgende bilde:
+6. Ved å klikke på **Komponenter**, kommer man til følgende bilde:
 
 ![ill9](../_media/kundeportal-9.png)
 
