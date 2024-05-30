@@ -20,7 +20,7 @@ Et adapter leverer data til FINT. Oppsettene du oppretter i kundeportalen, gir e
 
 5. Klikk på **Legg til**.
 
-6. Finn adapteret som nettopp ble opprettet, og klikk på endre-symbolet.   
+6. Finn adapteret som nettopp ble opprettet, og klikk på endre-symbolet.     
    ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
 7. Klikk på **Komponenter** og huk av de komponentene som adapteret skal ha tilgang til.
