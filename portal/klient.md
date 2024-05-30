@@ -13,7 +13,7 @@ Følg denne veiledningen for å opprette en ny FINT-klient. Denne kan brukes i [
 2. Klikk på **Klienter** i menyen (femte ikon fra toppen).  
    ![Menyelement klient](../_media/kundeportal-klient-1.png)
 
-3. Klikk på det store grønne symbolet med et pluss-tegn for å legge til et nytt adapter.  
+3. Klikk på det store grønne symbolet med et pluss-tegn for å legge til en ny klient.  
    ![Legg til pluss](../_media/kundeportal-adapter-2.png)
 
 4. Fyll ut feltene for brukernavn, kort beskrivelse og beskrivelse.
