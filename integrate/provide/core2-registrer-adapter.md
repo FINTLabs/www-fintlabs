@@ -1,24 +1,11 @@
+# Adapter kontrakt
 
-# Registrer et adapter for core 2
-
-
-
-1. Registrer deg på https://kunde.felleskomponent.no
-   1. I kunde portalen må du registrere et adapter med å trykke på plussikonet på adapter siden
-   ![img_1.png](../../_media/customer-portal-adapter-info.png)
-   2. Når du har registrert adapteret, kan du velge komponentene det skal ha tilgang til.
-   ![img_2.png](../../_media/customer-portal-component-list.png)
-   3. Nå kan du gå til autentisering-tabben og hente authetiserings-infoen
+>Før du begynner med denne må du registrere et adapter 
+> på [kundeportalen](../portal/adapter.md).
 
 
-2. Bruk autentiserings cridentialsene til å hente et token
-
-
-3. Nå når du har fått token, og registrert adapter i kunde portalen må du sende en kontrakt til FINT.
-Du må sende denne boddyen til https://alpha.felleskomponent.no/provider/register, husk å bytte ut feltene i requesten,
-og endre linken til riktig miljø.
-
-<ins> NB: heartbeatIntervalInMinutes kan ikke være mer en 5! </ins>
+Når du har registrert adapteret så må du sende en kontrakt til provider-registrer.
+Den kan sendes til https://api.felleskomponent.no/provider/register. Du kan se et eksempel på hvordan den ser ut under.
 
 ```json
 {
@@ -41,7 +28,13 @@ og endre linken til riktig miljø.
 }
 ```
 
-4. Heartbeat sendes til https://alpha.felleskomponent.no/provider/heartbet og ser slik ut:
+Heartbeat sendes til https://api.felleskomponent.no/provider/heartbet og ser slik ut:
+
+> HeartbeatIntervalInMinutes kan ikke være lengre en 5
+> 
+> Husk å å bytte ut til riktig miljø. Hvis adapteret foreksempel er registrert i beta miljøet,
+> så må heartbeat også sendes der
+
  ```json
     {
     "adapterId": "string",
@@ -50,3 +43,46 @@ og endre linken til riktig miljø.
     "time": 0
     }
    ```
+
+
+## Overfør data til FINT
+Inni resource feltet skal du legge inn identifikatorveriden til elementet og reursen. 
+De sendes som en liste.
+
+```json
+{
+  "metadata": {
+    "adapterId": "string",
+    "corrId": "string",
+    "orgId": "string",
+    "totalSize": 0,
+    "page": 0,
+    "pageSize": 0,
+    "totalPages": 0,
+    "uriRef": "string",
+    "time": 0
+  },
+  "resources": [
+    {
+      "identifier": "string",
+      "resource": {}
+    }
+  ],
+  "syncType": "FULL"
+}
+
+```
+
+## Paging i FINT
+
+Når du skal overføre store mengder data så må du dele det inn i pages
+For å page så deler du totale antall elementer og deler det på antall pages du skal overføre
+
+```json
+    "page": 1,
+    "pageSize": 12500,
+    "totalPages": 4
+```
+
+> Se swagger siden for mer informasjon
+> swagger: https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/
