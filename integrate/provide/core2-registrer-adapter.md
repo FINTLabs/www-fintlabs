@@ -9,8 +9,8 @@ Den kan sendes til https://api.felleskomponent.no/provider/register. Du kan se e
 
 ```json
 {
-"adapterId": "Adapter-id fra kundeportalen",
-"orgId": "organisasjons id",
+"adapterId": "44-577524-5753",
+"orgId": "123456789",
 "username": "adapter-brukernavn",
 "heartbeatIntervalInMinutes": 2,
 "capabilities": [
@@ -21,10 +21,8 @@ Den kan sendes til https://api.felleskomponent.no/provider/register. Du kan se e
     "fullSyncIntervalInDays": 0,
     "deltaSyncInterval": "IMMEDIATE",
     "component": "string",
-    "entityUri": "string"
     }
 ],
-"time": 0
 }
 ```
 
@@ -37,35 +35,37 @@ Heartbeat sendes til https://api.felleskomponent.no/provider/heartbet og ser sli
 
  ```json
     {
-    "adapterId": "string",
-    "username": "string",
-    "orgId": "string",
+    "adapterId": "44-577524-5753",
+    "username": "mitt-adapter",
+    "orgId": "123456789",
     "time": 0
     }
    ```
 
 
 ## Overfør data til FINT
-Inni resource feltet skal du legge inn identifikatorveriden til elementet og reursen. 
+Inni resource feltet skal du legge inn identifikatorveriden til elementet og reursen.
 De sendes som en liste.
 
 ```json
 {
   "metadata": {
-    "adapterId": "string",
+    "adapterId": "44-577524-5753",
     "corrId": "string",
-    "orgId": "string",
-    "totalSize": 0,
-    "page": 0,
-    "pageSize": 0,
+    "orgId": "123456789",
+    "totalSize": 100000,
+    "page": 4,
+    "pageSize": 20000,
     "totalPages": 0,
     "uriRef": "string",
-    "time": 0
   },
   "resources": [
     {
-      "identifier": "string",
-      "resource": {}
+      "identifier": "elevfrafar_1",
+      "resource": {
+        "elevForhold": elevForhold,
+        "fraværsregistrering": fraværsregistrering
+      }
     }
   ],
   "syncType": "FULL"
