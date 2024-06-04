@@ -1,8 +1,6 @@
 # Adapter kontrakt
 
->Før du begynner med denne må du registrere et adapter 
-> på [kundeportalen](../portal/adapter.md).
-
+>Den tekniske kontakten i ditt fylke må opprette et adapter i kundeportalen før du kan begynne med denne veiledningen.
 
 Når du har registrert adapteret så må du sende en kontrakt til provider-registrer.
 Den kan sendes til https://api.felleskomponent.no/provider/register. Du kan se et eksempel på hvordan den ser ut under.
@@ -83,6 +81,13 @@ For å page så deler du totale antall elementer og deler det på antall pages d
     "pageSize": 12500,
     "totalPages": 4
 ```
+
+```json
+    "page": 1,
+    "pageSize": 50000,
+    "totalPages": 5
+```
+
 
 > Se swagger siden for mer informasjon
 > swagger: https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/
