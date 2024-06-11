@@ -4,7 +4,7 @@
 * [Informasjonsmodellen](model/index.md)
   * [Oppbygning](model/api-model.md)
   * [Konvensjoner](model/conventions.md)
-  * [Skjema](model/schema.md)
+  * [JSON Skjema](model/schema.md)
 * [Kundeportalen](portal/index.md)
 * [Integrere med FINT](integrate/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
