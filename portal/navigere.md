@@ -1,4 +1,27 @@
-# Bli kjent med kundeportalen
+# Navigere rundt i kundeportalen
+
+## Logge inn
+
+Hvis du er lagt til som bruker i kundeportalen, logger du inn på følgende måte:
+
+1. Åpne [kunde.felleskomponent.no](https://kunde.felleskomponent.no) i en nettleser.
+
+2. Fullfør innloggingen med **ID-porten**.
+
+3. Du er nå innlogget, og dashboardet vises:
+   ![Dashboard](../_media/kundeportal-navigering-1.png)
+
+4. De fleste brukere vil kun ha tilgang til én organisasjon. Hvis du er lagt til i flere organisasjoner, klikker du på organisasjonens navn øverst til høyre for å velge hvilken organisasjon du skal behandle.
+   ![Dashboard](../_media/kundeportal-navigering-2.png)
+
+## Menyen
+
+Hovedmenyen vises på venstre side.  
+Trykker du på hamburger-ikonet  
+![Hamburgermeny](../_media/kundeportal-navigering-3.png)
+
+så utvides menyen og viser elementene med tekster:
+![Utvidet meny](../_media/kundeportal-navigering-4.png)
 
 ### Startsiden
 
@@ -23,17 +46,5 @@ For å opprette sitt oppsett, følger man valg i menystrukturen, som vises med s
 
 Første menypunkt, vist med blå sirkel i bildet under, er hvor man setter opp tekniske kontaktpersoner.
 
-### Kontaktpersoner
 
-Gå til Kontakter (1), og klikk på det grønne ikonet med en svart pluss i (2). Deretter trykk på det røde ikonet med en pluss i som kommer i vinduet som åpner seg (3). Der kan du, dersom du er juridisk teknisk kontakt, legge inn de tekniske kontaktene du ønsker skal ha tilgang til kundeportalen. Dersom kontakten du ønsker skal ha tilgang til kundeportalen ikke finnes i listen, ber du dem opprette en bruker.
-
-![ill3](../_media/kundeportal-3.jpeg)
-
-### Komponenter
-
-![ill4](../_media/kundeportal-4.png)
-
-Her velger man hvilke komponenter man ønsker å gjøre tilgjengelig for sin organisasjon (hvilken organisasjon man har valgt vises i øvre høyre hjørne, i eksemplene vil det være Møre og Romsdal). De som har et grønt symbol med et pluss i, er komponenter som du kan legge til. De med rødt symbol med en minus i, er komponenter som allerede er lagt til. Man klikker på symbolet for å legge til eller fra komponenten. Hvis man klikker på tannhjulet bak det røde eller grønne symbolet, vil man få opp et vindu som viser informasjon om komponenten.
-
-![ill5](../_media/kundeportal-5.png)
 

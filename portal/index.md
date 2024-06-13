@@ -7,7 +7,9 @@ Du finner kundeportalen på <https://kunde.felleskomponent.no>.
 
 | Dokument                                 | Beskrivelse                                                         |
 |:-----------------------------------------|:--------------------------------------------------------------------|
-| [Bli kjent](portal/blikjent.md)          | Bli kjent med kundeportalen                                         |
+| [Navigere](portal/navigere.md)           | Bli kjent med hvordan du navigerer på kundeportalen                 |
+| [Brukere](portal/brukere.md)             | Legg til nye brukere i kundeportalen                                |
+| [Komponenter](portal/komponenter.md)     | Sette opp komponenter i FINT                                        |
 | [Klienter](portal/klient.md)             | Sett opp klienter for å konsumere data fra FINT                     |
 | [Adapter](portal/adapter.md)             | Sett opp adapter for å levere data til FINT                         |
 | [Basistest](portal/basistest.md)         | Kjør basistest for å se status for komponentene i FINT              |
