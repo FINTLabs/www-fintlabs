@@ -1,8 +1,8 @@
 # JSON Schema
 
-FINT offer [draft-07](https://json-schema.org/specification.html) JSON Schema for all classes in the FINT information model.  These are available under `https://schema.fintlabs.no/<domain>/<class>.json`
+FINT tilbyr [draft-07](https://json-schema.org/specification.html) JSON Schema for alle klasser i FINT Informasjonsmodelen.  De er tilgjengelig på `https://schema.fintlabs.no/<domene>/<klasse>.json`
 
-To find a particular schema, the domain of the resource class and the name of the resource is added to the URI in the form `<domain>/<class>.json`
+For å finnne et bestemt schema, domenet til ressursen og navnet på ressursen er lagt til URI'en på formen `<domene>/<klasse>.json` .
 
-For insance, the schema for `Personalressurs` is available at https://schema.fintlabs.no/administrasjon/personalressurs.json
+For eksempel, schema for `Personalressurs` er tilgjengelig på https://schema.fintlabs.no/administrasjon/personalressurs.json
 
