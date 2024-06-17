@@ -1,6 +1,6 @@
-## Naming convention
+## Navnekonvensjoner
 
-FINT information objects are named based on the packaging structure in the information model:
+FINT informasjonsobjekter er navngitt basert på pakkestrukturen i Informasjonsmodellen:
 
 - Administrasjon `/administrasjon`
     - Fullmakt `/administrasjon/fullmakt`
@@ -14,21 +14,21 @@ FINT information objects are named based on the packaging structure in the infor
     - Utdanningsprogram `/utdanning/utdanningsprogram`
     - Vurdering `/utdanning/vurdering`
 
-For every package, classes of the stereotype `hovedklasse` are accessible through the FINT API.
-As an example, for the package *Personal* within the domain *Administrasjon*, the following classes
-are currently `hovedklasse`:
+For hver pakke er klasser av typen `hovedklasse` tilgjengelig gjennom FINT API.
 
-- Personalressurs `/personalressurs`
+Som et eksempel har pakken *Personal* i domenet *Administrasjon* følgende klasser som er `hovedklasser`:
+
 - Arbeidsforhold `/arbeidsforhold`
-- Fravær `/fravar`
 - Fastlønn `/fastlonn`
 - Fasttillegg `/fasttillegg`
+- Fravær `/fravar`
+- Personalressurs `/personalressurs`
 - Variabellønn `/variabellonn`
 
-Norwegian characters are translated according to the following scheme:
+Særnorske bokstaver er erstattet som følger:
 
-| Original | Replacement |
-| -------- | ----------- |
-| æ        | a           |
-| ø        | o           |
-| å        | a           |
+| Original | Erstatning |
+| -------- |------------|
+| æ        | a          |
+| ø        | o          |
+| å        | a          |
