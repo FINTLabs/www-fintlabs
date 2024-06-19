@@ -1,58 +1,70 @@
-## Information Model at the Center
+## Informasjonsmodellen i sentrum
 
-In FINT, the information model defines how the APIs are structured and how they function.
+I FINT, Informasjonsmodellen definerer hvordan API'et er strukturert og hvordan det fungerer.
 
-### Types of classes
+### Type av klasser
+FINT Informasjonsmodell har fire typer klasser:
 
-The FINT information model has four types of classes:
+1. Hovedklasser (`hovedklasse`)
+1. Abstrakte klasser
+1. Komplekse datatyper
+1. Referanser
 
-1. Main classes (`hovedklasse`)
-1. Abstract classes
-1. Complex datatypes
-1. References
+Bare hovedklasser er direkte tilgjengelige fra FINT APIer, og hver hovedklasse i modellen har et API-endepunkt.
 
-Only main classes are directly accessible from FINT APIs, and every main class in the model has an API endpoint.
+?>En hovedklasse tilsvarer en ressurs i REST
 
-?>A main class is equivalent to a resource in REST
+Alle andre typer brukes til å konstruere hovedklassene, enten ved abstraksjon av vanlige felt, eller for å representere felt i klassene.
 
-All other types are used to construct the main classes, either by abstraction of common fields, or to represent fields in the classes.
+### Identitet
 
-### Identity
+Hovedklasser har identitet, og kan refereres til ved hjelp av en identifikatorverdi. 
+Dette er representert av attributter av typen `Identifikator`. 
+Alle hovedklasser har minst ett attributt av denne typen, 
+men det er helt lovlig å ha mer enn ett identifiserende attributt.
 
-Main classes have identity, and can be referred to using an identifier value. This is represented by attributes of the type `Identifikator`. All main classes have at least one attribute of this type, but it's perfectly legal to have more than one identifying attribute.
+Hvis klassen har flere identifiserende attributter, kan alle de identifiserende attributtene brukes til å referere til den, og FINT API eksponerer endepunkter for å referere til klassen med alle de identifiserende attributtene.
 
-If the class has multiple identifying attributes, any of the identifying attributes can be used to reference it, and the FINT API exposes endpoints to refer to the class by all of the identifying attributes.
+For eksempel kan `Personalressurs` bli referet til av følgende attributter:
+* `ansattnummer`
+* `brukernavn`
+* `systemId`
 
-For instance, `Personalressurs` can be identified by both `ansattnummer`, `brukernavn` and `systemId`.
+### Relasjoner
 
-### Relations
+Relasjoner kan legges til i hovedklasser, enten direkte eller i en abstrakt basisklasse. 
+I tillegg kan attributter til klassen være komplekse datatyper, som også kan ha relasjoner.
 
-Relations can be added to main classes, either directly or in an abstract base class.  In addition, attributes of the class can be complex datatypes, which also can have relations.
+Navnet på relasjonen representerer forholdet fra kilden til målet, og har ofte samme navn som klassen til målet.
 
-The name of the relation represents the relationship from the source to the target, and has often the same name as the class of the target.
+Relasjoner kan være valgfrie eller obligatoriske, enkeltverdier eller flerverdier.
+I alle fall er de alltid representert i samme form.
 
-Relations can be optional or mandatory, single-value or multi-value.  In any case, they are always represented in the same form.
+Alle relasjoner er i `_links`-attributtet på klassen den kobler fra. Husk at dette kan være en indre kompleks datatype.
 
-All relations are in the `_links` attribute on the class it links from.  Remember, this can be an inner complex datatype.
+«_links»-attributtet er et objekt der navnet på relasjonen brukes som egenskapsnavnet. Egenskapen er en rekke objekter med et «href»-attributt som inneholder URIen til målressursen.
 
-The `_links` attribute is an object where the name of the relation is used as the property name.  The property is an array of objects with a `href` attribute containing the URI to the target resource.
+Alle relasjoner til andre ressurser i informasjonsmodellen refererer *alltid* til en hovedklasse, og bruker et av de identifiserbare feltene.
 
-All relations to other resources in the information model *always* refer to a main class using one of the identifiable fields.
-
-The FINT model also includes references to resources outside the model.  These are represented by a special type of relation called `Referanse`.  They are also represented as URIs.
+FINT-modellen inkluderer også referanser til ressurser utenfor modellen. 
+Disse er representert av en spesiell type relasjoner kalt Referanse. 
+De er også representert som URIer.
 
 ### Attributes
 
-Attributes in the resources can either be complex datatypes or any of the primitive types:
+Attributter i ressursene kan enten være komplekse datatyper eller en av de primitive typene:
 
 - string
 - integer
 - float
-- dateTime
+- boolean
+- dateTime/date
 
-Attributes can be optional or mandatory, single-value or multi-value.  Multi-value attributes are always represented as an array, even if there is only a single value.
+Attributter kan være valgfrie eller obligatoriske, enkeltverdier eller flerverdier. 
+Multiverdiattributter er alltid representert som en liste, selv om det bare er en enkelt verdi.
 
-#### Date
+<!--
+#### Dato
 
 Dates are represented in ISO 8601 form with UTC +0 (Z) time zone.
 
@@ -67,3 +79,4 @@ Here you can se what a Date of birth can look like:
 - In a HRM system: '2000-02-14T00:00:00+1'
 - In FINT: '2000-02-13T23:00:00Z'
 - In Consumer application: '2000-02-14T00:00:00+1'
+-->
