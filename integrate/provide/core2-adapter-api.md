@@ -7,33 +7,32 @@ Når du skal implementere et adapter må det snakke med FINTs Provider. Her fork
 
 ## 1. Opprette tilgang
 
->Den tekniske kontakten i ditt fylke må opprette et adapter i kundeportalen før du kan begynne med denne veiledningen.
-
-Når du har registrert adapteret så må du sende en kontrakt til provider-registrer.
-Den kan sendes til https://api.felleskomponent.no/provider/register. Du kan se et eksempel på hvordan den ser ut under.
-
-```json
-{
-"adapterId": "44-577524-5753",
-"orgId": "123456789",
-"username": "adapter-brukernavn",
-"heartbeatIntervalInMinutes": 2,
-"capabilities": [
-    {
-    "domainName": "utdanning",
-    "packageName": "vurdering",
-    "resourceName": "elevfravær",
-    "fullSyncIntervalInDays": 0,
-    "deltaSyncInterval": "IMMEDIATE",
-    "component": "string",
-    }
-],
-}
-```
+En teknisk kontakten i ditt fylke må opprette et adapter i kundeportalen før du kan begynne med denne veiledningen. Fra kundeportalen kan
+man da hente ut oauth2-kredentials som må brukes for å autentisere kommunikasjonen med FINT. 
 
 ## 2. Registrere adapteret
 
-Kommer...
+Det første adapteret må gjøre, er å registrere seg selv mot endepunktet https://api.felleskomponent.no/provider/register.
+Du kan se et eksempel på hvordan den ser ut under.
+
+```json
+{
+    "adapterId": "44-577524-5753",
+    "orgId": "123456789",
+    "username": "adapter-brukernavn",
+    "heartbeatIntervalInMinutes": 2,
+    "capabilities": [
+    {
+        "domainName": "utdanning",
+        "packageName": "vurdering",
+        "resourceName": "elevfravær",
+        "fullSyncIntervalInDays": 0,
+        "deltaSyncInterval": "IMMEDIATE",
+        "component": "string"
+    }
+    ]
+}
+```
 
 ## 3. Sende regelmessige statusbeskjeder
 
