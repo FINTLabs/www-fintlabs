@@ -10,5 +10,6 @@ Adapterne som leverer data til FINT finnes i to ulike generasjoner. Den første 
 | 1       | [Java adapter](integrate/provide/core1-java-adapter.md)  | Vårt Java-baserte adapterrammeverk                    |
 | 1       | [.NET adapter](integrate/provide/core1-java-adapter.md)  | Vårt .NET-baserte adapterrammeverk                    |
 | 2       | [Hvorfor versjon 2](integrate/provide/core2-why.md)      | Grunnen til at vi har laget en ny generasjon adaptere |
+| 2       | [Adapter API](integrate/provide/core2-adapter-api.md)    | Om APIet som adapteret skal snakke med                |
 | 2       | [Java adapter](integrate/provide/core2-java-adapter.md)  | Vårt Java-baserte adapterrammeverk (versjon 2)        |
 

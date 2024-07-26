@@ -1,5 +1,12 @@
 # Adapter kontrakt
 
+Når du skal implementere et adapter må det snakke med FINTs Provider. Her forklarer vi hvilke data som må utveksles fra adapteret til FINT.
+
+> Se swagger siden for mer informasjon
+> swagger: https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/
+
+## 1. Opprette tilgang
+
 >Den tekniske kontakten i ditt fylke må opprette et adapter i kundeportalen før du kan begynne med denne veiledningen.
 
 Når du har registrert adapteret så må du sende en kontrakt til provider-registrer.
@@ -24,6 +31,12 @@ Den kan sendes til https://api.felleskomponent.no/provider/register. Du kan se e
 }
 ```
 
+## 2. Registrere adapteret
+
+Kommer...
+
+## 3. Sende regelmessige statusbeskjeder
+
 Heartbeat sendes til https://api.felleskomponent.no/provider/heartbet og ser slik ut:
 
 > HeartbeatIntervalInMinutes kan ikke være lengre en 5
@@ -41,7 +54,7 @@ Heartbeat sendes til https://api.felleskomponent.no/provider/heartbet og ser sli
    ```
 
 
-## Overfør data til FINT
+## 4. Overfør data
 Inni resource feltet skal du legge inn identifikatorveriden til elementet og reursen.
 De sendes som en liste.
 
@@ -50,12 +63,11 @@ De sendes som en liste.
   "metadata": {
     "adapterId": "44-577524-5753",
     "corrId": "string",
-    "orgId": "123456789",
-    "totalSize": 100000,
-    "page": 4,
-    "pageSize": 20000,
-    "totalPages": 0,
-    "uriRef": "string",
+    "orgId": "fintlabs-no",
+    "totalSize": 786,
+    "page": 1,
+    "pageSize": 786,
+    "totalPages": 1
   },
   "resources": [
     {
@@ -71,7 +83,7 @@ De sendes som en liste.
 
 ```
 
-## Paging i FINT
+## Paginering av dataene
 
 Når du skal overføre store mengder data så må du dele det inn i pages
 For å page så deler du totale antall elementer og deler det på antall pages du skal overføre
@@ -89,5 +101,3 @@ For å page så deler du totale antall elementer og deler det på antall pages d
 ```
 
 
-> Se swagger siden for mer informasjon
-> swagger: https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/
