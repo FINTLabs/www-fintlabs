@@ -1,57 +1,75 @@
-# Adapter kontrakt
+# Adapter API
 
-Når du skal implementere et adapter må det snakke med FINTs Provider. Her forklarer vi hvilke data som må utveksles fra adapteret til FINT.
+Hvis du planlegger å implementere et adapter uten å benytte vårt JAVA-rammeverk, eller ønsker en bedre forståelse av 
+hvordan adaptere kommuniserer med FINT, må adapteret kommunisere med FINTs Provider. Denne seksjonen forklarer hvilke 
+data som må utveksles mellom adapteret og FINT.
 
-> Se swagger siden for mer informasjon
-> swagger: https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/
+> For mer informasjon, se [Swagger for provider](https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/)
 
 ## 1. Opprette tilgang
 
-En teknisk kontakten i ditt fylke må opprette et adapter i kundeportalen før du kan begynne med denne veiledningen. Fra kundeportalen kan
-man da hente ut oauth2-kredentials som må brukes for å autentisere kommunikasjonen med FINT. 
+Før du kan begynne med denne veiledningen, må en teknisk kontakt i ditt fylke opprette et adapter i kundeportalen. 
+Når adapteret er opprettet, kan du hente ut OAuth2-legitimasjon fra kundeportalen. Disse legitimasjonene er nødvendige 
+for å autentisere kommunikasjonen med FINT.
 
 ## 2. Registrere adapteret
 
-Det første adapteret må gjøre, er å registrere seg selv mot endepunktet https://api.felleskomponent.no/provider/register.
-Du kan se et eksempel på hvordan den ser ut under.
+Det første adapteret må gjøre, er å registrere seg selv mot endepunktet [https://api.felleskomponent.no/provider/register](https://api.felleskomponent.no/provider/register).
+Under finner du et eksempel på hvordan registreringsforespørselen kan se ut:
 
 ```json
 {
-    "adapterId": "44-577524-5753",
-    "orgId": "123456789",
-    "username": "adapter-brukernavn",
+    "adapterId": "https://novari.no/rogfk.no/udanning/vurdering/429365f2-6853-40d8-8526-f2a020f15412",
+    "orgId": "rogfk.no",
+    "username": "vis@adapter.rogfk.no",
     "heartbeatIntervalInMinutes": 2,
     "capabilities": [
-    {
+      {
         "domainName": "utdanning",
         "packageName": "vurdering",
         "resourceName": "elevfravær",
         "fullSyncIntervalInDays": 0,
-        "deltaSyncInterval": "IMMEDIATE",
-        "component": "string"
-    }
+        "deltaSyncInterval": "IMMEDIATE"
+      }
     ]
 }
 ```
 
+| Kontraksfelter                                          | Beskrivelse                                                                                                                                                              |
+|:--------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| adapterID                                               | En **persistent unik ID** for adapteret. Den bør være i følgende format: https://<firma domene>/<kunde domene>/<FINT domene>/<FINT pakke (valgfritt)>/<UUID (valgfritt)> |
+| orgId                                                   | OrgId for kunden denne kontrakten representerer.                                                                                                                         |
+| username                                                | Brukernavn brukt for autentisering mot FINT.                                                                                                                             |
+| heartbeatIntervalInMinutes                              | Intervall i minutter adapteret skal sende heartbeats til FINT.                                                                                                           |
+| capabilities                                            | Liste (array) over kapabiliteter for adapteret.                                                                                                                          |
+
+> AdapterID skal være en unik ID. Om adapteret testkjører på en utvikler-pc skal denne ha en unik ID.
+
+| Kapabilitetsfelter     | Beskrivelse                                                     |
+|:-----------------------|:----------------------------------------------------------------|
+| domainName             | Navn på FINT-domenet. For eksempel: `utdanning`.                |
+| packageName            | Navn på FINT-pakken. For eksempel: `vurdering`.                 |
+| resourceName           | Navn på FINT-klassen/enheten. For eksempel: `fravar`.           |
+| fullSyncIntervalInDays | Antall dager mellom hver fullstendige synkronisering.           |
+| deltaSyncInterval      | Delta sync strategi: NONE, LEGACY (hvert 15. minutt), IMMEDIATE |
+
+
 ## 3. Sende regelmessige statusbeskjeder
 
-Heartbeat sendes til https://api.felleskomponent.no/provider/heartbet og ser slik ut:
+Heartbeat sendes til [https://api.felleskomponent.no/provider/heartbeat](https://api.felleskomponent.no/provider/heartbeat) 
+og fungerer som en beskjed om at adapteret kjører og fungerer som normalt. Heartbeats skal sendes med intervaller mellom 
+1 og 5 minutter. Det må altså ikke gå mer enn 5 minutter mellom hvert heartbeat.
 
-> HeartbeatIntervalInMinutes kan ikke være lengre en 5
-> 
-> Husk å å bytte ut til riktig miljø. Hvis adapteret foreksempel er registrert i beta miljøet,
-> så må heartbeat også sendes der
 
- ```json
-    {
-    "adapterId": "44-577524-5753",
-    "username": "mitt-adapter",
-    "orgId": "123456789",
-    "time": 0
-    }
-   ```
-
+```json
+{
+  "adapterId": "https://novari.no/rogfk.no/udanning/vurdering/429365f2-6853-40d8-8526-f2a020f15412",
+  "username": "vis@adapter.rogfk.no",
+  "orgId": "rogfk.no",
+  "time": 1722932941
+}
+```
+Heartbeat-tiden for adapteret angitt som Unix-tidsstempel. De andre feltene skal tilsvare verdiene fra adapterregistreringen.
 
 ## 4. Overfør data
 Inni resource feltet skal du legge inn identifikatorveriden til elementet og reursen.
