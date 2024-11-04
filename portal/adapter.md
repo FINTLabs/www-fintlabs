@@ -21,15 +21,15 @@ Dersom du hovedsakelig skal hente informasjon fra FINT (som en konsument), bør 
 
 5. Klikk på **Legg til**.
 
-6. Finn adapteret som nettopp ble opprettet, og klikk på endre-symbolet.     
+6. Finn adapteret som nettopp ble opprettet, og klikk på det     
    ![Grå blyant](../_media/kundeportal-adapter-4.png)
 
-7. Klikk på **Komponenter** og huk av de komponentene som adapteret skal ha tilgang til.
+7. Bla ned til **Komponenter** og huk av de komponentene som adapteret skal ha tilgang til.
    ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
 
-   ?>Enkelte adaptere må kunne lese fra FINT, i tillegg til å levere data. I så fall må det opprettes en egen klient for adapteret. Rettigheten som settes gjelder kun det som adapteret skal kunne levere data for. 
+   > Enkelte adaptere må kunne lese fra FINT, i tillegg til å levere data. I så fall må det opprettes en egen klient for adapteret. Rettigheten som settes gjelder kun det som adapteret skal kunne levere data for. 
  
-8. Klikk så på **Autentisering**.
+8. Bla opp til **Autentisering**.
    ![Autentisering](../_media/kundeportal-adapter-6.png)
 
 9. Klikk på oppdater-ikonet til høyre for **Passord** for å generere et nytt passord.  
@@ -41,14 +41,17 @@ Dersom du hovedsakelig skal hente informasjon fra FINT (som en konsument), bør 
 11. Klikk på **Kopier autentiseringsinformasjon**. Påloggingsinformasjonen kan nå limes inn der du vil benytte den. Den kommer i dette formatet:
 
     ```json
-    {
-      “username”: “<klientnavn>@adapter.<fylke>.no”,
-      “password”: “<fjernet>”,
-      “clientId”: “<fjernet>”,
-      “openIdSecret”: “<fjernet>“,
-      “assetIds”: [“<fylke>.no”]
-    }
+      {
+      "username": "username",
+      "password": "password",
+      "clientId": "clientId",
+      "clientSecret": "clientSecret",
+      "assetIds": "fintlabs.no",
+      "scope": "fint-client",
+      "idpUri": "https://idp.felleskomponent.no/nidp/oauth/nam/token"
+      }
     ```
+> Hvis du skal integrere med FINT V2 så må scope settes til "fint-adapter"
 
 **Tips:**
 - Hvis passordet er `**********`, har du glemt å generere passord. Dette vil ikke fungere (se punkt 8).

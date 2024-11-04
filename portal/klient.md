@@ -28,7 +28,7 @@ Det er anbefalt å opprette en egen klient for hvert formål, dvs. ikke gjenbruk
 5. Klikk på **Oprett**.
 
 6. Finn klienten som nettopp ble opprettet, og klikk på den.     
-   ![Grå blyant](../_media/kundeportal-adapter-4.png)
+   ![Grå blyant](../_media/kundeportal-klient-4.png)
 
 7. Under **Tilgangsstyring for komponenter** kan du huke av de komponentene som klienten skal ha tilgang til.
    ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
