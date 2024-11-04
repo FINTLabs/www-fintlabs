@@ -14,24 +14,16 @@ Hvis du er lagt til som bruker i kundeportalen, logger du inn på følgende måt
 4. De fleste brukere vil kun ha tilgang til én organisasjon. Hvis du er lagt til i flere organisasjoner, klikker du på organisasjonens navn øverst til høyre for å velge hvilken organisasjon du skal behandle.
    ![Dashboard](../_media/kundeportal-navigering-2.png)
 
-## Menyen
-
-Hovedmenyen vises på venstre side.  
-Trykker du på hamburger-ikonet  
-![Hamburgermeny](../_media/kundeportal-navigering-3.png)
-
-så utvides menyen og viser elementene med tekster:
-![Utvidet meny](../_media/kundeportal-navigering-4.png)
-
 ### Startsiden
 
-Når man har logget inn på kundeportalen, kommer man inn til et dashboard. Her kan man se antall klienter, adaptere og komponenter.
 
-![ill1](../_media/kundeportal-1.png)
+![ill1](../_media/kundeportal-navigering-1.png)
 
-* `Komponent`: Inneholder alle felleskomponenter som er tilgjengelige. Her kan den enkelte fylkeskommune velge hvilke komponenter som skal være tilgjengelig for sin fylkeskommune. En felleskomponent må være aktivert for fylket for å kunne benyttes av klienter og adaptere.
+* `Komponent`: Inneholder alle felleskomponenter som er tilgjengelige. Her kan den enkelte fylkeskommune eller organisasjon velge hvilke komponenter som skal være tilgjengelig for sin fylkeskommune. En felleskomponent må være aktivert for fylket for å kunne benyttes av klienter og adaptere.
 * `Adapter`: Angir påloggingsinformasjon for adaptere som er installert av leverandøren til et av fylkeskommunens fagsystem. For eksempel må det opprettes et adapter i kundeportalen, slik at adapteret mot HR-systemet får korrekt påloggingsinformasjon, til komponenten som inneholder HR-informasjon.
 * `Klient`: Her angis pålogginsinformasjon til komponenten som kan brukes av integrasjonsmotor, klient, applikasjon eller annen komponent i en arbeidsprosess. F.eks. må det opprettes en klient for at VIS skal få tilgang til ansattinformasjonen fra FINTs Felleskomponenter.
+* `Kontakter`: Her vises alle kontaktene som er i organisasjonen, der er det også mulig å legge til fler
+* `Relasjonstest`: Her kan du kjøre en test for å se om det er relasjonsfeil i dataen som organisasjonen din har i FINT
 
 ![ill2](../_media/kundeportal-2.png)
 
