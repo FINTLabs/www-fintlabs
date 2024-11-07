@@ -291,7 +291,7 @@ Logg deg inn på vanlig måte i Office365. Du vil nå komme inn i tjenesten hvis
 Når man logger på en FINT-tjeneste som er federerert (VIGO-IDP) overføres det utvalgte attributter fra fylkets Azure-tennant til Vigo sin access manager. Disse attributtene sendes så videre til tjenesten brukeren skal aksesere. Hvilke attributter som de ulike tjenestene har behov for varierer utifra hvilken tjeneste du skal aksesere. Påse at de attributtene som tjenesten krever ligger i SAML-tokenet som overføres fra fylkenes Azure til Vigo sin access manager.
 
 ### Tilgangsroller
-For å få tilgang til en federert FINT-tjeneste kreves det ofte at brukeren har fått tildelt en rolle i fylkenes Azure-tennant. Se "Oppsett av Azure AD Federering - VIGO-IDP" ovenfor hvordan dette gjøres. VIGO Iks forvalter disse rollene.
+For å få tilgang til en federert FINT-tjeneste kreves det ofte at brukeren har fått tildelt en rolle i fylkenes Azure-tennant. Se "Oppsett av Azure AD Federering - VIGO-IDP" ovenfor hvordan dette gjøres. Novari IKS forvalter disse rollene.
 
 Oversikt over roller finner du her: https://role-catalog.vigoiks.no
 

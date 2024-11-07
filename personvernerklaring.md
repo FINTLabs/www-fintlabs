@@ -1,8 +1,8 @@
 # Personvernerklæring
 
-Personvernerklæringen under gir opplysninger om Vigo IKS sin behandling av personopplysninger i henhold til personopplysningslovens §§ 18-20.
+Personvernerklæringen under gir opplysninger om Novari IKS sin behandling av personopplysninger i henhold til personopplysningslovens §§ 18-20.
 
-For å lese mer om personvern kan du trykke på denne lenken [Personvernerklæring](https://www.vigoiks.no/media/Files/personvernerklaering2).
+For å lese mer om personvern kan du trykke på denne lenken [Personvernerklæring](https://novari.no/personvern-og-retningslinjer/).
 
 
 ## Bruk av informasjonskapsler (cookies)

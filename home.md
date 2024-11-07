@@ -13,7 +13,7 @@ Leveransene fra FINT består av en standardisert informasjonsmodell og API, som 
 
 Arbeidet og metodikken til FINT er tett knyttet opp mot Rammeverk for informasjonsforvaltning og Felles datakatalog fra Difi og Brønnøysundregistrene m.fl.
 
-FINTLabs forvaltes av [Vigo IKS](https://www.vigoiks.no), og har som oppgave å ivareta alle fylkeskommuners behov innen:
+FINTLabs forvaltes av [Novari IKS](https://novari.no), og har som oppgave å ivareta alle fylkeskommuners behov innen:
 
 * Digitalisering, gjennom etablering av felleskomponenter
 * Standardisering av integrasjoner for fylkeskommunene
