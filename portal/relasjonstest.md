@@ -12,7 +12,7 @@ Overst i menyen trykker du på helse, også på relasjonstest.
 
 Da kommer du inn på relasjonstes siden. Her veldiger du miljø, komponent, resurs og klienten du skal bruke til å teste.
 
-**Klienten du velger vill få passordet sitt resatt, så vi anbefaler å ha egene klienter til å kjøre disse testene.**
+**Klienten du velger vill få passordet sitt resatt, så vi anbefaler å ha egene klienter til å kjøre disse testene. Klienten må også ha tilgang til resursen som skal testes**
 
 ![ill20](../_media/kundeportal-relasjonstest-2.png)
 
