@@ -155,3 +155,68 @@ Dette betyr at det vil være 5 sider totalt, hver med 50,000 elementer.
 
 Gjennom å bruke paginering sikrer du at store mengder data kan overføres på en strukturert og effektiv måte, som reduserer belastningen både på klienten og serveren.
 
+## Hendelser
+
+Enkelte ressurser er merket som skrivbare i modellen. I disse tilfellene kan klienter sende oppdateringer til FINT ved hjelp av en 
+POST- eller PUT-forespørsel for å opprette eller endre en ressurs. Hendelsene er asynkrone, noe som betyr at dersom forespørselen blir godtatt, 
+vil klienten motta en `Location`-header som gjør det mulig å følge opp statusen til hendelsen.
+I tillegg kan en klient be om validering av en ressurs og i noen tilfeller sende en DELETE-forespørsel.
+
+
+| Klient forespørsel | Hendelsestype til adapter (Operation type) |
+|:-------------------|:-------------------------------------------|
+| POST               | CREATE                                     |
+| PUT                | UPDATE                                     |
+| POST?validate=true | VALIDATE                                   | 
+| DELETE             | DELETE                                     |
+
+
+### Hente hendelser
+
+Adapteret henter innsendte hendelser ved å sende en GET-forespørsel til `/event`-endepunktet. Adapteret kan filtrere relevante 
+hendelser ved å spesifisere en sti som `/event/[domene]/[pakke]/[ressurs]`. For eksempel kan `/event/administrasjon/personal/fravar` 
+brukes for å hente hendelser relatert til fravær. Som svar returneres en liste over hendelsesforespørsler, hvor en enkelt forespørsel kan se slik ut:
+
+```
+{
+  corrId: "244fec3c-5044-4d77-b908-2c3330e3110c"
+  orgId: "vestfoldfylke.no"
+  domainName: "administrasjon"
+  packageName: "personal"
+  resourceName: "fravar"
+  operationType: "CREATE"
+  created: 1733821906
+  timeToLive: 1733825506
+  value: "{<JSON for ressursen>}"
+}
+```
+
+### Gi svar på hendelser
+
+Når adapteret er ferdig med å behandle en hendelse, sender det en respons tilbake til FINT ved hjelp av en POST-forespørsel 
+til `/event`-endepunktet. Svaret må følge kontrakten definert i [ResponseFintEvent](https://github.com/FINTLabs/fint-core-infra-models/blob/main/src/main/java/no/fintlabs/adapter/models/ResponseFintEvent.java) 
+og kan se slik ut:
+
+```
+{
+  corrId: "244fec3c-5044-4d77-b908-2c3330e3110c"
+  orgId: "vestfoldfylke.no"
+  adapterId: "https://yourdomain.com/vestfoldfylke.no/administrasjon/personal"
+  handledAt: 1733820206
+  value: {
+    identifier: "107849"
+    resource: { <JSON for ressursen> }
+  }
+  operationType: "CREATE"
+  failed: false
+  errorMessage: null
+  rejected: false
+  rejectReason: null
+  conflicted: false
+  conflictReason: null
+}
+```
+
+Default-verdier er valgfrie. Ved `VALIDATE` trenger ikke `resource` settes, med mindre det er en konflikt.
+
+> DELETE-hendelser er for tiden under utvikling og ikke ferdig dokumentert.
