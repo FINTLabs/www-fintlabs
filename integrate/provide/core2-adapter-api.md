@@ -35,7 +35,7 @@ Under finner du et eksempel på hvordan registreringsforespørselen kan se ut:
 }
 ```
 
-| Kontraksfelter                                          | Beskrivelse                                                                                                                                                          |
+| Kontraktsfelter                                          | Beskrivelse                                                                                                                                                          |
 |:--------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | adapterID                                               | En **persistent unik ID** for adapteret. Den bør være i følgende format: https:\/\/firma-domene\/kunde-domene\/FINT-domene\/FINT-pakke (valgfritt)\/UUID (valgfritt) |
 | orgId                                                   | OrgId for kunden denne kontrakten representerer.                                                                                                                     |
@@ -83,7 +83,7 @@ Det kan utføres tre ulike typer dataoverføring:
 URLen bygges opp etter hvilken ressurs som skal overføres: /provider/\[Domene\]/\[Komponent\]/\[Ressurs\]
 For eksempel: (https://api.felleskomponent.no/provider/utdanning/vurdering/elevfravar)[https://api.felleskomponent.no/provider/utdanning/vurdering/elevfravar]
 
-Inni resource feltet skal du legge inn identifikatorveriden til elementet og reursen.
+Inni resource feltet skal du legge inn identifikatorveriden til elementet og ressursen.
 De sendes som en liste.
 
 ```json
