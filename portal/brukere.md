@@ -8,7 +8,7 @@ Klikk på det **Legg til** knappen.
 
 ![ill3](../_media/kundeportal-kontakt-2.png)
 
-Her kan du søke etter personer. 
+Her kan du søke etter personer. Søk må gjøres på etternavn. Fulle navnet kommer opp i listen.
 
 ![ill3](../_media/kundeportal-kontakt-3.png)
 
