@@ -12,6 +12,7 @@
     * [Forstå APIet](integrate/consume/api.md)
     * [Oppdateringer](integrate/consume/updates.md)
     * [GraphQL](integrate/consume/graphql.md)
+    * [OData](integrate/consume/odata.md)
   * [Levere data](integrate/provide/index.md)
 * [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
