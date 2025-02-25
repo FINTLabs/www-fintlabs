@@ -10,6 +10,7 @@
   * [Adapter](portal/adapter.md)
   * [Basistest](portal/basistest.md)
   * [Relasjonstest](portal/relasjonstest.md)
+  * [Hendelseslogg](portal/hendelseslogg.md)
 * [Integrere med FINT](integrate/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [FINT illustrert](cartoon.md)
