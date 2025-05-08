@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: fintlabs-no
+resources:
+  - ../../../base
+commonLabels:
+  app.kubernetes.io/instance: www-fintlabs
+  fintlabs.no/org-id: fintlabs.no
+patches:
+  - patch: |-
+      - op: replace
+        path: "/spec/orgId"
+        value: "fintlabs.no"
+      - op: replace
+        path: "/spec/image"
+        value: ghcr.io/fintlabs/www-fintlabs
+      - op: add
+        path: "/spec/url"
+        value:
+          hostname: fintlabs.no
+          basepath: /
+      - op: add
+        path: "/spec/ingress"
+        value:
+          basePath: /
+          enabled: true
+    target:
+      kind: Application
+      name: www-fintlabs
