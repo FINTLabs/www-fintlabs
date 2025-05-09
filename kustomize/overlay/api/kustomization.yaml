@@ -3,9 +3,10 @@ kind: Kustomization
 namespace: fintlabs-no
 resources:
   - ../../../base
-commonLabels:
-  app.kubernetes.io/instance: www-fintlabs
-  fintlabs.no/org-id: fintlabs.no
+labels:
+  - pairs:
+      app.kubernetes.io/instance: www-fintlabs
+      fintlabs.no/org-id: fintlabs.no
   
 patches:
   - path: application.yaml

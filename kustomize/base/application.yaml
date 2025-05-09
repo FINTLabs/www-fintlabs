@@ -24,4 +24,7 @@ spec:
     requests:
       memory: "50Mi"
       cpu: "50m"
+  probes:
+    readiness:
+      path: /
   env: []

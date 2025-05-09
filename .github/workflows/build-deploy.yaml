@@ -1,4 +1,4 @@
-name: Build Deploy
+name: Build, deploy and release
 
 on:
   push: 
@@ -18,7 +18,7 @@ on:
           - api
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 jobs:
@@ -45,3 +45,9 @@ jobs:
       org: fintlabs-no
       environment: api
       image-tags: ${{ needs.build-publish.outputs.image-tags }}
+
+  create-release: 
+    if: github.ref == 'refs/heads/prod'
+    uses: ./.github/workflows/.create-release.yaml
+    needs: deploy-api
+    secrets: inherit

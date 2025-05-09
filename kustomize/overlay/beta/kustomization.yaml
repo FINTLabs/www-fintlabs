@@ -3,17 +3,7 @@ kind: Kustomization
 namespace: fintlabs-no
 resources:
   - ../../../base
-commonLabels:
-  app.kubernetes.io/instance: www-fintlabs
-  fintlabs.no/org-id: fintlabs.no
-patches:
-  - patch: |-
-      - op: replace
-        path: "/spec/orgId"
-        value: "fintlabs.no"
-      - op: replace
-        path: "/spec/image"
-        value: ghcr.io/fintlabs/www-fintlabs
-    target:
-      kind: Application
-      name: www-fintlabs
+labels:
+  - pairs:
+      app.kubernetes.io/instance: www-fintlabs
+      fintlabs.no/org-id: fintlabs.no
