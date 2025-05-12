@@ -3,10 +3,6 @@ name: Cluster deploy
 on:
   workflow_call:
     inputs:
-      org:
-        description: 'Organisation'
-        required: true
-        type: string
       environment:
         description: 'Environment'
         required: true
@@ -31,7 +27,7 @@ jobs:
         uses: azure/k8s-bake@v3
         with:
           renderEngine: "kustomize"
-          kustomizationPath: "kustomize/overlays/${{ inputs.environment }}/${{ inputs.org }}"
+          kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
 
       - uses: azure/login@v2
         with:
