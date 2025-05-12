@@ -32,7 +32,6 @@ jobs:
     needs: build-publish
     secrets: inherit
     with:
-      org: fintlabs-no
       environment: beta
       image-tags: ${{ needs.build-publish.outputs.image-tags }}
 
@@ -42,7 +41,6 @@ jobs:
     needs: build-publish
     secrets: inherit
     with:
-      org: fintlabs-no
       environment: api
       image-tags: ${{ needs.build-publish.outputs.image-tags }}
 
