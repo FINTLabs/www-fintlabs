@@ -1,0 +1,46 @@
+name: Build and publish
+
+on:
+  workflow_call:
+    outputs:
+      image-tags:
+        description: "Docker image with tag"
+        value: ${{ jobs.publish.outputs.image-tags }}
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    outputs:
+      image-tags: ${{ steps.meta.outputs.tags }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix={{date 'YYYY.MM.DD-HH.mm'}}-,priority=9002
+            
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5.0.0
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Set output
+        run: echo "Docker image ${{ steps.meta.outputs.tags }}" >> $GITHUB_STEP_SUMMARY
