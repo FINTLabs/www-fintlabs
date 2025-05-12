@@ -1,0 +1,30 @@
+apiVersion: fintlabs.no/v1alpha1
+kind: Application
+metadata:
+  name: www-fintlabs
+  labels:
+    app.kubernetes.io/name: www-fintlabs
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/instance: www-fintlabs
+    app.kubernetes.io/part-of: fintlabs-no
+    fintlabs.no/team: core
+    fintlabs.no/org-id: fintlabs.no
+spec:
+  port: 80
+  orgId: fintlabs.no
+  image: ghcr.io/fintlabs/www-fintlabs
+  imagePullPolicy: Always
+  imagePullSecrets: 
+    - ghcr
+  replicas: 1
+  resources:
+    limits:
+      memory: "50Mi"
+      cpu: "50m"
+    requests:
+      memory: "50Mi"
+      cpu: "50m"
+  probes:
+    readiness:
+      path: /
+  env: []

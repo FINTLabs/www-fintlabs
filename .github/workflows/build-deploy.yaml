@@ -1,0 +1,51 @@
+name: Build, deploy and release
+
+on:
+  push: 
+    branches: 
+      - prod
+      - master
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'beta'
+        type: choice
+        options:
+          - beta
+          - api
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  build-publish:
+    uses: ./.github/workflows/.build-publish-docker.yaml
+    secrets: inherit
+
+  deploy-beta:
+    if: github.ref == 'refs/heads/master' || (github.event_name == 'workflow_dispatch' && inputs.environment == 'beta')
+    uses: ./.github/workflows/.cluster-deploy.yaml
+    needs: build-publish
+    secrets: inherit
+    with:
+      environment: beta
+      image-tags: ${{ needs.build-publish.outputs.image-tags }}
+
+  deploy-api:
+    if: github.ref == 'refs/heads/prod' || (github.event_name == 'workflow_dispatch' && inputs.environment == 'api')
+    uses: ./.github/workflows/.cluster-deploy.yaml
+    needs: build-publish
+    secrets: inherit
+    with:
+      environment: api
+      image-tags: ${{ needs.build-publish.outputs.image-tags }}
+
+  create-release: 
+    if: github.ref == 'refs/heads/prod'
+    uses: ./.github/workflows/.create-release.yaml
+    needs: deploy-api
+    secrets: inherit
