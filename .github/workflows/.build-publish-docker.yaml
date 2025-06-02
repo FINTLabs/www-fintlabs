@@ -35,7 +35,7 @@ jobs:
             type=sha,prefix={{date 'YYYY.MM.DD-HH.mm'}}-,priority=9002
             
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6.17.0
+        uses: docker/build-push-action@v6.18.0
         with:
           context: .
           push: true
