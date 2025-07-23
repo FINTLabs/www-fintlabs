@@ -31,7 +31,15 @@ Det er anbefalt å opprette en egen klient for hvert formål, dvs. ikke gjenbruk
    ![Grå blyant](../_media/kundeportal-klient-4.png)
 
 7. Under **Tilgangsstyring for komponenter** kan du huke av de komponentene som klienten skal ha tilgang til.
-   ![Huk av komponenter](../_media/kundeportal-adapter-5.png)
+   ![Huk av komponenter](../_media/kundeportal-klient-tilgang-1.png)
+
+    Her kan du også styre tilgangene ned til resursnivå med å trykke på pilen ved siden av komponenten.  
+   ![Huk av resurser](../_media/kundeportal-klient-tilgang-2.png)
+
+    Du kan også spesifisere feltene du skal ha tilgang til, og om det skal være tilgang for skriverett eller kun 
+   enkeltoppslag. 
+    ![Fyll inn tilgangsinformasjon](../_media/kundeportal-klient-tilgang-3.png)
+    
 
 8. Bla opp til **Autentisering**.
    ![Autentisering](../_media/kundeportal-klient-3.png)
@@ -55,6 +63,12 @@ Det er anbefalt å opprette en egen klient for hvert formål, dvs. ikke gjenbruk
     "idpUri": "https://idp.felleskomponent.no/nidp/oauth/nam/token"
     }
     ```
+
+## Tilgangsstyring
+
+
+
+
 
 **Tips:**
 - Hvis passordet er `**********`, har du glemt å generere passord. Dette vil ikke fungere (se punkt 8).
