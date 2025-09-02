@@ -1,23 +1,25 @@
 name: Build, deploy and release
 
 on:
-  push: 
-    branches: 
+  push:
+    branches:
       - prod
       - master
 
   workflow_dispatch:
     inputs:
       environment:
-        description: 'Select environment'
+        description: "Select environment"
         required: true
-        default: 'beta'
+        default: "beta"
         type: choice
         options:
           - beta
           - api
 
 permissions:
+  actions: read
+  id-token: write
   contents: write
   packages: write
 
@@ -44,8 +46,12 @@ jobs:
       environment: api
       image-tags: ${{ needs.build-publish.outputs.image-tags }}
 
-  create-release: 
+  create-release:
     if: github.ref == 'refs/heads/prod'
     uses: ./.github/workflows/.create-release.yaml
-    needs: deploy-api
+    needs:
+      - deploy-api
+      - build-publish
     secrets: inherit
+    with:
+      image-tags: ${{ needs.build-publish.outputs.image-tags }}

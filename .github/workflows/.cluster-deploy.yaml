@@ -4,11 +4,11 @@ on:
   workflow_call:
     inputs:
       environment:
-        description: 'Environment'
+        description: "Environment"
         required: true
         type: string
       image-tags:
-        description: 'Docker image with tag'
+        description: "Docker image with tag"
         required: true
         type: string
 
@@ -16,8 +16,6 @@ jobs:
   deploy-to-cluster:
     name: Deploy to Cluster
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -38,8 +36,8 @@ jobs:
         with:
           cluster-name: "${{ vars[format('{0}_CLUSTER_NAME', inputs.environment)] }}"
           resource-group: "${{ vars[format('{0}_CLUSTER_RESOURCE_GROUP', inputs.environment)] }}"
-          admin: 'true'
-          use-kubelogin: 'true'
+          admin: "true"
+          use-kubelogin: "true"
 
       - name: Deploy
         uses: azure/k8s-deploy@v5.0.3
@@ -47,4 +45,5 @@ jobs:
           action: deploy
           manifests: ${{ steps.bake.outputs.manifestsBundle }}
           images: ${{ inputs.image-tags }}
+          pull-images: false
           namespace: fintlabs-no
