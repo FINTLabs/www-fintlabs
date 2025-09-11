@@ -1,10 +1,8 @@
 # Kom i gang
-
-  Hvis du skal bruke FINT en del, for eksempel til å lage en integrasjon eller et adapter, anbefaler vi at du gjør deg kjent med [våre retningslinjer](integrate/consume/guidelines.md).
+Hvis du skal bruke FINT en del, for eksempel til å lage en integrasjon eller et adapter, anbefaler vi at du gjør deg kjent med [våre retningslinjer](integrate/consume/guidelines.md).
 
 
 ## Miljøer
-
 FINT tilbyr tre miljøer:
 
 * <https://play-with-fint.felleskomponent.no> (sandbox)
@@ -17,7 +15,6 @@ Miljøet "play-with-fint" kan brukes uten noen form for autentisering, så hvis 
 
 
 ## REST API
-
 REST API-endepunktene er bygget i henhold til informasjonsmodellen. For å vite hva du skal spørre etter, bør du gjøre deg kjent med hvordan [informasjonsmodellen er strukturert]().
 
 Se [Forstå APIet](integrate/consume/api.md) for å forstå endepunktstrukturen for ulike funksjonaliteter som å hente ved ID, paginering og last-updated. [Oppdatering](integrate/consume/updates.md) angående hvordan du utfører UPDATE- og POST-forespørsler.
@@ -26,5 +23,4 @@ Mange brukere foretrekker å teste spørringer mot REST APIet ved hjelp av appli
 
 
 ## GraphQL
-
 [Dokumentasjon](integrate/consume/graphql.md) for vår eldre GraphQL-tjeneste.
