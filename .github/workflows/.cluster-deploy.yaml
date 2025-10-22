@@ -22,17 +22,24 @@ jobs:
 
       - name: Bake manifests with Kustomize
         id: bake
-        uses: azure/k8s-bake@v3
+        uses: azure/k8s-bake@v3.0.2
         with:
           renderEngine: "kustomize"
           kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
 
-      - uses: azure/login@v2
+      - name: Substitute image into baked YAML
+        id: substitute
+        uses: azure/k8s-artifact-substitute@v2.0.0
+        with:
+          manifests: ${{ steps.bake.outputs.manifestsBundle }}
+          images: ${{ inputs.image-tags }}
+
+      - uses: azure/login@v2.3.0
         with:
           creds: "${{ secrets[format('AKS_{0}_FINT_GITHUB', inputs.environment)] }}"
 
       - name: Set the target cluster
-        uses: azure/aks-set-context@v4
+        uses: azure/aks-set-context@v4.0.3
         with:
           cluster-name: "${{ vars[format('{0}_CLUSTER_NAME', inputs.environment)] }}"
           resource-group: "${{ vars[format('{0}_CLUSTER_RESOURCE_GROUP', inputs.environment)] }}"
@@ -43,7 +50,6 @@ jobs:
         uses: azure/k8s-deploy@v5.0.4
         with:
           action: deploy
-          manifests: ${{ steps.bake.outputs.manifestsBundle }}
-          images: ${{ inputs.image-tags }}
+          manifests: ${{ steps.substitute.outputs.manifests }}
           pull-images: false
           namespace: fintlabs-no
