@@ -12,6 +12,7 @@
       * [.NET adapter](integrate/provide/core1-dotnet-adapter.md)
     * Versjon 2
       * [Hvorfor versjon 2](integrate/provide/core2-why.md) 
+      * [Autorelasjon](integrate/provide/core2-autorelation.md)
       * [Adapter API](integrate/provide/core2-adapter-api.md)
       * [Java adapter](integrate/provide/core2-java-adapter.md)
 * [Teknisk dokumentasjon](technical/index.md)

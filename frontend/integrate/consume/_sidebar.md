@@ -8,7 +8,7 @@
     * [Kom i gang](integrate/consume/start.md)
     * [Tilgang](integrate/consume/access.md)
     * [Retningslinjer](integrate/consume/guidelines.md)
-    * [Testklient](integrate/consume/testclient.md)
+    * [Testklient](integrate/consume/testklient.md)
     * [Forstå APIet](integrate/consume/api.md)
     * [Oppdateringer](integrate/consume/updates.md)
     * [GraphQL](integrate/consume/graphql.md)

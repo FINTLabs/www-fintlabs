@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Bake manifests with Kustomize
         id: bake
-        uses: azure/k8s-bake@v3.0.2
+        uses: azure/k8s-bake@v3.0.4
         with:
           renderEngine: "kustomize"
           kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
@@ -47,7 +47,7 @@ jobs:
           use-kubelogin: "true"
 
       - name: Deploy
-        uses: azure/k8s-deploy@v5.0.4
+        uses: azure/k8s-deploy@v5.1.0
         with:
           action: deploy
           manifests: ${{ steps.substitute.outputs.manifests }}

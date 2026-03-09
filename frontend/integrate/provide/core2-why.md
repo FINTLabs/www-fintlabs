@@ -16,3 +16,4 @@ FINT versjon 2, vår oppdaterte API-integrasjonsplattform, bygger videre på det
 - **Økt fleksibilitet i dataoverføring:** Adapter-leverandører kan oppdatere data etter behov, med mulighet til å sende deltaendringer og slette data, i stedet for å overføre komplette datasett med jevne mellomrom.
 - **Eventdrevet arkitektur med Apache Kafka:** Bruken av Kafka i en mikrotjeneste-arkitektur reduserer behovet for full datahenting ved restart, ettersom data kan hentes direkte fra Kafka.
 - **Full bakoverkompatibilitet:** Eksisterende løsninger som benytter konsumer-API-et, trenger ikke endres. Dette sikrer kontinuitet og stabilitet for alle integrasjoner.
+- **Autorelasjon:** En tjeneste som automatisk oppretter og vedlikeholder spesifikke relasjoner slik at adapteret slipper å utføre større prosessering for å vedlikeholde relasjoner selv.
