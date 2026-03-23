@@ -34,7 +34,7 @@ jobs:
           manifests: ${{ steps.bake.outputs.manifestsBundle }}
           images: ${{ inputs.image-tags }}
 
-      - uses: azure/login@v2.3.0
+      - uses: azure/login@v3.0.0
         with:
           creds: "${{ secrets[format('AKS_{0}_FINT_GITHUB', inputs.environment)] }}"
 
