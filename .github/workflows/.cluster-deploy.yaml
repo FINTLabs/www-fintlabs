@@ -18,11 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Bake manifests with Kustomize
         id: bake
-        uses: azure/k8s-bake@v4.0.0
+        uses: azure/k8s-bake@v4.1.0
         with:
           renderEngine: "kustomize"
           kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
