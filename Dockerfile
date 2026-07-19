@@ -1,4 +1,4 @@
-FROM nginx:1.31.2-alpine-slim
+FROM nginx:1.31.3-alpine-slim
 
 COPY ./frontend/ /usr/share/nginx/html
 
