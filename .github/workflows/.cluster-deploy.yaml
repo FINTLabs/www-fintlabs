@@ -34,6 +34,20 @@ jobs:
           manifests: ${{ steps.bake.outputs.manifestsBundle }}
           images: ${{ inputs.image-tags }}
 
+      - name: Prepare manifests for deployment
+        id: deploy-manifests
+        shell: bash
+        env:
+          SOURCE_DIRECTORY: ${{ steps.substitute.outputs.directory }}
+        run: |
+          set -euo pipefail
+
+          destination="$GITHUB_WORKSPACE/.k8s-deploy-manifests"
+          mkdir -p "$destination"
+          cp -aL -- "$SOURCE_DIRECTORY/." "$destination/"
+
+          echo "manifests=$destination" >> "$GITHUB_OUTPUT"
+
       - uses: azure/login@v3.0.0
         with:
           creds: "${{ secrets[format('AKS_{0}_FINT_GITHUB', inputs.environment)] }}"
@@ -50,6 +64,6 @@ jobs:
         uses: azure/k8s-deploy@v7.0.0
         with:
           action: deploy
-          manifests: ${{ steps.substitute.outputs.manifests }}
+          manifests: ${{ steps.deploy-manifests.outputs.manifests }}
           pull-images: false
           namespace: fintlabs-no
