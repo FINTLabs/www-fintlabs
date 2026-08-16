@@ -22,7 +22,7 @@ jobs:
 
       - name: Bake manifests with Kustomize
         id: bake
-        uses: azure/k8s-bake@v4.1.0
+        uses: azure/k8s-bake@v4.1.1
         with:
           renderEngine: "kustomize"
           kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
