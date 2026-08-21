@@ -1,69 +1,70 @@
 :root {
-  /* FINT colours */
-  --theme-color: #5fa202;
-  --color-bg: #1b1b1b;
-  --color-text: #d3d3d3;
+  --brand-green: #5fa202;
+  --brand-teal: #1f4f59;
+  --page-background: #1b1b1b;
+  --text-color: #d3d3d3;
+  --white: #fff;
 
-  /* Cover */
-  --cover-background-color: #1f4f59;
+  --text-color-base: var(--text-color);
+  --theme-color: var(--brand-green);
+  --color-bg: var(--page-background);
+  --color-text: var(--text-color);
+
+  --cover-background-color: var(--brand-teal);
   --cover-background-image: none;
-  --cover-heading-color: #ffffff;
-  --cover-button-border-radius: 2rem;
-  --cover-button-color: #ffffff;
-  --cover-button-border: 2px solid #ffffff;
-  --cover-button-primary-border: 2px solid #5fa202;
-  --cover-button-primary-background: #1f4f59;
-  --cover-button-primary-color: #ffffff;
+  --cover-heading-color: var(--white);
   --cover-max-width: 45em;
 
-  /* Navigation */
-  --navbar-root-color: #5fa202;
-  --navbar-root-color--active: #5fa202; 
+  --cover-button-border-radius: 2rem;
+  --cover-button-color: var(--white);
+  --cover-button-border: 2px solid var(--white);
+  --cover-button-primary-border: 2px solid var(--brand-green);
+  --cover-button-primary-background: var(--brand-teal);
+  --cover-button-primary-color: var(--white);
 
-  /* Zoomed images */
-  --zoomimage-overlay-background: rgba(0, 0, 0, 0);
+  --navbar-root-color: var(--text-color);
+  --zoomimage-overlay-background: transparent;
 }
 
-/* Ensure FINT green is used for navigation and headings */
-a,
-.sidebar a:hover,
-.sidebar li.active > a,
-.app-nav a:hover {
-  color: #5fa202;
+.content a {
+  text-decoration-color: currentColor !important;
 }
 
-.markdown-section h1,
-.markdown-section h2,
-.markdown-section h3,
-.markdown-section h4 {
-  color: #ffffff;
+.markdown-section :is(h1, h2, h3, h4, h5, h6) a {
+  border-bottom: none;
+  text-decoration: none !important;
 }
 
-/* Cover styling */
 .cover {
-  background-color: #1f4f59;
+  background-color: var(--brand-teal);
+  background-image: none;
 }
 
-.cover .cover-main {
-  color: #ffffff;
+.cover .cover-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
-.cover .cover-main > p > a {
-  font-weight: 700;
-}
-
-.cover .cover-main > p:last-child a {
-  border: 2px solid #ffffff;
+.cover .cover-buttons .button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  color: var(--white);
+  background-color: transparent;
+  border: 2px solid var(--white);
   border-radius: 2rem;
-  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
 }
 
-.cover .cover-main > p:last-child a:last-child {
-  background: #1f4f59;
-  border-color: #5fa202;
+.cover .cover-buttons .button:is(:hover, :focus) {
+  color: var(--white);
+  border-color: var(--brand-green);
+  text-decoration: none;
 }
 
-/* Existing project-specific styles */
 .cover-cartoon {
   width: 100%;
   max-width: 500px;
@@ -83,7 +84,7 @@ a,
   height: 0;
   border-style: solid;
   border-width: 220px 90px 0 0;
-  border-color: #5fa202 transparent transparent transparent;
+  border-color: var(--brand-green) transparent transparent;
 }
 
 #cover-logo {
@@ -93,12 +94,20 @@ a,
   z-index: 999;
 }
 
-@media screen and (max-width: 768px) {
+.markdown-section {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+@media (max-width: 768px) {
   nav {
     display: none;
   }
 
-  .cover-logo {
+  #cover-logo {
     width: 180px;
   }
 
