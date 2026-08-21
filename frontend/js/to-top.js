@@ -1,22 +1,26 @@
-window.onscroll = function () {
-  scrollFunction()
-};
+window.addEventListener("scroll", updateScrollElements);
 
-function scrollFunction() {
-  if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-    document.getElementById("f-to-top-button").style.display = "block";
-    document.getElementById("cover-logo").style.display = "none";
-    document.getElementById("vigo-triangle").style.display = "none";
-  } else {
-    document.getElementById("cover-logo").style.display = "block";
-    document.getElementById("vigo-triangle").style.display = "block";
-    document.getElementById("f-to-top-button").style.display = "none";
+function updateScrollElements() {
+  const isScrolled =
+    document.body.scrollTop > 10 ||
+    document.documentElement.scrollTop > 10;
 
+  setDisplay("f-to-top-button", isScrolled);
+  setDisplay("cover-logo", !isScrolled);
+  setDisplay("vigo-triangle", !isScrolled);
+}
+
+function setDisplay(elementId, visible) {
+  const element = document.getElementById(elementId);
+
+  if (element) {
+    element.style.display = visible ? "block" : "none";
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function scrollToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+} 

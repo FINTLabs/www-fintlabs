@@ -5,34 +5,35 @@
   <meta charset="UTF-8" />
   <title>FINTLabs</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
   <meta name="description" content="FINTLabs hjemmeside" />
   <meta name="keywords"
     content="fintlabs,fint,fylkeskommune,kommune,api,digitalisering,modell,informasjonsmodell,data" />
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-  <link rel="icon" href="_media/favicon.ico" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <link rel="icon" href="/_media/favicon.ico" />
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/themes/core.min.css" />
+
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/themes/addons/core-dark.min.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-  <link rel="stylesheet" href="css/theme-custom.css" />
-  <link rel="stylesheet" href="css/to-top-button.css" />
-  <link rel="stylesheet" href="css/custom.css" />
-  <link rel="stylesheet" href="//unpkg.com/docsify-toc@1.0.0/dist/toc.css" />
-  <style type="text/css">
+  <link rel="stylesheet" href="/css/theme-custom.css" />
+  <link rel="stylesheet" href="/css/to-top-button.css" />
+  <link rel="stylesheet" href="/css/custom.css" />
+
+  <style>
     :root {
       --text-color-base: #d3d3d3;
-    }
-
-    .page_toc {
-      top: 75px;
     }
   </style>
 </head>
 
-<body>
+<body class="loading">
   <div id="app"></div>
 
-  <button onclick="scrollToTop()" class="to-top-button" id="f-to-top-button">
-    <i class="fas fa-arrow-up"></i>
+  <button type="button" onclick="scrollToTop()" class="to-top-button" id="f-to-top-button" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
   <script src="//cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
@@ -43,25 +44,34 @@
     mermaid.initialize({
       startOnLoad: false,
       theme: "dark",
+      securityLevel: "strict",
     });
 
     window.$docsify = {
       name: "FINT",
       logo: "/_media/fint-novari.svg",
+      homepage: "home.md",
+
       auto2top: true,
+      nativeEmoji: true,
+
       loadSidebar: true,
       subMaxLevel: 2,
-      coverpage: true,
+
       loadNavbar: true,
-      homepage: "home.md",
+      coverpage: true,
+
+      alias: {
+        "/.*/_navbar.md": "/_navbar.md",
+      },
 
       markdown: {
         renderer: {
-          code(code, language) {
-            if (language === "mermaid") {
+          code({ text, lang }) {
+            if (lang === "mermaid") {
               return mermaid.render(
                 `mermaid-diagram-${mermaidDiagramNumber++}`,
-                code
+                text
               );
             }
 
@@ -80,22 +90,22 @@
       plantuml: {
         skin: "default",
       },
-
-      toc: {
-        scope: ".markdown-section",
-        headings: "h1, h2, h3",
-        title: "Contents",
-      },
-    };
+    }; 
   </script>
-  <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
-  <script src="https://unpkg.com/docsify-themeable"></script>
+
+  <!-- Docsify 5 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0"></script>
+
+  <!-- Docsify 5 plugins -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/plugins/zoom-image.min.js"></script>
+
+  <!-- Third-party plugins -->
   <script src="//unpkg.com/docsify-copy-code"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
   <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
-  <script src="//unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
 
+  <!-- Syntax highlighting -->
   <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
@@ -104,10 +114,8 @@
   <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-graphql.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
 
-  <script src="js/to-top.js"></script>
+  <script src="/js/to-top.js"></script>
 </body>
 
 </html>
