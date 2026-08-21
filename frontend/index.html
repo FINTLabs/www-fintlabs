@@ -62,16 +62,21 @@
         renderer: {
           code({ text, lang }) {
             if (lang === "mermaid") {
-              return mermaid.render(
-                `mermaid-diagram-${mermaidDiagramNumber++}`,
-                text
-              );
+              return `<div class="mermaid">${text}</div>`;
             }
 
             return this.origin.code.apply(this, arguments);
           },
         },
       },
+
+      plugins: [
+        function (hook) {
+          hook.doneEach(function () {
+            mermaid.init(undefined, document.querySelectorAll(".mermaid"));
+          });
+        },
+      ],
 
       search: {
         paths: "auto",
