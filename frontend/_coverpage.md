@@ -1,10 +1,19 @@
-<!-- _coverpage.md -->
 <div id="vigo-triangle"></div>
-<img src="_media/fint-novari.svg" alt="Logo" id="cover-logo" />
-<img class="cover-cartoon" src="/_media/fint-cartoon-cover.png" data-origin="_media/fint-cartoon-cover.png" alt="ill1">
 
-[Hvorfor FINT?](home.md)
-[Kom i gang](getting-started/index.md)
-[FINT illustrert](cartoon.md)
+<img
+  src="/_media/fint-novari.svg"
+  alt="FINT logo"
+  id="cover-logo"
+/>
 
-![color](#cf202e)
+<img
+  class="cover-cartoon"
+  src="/_media/fint-cartoon-cover.png"
+  alt="FINT illustrert"
+/>
+
+<p class="cover-buttons">
+  <a class="button" href="#/home">Hvorfor FINT?</a>
+  <a class="button" href="#/getting-started/index">Kom i gang</a>
+  <a class="button" href="#/cartoon">FINT illustrert</a>
+</p>

@@ -16,7 +16,9 @@ To add new content add a new `markdown` file. I addition you need to add a link 
 
 ## Publish content
 
-When your finished updating the content, commit to `master`, create a PR into prod and merge. Page will be published automatically.
+When your finished updating the content, squash to `master`. Page will be deployed to beta environment automatically for testing.
+
+To push to production, create a PR into branch `prod` and merge. Page will be published automatically.
 
 ## Docsify
 
@@ -24,9 +26,9 @@ https://docsify.js.org
 
 ## Run locally
 
-`$ docsify serve`
+`$ docsify serve` or `$ npx serve frontend`
 
-# Contribute
+# Contribute   
 
 - Add a [issue](https://github.com/FINTLabs/www-fintlabs/issues/new)
 

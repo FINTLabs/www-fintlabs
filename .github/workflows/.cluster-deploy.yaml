@@ -22,7 +22,7 @@ jobs:
 
       - name: Bake manifests with Kustomize
         id: bake
-        uses: azure/k8s-bake@v4.1.0
+        uses: azure/k8s-bake@v4.1.1
         with:
           renderEngine: "kustomize"
           kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
@@ -48,7 +48,7 @@ jobs:
 
           echo "manifests=$destination" >> "$GITHUB_OUTPUT"
 
-      - uses: azure/login@v3.0.0
+      - uses: azure/login@v3.0.1
         with:
           creds: "${{ secrets[format('AKS_{0}_FINT_GITHUB', inputs.environment)] }}"
 
