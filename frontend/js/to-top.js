@@ -3,8 +3,6 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-  console.log(document.body.scrollTop)
-  console.log(document.documentElement.scrollTop)
   if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
     document.getElementById("f-to-top-button").style.display = "block";
     document.getElementById("cover-logo").style.display = "none";
