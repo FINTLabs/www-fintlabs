@@ -18,8 +18,8 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.0.0/dist/themes/addons/core-dark.min.css" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-  <link rel="stylesheet" href="/css/theme-custom.css" />
-  <link rel="stylesheet" href="/css/to-top-button.css" />
+  <link rel="stylesheet" href="/css/theme-custom.css?v=__BUILD_VERSION__" />
+  <link rel="stylesheet" href="/css/to-top-button.css?v=__BUILD_VERSION__" />
 </head>
 
 <body class="loading">
@@ -39,6 +39,44 @@
       theme: "dark",
       securityLevel: "strict",
     });
+
+    function repairRemoteIncludeUrl(url) {
+      if (!url) {
+        return url;
+      }
+
+      const localOrigin = window.location.origin;
+
+      const malformedPrefixes = [
+        `${localOrigin}http://`,
+        `${localOrigin}https://`,
+        `${localOrigin}/http://`,
+        `${localOrigin}/https://`,
+      ];
+
+      for (const prefix of malformedPrefixes) {
+        if (url.startsWith(prefix)) {
+          const externalUrl = url.slice(
+            prefix.startsWith(`${localOrigin}/`)
+              ? localOrigin.length + 1
+              : localOrigin.length
+          );
+
+          return new URL(externalUrl).href;
+        }
+      }
+
+      return url;
+    }
+
+    function renderMermaidDiagrams(hook) {
+      hook.doneEach(function () {
+        mermaid.init(
+          undefined,
+          document.querySelectorAll(".mermaid")
+        );
+      });
+    }
 
     window.$docsify = {
       name: "FINT",
@@ -60,6 +98,20 @@
 
       markdown: {
         renderer: {
+          image(token) {
+            return this.origin.image.call(this, {
+              ...token,
+              href: repairRemoteIncludeUrl(token.href),
+            });
+          },
+
+          link(token) {
+            return this.origin.link.call(this, {
+              ...token,
+              href: repairRemoteIncludeUrl(token.href),
+            });
+          },
+
           code({ text, lang }) {
             if (lang === "mermaid") {
               return `<div class="mermaid">${text}</div>`;
@@ -71,11 +123,7 @@
       },
 
       plugins: [
-        function (hook) {
-          hook.doneEach(function () {
-            mermaid.init(undefined, document.querySelectorAll(".mermaid"));
-          });
-        },
+        renderMermaidDiagrams,
       ],
 
       search: {
@@ -88,7 +136,7 @@
       plantuml: {
         skin: "default",
       },
-    }; 
+    };
   </script>
 
   <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0"></script>
@@ -109,7 +157,7 @@
   <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-graphql.min.js"></script>
 
-  <script src="/js/to-top.js"></script>
+  <script src="/js/to-top.js?v=__BUILD_VERSION__"></script>
 </body>
 
 </html>
