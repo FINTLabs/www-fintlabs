@@ -1,0 +1,1 @@
+[Keycloak](https://raw.githubusercontent.com/FINTLabs/flais-keycloak/main/docs/external/no/fint/federation/federation.md ':include')

@@ -9,9 +9,11 @@
   * [JSON](technical/json.md)
   * [Testklient](technical/testclient.md)
   * [FINT curl](technical/fintcurl.md)
-  * [Federering](technical/federation/index.md) 
-  * [FINT internt](technical/fint-inside.md)
-* [FINT illustrert](cartoon.md)
+  * [Federering](technical/federation/index.md)
+    * [Keycloak](technical/federation/federation_keycloak.md)
+    * [VIGO-IDP (utfases)](technical/federation/federation_vigo_idp.md)
+  * [FINT internt](technical/fint-inside.md)   
+* [FINT illustrert](cartoon.md) 
 * [Tjenester](service.md)
 
 - ****

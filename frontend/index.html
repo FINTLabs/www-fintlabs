@@ -40,6 +40,44 @@
       securityLevel: "strict",
     });
 
+    function repairRemoteIncludeUrl(url) {
+      if (!url) {
+        return url;
+      }
+
+      const localOrigin = window.location.origin;
+
+      const malformedPrefixes = [
+        `${localOrigin}http://`,
+        `${localOrigin}https://`,
+        `${localOrigin}/http://`,
+        `${localOrigin}/https://`,
+      ];
+
+      for (const prefix of malformedPrefixes) {
+        if (url.startsWith(prefix)) {
+          const externalUrl = url.slice(
+            prefix.startsWith(`${localOrigin}/`)
+              ? localOrigin.length + 1
+              : localOrigin.length
+          );
+
+          return new URL(externalUrl).href;
+        }
+      }
+
+      return url;
+    }
+
+    function renderMermaidDiagrams(hook) {
+      hook.doneEach(function () {
+        mermaid.init(
+          undefined,
+          document.querySelectorAll(".mermaid")
+        );
+      });
+    }
+
     window.$docsify = {
       name: "FINT",
       logo: "/_media/fint-novari.svg",
@@ -60,6 +98,20 @@
 
       markdown: {
         renderer: {
+          image(token) {
+            return this.origin.image.call(this, {
+              ...token,
+              href: repairRemoteIncludeUrl(token.href),
+            });
+          },
+
+          link(token) {
+            return this.origin.link.call(this, {
+              ...token,
+              href: repairRemoteIncludeUrl(token.href),
+            });
+          },
+
           code({ text, lang }) {
             if (lang === "mermaid") {
               return `<div class="mermaid">${text}</div>`;
@@ -71,11 +123,7 @@
       },
 
       plugins: [
-        function (hook) {
-          hook.doneEach(function () {
-            mermaid.init(undefined, document.querySelectorAll(".mermaid"));
-          });
-        },
+        renderMermaidDiagrams,
       ],
 
       search: {
@@ -88,7 +136,7 @@
       plantuml: {
         skin: "default",
       },
-    }; 
+    };
   </script>
 
   <script src="//cdn.jsdelivr.net/npm/docsify@5.0.0"></script>
