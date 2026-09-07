@@ -48,7 +48,7 @@ jobs:
 
           echo "manifests=$destination" >> "$GITHUB_OUTPUT"
 
-      - uses: azure/login@v3.0.1
+      - uses: azure/login@v3.0.2
         with:
           creds: "${{ secrets[format('AKS_{0}_FINT_GITHUB', inputs.environment)] }}"
 
