@@ -1,4 +1,4 @@
-FROM nginx:1.31.5-alpine-slim
+FROM nginx:1.31.6-alpine-slim
 
 ARG BUILD_VERSION=development
 
