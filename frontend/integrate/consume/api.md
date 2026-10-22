@@ -114,7 +114,12 @@ Returner et tidsstempel som angir når cachen sist ble oppdatert. Responsen ser 
 
 `/domain/package/class?sinceTimeStamp=<time>`, for eksempel `/administrasjon/personal/personalressurs?sinceTimeStamp=1559551091034`
 
-Returnerer en samling av alle objekter som har blitt oppdatert (lagt til eller endret) etter det oppgitte tidsstemplet. Responsen ser slik ut:
+Returnerer en samling av alle objekter som har blitt oppdatert (lagt til eller endret) **ved eller etter** det oppgitte tidsstemplet.
+Filteret er inkluderende (`>=`), så objekter som ble endret nøyaktig på tidsstemplet, kommer med.
+
+> **Endret i Core 2:** Tidligere var filteret ekskluderende (`>`), og bare objekter endret etter tidsstemplet kom med.
+
+Responsen ser slik ut:
 
 ```json
 {
@@ -148,6 +153,9 @@ Den generelle algoritmen for kontinuerlig å hente oppdateringer er denne:
 3. Hent ressurser, ved å bruke forespørselsparameteren `sinceTimeStamp=<timestamp>`
 4. Oppdater `timestamp`-variabelen med verdien hentet fra trinn 2.
 5. Gjenta så ofte som du finner nødvendig.
+
+Siden filteret er inkluderende, kan objekter fra forrige runde komme med på nytt. Oppdater derfor objektene du allerede har
+basert på identifikatoren (upsert), slik at et objekt som kommer to ganger, ikke gir duplikater.
 
 __NOTE:__ Denne algoritmen kan kombineres med paginering. I dette tilfellet blir trinn 3 en løkke der ressurser
 hentes til responsen ikke lenger inneholder en `next`-lenke.
