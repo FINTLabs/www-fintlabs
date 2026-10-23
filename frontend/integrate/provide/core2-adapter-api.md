@@ -4,9 +4,8 @@ Hvis du planlegger å implementere et adapter uten å benytte vårt JAVA-rammeve
 hvordan adaptere kommuniserer med FINT, må adapteret kommunisere med FINTs Provider. Denne seksjonen forklarer hvilke 
 data som må utveksles mellom adapteret og FINT.
 
-> For mer informasjon, se [Swagger for provider](https://api.felleskomponent.no/provider/swagger/webjars/swagger-ui/index.html#/)
-
-Alle svar fra Core 2 har headeren `x-core-version: 2.1`. Den viser at adapteret snakker med den nye plattformen.
+Siden beskriver Core 2, se også [Core 2](integrate/consume/core2.md). Alle svar fra Core 2 har headeren 
+`x-core-version: 2.1`, så adapteret kan se at det snakker med Core 2.
 
 ## 1. Opprette tilgang
 

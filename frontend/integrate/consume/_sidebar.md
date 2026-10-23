@@ -11,6 +11,7 @@
     * [Testklient](integrate/consume/testklient.md)
     * [Forstå APIet](integrate/consume/api.md)
     * [Oppdateringer](integrate/consume/updates.md)
+    * [Core 2](integrate/consume/core2.md)
     * [GraphQL](integrate/consume/graphql.md)
   * [Levere data](integrate/provide/index.md)
 * [Tilby data](provider/index.md)
