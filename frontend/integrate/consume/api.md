@@ -114,7 +114,12 @@ Returner et tidsstempel som angir når cachen sist ble oppdatert. Responsen ser 
 
 `/domain/package/class?sinceTimeStamp=<time>`, for eksempel `/administrasjon/personal/personalressurs?sinceTimeStamp=1559551091034`
 
-Returnerer en samling av alle objekter som har blitt oppdatert (lagt til eller endret) etter det oppgitte tidsstemplet. Responsen ser slik ut:
+Returnerer en samling av alle objekter som har blitt oppdatert (lagt til eller endret) **ved eller etter** det oppgitte tidsstemplet.
+Filteret er inkluderende (`>=`), så objekter som ble endret nøyaktig på tidsstemplet, kommer med.
+
+> **Core 1:** Filteret er ekskluderende (`>`), så bare objekter endret etter tidsstemplet kommer med. Se [Core 2](integrate/consume/core2.md).
+
+Responsen ser slik ut:
 
 ```json
 {
@@ -149,6 +154,9 @@ Den generelle algoritmen for kontinuerlig å hente oppdateringer er denne:
 4. Oppdater `timestamp`-variabelen med verdien hentet fra trinn 2.
 5. Gjenta så ofte som du finner nødvendig.
 
+Siden filteret er inkluderende, kan objekter fra forrige runde komme med på nytt. Oppdater derfor objektene du allerede har
+basert på identifikatoren (upsert), slik at et objekt som kommer to ganger, ikke gir duplikater.
+
 __NOTE:__ Denne algoritmen kan kombineres med paginering. I dette tilfellet blir trinn 3 en løkke der ressurser
 hentes til responsen ikke lenger inneholder en `next`-lenke.
 
@@ -157,5 +165,7 @@ hentes til responsen ikke lenger inneholder en `next`-lenke.
 `/domain/package/admin/health`, for eksempel `/administrasjon/personal/admin/health`
 
 Utløser en helsesjekk mot adapteret som leverer data. Responsen indikerer om adapteret er tilkoblet og svarer.
+
+> **Bare Core 1:** Endepunktet finnes ikke i Core 2, og trengs ikke der. I Core 2 sender adapterne selv jevnlige heartbeats til FINT.
 
 
