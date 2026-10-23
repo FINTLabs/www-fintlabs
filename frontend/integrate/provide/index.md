@@ -2,6 +2,7 @@
 
 Adapterne som leverer data til FINT finnes i to ulike generasjoner. Den første generasjonen baserer seg på SSE (server-sent events) hvor FINT er den aktive part og ber normalt om oppdaterte data hvert 15. minutt. Andre generasjons adaptere baserer seg hovedsakelig av REST API hvor leverandøren overfører data på avtalte intervaller.  
 
+Se [Hva ligger hvor](integrate/consume/platforms.md) for hvilke domener som ligger på Core 1 og Core 2.
 
 
 | Plattform | Dokument                                                  | Beskrivelse                                           |

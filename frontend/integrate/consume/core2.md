@@ -2,9 +2,10 @@
 
 Core 2 er den nye plattformen bak FINT. Endringen er først og fremst i infrastrukturen, og i hvordan leverandørene leverer 
 data til FINT (se [Levere data](integrate/provide/index.md) og [Hvorfor Core 2](integrate/provide/core2-why.md)). For klienter 
-er API-et det samme som i Core 1, med noen få unntak som står under.
+er API-et det samme som i Core 1, med noen få unntak som står under. Se [Hva ligger hvor](integrate/consume/platforms.md) 
+for hvilke domener som kommer fra Core 1 og Core 2.
 
-Svar fra Core 2 har headeren `x-core-version: 2.1`.
+Svar fra Core 2 har headeren `x-core-version`, og verdien begynner på `2`.
 
 ## Versjon 3 og 4 av informasjonsmodellen
 

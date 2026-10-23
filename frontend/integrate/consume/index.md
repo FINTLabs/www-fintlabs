@@ -9,4 +9,5 @@
 | [Forstå APIet](integrate/consume/api.md)                              | Hvilke endepunkter er vårt API bygget opp av                  |
 | [Oppdateringer](integrate/consume/updates.md)                         | Hvordan du kan sende POST/PUT eventer                         |
 | [Core 2](integrate/consume/core2.md)                                  | Hva Core 2 betyr for klienter, og hvordan du flytter over     |
+| [Hva ligger hvor](integrate/consume/platforms.md)                     | Hvilke domener som kommer fra Core 1 og Core 2                |
 | [GraphQL](integrate/consume/graphql.md)                               | Bruk vårt GraphQL-endepunkt                                   |
