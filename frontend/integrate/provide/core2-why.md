@@ -14,7 +14,7 @@ Core 2, vår oppdaterte API-integrasjonsplattform, bygger videre på det beste f
 - **Forbedret horisontal skalering:** Hver organisasjon kjører nå i separate tjenester, noe som sikrer et stabilt driftsmiljø og isolerer eventuelle problemer til den berørte organisasjonen.
 - **Overgang til REST API:** Skiftet fra SSE til REST API gir økt stabilitet og trygghet ved å benytte en mer utbredt teknologisk plattform.
 - **Økt fleksibilitet i dataoverføring:** Adapter-leverandører kan oppdatere data etter behov, med mulighet til å sende deltaendringer og slette data, i stedet for å overføre komplette datasett med jevne mellomrom.
-- **Egen database for hver organisasjon:** Dataene ligger i en database, så de er der også etter en omstart, og FINT trenger ikke hente alt på nytt.
+- **Egen database for hver organisasjon:** Dataene ligger i en database, ikke i minnet til tjenestene. Når client-api starter på nytt, er dataene tilgjengelige med en gang, og adapterne trenger ikke sende alt på nytt.
 - **Full bakoverkompatibilitet:** Eksisterende løsninger som benytter konsumer-API-et, trenger ikke endres, med noen få unntak (se [Core 2](integrate/consume/core2.md)). Dette sikrer kontinuitet og stabilitet for alle integrasjoner.
 - **Autorelasjon:** En innebygd funksjon som automatisk oppretter og vedlikeholder relasjoner, slik at adapteret slipper å bygge og vedlikeholde relasjoner selv.
 
