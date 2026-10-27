@@ -2,6 +2,8 @@
 
 Autorelasjon er en innebygd funksjon i FINT som automatisk oppretter og vedlikeholder relasjoner mellom ressurser. Du som adapterleverandør trenger bare å sende inn ressursen med en referanse - FINT bygger den andre siden av relasjonen for deg.
 
+Relasjonene er [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS)-lenker i `_links`, slik som i resten av [API-et](integrate/consume/api.md). Med autorelasjon får begge ressursene en lenke til hverandre, så en klient kan følge relasjonen fra begge sider.
+
 ## Støttede relasjonstyper
 
 En relasjon får autorelasjon når alt dette gjelder:

@@ -5,7 +5,20 @@ data til FINT (se [Levere data](integrate/provide/index.md) og [Hvorfor Core 2](
 er API-et det samme som i Core 1, med noen få unntak som står under. Se [Hva ligger hvor](integrate/consume/platforms.md) 
 for hvilke domener som kommer fra Core 1 og Core 2.
 
-Svar fra Core 2 har headeren `x-core-version`, og verdien begynner på `2`.
+Svar fra Core 2 har headeren `x-core-version` med en verdi på formen `2.x`, for eksempel `2.1`. Slik kan du se hvilken 
+plattform som svarer (se [Tilgang](integrate/consume/access.md) for hvordan du får et token):
+
+```sh
+curl -i -H "Authorization: Bearer ${TOKEN}" https://api.felleskomponent.no/utdanning/elev/elev/last-updated
+```
+
+```
+HTTP/2 200
+x-core-version: 2.1
+...
+```
+
+Mangler headeren, kom svaret fra Core 1.
 
 ## Versjon 3 og 4 av informasjonsmodellen
 
@@ -17,7 +30,12 @@ Hvilken versjon en klient bruker, velges for klienten i [Kundeportalen](portal/k
 `x-fint-model-version` (`V3` eller `V4`) på hver forespørsel ut fra det valget, og headeren bestemmer hvor forespørselen går. 
 Klienten trenger ikke sende den selv, og en verdi klienten sender, blir overskrevet.
 
-En enkelt forespørsel kan be om den andre versjonen med headeren `x-fint-model-version-override: V3` eller `V4`.
+En enkelt forespørsel kan be om den andre versjonen med headeren `x-fint-model-version-override: V3` eller `V4`:
+
+```sh
+curl -H "Authorization: Bearer ${TOKEN}" -H "x-fint-model-version-override: V4" \
+  https://api.felleskomponent.no/utdanning/elev/elev
+```
 
 ## Forskjeller for klienter
 

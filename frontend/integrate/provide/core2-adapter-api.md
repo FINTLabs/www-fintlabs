@@ -5,7 +5,7 @@ hvordan adaptere kommuniserer med FINT, må adapteret kommunisere med FINTs Prov
 data som må utveksles mellom adapteret og FINT.
 
 Siden beskriver Core 2, se også [Core 2](integrate/consume/core2.md). Alle svar fra Core 2 har headeren 
-`x-core-version: 2.1`, så adapteret kan se at det snakker med Core 2.
+`x-core-version` med en verdi på formen `2.x`, for eksempel `2.1`, så adapteret kan se at det snakker med Core 2.
 
 ## 1. Opprette tilgang
 

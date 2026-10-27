@@ -2,6 +2,10 @@
 
 Disse operasjonene er tilgjengelige for alle klasser i FINT informasjonsmodellen.
 
+API-et følger [HATEOAS](https://en.wikipedia.org/wiki/HATEOAS). Hver ressurs har en `_links`-del med lenker til seg selv 
+(`self`) og til ressursene den er relatert til, så klienter kan følge lenkene i stedet for å bygge adresser selv. Se også 
+[Retningslinjer](integrate/consume/guidelines.md).
+
 ## Hent alle objekter av en gitt klasse
 
 `/domain/package/class`, for eksempel `/administrasjon/personal/personalressurs`
