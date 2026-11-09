@@ -1,10 +1,10 @@
-# Utvikling av en FINT 2-adapter
+# Utvikling av et Core 2-adapter
 
 ## Før du starter
 Hvis du ønsker å observere den komplette integrasjonen i aksjon, kan du henvise til eksempeladapteret som er tilgjengelig på følgende [GitHub repository](https://github.com/FINTLabs/fint-core-adapter-skeleton)
 
 ## Utgiver-abonnent mønster
-For å oppnå utgiver-abonnent mønsteret i FINT 2, vil vi bruke Reactive WebClient for å utføre asynkrone API-kall og Kafka som meldingsmegler for å håndtere hendelsesbasert kommunikasjon mellom komponenter og tjenester.
+Adapteret snakker med Core 2 over REST. Rammeverket bruker Reactive WebClient til å sende data og hente hendelser asynkront fra [Adapter API](integrate/provide/core2-adapter-api.md).
 
 ## Applikasjons konfigurasjon
 

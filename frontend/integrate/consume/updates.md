@@ -49,8 +49,12 @@ Attributter som kan endres er angitt i informasjonsmodellen.
 
 ### Slette objekter
 
-`DELETE /domain/package/class/field/value`, for eksempel `DELETE /administrasjon/personal/fravar/systemid/abcdef1234`
+`DELETE /domain/package/class/field/value`, for eksempel `DELETE /arkiv/noark/arkivressurs/systemid/abcdef1234`
 
-Ikke alle informasjonsklasser støtter sletting.
-Hvis sletting ikke støttes, blir operasjonen avvist med status `400`.
+Sletting går gjennom adapteret på samme måte som andre oppdateringer. FINT svarer `202` med en `Location`-header, og 
+*Status*-ressursen gir `204` når kildesystemet har slettet objektet.
+
+- **Core 1:** Bare `arkivressurs` i `arkiv/noark` kan slettes, på `systemid` eller `kildesystemid`. Andre klasser har ikke noe `DELETE`-endepunkt.
+- **Core 2:** Klienter kan ikke slette. Objekter blir borte fra FINT når de slettes i kildesystemet og adapteret sender slettingen videre. 
+  Klienter som henter endringer med `sinceTimeStamp`, får ikke beskjed om slettinger, og må hente hele samlingen med jevne mellomrom for å oppdage dem.
 
