@@ -6,12 +6,12 @@
 * [Integrere med FINT](integrate/index.md)
   * [Hente data](integrate/consume/index.md)
   * [Levere data](integrate/provide/index.md)
-    * Versjon 1
+    * Core 1
       * [Utvikle adapter](integrate/provide/core1-tutorial.md)
       * [Java adapter](integrate/provide/core1-java-adapter.md)
       * [.NET adapter](integrate/provide/core1-dotnet-adapter.md)
-    * Versjon 2
-      * [Hvorfor versjon 2](integrate/provide/core2-why.md) 
+    * Core 2
+      * [Hvorfor Core 2](integrate/provide/core2-why.md)
       * [Autorelasjon](integrate/provide/core2-autorelation.md)
       * [Adapter API](integrate/provide/core2-adapter-api.md)
       * [Java adapter](integrate/provide/core2-java-adapter.md)
