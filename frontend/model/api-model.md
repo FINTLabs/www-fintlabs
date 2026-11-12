@@ -1,6 +1,6 @@
 ## Informasjonsmodellen i sentrum
 
-I FINT, Informasjonsmodellen definerer hvordan API'et er strukturert og hvordan det fungerer.
+I FINT, Informasjonsmodellen definerer hvordan APIet er strukturert og hvordan det fungerer.
 
 ### Type av klasser
 FINT Informasjonsmodell har fire typer klasser:
