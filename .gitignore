@@ -69,3 +69,6 @@ node_modules/
 test.md
 
 .idea/
+
+__pycache__/
+*.pyc

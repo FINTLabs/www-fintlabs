@@ -1,5 +1,6 @@
 window.addEventListener("scroll", updateScrollElements);
 updateScrollElements();
+document.getElementById("f-to-top-button").addEventListener("click", scrollToTop);
 
 function updateScrollElements() {
   const isScrolled =
@@ -24,4 +25,4 @@ function scrollToTop() {
     top: 0,
     behavior: "smooth",
   });
-} 
+}

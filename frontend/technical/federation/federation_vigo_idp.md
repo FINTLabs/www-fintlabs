@@ -270,7 +270,7 @@ Attributeliste for egendefinerte claims vil da se slik ut:
 ```
 
 ## Logge på en FINT tjeneste
-Gå til url'en som er oppgitt for den tjenesten du skal inn på. Dette kan feks være https://flyt.vigoiks.no/"fylkesid" eller https://samtykke.vigoiks.no/"fylkesid"
+Gå til url'en som er oppgitt for den tjenesten du skal inn på. Dette kan feks være `https://flyt.vigoiks.no/"fylkesid"` eller `https://samtykke.vigoiks.no/"fylkesid"`
 
 Hvis du ikke allrede er innlogget i Office365 til fylket vil du bli videresendt til en autentiseringsvelger. Se under:
 

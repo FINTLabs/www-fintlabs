@@ -4,7 +4,7 @@ FINTLabs har laget en testklient som kan brukes. Den finner du her <https://beta
 
 Her får man opp en påloggingsvindu med 5 felter:
 
-Påloggingsinfo hentes fra Kundeportalen til FINT. [Her](./tutorials.md?id=klienter) finner du fremgangsmåten for å opprette klienter i kundeportalen.
+Påloggingsinfo hentes fra Kundeportalen til FINT. [Her](/portal/klient.md) finner du fremgangsmåten for å opprette klienter i kundeportalen.
 
 ```
 Client ID: xxxxx

@@ -4,7 +4,6 @@ Hvis du skal bruke FINT en del, for eksempel til å lage en integrasjon eller et
 
 ## Miljøer
 FINT tilbyr tre miljøer:
-
 * <https://play-with-fint.felleskomponent.no> (sandbox)
 * <https://beta.felleskomponent.no> (beta)
 * <https://api.felleskomponent.no> (produksjon)

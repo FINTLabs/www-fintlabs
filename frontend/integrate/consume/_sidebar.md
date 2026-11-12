@@ -15,15 +15,14 @@
     * [Hva ligger hvor](integrate/consume/platforms.md)
     * [GraphQL](integrate/consume/graphql.md)
   * [Levere data](integrate/provide/index.md)
-* [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [FINT illustrert](cartoon.md)
 * [Tjenester](service.md)
 
 - ****
-* [![Fint](https://www.fintlabs.no/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)
-* [![Github](https://www.fintlabs.no/_media/github.svg ':size=16')Github](https://github.com/fintlabs)
-* [![Novari IKS](https://novari.no/wp-content/uploads/2024/10/novari_logo_primaer.svg ':size=16')Novari IKS](https://novari.no)
+* [![Fint](/_media/favicon.ico ':size=16')Play-With-FINT](https://play-with-fint.felleskomponent.no)
+* [![Github](/_media/github.svg ':size=16')Github](https://github.com/fintlabs)
+* [![Novari IKS](/_media/novari-logo.svg ':size=16')Novari IKS](https://novari.no)
 - ****
 * [Tilgjengelighetserklæring (bokmål)](https://uustatus.no/nb/erklaringer/publisert/feb37615-5cc6-4219-91c2-526ff16a39fe)
 * [Tilgjengelegheitserklæring (nynorsk)](https://uustatus.no/nn/erklaringer/publisert/feb37615-5cc6-4219-91c2-526ff16a39fe)

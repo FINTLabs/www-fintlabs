@@ -11,7 +11,6 @@ For å få tilgang til FINT-ressurser, må et gyldig Bearer-token innhentes fra 
 - Java, ved bruk av Spring Boot: <https://github.com/FINTLabs/client-example-spring>
 - Java, ved bruk av Google HTTP- og OAuth-biblioteker: <https://github.com/FINTLabs/client-example-plain-java>
 - Node.JS: <https://github.com/FINTLabs/client-example-node>
-- Kotlin, ved bruk av Spring Boot: <https://github.com/FINTLabs/client-example-kotlin-spring>
 - Elm: <https://github.com/FINTLabs/fint-api-client-demo>
 - BizTalk: <https://github.com/FINTLabs/Fint.BizTalk.Example>
 - C#: <https://github.com/FINTLabs/Fint.DotNet.Example>
@@ -37,9 +36,3 @@ Etter å ha skaffet det gyldige tokenet, legg det til i forespørselens header:
 ```bash
 curl -H "Authorization: Bearer ${TOKEN}" https://.....
 ```
-
-## Skaffe et gyldig Bearer-token ved bruk av webbasert verktøy
-
-FINT tilbyr et webbasert verktøy for å skaffe et token som du kan bruke i for eksempel `ModHeader`-tillegget for `Chrome`.
-
-<https://token.fintlabs.no/>

@@ -12,7 +12,6 @@ For å få tilgang til FINT-ressurser, må et gyldig Bearer-token innhentes fra 
 - Java, ved bruk av Spring Boot: https://github.com/FINTLabs/client-example-spring
 - Java, ved bruk av Google HTTP og OAuth-biblioteker: https://github.com/FINTLabs/client-example-plain-java
 - Node.JS: https://github.com/FINTLabs/client-example-node
-- Kotlin, ved bruk av Spring Boot: https://github.com/FINTLabs/client-example-kotlin-spring
 - Elm: https://github.com/FINTLabs/fint-api-client-demo
 - BizTalk: https://github.com/FINTLabs/Fint.BizTalk.Example
 - C#: https://github.com/FINTLabs/Fint.DotNet.Example
@@ -41,11 +40,10 @@ curl -H "Authorization: Bearer ${TOKEN}" https://.....
 
 ## FINT-miljøer
 
-FINT tilbyr tre miljøer, play-with-fint, Beta og Produksjon:
-
-- https://play-with-fint.felleskomponent.no
-- https://beta.felleskomponent.no
-- https://api.felleskomponent.no
+FINT tilbyr tre miljøer:
+* <https://play-with-fint.felleskomponent.no> (sandbox)
+* <https://beta.felleskomponent.no> (beta)
+* <https://api.felleskomponent.no> (produksjon)
 
 For alle disse miljøene følger URIene samme mønster, så for å finne ansatt #33445, legg til følgende bane i URIen: `/administrasjon/personal/personalressurs/ansattnummer/33445`.
 

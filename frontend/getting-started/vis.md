@@ -18,14 +18,14 @@ Diagrammet over viser hvordan data flyter mellom Visma InSchool og Fylkeskommune
 
 ### Overordnet om testing
 
-Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du ønsker å vite mer om denne modellen kan du lese mer om denne her <https://www.difi.no/arkitektur/nytt-nasjonalt-rammeverk-samhandling>.
+Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du ønsker å vite mer om denne modellen kan du lese mer om denne her <https://www.digdir.no/digital-samhandling/rammeverk-digital-samhandling/2148>.
 
 ![ill3](../_media/tekniskpakke-3.svg ':size=275')
 
 #### Bestille adapter og testmiljø
 
 1. Man kontakter kontaktperson for sitt fagsystem (se kontaktpersoner i kap. under), for å initiere en avtale for FINT adapteret, og bestille testmiljø (om man ikke har det fra før). Det anbefales å ha en separat testdatabase (i de fleste tilfeller vil dette innebære en separat testinstallasjon av fagsystemet på en egen testserver). Det finnes utkast til avtale for adapter som er i bruk for andre fylkeskommuner.
-2. I FINTs kundeportal finner man påloggingsinformasjon til adaptrene for sitt fylke. Denne informasjonen må teknisk konsulent for Økonomi/HR systemet ha ved installasjon av adapteret. Du finner en egen beskrivelse av kundeportalen og hvordan man oppretter pålogginsinformasjon [her](./tutorials.md?id=kundeportal).
+2. I FINTs kundeportal finner man påloggingsinformasjon til adaptrene for sitt fylke. Denne informasjonen må teknisk konsulent for Økonomi/HR systemet ha ved installasjon av adapteret. Du finner en egen beskrivelse av kundeportalen og hvordan man oppretter pålogginsinformasjon [her](/portal/index.md).
 3. Når avtalen er signert, avtales installasjon av adapteret sammen med en person fra IT drift i FK, f.eks. systemeier av Økonomi/HR-systemet, og kundeansvarlig eller teknisk konsulent for systemet. Man avtaler på hvilken server adapteret skal installeres.
 4. Etter adapteret er installert kan man i kundeportalen se “health status” på adapterne.
 5. Deretter starter den tekniske testen.
@@ -34,7 +34,7 @@ Vi har delt opp testingen i nivåer basert på EIF Conceptual Model. Hvis du øn
 
 * *Vismas FINT-adapter*, kontakter man fylkets eksisterende kontaktperson/key account. Installasjonsveiledning for Visma Adapter.
 * *Agresso* har en egen kontaktperson for adapterne: Rolf Arne Flå hos Evry.
-* *FINT*, se [Novari.no](https://www.vigoiks.no/om-oss/).
+* *FINT*, se [Novari.no](https://novari.no/om-oss/).
 
 #### Installasjon av adapteret
 
@@ -54,7 +54,7 @@ I FINTs kundeportal kan man kjøre en relasjonstest. Denne testen går igjennom 
 
 Før et adapter skal installeres, kan det være fornuftig å sette opp et dokument som sammenlikner informasjonen som finnes i informasjonsmodellen til FINT, med informasjon fra fagsystem.
 
-For å teste innholdet adapteret har levert til felleskomponenten, har FINT laget en testklient som kan brukes til dette, se [veiledning](./tutorials.md?id=testklient).
+For å teste innholdet adapteret har levert til felleskomponenten, har FINT laget en testklient som kan brukes til dette, se [veiledning](/integrate/consume/testklient.md).
 
 * For testmiljø: <https://beta.felleskomponent.no/test-client/>
 * For produksjonsmiljø: <https://api.felleskomponent.no/test-client/>
