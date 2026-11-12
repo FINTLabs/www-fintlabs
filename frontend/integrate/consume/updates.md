@@ -6,7 +6,7 @@ Oppdateringer bruker HTTP-operasjoner for å opprette, endre og slette informasj
 
 Siden oppdateringene må formidles via FINT-komponenten og et adapter før de behandles av
 baksystemet, kan oppdateringer ta noe tid å fullføre. For dette bruker FINT APIer asynkrone
-operasjoner som beskrevet i <http://restcookbook.com/Resources/asynchroneous-operations/>.
+operasjoner som beskrevet i <https://www.rest-cookbook.com/Resources/asynchroneous-operations/>.
 
 
 Prosessen er som følger:

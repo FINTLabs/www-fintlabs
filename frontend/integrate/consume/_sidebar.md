@@ -15,7 +15,6 @@
     * [Hva ligger hvor](integrate/consume/platforms.md)
     * [GraphQL](integrate/consume/graphql.md)
   * [Levere data](integrate/provide/index.md)
-* [Tilby data](provider/index.md)
 * [Teknisk dokumentasjon](technical/index.md)
 * [FINT illustrert](cartoon.md)
 * [Tjenester](service.md)

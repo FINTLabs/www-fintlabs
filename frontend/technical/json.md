@@ -1,6 +1,6 @@
 # JSON
 
-FINT tilbyr JSON-skjema [draft-07](https://json-schema.org/specification.html) for alle klasser i FINTs informasjonsmodell. Disse er tilgjengelige under <https://schema.fintlabs.no/>.
+FINT tilbyr [JSON-skjema](https://json-schema.org/specification) for alle klasser i FINTs informasjonsmodell. Disse er tilgjengelige under `https://schema.fintlabs.no/`.
 
 For å finne et bestemt skjema, legges domenet for ressursklassen og navnet på ressursen til URIen i formen `<domain>/<class>.json`
 
@@ -8,7 +8,7 @@ For eksempel er skjemaet for `Personalressurs` tilgjengelig på <https://schema.
 
 ## jsonvalidate
 
-Dette Python 2.7-scriptet utfører JSON-skjemavalidering på en samling ressurser. Skjemaet som skal brukes, angis som en URI på kommandolinjen. Det leser ressursene fra standard input, så det kan kobles sammen med [`fint-curl`](tools.mdd=fint-curl) for å hente data, for eksempel:
+Dette Python 2.7-scriptet utfører JSON-skjemavalidering på en samling ressurser. Skjemaet som skal brukes, angis som en URI på kommandolinjen. Det leser ressursene fra standard input, så det kan kobles sammen med [`fint-curl`](/technical/fintcurl.md) for å hente data, for eksempel:
 
 ```bash
 fint-curl https://beta.felleskomponent.no/administrasjon/personal/personalressurs | \

@@ -12,7 +12,6 @@ For å få tilgang til FINT-ressurser, må et gyldig Bearer-token innhentes fra 
 - Java, ved bruk av Spring Boot: https://github.com/FINTLabs/client-example-spring
 - Java, ved bruk av Google HTTP og OAuth-biblioteker: https://github.com/FINTLabs/client-example-plain-java
 - Node.JS: https://github.com/FINTLabs/client-example-node
-- Kotlin, ved bruk av Spring Boot: https://github.com/FINTLabs/client-example-kotlin-spring
 - Elm: https://github.com/FINTLabs/fint-api-client-demo
 - BizTalk: https://github.com/FINTLabs/Fint.BizTalk.Example
 - C#: https://github.com/FINTLabs/Fint.DotNet.Example
