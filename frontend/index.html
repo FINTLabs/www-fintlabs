@@ -13,11 +13,11 @@
 
   <link rel="icon" href="/_media/favicon.ico" />
 
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.1.0/dist/themes/core.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/themes/core.min.css" integrity="sha384-EHVG4GyaSD3YEuLBkKV9+uYAxVxDbhmNuPVXRdvHjrC0+eLbs8F7fFiR2aeuXY5S" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5.1.0/dist/themes/addons/core-dark.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/themes/addons/core-dark.min.css" integrity="sha384-0nrMf7u5/wUF0pWYWts1RzfUixk93lq2QuCgzLlH5YIAjqgIqoaZq4H4tuYp1k60" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous" />
   <link rel="stylesheet" href="/css/theme-custom.css?v=__BUILD_VERSION__" />
   <link rel="stylesheet" href="/css/to-top-button.css?v=__BUILD_VERSION__" />
 </head>
@@ -25,140 +25,36 @@
 <body class="loading">
   <div id="app"></div>
 
-  <button type="button" onclick="scrollToTop()" class="to-top-button" id="f-to-top-button" aria-label="Scroll to top">
+  <button type="button" class="to-top-button" id="f-to-top-button" aria-label="Scroll to top">
     <i class="fas fa-arrow-up" aria-hidden="true"></i>
   </button>
 
-  <script src="//cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js" integrity="sha384-HHW54r639fK42Ip0coGF3mz8oSiGn0eEoWNTLs75X7H63pLSDBa0Tqs0RwGmLlXE" crossorigin="anonymous"></script>
 
-  <script>
-    let mermaidDiagramNumber = 0;
-
-    mermaid.initialize({
-      startOnLoad: false,
-      theme: "dark",
-      securityLevel: "strict",
-    });
-
-    function repairRemoteIncludeUrl(url) {
-      if (!url) {
-        return url;
-      }
-
-      const localOrigin = window.location.origin;
-
-      const malformedPrefixes = [
-        `${localOrigin}http://`,
-        `${localOrigin}https://`,
-        `${localOrigin}/http://`,
-        `${localOrigin}/https://`,
-      ];
-
-      for (const prefix of malformedPrefixes) {
-        if (url.startsWith(prefix)) {
-          const externalUrl = url.slice(
-            prefix.startsWith(`${localOrigin}/`)
-              ? localOrigin.length + 1
-              : localOrigin.length
-          );
-
-          return new URL(externalUrl).href;
-        }
-      }
-
-      return url;
-    }
-
-    function renderMermaidDiagrams(hook) {
-      hook.doneEach(function () {
-        mermaid.init(
-          undefined,
-          document.querySelectorAll(".mermaid")
-        );
-      });
-    }
-
-    window.$docsify = {
-      name: "FINT",
-      logo: "/_media/fint-novari.svg",
-      homepage: "home.md",
-
-      auto2top: true,
-      nativeEmoji: true,
-
-      loadSidebar: true,
-      subMaxLevel: 2,
-
-      loadNavbar: true,
-      coverpage: true,
-
-      alias: {
-        "/.*/_navbar.md": "/_navbar.md",
-      },
-
-      markdown: {
-        renderer: {
-          image(token) {
-            return this.origin.image.call(this, {
-              ...token,
-              href: repairRemoteIncludeUrl(token.href),
-            });
-          },
-
-          link(token) {
-            return this.origin.link.call(this, {
-              ...token,
-              href: repairRemoteIncludeUrl(token.href),
-            });
-          },
-
-          code({ text, lang }) {
-            if (lang === "mermaid") {
-              return `<div class="mermaid">${text}</div>`;
-            }
-
-            return this.origin.code.apply(this, arguments);
-          },
-        },
-      },
-
-      plugins: [
-        renderMermaidDiagrams,
-      ],
-
-      search: {
-        paths: "auto",
-        placeholder: "Søk",
-        noData: "Sorry, men vi fant ingenting 😔",
-        depth: 2,
-      },
-
-      plantuml: {
-        skin: "default",
-      },
-    };
-  </script>
+  <script src="/js/docsify-config.js?v=__BUILD_VERSION__" integrity="sha384-FNLNUrjgV4iwBwTMwlPj8PRmf2K/siVAS42iC07tmKCm6gGQ8v3fTUFRpIOPFjDN" crossorigin="anonymous"></script>
 
   <!-- Load the browser bundle explicitly; the package entry can resolve to ES module source. -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@5.1.0/dist/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/docsify.min.js" integrity="sha384-hx+mDRaRp2tw2tlDV9AVMMkU5zRLpaEIGGYt3k1ZiWSxGxIzCyP3FceVHUAMb1bI" crossorigin="anonymous"></script>
 
-  <script src="//cdn.jsdelivr.net/npm/docsify@5.1.0/dist/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@5.1.0/dist/plugins/zoom-image.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/plugins/search.min.js" integrity="sha384-mkjQDRnwrfyRbChj7+qlTfCEvrsSsxs6VVslNDhuufsMKuF4STph3BezVwzTknga" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/plugins/zoom-image.min.js" integrity="sha384-RNNKMNpcp4ZKtkrD4pFLYtVjNk15Q/sd4GpBAX4R87R6MnzKt4+T4InglTk+poHU" crossorigin="anonymous"></script>
 
-  <script src="//unpkg.com/docsify-copy-code"></script>
-  <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+  <script src="https://unpkg.com/docsify-copy-code@3.0.2/dist/docsify-copy-code.min.js" integrity="sha384-xvU4Qmx14Fe/3hDKuOUUQ8eOzoa7OVTL0vp3amTSv2KY8lCjlrga7DoqecFFOT7j" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/docsify-pagination@2.10.1/dist/docsify-pagination.min.js" integrity="sha384-uFEp18/1vv2dYlO64J2lOcnbhirAQZPtruqAZZ7PZYoXenm5c+tIs3AqSMjVMRe8" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/docsify-plantuml@1.3.2/dist/docsify-plantuml.min.js" integrity="sha384-alJRXskwYUyg3lLspDYYXIJFAn5pVNFJSLOsBapu/yHilY6qYj8a8UqaTGXEwpwP" crossorigin="anonymous"></script>
 
-  <script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-csharp.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-yaml.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-go.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-graphql.min.js"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-bash.min.js" integrity="sha384-9WmlN8ABpoFSSHvBGGjhvB3E/D8UkNB9HpLJjBQFC2VSQsM1odiQDv4NbEo+7l15" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-java.min.js" integrity="sha384-DioAMZB4yk91W6LuFit5wJDh8c5Ov09f/MBvja94y0PodMqTpTZeBeejqpRUru7D" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-json.min.js" integrity="sha384-RhrmFFMb0ZCHImjFMpR/UE3VEtIVTCtNrtKQqXCzqXZNJala02N3UbVhi+qzw3CY" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-csharp.min.js" integrity="sha384-nMKYzg6yfy0qgpaRpVhHvZp0gT5sgvmZYlFC0XAKZSp+zFUB9rE6zsdmIEiou4bV" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-yaml.min.js" integrity="sha384-AKAiycghK0jDCjD+aavMHzDkLzRR7Yzcwh3+xL/295cvyVMe+cxQfyQC8xxGGcI8" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-go.min.js" integrity="sha384-YxCco6ByOY5rJ3jD18514fa8w5so07zigIyV6tZa3CWSE5vYrbDSuFkZ5zOknnZ6" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-python.min.js" integrity="sha384-WJdEkJKrbsqw0evQ4GB6mlsKe5cGTxBOw4KAEIa52ZLB7DDpliGkwdme/HMa5n1m" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/prismjs@1.30.0/components/prism-graphql.min.js" integrity="sha384-CfAKPApbQPXLiw2NZvvX89i+xd8VKHk+TfWhnWgmUXxl8Ct6qPN7u30+ATfxibjS" crossorigin="anonymous"></script>
 
-  <script src="/js/to-top.js?v=__BUILD_VERSION__"></script>
+  <script src="/js/docsify-images.js?v=__BUILD_VERSION__" integrity="sha384-Vuk4MUmtqcjYrfpF254iPdvlmSEL96zqyNNBckh/uPRf5sBbEf3AJOlG40U9+L30" crossorigin="anonymous"></script>
+
+  <script src="/js/to-top.js?v=__BUILD_VERSION__" integrity="sha384-I7h67B1ef0fcGAKDoseNruMB8d/8iCc+6dnsh0HaSJPjHuyor/M/aTGOpaBKE0wL" crossorigin="anonymous"></script>
 </body>
 
 </html>

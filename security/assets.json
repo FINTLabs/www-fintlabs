@@ -1,0 +1,122 @@
+{
+  "assets": [
+    {
+      "kind": "style",
+      "url": "https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/themes/core.min.css",
+      "integrity": "sha384-EHVG4GyaSD3YEuLBkKV9+uYAxVxDbhmNuPVXRdvHjrC0+eLbs8F7fFiR2aeuXY5S"
+    },
+    {
+      "kind": "style",
+      "url": "https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/themes/addons/core-dark.min.css",
+      "integrity": "sha384-0nrMf7u5/wUF0pWYWts1RzfUixk93lq2QuCgzLlH5YIAjqgIqoaZq4H4tuYp1k60"
+    },
+    {
+      "kind": "style",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css",
+      "integrity": "sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN"
+    },
+    {
+      "kind": "script",
+      "url": "https://cdn.jsdelivr.net/npm/mermaid@12.3.0/dist/mermaid.min.js",
+      "integrity": "sha384-HHW54r639fK42Ip0coGF3mz8oSiGn0eEoWNTLs75X7H63pLSDBa0Tqs0RwGmLlXE"
+    },
+    {
+      "kind": "script",
+      "url": "/js/docsify-config.js"
+    },
+    {
+      "kind": "script",
+      "url": "https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/docsify.min.js",
+      "integrity": "sha384-hx+mDRaRp2tw2tlDV9AVMMkU5zRLpaEIGGYt3k1ZiWSxGxIzCyP3FceVHUAMb1bI"
+    },
+    {
+      "kind": "script",
+      "url": "https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/plugins/search.min.js",
+      "integrity": "sha384-mkjQDRnwrfyRbChj7+qlTfCEvrsSsxs6VVslNDhuufsMKuF4STph3BezVwzTknga"
+    },
+    {
+      "kind": "script",
+      "url": "https://cdn.jsdelivr.net/npm/docsify@5.1.0/dist/plugins/zoom-image.min.js",
+      "integrity": "sha384-RNNKMNpcp4ZKtkrD4pFLYtVjNk15Q/sd4GpBAX4R87R6MnzKt4+T4InglTk+poHU"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/docsify-copy-code@3.0.2/dist/docsify-copy-code.min.js",
+      "integrity": "sha384-xvU4Qmx14Fe/3hDKuOUUQ8eOzoa7OVTL0vp3amTSv2KY8lCjlrga7DoqecFFOT7j"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/docsify-pagination@2.10.1/dist/docsify-pagination.min.js",
+      "integrity": "sha384-uFEp18/1vv2dYlO64J2lOcnbhirAQZPtruqAZZ7PZYoXenm5c+tIs3AqSMjVMRe8"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/docsify-plantuml@1.3.2/dist/docsify-plantuml.min.js",
+      "integrity": "sha384-alJRXskwYUyg3lLspDYYXIJFAn5pVNFJSLOsBapu/yHilY6qYj8a8UqaTGXEwpwP"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-bash.min.js",
+      "integrity": "sha384-9WmlN8ABpoFSSHvBGGjhvB3E/D8UkNB9HpLJjBQFC2VSQsM1odiQDv4NbEo+7l15"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-java.min.js",
+      "integrity": "sha384-DioAMZB4yk91W6LuFit5wJDh8c5Ov09f/MBvja94y0PodMqTpTZeBeejqpRUru7D"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-json.min.js",
+      "integrity": "sha384-RhrmFFMb0ZCHImjFMpR/UE3VEtIVTCtNrtKQqXCzqXZNJala02N3UbVhi+qzw3CY"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-csharp.min.js",
+      "integrity": "sha384-nMKYzg6yfy0qgpaRpVhHvZp0gT5sgvmZYlFC0XAKZSp+zFUB9rE6zsdmIEiou4bV"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-yaml.min.js",
+      "integrity": "sha384-AKAiycghK0jDCjD+aavMHzDkLzRR7Yzcwh3+xL/295cvyVMe+cxQfyQC8xxGGcI8"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-go.min.js",
+      "integrity": "sha384-YxCco6ByOY5rJ3jD18514fa8w5so07zigIyV6tZa3CWSE5vYrbDSuFkZ5zOknnZ6"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-python.min.js",
+      "integrity": "sha384-WJdEkJKrbsqw0evQ4GB6mlsKe5cGTxBOw4KAEIa52ZLB7DDpliGkwdme/HMa5n1m"
+    },
+    {
+      "kind": "script",
+      "url": "https://unpkg.com/prismjs@1.30.0/components/prism-graphql.min.js",
+      "integrity": "sha384-CfAKPApbQPXLiw2NZvvX89i+xd8VKHk+TfWhnWgmUXxl8Ct6qPN7u30+ATfxibjS"
+    },
+    {
+      "kind": "script",
+      "url": "/js/to-top.js"
+    },
+    {
+      "kind": "script",
+      "url": "/js/docsify-images.js"
+    }
+  ],
+  "resources": {
+    "font-src": [
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/"
+    ],
+    "connect-src": [
+      "'self'",
+      "https://raw.githubusercontent.com/FINTLabs/flais-keycloak/main/docs/external/no/fint/federation/federation.md"
+    ],
+    "img-src": [
+      "'self'",
+      "data:",
+      "https://img.shields.io",
+      "https://www.plantuml.com",
+      "https://raw.githubusercontent.com/FINTLabs/flais-keycloak/main/docs/external/no/fint/federation/images/"
+    ]
+  }
+}
