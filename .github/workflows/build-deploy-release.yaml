@@ -24,7 +24,11 @@ permissions:
   packages: write
 
 jobs:
+  actions-policy:
+    uses: ./.github/workflows/actions-policy.yaml
+
   build-publish:
+    needs: actions-policy
     uses: ./.github/workflows/.build-publish-docker.yaml
     secrets: inherit
 

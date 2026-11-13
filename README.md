@@ -36,6 +36,43 @@ docker build -t fintlabs-security .
 docker run --rm -p 127.0.0.1:8765:80 fintlabs-security
 ```
 
+## GitHub Actions policy
+
+Every external action is pinned to a full commit SHA, with its latest reviewed
+release version in a comment. The exact approved references are recorded in
+[`.github/actions-allowlist.txt`](.github/actions-allowlist.txt), including an
+explicit list of repository-local reusable workflows. Tags, branches, wildcard
+entries, and unapproved commits or repositories are rejected.
+
+The `Actions policy` workflow checks all workflow YAML files on pull requests and
+can be run manually. The build/deploy/release pipeline also requires this check
+before building or granting the deployment jobs access to secrets. The checker
+parses YAML, including quoted keys and flow syntax, and rejects duplicate keys.
+Its parser dependency is version-pinned and hash-locked separately from the
+offline container build.
+
+To run the checks locally with Python:
+
+```sh
+python3 -m venv /tmp/fintlabs-actions-policy
+/tmp/fintlabs-actions-policy/bin/python -m pip install --require-hashes -r .github/requirements.txt
+/tmp/fintlabs-actions-policy/bin/python .github/scripts/check_actions.py
+/tmp/fintlabs-actions-policy/bin/python -m unittest discover -s .github/tests -v
+```
+
+Dependabot checks actions and the checker dependency weekly. For an action
+update, review the upstream release and resolve its tag to a commit in the
+original repository, then update both the workflow SHA/version comment and its
+allow-list entry. A workflow-only update fails the policy check.
+
+This file enforces policy in CI; it does not configure GitHub's repository-level
+Actions permissions or branch protection. For GitHub's selected-actions setting,
+generate the external `action@SHA` entries with
+`python3 .github/scripts/check_actions.py --github-patterns` after installing
+the parser. Administrators can apply that list, require full SHA pinning, and
+make `Check action pins and allow-list` a required pull-request status check
+using [GitHub's repository settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
+
 ## Security headers and dependency integrity
 
 Nginx sends an enforced, hash-based Content Security Policy and the response
