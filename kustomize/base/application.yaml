@@ -10,7 +10,9 @@ metadata:
     fintlabs.no/team: core
     fintlabs.no/org-id: fintlabs.no
 spec:
-  port: 80
+  # FLAISerator uses this for both the container and Service. Public HTTP stays
+  # on Traefik's web entrypoint (port 80), which forwards to this backend port.
+  port: 8080
   orgId: fintlabs.no
   image: ghcr.io/fintlabs/www-fintlabs
   imagePullPolicy: Always

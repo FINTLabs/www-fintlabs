@@ -33,7 +33,9 @@ the production configuration, build and run Nginx locally:
 
 ```sh
 docker build -t fintlabs-security .
-docker run --rm -p 127.0.0.1:8765:80 fintlabs-security
+docker run --rm --read-only --cap-drop=ALL \
+  --security-opt=no-new-privileges:true \
+  -p 127.0.0.1:8765:8080 fintlabs-security
 ```
 
 ## GitHub Actions policy
@@ -49,9 +51,9 @@ can be run manually. The build/deploy/release pipeline also requires this check
 before building or granting the deployment jobs access to secrets. The checker
 parses YAML, including quoted keys and flow syntax, and rejects duplicate keys.
 Its parser dependency is version-pinned and hash-locked separately from the
-offline container build.
+offline container build. CI also tests both rendered Kubernetes overlays.
 
-To run the checks locally with Python:
+To run the checks locally with Python and `kubectl`:
 
 ```sh
 python3 -m venv /tmp/fintlabs-actions-policy
@@ -72,6 +74,69 @@ generate the external `action@SHA` entries with
 the parser. Administrators can apply that list, require full SHA pinning, and
 make `Check action pins and allow-list` a required pull-request status check
 using [GitHub's repository settings](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
+
+## Container hardening
+
+The serving image uses the free, anonymously pullable
+[Chainguard Nginx runtime](https://images.chainguard.dev/directory/image/nginx/overview),
+pinned by digest. Both base-image digests are checked by the existing weekly
+Dependabot configuration. Review and merge those updates to receive security fixes;
+digest pinning does not update deployed images automatically.
+
+Nginx runs as numeric UID/GID `65532:65532`, listens on port `8080`, and starts
+directly without a shell. Site content and configuration belong to root and are
+not writable by the application user. Build-version substitution, Python, and
+security checks stay in the build stage. Logs go to stdout/stderr, and `SIGQUIT`
+requests graceful shutdown of the Nginx master and worker.
+
+The image supports a read-only root filesystem without extra volume mounts.
+Nginx writes its PID and temporary files only beneath the container runtime's
+existing `/dev/shm` memory mount. This is a writable exception, not a completely
+write-free filesystem; the runtime must provide writable `/dev/shm`. No persistent
+application storage is required. The normal Kubernetes memory limit also bounds
+memory-backed temporary data.
+
+Both environments retain the FLAISerator `Application` resource, with `spec.port`
+set to `8080` for the generated container, service, and probes. Public HTTP remains
+on Traefik's `web` entrypoint at port `80`: ingress forwards to Service
+`www-fintlabs:8080`, which targets the container at `8080`. The API overlay keeps
+both `fintlabs.no` and `www.fintlabs.no`. FLAISerator generates this IngressRoute;
+no separate ingress object is needed. See its
+[service](https://github.com/FINTLabs/flaiserator/blob/main/src/main/kotlin/no/fintlabs/application/ServiceDR.kt)
+and [ingress](https://github.com/FINTLabs/flaiserator/blob/main/src/main/kotlin/no/fintlabs/application/IngressDR.kt)
+builders. TLS still terminates at the existing access gateway.
+
+The current
+[Application API](https://github.com/FINTLabs/flaiserator/blob/main/src/main/kotlin/no/fintlabs/application/api/v1alpha1/FlaisApplicationSpec.kt)
+does not expose the required pod/container security settings. This repository
+therefore **does not enforce** `readOnlyRootFilesystem: true`,
+`capabilities.drop: [ALL]`, `allowPrivilegeEscalation: false`,
+`runAsNonRoot: true`, or `seccompProfile.type: RuntimeDefault` in Kubernetes.
+Cluster policy must supply these settings to enforce them. A Dockerfile cannot
+set these runtime restrictions, and this configuration does not claim Kubernetes
+Restricted compliance. Non-root identity defaults and file permissions apply
+without those settings, unless overridden by the cluster.
+
+Run the automated container check locally:
+
+```sh
+docker build --target security-check -t fintlabs-security-check .
+docker build -t fintlabs-security .
+python3 scripts/check_container.py fintlabs-security
+```
+
+The checker starts the serving image with a read-only root, all capabilities
+dropped, no-new-privileges, and the application's 50 MiB/50 millicore limits.
+A separate disposable build-stage container shares its PID namespace to inspect
+the actual Nginx processes and file permissions; diagnostic tools are never added
+to the serving image. With Podman, use `podman build` and pass `--engine podman`
+to the checker.
+
+CI runs this check, renders both Kustomize overlays, and blocks publication on
+HIGH or CRITICAL image vulnerabilities reported by Trivy, including unfixed
+findings. The subsequent publish uses the tested build cache and attaches an
+SBOM and maximum-detail build provenance to the image in GHCR. No base-registry
+login is needed; the existing GHCR login is used only to publish the application.
 
 ## Security headers and dependency integrity
 
