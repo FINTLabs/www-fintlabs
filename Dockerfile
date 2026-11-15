@@ -22,7 +22,7 @@ for path in [root, *root.rglob("*")]:
     path.chmod(0o555 if path.is_dir() else 0o444)
 PY
 
-FROM cgr.dev/chainguard/nginx:latest@sha256:c9b4886a227029de68781204ace0c221c36efbddddd82cc40baa5f510cb30a46
+FROM cgr.dev/chainguard/nginx:latest@sha256:ff2a257e03689363e7dabc3456030c58b790604c3a8f91902fe89a604ec05ce3
 
 # A dedicated document root excludes the base image's default page symlinks.
 COPY --from=security-check --chown=0:0 /site/frontend/ /srv/www/
