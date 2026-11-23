@@ -1,0 +1,30 @@
+name: Actions policy
+
+on:
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-actions:
+    name: Check action pins and allow-list
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install locked YAML parser
+        run: |
+          python3 -m venv "$RUNNER_TEMP/actions-policy"
+          "$RUNNER_TEMP/actions-policy/bin/python" -m pip install --require-hashes -r .github/requirements.txt
+          echo "$RUNNER_TEMP/actions-policy/bin" >> "$GITHUB_PATH"
+
+      - name: Check every workflow action against the allow-list
+        run: python3 .github/scripts/check_actions.py
+
+      - name: Test action policy and Kubernetes routing configuration
+        run: python3 -m unittest discover -s .github/tests -v

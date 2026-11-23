@@ -13,10 +13,42 @@ Core 2, vår oppdaterte API-integrasjonsplattform, bygger videre på det beste f
 
 - **Forbedret horisontal skalering:** Hver organisasjon kjører nå i separate tjenester, noe som sikrer et stabilt driftsmiljø og isolerer eventuelle problemer til den berørte organisasjonen.
 - **Overgang til REST API:** Skiftet fra SSE til REST API gir økt stabilitet og trygghet ved å benytte en mer utbredt teknologisk plattform.
-- **Økt fleksibilitet i dataoverføring:** Adapter-leverandører kan oppdatere data etter behov, med mulighet til å sende deltaendringer og slette data, i stedet for å overføre komplette datasett med jevne mellomrom.
 - **Egen database for hver organisasjon:** Dataene ligger i en database, ikke i minnet til tjenestene. Når client-api starter på nytt, er dataene tilgjengelige med en gang, og adapterne trenger ikke sende alt på nytt.
 - **Full bakoverkompatibilitet:** Eksisterende løsninger som benytter konsumer-API-et, trenger ikke endres, med noen få unntak (se [Core 2](integrate/consume/core2.md)). Dette sikrer kontinuitet og stabilitet for alle integrasjoner.
-- **Autorelasjon:** En innebygd funksjon som automatisk oppretter og vedlikeholder relasjoner, slik at adapteret slipper å bygge og vedlikeholde relasjoner selv.
+
+### Fordeler for fylkeskommunen og klientene
+
+#### Tilgangsstyring for ressurser, felt og relasjoner
+
+I Core 1 gjelder tilgangen til en klient hele komponenten. I Core 2 kan fylkeskommunen også fjerne tilgangen til deler av en komponent:
+
+- **Ressurs:** Klienten får ikke hente ressursen. Prøver den, svarer FINT med `403 Forbidden`.
+- **Felt:** Feltet er ikke med i svaret.
+- **Relasjon:** Relasjonen er ikke med i `_links` i svaret.
+
+Slik kan fylkeskommunen gi hver klient bare de dataene den trenger. Tilgangen settes for hver klient i Kundeportalen, se [Klienter](portal/klient.md). Den gjelder data som leveres fra Core 2, se [Hva ligger hvor](integrate/consume/platforms.md).
+
+#### Data er tilgjengelige med en gang etter en omstart
+
+I Core 1 ligger dataene i minnet til tjenesten. Starter tjenesten på nytt, eller krasjer den, må klientene vente 15–30 minutter mens cachen bygges opp igjen.
+
+I Core 2 ligger dataene i en database. Tjenesten starter på noen sekunder, og alle dataene er tilgjengelige fra første forespørsel.
+
+### Fordeler for adapterleverandører
+
+#### Fullstendig synkronisering i flere sider
+
+I Core 1 må adapteret sende alle ressursene av en type i ett svar når FINT ber om alle dataene. I Core 2 kan adapteret dele en fullstendig synkronisering opp i sider, og sende hver side som en egen forespørsel. Det gjør store datamengder enklere å overføre. Se [Paginering av dataene](integrate/provide/core2-adapter-api.md?id=paginering-av-dataene).
+
+#### Oppdateringer etter behov
+
+Adapteret kan oppdatere data etter behov. Det kan sende deltaendringer og slette data, i stedet for å overføre komplette datasett med jevne mellomrom. Se [Adapter API](integrate/provide/core2-adapter-api.md).
+
+#### Autorelasjon: relasjoner bare én vei
+
+Med autorelasjon trenger adapteret bare å sende en relasjon fra den ene siden. FINT bygger den andre siden av relasjonen. Det gjør det enklere å bygge opp ressursene, fordi adapteret ikke må samle relasjonene fra begge sider.
+
+Autorelasjon gjelder ikke alle relasjoner. Se [Autorelasjon](integrate/provide/core2-autorelation.md) for hvilke relasjoner som støttes, og hvordan funksjonen virker.
 
 ### Slik er Core 2 bygget
 

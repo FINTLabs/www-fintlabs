@@ -18,18 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Bake manifests with Kustomize
         id: bake
-        uses: azure/k8s-bake@v4.1.1
+        uses: azure/k8s-bake@bf8bfd33b007edea820fe80983239bca24012239 # v4.1.1
         with:
           renderEngine: "kustomize"
           kustomizationPath: "kustomize/overlays/${{ inputs.environment }}"
 
       - name: Substitute image into baked YAML
         id: substitute
-        uses: azure/k8s-artifact-substitute@v2.0.0
+        uses: azure/k8s-artifact-substitute@158198edaa1482733b1ee54372e577c9aff7c6a8 # v2.0.0
         with:
           manifests: ${{ steps.bake.outputs.manifestsBundle }}
           images: ${{ inputs.image-tags }}
@@ -48,12 +48,12 @@ jobs:
 
           echo "manifests=$destination" >> "$GITHUB_OUTPUT"
 
-      - uses: azure/login@v3.1.0
+      - uses: azure/login@a641126d1b8aa4d1fa005f4f92df94a3a4c4c906 # v3.1.0
         with:
           creds: "${{ secrets[format('AKS_{0}_FINT_GITHUB', inputs.environment)] }}"
 
       - name: Set the target cluster
-        uses: azure/aks-set-context@v5.0.1
+        uses: azure/aks-set-context@883bdc8d8d1d0fd87e66cc4ba6f0b618f9eb5281 # v5.0.1
         with:
           cluster-name: "${{ vars[format('{0}_CLUSTER_NAME', inputs.environment)] }}"
           resource-group: "${{ vars[format('{0}_CLUSTER_RESOURCE_GROUP', inputs.environment)] }}"
@@ -61,7 +61,7 @@ jobs:
           use-kubelogin: "true"
 
       - name: Deploy
-        uses: azure/k8s-deploy@v7.0.1
+        uses: azure/k8s-deploy@bf1ec05e1d736ac4ac70bae889d3ec48c79e2213 # v7.0.1
         with:
           action: deploy
           manifests: ${{ steps.deploy-manifests.outputs.manifests }}
