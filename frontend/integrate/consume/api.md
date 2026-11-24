@@ -38,7 +38,7 @@ Denne operasjonen henter alle objekter av en gitt klasse fra FINTs cache. Respon
 
 ## Paginering
 
-`/domain/package/class?size=X&offset=Y`, for eksempel `/administrasjon/personal/personalressurs?size=10000&offset=20000`
+`/domain/package/class?size=X&offset=Y`, for eksempel `/administrasjon/personal/personalressurs?size=250&offset=500`
 
 Den komplette listen over ressurser kan være svært lang, og FINT API støtter paginering for å muliggjøre at klienter kan konsumere deler av dataene.
 
@@ -59,29 +59,45 @@ Paginering er aktivert ved å oppgi en `size` forespørselsparameter. Responsen 
   "_links": {
     "self": [
       {
-        "href": ".../?offset=20000&size=10000"
+        "href": ".../?offset=500&size=250"
       }
     ],
     "prev": [
       {
-        "href": ".../?offset=10000&size=10000"
+        "href": ".../?offset=250&size=250"
       }
     ],
     "next": [
       {
-        "href": ".../?offset=30000&size=10000"
+        "href": ".../?offset=750&size=250"
       }
     ]
   },
   "total_items": 1800000,
-  "offset": 20000,
-  "size": 10000
+  "offset": 500,
+  "size": 250
 }
 ```
 
 `prev` og `next` lenkene vil kun vises hvis det er ytterligere sider før eller etter denne siden, henholdsvis.
 
 I tillegg indikerer `total_items` attributtet den totale størrelsen på datasettet, og `offset` og `size` parametrene svarer til de i `self`-lenken.
+
+### Største sidestørrelse
+
+Hver ressurs har en største sidestørrelse. Ingen ressurs har en større side enn 1000 objekter, og noen ressurser har en 
+lavere grense. Se [Grenser for paginering](integrate/consume/core2.md?id=grenser-for-paginering) for grensen til hver ressurs.
+
+Ber klienten om en `size` over grensen, inneholder responsen en side med grensens størrelse. `size` i responsen og i 
+lenkene viser størrelsen på siden klienten fikk.
+
+Følg derfor `next`-lenken slik den står i responsen, til responsen ikke lenger har en `next`-lenke. Lenken kan ha flere 
+parametere enn `offset` og `size`, så bruk hele lenken. En klient som selv regner ut neste `offset` fra den `size` den 
+ba om, hopper over objekter.
+
+En forespørsel uten `size` henter fortsatt alle objektene i én respons.
+
+> **Core 1:** `size` har ingen grense.
 
 
 ## Hent individuelt element ved identifikator
