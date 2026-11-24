@@ -38,11 +38,79 @@ Denne operasjonen henter alle objekter av en gitt klasse fra FINTs cache. Respon
 
 ## Paginering
 
-`/domain/package/class?size=X&offset=Y`, for eksempel `/administrasjon/personal/personalressurs?size=10000&offset=20000`
-
 Den komplette listen over ressurser kan være svært lang, og FINT API støtter paginering for å muliggjøre at klienter kan konsumere deler av dataene.
 
-Paginering er aktivert ved å oppgi en `size` forespørselsparameter. Responsen ser da slik ut:
+Paginering er aktivert ved å oppgi en `size` forespørselsparameter. Core 2 og Core 1 paginerer på hver sin måte. Se 
+[Hva ligger hvor](integrate/consume/platforms.md) for hvilken plattform et domene kommer fra.
+
+### Paginering i Core 2
+
+`/domain/package/class?size=X`, for eksempel `/administrasjon/personal/personalressurs?size=250`
+
+I Core 2 følger klienten `next`-lenken fra side til side:
+
+1. Hent den første siden med `size`.
+2. Hent neste side med `next`-lenken i responsen. Bruk lenken slik den står.
+3. Gjenta til responsen ikke har en `next`-lenke. Da har klienten alle objektene.
+
+Responsen ser slik ut:
+
+```json
+{
+  "_embedded": {
+    "_entries": [
+      {
+
+      },
+      {
+
+      }
+    ]
+  },
+  "_links": {
+    "self": [
+      {
+        "href": ".../?offset=250&size=250&cursor=..."
+      }
+    ],
+    "prev": [
+      {
+        "href": ".../?offset=0&size=250&cursor=..."
+      }
+    ],
+    "next": [
+      {
+        "href": ".../?offset=500&size=250&cursor=..."
+      }
+    ]
+  },
+  "total_items": 10632,
+  "offset": 250,
+  "size": 250
+}
+```
+
+`next`-lenken har en `cursor` som forteller hvor neste side starter. Klienten skal ikke lage eller endre `cursor`, og 
+skal ikke regne ut `offset` selv.
+
+`prev`- og `next`-lenkene vises bare når det finnes en side før eller etter denne siden. `total_items` er den totale 
+størrelsen på datasettet, og `size` er antall objekter i denne responsen.
+
+#### Største sidestørrelse
+
+Hver ressurs har en største sidestørrelse. Ingen ressurs har en større side enn 1000 objekter, og noen ressurser har en 
+lavere grense. Se [Grenser for paginering](integrate/consume/core2.md?id=grenser-for-paginering) for grensen til hver ressurs.
+
+Ber klienten om en `size` over grensen, inneholder responsen en side med grensens størrelse. `size` i responsen og i 
+lenkene viser størrelsen på siden klienten fikk. En klient som følger `next`-lenken, får alle objektene uansett grense.
+
+En forespørsel uten `size` henter fortsatt alle objektene i én respons.
+
+### Paginering i Core 1
+
+`/domain/package/class?size=X&offset=Y`, for eksempel `/administrasjon/personal/personalressurs?size=10000&offset=20000`
+
+I Core 1 velger klienten selv hvor siden starter, med `offset`. `size` har ingen grense. Responsen ser slik ut:
 
 ```json
 {

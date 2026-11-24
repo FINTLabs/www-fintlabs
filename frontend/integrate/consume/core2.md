@@ -44,6 +44,64 @@ curl -H "Authorization: Bearer ${TOKEN}" -H "x-fint-model-version-override: V4" 
 | [`sinceTimeStamp`](integrate/consume/api.md?id=hent-objekter-oppdatert-siden-tidsstempel) | Ekskluderende: objekter endret etter tidsstemplet (`>`)   | Inkluderende: objekter endret ved eller etter tidsstemplet (`>=`)       |
 | [`admin/health`](integrate/consume/api.md?id=helsesjekk)                                | Finnes                                                    | Finnes ikke, og trengs ikke. Adapterne sender heartbeats til FINT.      |
 | [Sletting med `DELETE`](integrate/consume/updates.md?id=slette-objekter)                | Bare `arkivressurs` i `arkiv/noark`                       | Støttes ikke                                                            |
+| [Paginering](integrate/consume/api.md?id=paginering)                                    | `size` og `offset`, ingen grense for `size`               | `size` og `next`-lenken, som har en `cursor`. Hver ressurs har en største sidestørrelse, høyst 1000 objekter |
+
+## Grenser for paginering
+
+Core 2 begrenser hvor mange objekter en side kan ha når klienten bruker [paginering](integrate/consume/api.md?id=paginering-i-core-2). 
+Grensene skal holde en side på omtrent 0,5 MB eller mindre. Ber klienten om en `size` over grensen, får den en side med 
+grensens størrelse. En forespørsel uten `size` har ingen grense.
+
+Ressursene i tabellen har en grense under 1000 objekter. Alle andre ressurser har grensen 1000.
+
+| Ressurs                                               | Største `size` |
+|:------------------------------------------------------|---------------:|
+| `administrasjon/fullmakt/fullmakt`                    |            500 |
+| `administrasjon/fullmakt/rolle`                       |              1 |
+| `administrasjon/organisasjon/arbeidslokasjon`         |              5 |
+| `administrasjon/organisasjon/organisasjonselement`    |             50 |
+| `administrasjon/personal/arbeidsforhold`              |            250 |
+| `administrasjon/personal/fastlonn`                    |            250 |
+| `administrasjon/personal/fasttillegg`                 |            250 |
+| `administrasjon/personal/fravar`                      |            500 |
+| `administrasjon/personal/person`                      |            500 |
+| `administrasjon/personal/personalressurs`             |            250 |
+| `administrasjon/personal/variabellonn`                |            250 |
+| `personvern/kodeverk/behandlingsgrunnlag`             |            500 |
+| `personvern/kodeverk/personopplysning`                |            500 |
+| `personvern/samtykke/behandling`                      |              1 |
+| `personvern/samtykke/samtykke`                        |            500 |
+| `personvern/samtykke/tjeneste`                        |            500 |
+| `ressurs/datautstyr/digitalenhet`                     |            500 |
+| `ressurs/datautstyr/enhetsgruppe`                     |            250 |
+| `utdanning/elev/elev`                                 |            500 |
+| `utdanning/elev/elevforhold`                          |            100 |
+| `utdanning/elev/klasse`                               |            100 |
+| `utdanning/elev/kontaktlarergruppe`                   |            100 |
+| `utdanning/elev/person`                               |            500 |
+| `utdanning/elev/skoleressurs`                         |            500 |
+| `utdanning/elev/undervisningsforhold`                 |            500 |
+| `utdanning/kodeverk/karakterskala`                    |            100 |
+| `utdanning/larling/larling`                           |            500 |
+| `utdanning/larling/virksomhet`                        |             10 |
+| `utdanning/timeplan/fag`                              |             50 |
+| `utdanning/timeplan/faggruppe`                        |            100 |
+| `utdanning/timeplan/undervisningsgruppe`              |            100 |
+| `utdanning/utdanningsprogram/arstrinn`                |             10 |
+| `utdanning/utdanningsprogram/programomrade`           |            500 |
+| `utdanning/utdanningsprogram/programomrademedlemskap` |            500 |
+| `utdanning/utdanningsprogram/skole`                   |              1 |
+| `utdanning/utdanningsprogram/utdanningsprogram`       |             10 |
+| `utdanning/vurdering/eksamensgruppe`                  |            250 |
+| `utdanning/vurdering/elevfravar`                      |            100 |
+| `utdanning/vurdering/elevvurdering`                   |            500 |
+| `utdanning/vurdering/fravarsregistrering`             |            500 |
+| `utdanning/vurdering/halvarsfagvurdering`             |            500 |
+| `utdanning/vurdering/sluttfagvurdering`               |            500 |
+| `utdanning/vurdering/underveisfagvurdering`           |            500 |
+
+Grensene kan bli endret. Ikke legg dem inn i klienten. Følg `next`-lenken i responsen, så får klienten alle objektene 
+uansett grense.
 
 ## Flytte en klient til Core 2
 
@@ -56,5 +114,8 @@ curl -H "Authorization: Bearer ${TOKEN}" -H "x-fint-model-version-override: V4" 
    stedet for å legge dem til på nytt. Gjør klienten noe mer når et objekt kommer, for eksempel skriver til et annet system, 
    bør den først sjekke om innholdet faktisk er endret. Med upsert kan klienten også trekke noen sekunder fra tidsstemplet 
    for å være sikker på å få med alt, siden data lagres kort tid etter at de er levert.
-4. **Fjern kall til `admin/health`.**
-5. **Test i beta.** `utdanning` kjører på Core 2 i beta, så klienten kan testes der før den tas i bruk i produksjon.
+4. **Følg `next`-lenken når klienten paginerer.** Hent den første siden med `size`, og følg `next`-lenken til responsen 
+   ikke har en. Ikke regn ut `offset` selv. Core 2 har en største sidestørrelse for hver ressurs, så en klient som regner 
+   ut `offset` selv, kan hoppe over objekter. Se [Paginering i Core 2](integrate/consume/api.md?id=paginering-i-core-2).
+5. **Fjern kall til `admin/health`.**
+6. **Test i beta.** `utdanning` kjører på Core 2 i beta, så klienten kan testes der før den tas i bruk i produksjon.
