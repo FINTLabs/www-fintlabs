@@ -44,11 +44,11 @@ curl -H "Authorization: Bearer ${TOKEN}" -H "x-fint-model-version-override: V4" 
 | [`sinceTimeStamp`](integrate/consume/api.md?id=hent-objekter-oppdatert-siden-tidsstempel) | Ekskluderende: objekter endret etter tidsstemplet (`>`)   | Inkluderende: objekter endret ved eller etter tidsstemplet (`>=`)       |
 | [`admin/health`](integrate/consume/api.md?id=helsesjekk)                                | Finnes                                                    | Finnes ikke, og trengs ikke. Adapterne sender heartbeats til FINT.      |
 | [Sletting med `DELETE`](integrate/consume/updates.md?id=slette-objekter)                | Bare `arkivressurs` i `arkiv/noark`                       | Støttes ikke                                                            |
-| [Paginering med `size`](integrate/consume/api.md?id=paginering)                         | Ingen grense for `size`                                   | Hver ressurs har en største sidestørrelse, høyst 1000 objekter          |
+| [Paginering](integrate/consume/api.md?id=paginering)                                    | `size` og `offset`, ingen grense for `size`               | `size` og `next`-lenken, som har en `cursor`. Hver ressurs har en største sidestørrelse, høyst 1000 objekter |
 
 ## Grenser for paginering
 
-Core 2 begrenser hvor mange objekter en side kan ha når klienten bruker [paginering](integrate/consume/api.md?id=paginering). 
+Core 2 begrenser hvor mange objekter en side kan ha når klienten bruker [paginering](integrate/consume/api.md?id=paginering-i-core-2). 
 Grensene skal holde en side på omtrent 0,5 MB eller mindre. Ber klienten om en `size` over grensen, får den en side med 
 grensens størrelse. En forespørsel uten `size` har ingen grense.
 
@@ -114,8 +114,8 @@ uansett grense.
    stedet for å legge dem til på nytt. Gjør klienten noe mer når et objekt kommer, for eksempel skriver til et annet system, 
    bør den først sjekke om innholdet faktisk er endret. Med upsert kan klienten også trekke noen sekunder fra tidsstemplet 
    for å være sikker på å få med alt, siden data lagres kort tid etter at de er levert.
-4. **Følg `next`-lenken når klienten paginerer.** Core 2 har en største sidestørrelse for hver ressurs, se 
-   [Grenser for paginering](integrate/consume/core2.md?id=grenser-for-paginering). En klient som regner ut `offset` selv, 
-   kan hoppe over objekter.
+4. **Følg `next`-lenken når klienten paginerer.** Hent den første siden med `size`, og følg `next`-lenken til responsen 
+   ikke har en. Ikke regn ut `offset` selv. Core 2 har en største sidestørrelse for hver ressurs, så en klient som regner 
+   ut `offset` selv, kan hoppe over objekter. Se [Paginering i Core 2](integrate/consume/api.md?id=paginering-i-core-2).
 5. **Fjern kall til `admin/health`.**
 6. **Test i beta.** `utdanning` kjører på Core 2 i beta, så klienten kan testes der før den tas i bruk i produksjon.
